@@ -36,7 +36,7 @@ class App extends Component {
                 <div>
                     <Switch>
 
-                        <Route path="/myProfile" render={props => {
+                        <Route path="/myprofile" render={props => {
                             if (!user) {
                                 return <Redirect to="/login" />;
                             } else {
@@ -47,6 +47,7 @@ class App extends Component {
                         {/* Routes for myProScout.com */}
                         <Route path="/" />
                         <Route path="/login" component={LoginPage} />
+                        <Route path="/register" component={Register} />
                         <Route path="/myplayers" component={MyPlayers} />
                         <Route path="/myplayers/:playerId" component={PlayerProfilePage} />
                         <Route path="/myScoutingReports" component={MyScoutingReports} />
