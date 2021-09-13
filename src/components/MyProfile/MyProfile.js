@@ -7,14 +7,14 @@ import { Redirect } from 'react-router-dom';
 // Scout profile page
 const MyProfile = (props) => {
     const user = props.user;
-    
-    if (user != null) {
+
+    if (user == null) {
         return <Redirect to="/login" />
     }
     else {
         return (
             <div>
-                <h3>myProfile</h3>
+                <h3>This is Scout myProfile</h3>
             </div>
         )
     }

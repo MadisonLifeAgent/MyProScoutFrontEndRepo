@@ -2,12 +2,16 @@ import axios from 'axios';
 
 
 // makes login request with provided credentials
-const useLogin = (dataUrl, loginInfo) => {
-const userCredentials
+const useLogin = (loginInfo) => {
+
+    const userCredentials = {
+    username: loginInfo.username,
+    password: loginInfo.password
+    }
 
     // call the database and try to login
-    async function loginRequest(loginInfo) {
-        let response = await axios.post(`https://localhost:44394/api/authentication/login`, loginInfo);
+    async function loginRequest(userCreds) {
+        let response = await axios.post(`https://localhost:44394/api/authentication/login`, userCreds);
         
         if (response.data.token) {
             localStorage.setItem('token', response.data.token);
@@ -22,9 +26,8 @@ const userCredentials
     }
 
     // start trying to login as soon as hook is called
-    loginRequest(dataUrl);
+    loginRequest(userCredentials);
 }
 
 export default useLogin;
 
-    //useLogin(`https://localhost:44394/api/authentication/login`, registrationInfo);

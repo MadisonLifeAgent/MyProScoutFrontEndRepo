@@ -12,17 +12,3 @@ ReactDom.render(
     </Router>, 
     document.getElementById('root')
 );
-/* 
-if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        const NextApp = require('./components/App').default;
-        ReactDom.render(
-            <Router>
-                <React.StrictMode>
-                    <NextApp />
-                </React.StrictMode>
-            </Router>, 
-    document.getElementById('root')
-        )
-    });
-} */
