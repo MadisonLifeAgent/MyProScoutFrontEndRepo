@@ -25,7 +25,7 @@ const Login = () => {
             console.log(response.data.token);
 
             // refresh and send user to home page
-            window.location = "/myprofile";
+            window.location = "/";
         } else {
             console.log("bad api call");
         }
@@ -45,6 +45,7 @@ const Login = () => {
     return (
         
         <div>
+            <h3>Please login to get started.</h3>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="username" placeholder="username" value={username} onChange={ (event) => setUsername(event.target.value)}  class="ms-3"/>
 

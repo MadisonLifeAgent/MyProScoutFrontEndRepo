@@ -43,7 +43,7 @@ const Registration = () => {
 	
 	return (
 		<div>
-			<h3>Account Registration</h3>
+			<h3>Scout Account Registration</h3>
 			<form onSubmit={handleSubmit}>
 				<input type="text" placeholder="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 mb-3" /><br/>
 				

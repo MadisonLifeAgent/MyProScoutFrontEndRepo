@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 //import './App.css';
@@ -10,18 +10,28 @@ import MyProfile from "./MyProfile/MyProfile";
 import Register from './Register/Register';
 
 // Main component
-export default function App() {
-    const user = {};
+class App extends Component {
+    state = { }
 
     // gets token from local storatge
-    if (user.length < 0) {
+
+    componentDidMount() {
         const jwt = localStorage.getItem('token');
         try{
-            user = jwtDecode(jwt);
-            console.log(user);
+            const user = jwtDecode(jwt);
+            this.setState({
+                user
+            })
+            console.log(user)
         } catch {
         }
     }
+
+        
+    
+
+    render() { 
+        const user = this.state.user;
     
         // Display different nav bars based on user status
         return (
@@ -51,9 +61,10 @@ export default function App() {
                 </div>
             </main>
         );
+    }
 }
 
-//export default App;
+export default App;
 
 /* const Login = () => {
     <Fragment>
