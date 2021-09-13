@@ -17,7 +17,7 @@ const Login = () => {
             "password": password
             }
 
-        let response = await axios.post('https://localhost:44394/api/authentication/login', userCredentials);
+        let response = await axios.post('https://localhost:44394/api/authentication/myproscout/login', userCredentials);
         
         if (response.data.token) {
             localStorage.setItem('token', response.data.token);
@@ -25,7 +25,7 @@ const Login = () => {
             console.log(response.data.token);
 
             // refresh and send user to home page
-            window.location = "/";
+            window.location = "/myprofile";
         } else {
             console.log("bad api call");
         }

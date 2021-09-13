@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function NavBar( {user}) {
     return (
         <div>
-             {user && <h3>Welcome {user.username}</h3>}
+             {user != null && <h3>Welcome {user.username}</h3>}
              <ul>
                 <li>
                     <Link to="/">myProScout.com</Link>
@@ -13,7 +13,7 @@ function NavBar( {user}) {
                     <Link to="/myprofile">myProfile</Link>
                 </li>
             
-                 {!user &&
+                 {user == null &&
                     <React.Fragment>
                          <li>
                             <Link to="/register">Register</Link>
