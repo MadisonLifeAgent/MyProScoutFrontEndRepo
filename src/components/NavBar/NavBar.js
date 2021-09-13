@@ -8,11 +8,8 @@ import Logout from '../Logout/Logout';
 function NavBar( {user}) {
     return (
         <div>
-             {user != null && <h3>Welcome {user.username}</h3>}
+            <nav>
              <ul>
-                <li>
-                    <Link to="/">myProScout.com</Link>
-                </li>
                 <li>
                     <Link to="/myprofile">myProfile</Link>
                 </li>
@@ -33,7 +30,9 @@ function NavBar( {user}) {
                     </React.Fragment>
                 }
             </ul>
-        </div>
+            </nav>
+{/*             {user != null && <h3>Welcome {user.username}</h3>}
+ */}        </div>
 
     );
 }

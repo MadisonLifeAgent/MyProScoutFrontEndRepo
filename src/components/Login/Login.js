@@ -20,9 +20,9 @@ const Login = () => {
         let response = await axios.post('https://localhost:44394/api/authentication/myproscout/login', userCredentials);
         
         if (response.data.token) {
+            // store toke if login successful
             localStorage.setItem('token', response.data.token);
             console.log("good login");
-            console.log(response.data.token);
 
             // refresh and send user to home page
             window.location = "/";
@@ -31,15 +31,12 @@ const Login = () => {
         }
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(username);
         
         loginRequest(username, password);
     }
-
-    
 
     // login form
     return (

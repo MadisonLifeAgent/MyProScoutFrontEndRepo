@@ -1,5 +1,3 @@
-import react from "react";
-
 // logs out the user
 const Logout = () => {
     const handleClick = () => {

@@ -8,6 +8,7 @@ import NavBar from "./NavBar/NavBar";
 import Login from "./Login/Login";
 import MyProfile from "./MyProfile/MyProfile";
 import Register from './Register/Register';
+import EditMyProfile from "./MyProfile/EditMyProfile";
 
 // Main component
 class App extends Component {
@@ -37,6 +38,8 @@ class App extends Component {
         return (
             <main>
                 <div>
+                    <a href="/">myProScout.com</a>
+
                     <NavBar user={user} />
                     <div>
                         <Switch>
@@ -53,6 +56,7 @@ class App extends Component {
                             <Route path="/" exact />
                             <Route path='/login' exact component={Login} />
                             <Route path="/register" exact component={Register} />
+                            <Route path="/editmyprofile" exact component={EditMyProfile} />
                             <Redirect to="/not-found" />
                         </Switch>
                         
