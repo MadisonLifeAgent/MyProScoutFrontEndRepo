@@ -13,13 +13,13 @@ const NavBar = ({user}) => {
                 <li>
                     <Link to="/myprofile">myProfile</Link>
                 </li>
-
+            
                 {/* if no user prompt scout to login or register an account */}
                 {!user &&
                     <React.Fragment>
-                        <li>
+{/*                         <li>
                             <Link to="/register">Register</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to="/login">Login</Link>
                         </li>

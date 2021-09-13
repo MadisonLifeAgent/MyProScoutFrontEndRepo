@@ -3,35 +3,34 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 import './App.css';
 
-// component imports
+// Component imports
 import NavBar from "./NavBar";
+import Login from "./Login/Login";
+import MyProfile from "./MyProfile/MyProfile";
 
-// main component
+// Main component
 class App extends Component {
     state = { }
-
-    // get user
+    
+    // gets token from local storatge
     componentDidMount() {
-        const jwt = localStorage.getItem('token');
-        try {
+    const jwt = localStorage.getItem('token');
+        try{
             const user = jwtDecode(jwt);
             this.setState({
                 user
             });
         } catch {
-
         }
     }
 
+
     render() {
-        // store the user
         const user = this.state.user;
 
-        // display different nav bars based on user status
+        // Display different nav bars based on user status
         return (
-            <div className="App">
-                <h3>MyProScout</h3>
-
+            <div>
                 <NavBar user={user} />
                 <div>
                     <Switch>
@@ -40,13 +39,14 @@ class App extends Component {
                             if (!user) {
                                 return <Redirect to="/login" />;
                             } else {
-                                return <MyProfile {...props} user={user} />
-                            }
+                                    return <MyProfile {...props} user={user} />;
+                                }
                         }} />
 
                         {/* Routes for myProScout.com */}
                         <Route path="/" />
-                        <Route path="/login" component={LoginPage} />
+                        <Route path="/login" component={Login} />
+                        {/*}
                         <Route path="/register" component={Register} />
                         <Route path="/myplayers" component={MyPlayers} />
                         <Route path="/myplayers/:playerId" component={PlayerProfilePage} />
@@ -54,11 +54,12 @@ class App extends Component {
                         <Route path="/myorganization" component={MyOrganization} />
                         <Route path="/myteams" component={MyTeams} />
                         <Route path="/logout" component={Logout} />
-                        <Route path="/not-found" component={NotFound} />
+                        <Route path="/not-found" component={NotFound} /> */}
                         <Redirect to="/not-found" />
                     </Switch>
                 </div>
             </div>
+
         );
     }
 }
