@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// component imports
+import Logout from '../Logout/Logout';
+
+// site navigation bar
 function NavBar( {user}) {
     return (
         <div>
@@ -25,9 +29,7 @@ function NavBar( {user}) {
                  }
                 {user &&
                     <React.Fragment>
-                        <li>
-                            <Link to="/logout">Logout</Link>
-                        </li>
+                            <Logout />
                     </React.Fragment>
                 }
             </ul>

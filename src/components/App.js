@@ -22,7 +22,7 @@ class App extends Component {
             this.setState({
                 user
             })
-            console.log(user)
+            console.log(user);
         } catch {
         }
     }
@@ -37,7 +37,7 @@ class App extends Component {
         return (
             <main>
                 <div>
-                    <NavBar />
+                    <NavBar user={user} />
                     <div>
                         <Switch>
                             <Route path="/myprofile" exact
