@@ -2,12 +2,8 @@ import axios from 'axios';
 
 
 // makes login request with provided credentials
-const useLogin = (loginInfo) => {
-    // store credentials in an object in correct format 
-    const userInfo = {
-        username: loginInfo.username,
-        password: loginInfo.password,
-    }
+const useLogin = (dataUrl, loginInfo) => {
+const userCredentials
 
     // call the database and try to login
     async function loginRequest(loginInfo) {
@@ -26,7 +22,9 @@ const useLogin = (loginInfo) => {
     }
 
     // start trying to login as soon as hook is called
-    loginRequest(userInfo);
+    loginRequest(dataUrl);
 }
 
 export default useLogin;
+
+    //useLogin(`https://localhost:44394/api/authentication/login`, registrationInfo);

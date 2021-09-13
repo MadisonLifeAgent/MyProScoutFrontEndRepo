@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 // Component or hook imports
-import useLogin from "../../hooks/useLogin";
 
 // Scout Login Form
-const Login = ( { props }) => {
+function Login() {
     // store user input
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -23,16 +22,19 @@ const Login = ( { props }) => {
 
     // login form
     return (
+        
         <div>
+            <Fragment>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="username" placeholder="username" value={username} onChange={ (event) => setUsername(event.target.value)} />
+                <input type="text" name="username" placeholder="username" value={username} onChange={ (event) => setUsername(event.target.value)}  class="ms-3"/>
 
-                <input type="password" name="password" placeholder="password" value={password} onChange={ (event) => setPassword(event.target.value)} />
+                <input type="password" name="password" placeholder="password" value={password} onChange={ (event) => setPassword(event.target.value)} class="ms-3"/>
 
-                <input type="submit" value="Login" class="btn" />
+                <input type="submit" value="Login" class="btn btn-primary ms-3" />
             </form>
+            </Fragment>
         </div>
-    );
+    )
 
 }
 

@@ -1,67 +1,63 @@
-import React, { Component } from "react";
-import { Switch, Route, Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import { Route, Switch, Redirect } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
-import './App.css';
+//import './App.css';
 
 // Component imports
-import NavBar from "./NavBar";
+import NavBar from "./NavBar/NavBar";
 import Login from "./Login/Login";
 import MyProfile from "./MyProfile/MyProfile";
+import Register from './Register/Register';
 
 // Main component
-class App extends Component {
-    state = { }
-    
+export default function App() {
+    const [user, setUser] = useState({});
+
+
     // gets token from local storatge
-    componentDidMount() {
     const jwt = localStorage.getItem('token');
         try{
             const user = jwtDecode(jwt);
-            this.setState({
-                user
-            });
+            setUser(user);
         } catch {
         }
-    }
-
-
-    render() {
-        const user = this.state.user;
-
+    
         // Display different nav bars based on user status
         return (
-            <div>
-                <NavBar user={user} />
+            <main>
                 <div>
-                    <Switch>
+                    <NavBar />
+                    <div>
+                        <Switch>
+                            <Route path="/myprofile" exact
+                                    render={props => {
+                                        if (!user){
+                                            return <Redirect to='/login' />;
+                                        } else {
+                                            return <MyProfile {...props} user={user} />;
+                                        }
+                                    }} />
 
-                        <Route path="/myprofile" render={props => {
-                            if (!user) {
-                                return <Redirect to="/login" />;
-                            } else {
-                                    return <MyProfile {...props} user={user} />;
-                                }
-                        }} />
+                            {/* Routes for myProScout.com */}
+                            <Route path="/" exact />
+                            <Route path='/login' exact component={Login} />
+                            <Route path="/register" exact component={Register} />
+                            <Redirect to="/not-found" exact />
+                        </Switch>
+                        
+                    </div>
 
-                        {/* Routes for myProScout.com */}
-                        <Route path="/" />
-                        <Route path="/login" component={Login} />
-                        {/*}
-                        <Route path="/register" component={Register} />
-                        <Route path="/myplayers" component={MyPlayers} />
-                        <Route path="/myplayers/:playerId" component={PlayerProfilePage} />
-                        <Route path="/myScoutingReports" component={MyScoutingReports} />
-                        <Route path="/myorganization" component={MyOrganization} />
-                        <Route path="/myteams" component={MyTeams} />
-                        <Route path="/logout" component={Logout} />
-                        <Route path="/not-found" component={NotFound} /> */}
-                        <Redirect to="/not-found" />
-                    </Switch>
                 </div>
-            </div>
-
+            </main>
         );
-    }
 }
 
-export default App;
+//export default App;
+
+/* const Login = () => {
+    <Fragment>
+        <div>
+            <Login />
+        </div>
+    </Fragment>
+} */
