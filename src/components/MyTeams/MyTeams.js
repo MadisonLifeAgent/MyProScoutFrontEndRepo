@@ -1,7 +1,6 @@
 import React from "react";
 
 // Component or hook imports
-import AddTeam from "./AddTeam";    // add team form/function
 
 // Scout profile page
 const MyTeams = (props) => {
@@ -12,7 +11,7 @@ const MyTeams = (props) => {
         return (
             <div>
                 <h3>myTeams Page</h3>
-                <AddTeam />
+                <a href="/myteams/addteam">Add New Team</a>
 {/*                 <AddRegion />
  */}            </div>
         )

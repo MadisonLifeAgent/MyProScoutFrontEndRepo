@@ -5,7 +5,11 @@ import axios from "axios";
 // component imports
 
 // get regions for user selection
-const GetCompetitionLevel = (props) => {
+const AddCompetitionLevel = (props) => {
+	console.log(props.teamName);
+	
+	const [selectedCompLevel, setSelectedCompLevel] = useState();
+
     const [competitionLevels, setcompetitionLevels] = useState([{}]);
 
     // get all available regions
@@ -25,6 +29,11 @@ const GetCompetitionLevel = (props) => {
         useEffect(() => {
         getTeamCompetitionLevels();
     },[]);
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		console.log(selectedCompLevel);
+	}
     
 
 
@@ -33,24 +42,24 @@ const GetCompetitionLevel = (props) => {
 		// display each item as a selectable option
 		return (
 			<React.Fragment>
-
- 				<input type="radio" id={item.competitionLevelName} name="competitionLevel" value={item.competitionlevelId} onSubmit={(event) => props.setCompetitionLevelId(event.target.value)} />
+				<input type="radio" id={item.competitionLevelName} name="competitionLevel" value={item.competitionLevelId} onSelect={(event) => props.setCompetitionLevelId(event.target.value)} />
 				<label for={item.competitionLevelName}>{item.competitionLevelName}</label>
 				<br/>
 				</React.Fragment>
-
 		)
 	})
 
 	// return all radio buttons
 	return (
-		<React.Fragment>
-		<label>Select Team Competition Level</label>
-			<ul>
-			    {showCompetitionLevels}
-			</ul>
-			</React.Fragment>
+		<div>
+			<form onSubmit={handleSubmit}>
+				<label>Select Team Competition Level</label>
+					<ul>
+						{showCompetitionLevels}
+					</ul>
+			</form>
+		</div>		
 	)
 }
 
-export default GetCompetitionLevel;
+export default AddCompetitionLevel;

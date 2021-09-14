@@ -9,12 +9,16 @@ import MyPlayers from "./MyPlayers/MyPlayers";
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
 import MyOrg from "./MyOrg/MyOrg";
 import MyTeams from "./MyTeams/MyTeams";
+    import AddTeamPageOne from "./MyTeams/AddTeamPageOne";
+    import AddCompetitionLevel from "./MyTeams/AddCompetitionLevel";
 import AddPlayer from "./AddPlayer/AddPlayer";
 import Search from "./Search/Search";
 import Login from "./Login/Login";
 import Register from './Register/Register';
 import MyProfile from "./MyProfile/MyProfile";
 import EditMyProfile from "./MyProfile/EditMyProfile";
+
+
 
 // Main component
 class App extends Component {
@@ -56,6 +60,10 @@ class App extends Component {
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
                             <Route path="/addPlayer" exact component={AddPlayer} />
                             <Route path="/myteams" exact component={MyTeams} />
+                                <Route path="/myteams/addteam" exact component={AddTeamPageOne} />
+                                <Route path="/myteams/addteam/addcompetitionlevel" exact render={props => {
+                                    return <AddCompetitionLevel {...props} />;
+                                    }} />
                             <Route path="/search" exact component={Search} />
 
                             <Route path="/myorg" exact component={MyOrg} />

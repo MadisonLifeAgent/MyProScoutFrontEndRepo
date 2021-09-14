@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+
 import axios from "axios";
 
 // component imports
 // import GetTeamRegions from "./GetTeamRegions";
-import GetCompetitionLevel from "./GetCompetitionLevel";
+import AddCompetitionLevel from "./AddCompetitionLevel";
 
 // Scout account registration form
-const AddTeam = () => {
+const AddTeamPageOne = () => {
 	// form field variables
 	const [teamName, setTeamName] = useState();
 	const [region, setRegion] = useState();
@@ -29,8 +31,13 @@ const AddTeam = () => {
 			console.log("bad api call");
 		}
 	}
+    const handleSubmit = (event) => {
+		event.preventDefault();
+		console.log(teamName);
+        console.log(region);
+	}
 
-    const [competitionLevels, setcompetitionLevels] = useState([{}]);
+ /*    const [competitionLevels, setcompetitionLevels] = useState([{}]);
 
     // get all available regions
     async function getTeamCompetitionLevels() {
@@ -44,7 +51,7 @@ const AddTeam = () => {
             console.log("bad api call");
         }
     }
-        
+      
 // get competition levels as soon as Add Team componenet is requested
         useEffect(() => {
         getTeamCompetitionLevels();
@@ -58,30 +65,18 @@ const AddTeam = () => {
 		return (
 			<React.Fragment>
 
- 				<input type="radio" id={item.competitionLevelName} name="competitionLevel" value={item.competitionLevelId} onSelect={(event) => this.setCompetitionLevelId(event.target.value)} />
+ 				<input type="radio" id={item.competitionLevelName} name="competitionLevel" value={item.competitionLevelId} onSelect={(event) => this.setLevelId(event.target.value)} />
 				<label for={item.competitionLevelName}>{item.competitionLevelName}</label>
 				<br/>
 			</React.Fragment>
 
 		)
-	})
-
-
-
-	
-    const handleSubmit = (event) => {
-		event.preventDefault();
-		console.log(teamName);
-        console.log(region);
-        console.log(competitionLevelId)
-		
-		// set registration information
-		createNewTeam(teamName, region, competitionLevelId);
-	}
+	}) */
 	
 	// registration form
 	return (
 		<div>
+            <p>Enter a Team Name to Get Started</p>
 			<form onSubmit={handleSubmit}>
                 <label>Team Name</label>
 				<input type="text" placeholder="i.e. Milwaukee Brewers" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="ms-3 mb-3" /><br/>
@@ -92,12 +87,16 @@ const AddTeam = () => {
 {/*                 <label>Team Competition Level</label>
 				<input type="text" placeholder="i.e. Triple A" value={competitionLevel} onChange={(event) => setcompetitionLevel(event.target.value)} class="ms-3 mb-3" /><br/> */}
 
-                <label>Select Team Competition Level</label>
+{/*                 <label>Select Team Competition Level</label>
                 <ul>
                     {showCompetitionLevels}
-			    </ul>
+			    </ul> */}
 				
-				<input type="submit" value="Add Team" class="btn btn-primary ms-3 mt-3" />
+{/*                 <GetCompetitionLevel competitionLevelId={competitionLevelId} setcompetitionLevelId={setcompetitionLevelId} /> */}
+
+				<input type="submit" value="Save" class="btn btn-primary ms-3 mt-3" />
+
+				<a href="/myteams/addteam/addcompetitionlevel" class="btn btn-secondary ms-3 mt-3" teamName={teamName}>Next</a>
 
             </form>
 
@@ -116,4 +115,4 @@ const AddTeam = () => {
 	)
 }
 
-export default AddTeam;
+export default AddTeamPageOne;
