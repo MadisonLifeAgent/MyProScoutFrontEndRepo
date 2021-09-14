@@ -13,7 +13,8 @@ const MyTeams = (props) => {
             <div>
                 <h3>myTeams Page</h3>
                 <AddTeam />
-            </div>
+{/*                 <AddRegion />
+ */}            </div>
         )
     }
     // return profile page is user logged in

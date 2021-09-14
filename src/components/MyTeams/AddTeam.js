@@ -5,7 +5,7 @@ import axios from "axios";
 import GetTeamRegions from "./GetTeamRegions";
 
 // Scout account registration form
-const AddTeam = ({ registerScout }) => {
+const AddTeam = () => {
 	// form field variables
 	const [teamName, setTeamName] = useState();
 	const [region, setRegion] = useState();
@@ -67,7 +67,10 @@ const AddTeam = ({ registerScout }) => {
 				<input type="text" placeholder="i.e. Milwaukee Brewers" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="ms-3 mb-3" /><br/>
 				
                 {/* Get the team regions dropdown menu */}
-                <GetTeamRegions teamRegions={teamRegions} />
+                <React.Fragment>
+
+                <GetTeamRegions teamRegions={teamRegions} region={region}/>
+                </React.Fragment>
 
 {/* 
 				<input type="text" placeholder="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
