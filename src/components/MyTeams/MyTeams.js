@@ -1,17 +1,18 @@
 import React from "react";
 
 // Component or hook imports
-
+import AddTeam from "./AddTeam";    // add team form/function
 
 // Scout profile page
 const MyTeams = (props) => {
     //const scout = props.user;
 
 
-    // display scout's name, orgnaization, and list of players with recent scouting reports
+    // displays team, regions, competition levels and create or edit buttons
         return (
             <div>
                 <h3>myTeams Page</h3>
+                <AddTeam />
             </div>
         )
     }

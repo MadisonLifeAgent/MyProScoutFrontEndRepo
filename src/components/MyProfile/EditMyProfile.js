@@ -12,13 +12,7 @@ import ScoutUserName from "./ScoutUsername";
 const EditMyProfile = (props) => {
     const jwt = localStorage.getItem('token');
 
-    //const [firstName, setFirstName] = useState();
-	const [lastName, setLastName] = useState();
-	const [userName, setUserName] = useState();
-	const [email, setEmail] = useState();
-	const [phoneNumber, setPhoneNumber] = useState();
-
-    //get current user details
+	//get current user details
     const [currentUser, setCurrentuser] = useState({});
     const [id, setId] = useState();
 
@@ -37,31 +31,8 @@ const EditMyProfile = (props) => {
 
     // get scout information that is to be edited
     useEffect(() => {
-        getScoutInformation(jwt);  // add if/else statement
+        getScoutInformation(jwt);
     },[]);
-
-	// call the database and try to post edited scout info
-	async function editMyProfile(first, last, user, useremail, phone, id) {
-		const updateInfo = {
-			"firstName": first,
-			"lastName": last,
-			"userName": user,
-			"email": useremail,
-			"phoneNumber": phone,
-            "id": id,
-		}
-
-        console.log(updateInfo);
-
-		let response = await axios.put(`https://localhost:44394/api/myproscout/edit`, updateInfo);
-		
-		if (response) {
-			console.log(response.data);
-			console.log("good api call");
-		} else {
-			console.log("bad api call");
-		}
-	}
 
 
 	// edit profile input fields

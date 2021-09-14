@@ -42,16 +42,17 @@ function NavBar( {user}) {
                         <Link to="/myscoutingreports">myScouting Reports</Link>
                     </li>
                     <li>
-                        <Link to="/myorg">myOrg</Link>
+                        <Link to="/addplayer">addPlayer</Link>
                     </li>
                     <li>
                         <Link to="/myteams">myTeams</Link>
                     </li>
                     <li>
-                        <Link to="/addplayer">addPlayer</Link>
-                    </li>
-                    <li>
                         <Link to="/search">searchPlayers</Link>
+                    </li>
+                                    
+                    <li>
+                        <Link to="/myorg">myOrg</Link>
                     </li>
                     <li>
                         <Link to="/myprofile">myProfile</Link>

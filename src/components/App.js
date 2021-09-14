@@ -51,12 +51,15 @@ class App extends Component {
                             <Route path="/" exact />
                             <Route path='/login' exact component={Login} />
                             <Route path="/register" exact component={Register} />
+
                             <Route path="/myplayers" exact component={MyPlayers} />
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
-                            <Route path="/myorg" exact component={MyOrg} />
-                            <Route path="/myteams" exact component={MyTeams} />
                             <Route path="/addPlayer" exact component={AddPlayer} />
+                            <Route path="/myteams" exact component={MyTeams} />
                             <Route path="/search" exact component={Search} />
+
+                            <Route path="/myorg" exact component={MyOrg} />
+                            
                             <Route path="/myprofile" exact
                                     render={props => {
                                         if (!user){
