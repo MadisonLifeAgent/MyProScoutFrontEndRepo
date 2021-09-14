@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+// component imports
+import ScoutFirstName from "./ScoutFirstName";
+import ScoutLastName from "./ScoutLastName";
+import ScoutEmail from "./ScoutEmail";
+import ScoutPhoneNumber from "./ScoutPhoneNumber";
+import ScoutUserName from "./ScoutUsername";
 
 // Scout account registration form
 const EditMyProfile = (props) => {
     const jwt = localStorage.getItem('token');
 
-    const [firstName, setFirstName] = useState();
+    //const [firstName, setFirstName] = useState();
 	const [lastName, setLastName] = useState();
 	const [userName, setUserName] = useState();
-	const [password, setPassword] = useState();
 	const [email, setEmail] = useState();
 	const [phoneNumber, setPhoneNumber] = useState();
 
-    // const [currentFirst, setCurrentFirst] = useState();
-	// const [currentLast, setCurrentLast] = useState();
-	// const [currentUsername, setCurrentUsername] = useState();
-	// //const [currentPassword, setCurrentPassword] = useState();
-	// const [currentEmail, setCurrentEmail] = useState();
-	// const [currentPhoneNumber, setCurrentPhoneNumber] = useState();
-
     //get current user details
     const [currentUser, setCurrentuser] = useState({});
+    const [id, setId] = useState();
 
     // this function gets the current scout's information
     async function getScoutInformation(token) {
@@ -30,6 +29,7 @@ const EditMyProfile = (props) => {
 		if (response.data) {
 			console.log("good api call");
             setCurrentuser(response.data);
+            setId(response.data.id);
 		} else {
 			console.log("bad api call");
 		}
@@ -38,20 +38,22 @@ const EditMyProfile = (props) => {
     // get scout information that is to be edited
     useEffect(() => {
         getScoutInformation(jwt);  // add if/else statement
-    },[currentUser]);
+    },[]);
 
 	// call the database and try to post edited scout info
-	async function editMyProfile(first, last, user, pass, useremail, phone) {
-
+	async function editMyProfile(first, last, user, useremail, phone, id) {
 		const updateInfo = {
-			"FirstName": first,
-			"LastName": last,
-			"UserName": user,
-			"Password": pass,
-			"Email": useremail,
-			"PhoneNumber": phone
+			"firstName": first,
+			"lastName": last,
+			"userName": user,
+			"email": useremail,
+			"phoneNumber": phone,
+            "id": id,
 		}
-		let response = await axios.put(`https://localhost:44394/api/authentication/myproscout`, updateInfo);
+
+        console.log(updateInfo);
+
+		let response = await axios.put(`https://localhost:44394/api/myproscout/edit`, updateInfo);
 		
 		if (response) {
 			console.log(response.data);
@@ -60,34 +62,20 @@ const EditMyProfile = (props) => {
 			console.log("bad api call");
 		}
 	}
-	
-    // submits account registration request
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		editMyProfile(firstName, lastName, userName, password, email, phoneNumber);
-		window.location = "/editmyprofile";
-	}
 
-	
+
+	// edit profile input fields
 	return (
 		<div>
 			<h3>Edit myProfile</h3>
-			<form onSubmit={handleSubmit}>
-				<input type="text" placeholder={currentUser.firstName} value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 mb-3" /><br/>
+                <ScoutFirstName currentUser={currentUser} id={id} />
 				
-				<input type="text" placeholder={currentUser.lastName} value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
-				
-				<input type="text" placeholder={currentUser.email} value={email} onChange={(event) => setEmail(event.target.value)} class="ms-3 mb-3" /><br/>
-				
-				<input type="text" placeholder={currentUser.phoneNumber} value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} class="ms-3 mb-3" /><br/>
-				
-				<input type="text" placeholder={currentUser.userName} value={userName} onChange={(event) => setUserName(event.target.value)} class="ms-3 mb-3" /><br/>
-				
-				<input type="password" placeholder="password" value={password} onChange={(event) => setPassword(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <ScoutLastName currentUser={currentUser} id={id} />
 
-				<input type="submit" value="Login" class="btn btn-primary ms-3" />
+                <ScoutEmail currentUser={currentUser} id={id} />
 
-            </form>
+                <ScoutPhoneNumber currentUser={currentUser} id={id} />
+                <ScoutUserName currentUser={currentUser} id={id} />			
 		</div>
 	);
 }

@@ -9,7 +9,7 @@ const MyProfile = (props) => {
     const scout = props.user;
 
     const handleClick = () => {
-        //<EditMyProfile user={props.user} />
+        <EditMyProfile user={props.user} />
     }
 
 
