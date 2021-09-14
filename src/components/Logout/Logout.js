@@ -5,7 +5,7 @@ const Logout = () => {
         window.location = '/';
     }
     return (
-        <li class="nav-link" onClick={handleClick}>Logout</li>
+        <li class="nav-link" onClick={handleClick}>logOut</li>
     )
 }
 

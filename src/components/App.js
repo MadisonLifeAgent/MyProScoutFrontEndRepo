@@ -5,9 +5,15 @@ import jwtDecode from "jwt-decode";
 
 // Component imports
 import NavBar from "./NavBar/NavBar";
+import MyPlayers from "./MyPlayers/MyPlayers";
+import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
+import MyOrg from "./MyOrg/MyOrg";
+import MyTeams from "./MyTeams/MyTeams";
+import AddPlayer from "./AddPlayer/AddPlayer";
+import Search from "./Search/Search";
 import Login from "./Login/Login";
-import MyProfile from "./MyProfile/MyProfile";
 import Register from './Register/Register';
+import MyProfile from "./MyProfile/MyProfile";
 import EditMyProfile from "./MyProfile/EditMyProfile";
 
 // Main component
@@ -28,9 +34,6 @@ class App extends Component {
         }
     }
 
-        
-    
-
     render() { 
         const user = this.state.user;
     
@@ -43,6 +46,17 @@ class App extends Component {
                     <NavBar user={user} />
                     <div>
                         <Switch>
+                            
+                            {/* Routes for myProScout.com */}
+                            <Route path="/" exact />
+                            <Route path='/login' exact component={Login} />
+                            <Route path="/register" exact component={Register} />
+                            <Route path="/myplayers" exact component={MyPlayers} />
+                            <Route path="/myscoutingreports" exact component={MyScoutingReports} />
+                            <Route path="/myorg" exact component={MyOrg} />
+                            <Route path="/myteams" exact component={MyTeams} />
+                            <Route path="/addPlayer" exact component={AddPlayer} />
+                            <Route path="/search" exact component={Search} />
                             <Route path="/myprofile" exact
                                     render={props => {
                                         if (!user){
@@ -51,11 +65,6 @@ class App extends Component {
                                             return <MyProfile {...props} user={user} />;
                                         }
                                     }} />
-
-                            {/* Routes for myProScout.com */}
-                            <Route path="/" exact />
-                            <Route path='/login' exact component={Login} />
-                            <Route path="/register" exact component={Register} />
                             <Route path="/editmyprofile" exact component={EditMyProfile} />
                             <Redirect to="/not-found" />
                         </Switch>
