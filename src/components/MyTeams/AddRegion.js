@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 // component imports
-import GetTeamRegions from "./GetTeamRegions";
 
 // Scout account registration form
 const AddRegion = () => {
@@ -36,7 +35,7 @@ const AddRegion = () => {
 		<div>
 			<form onSubmit={handleSubmit}>
                 <label>Add New Region</label>
-				<input type="text" placeholder="i.e. Region Name" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="ms-3 mb-3" /><br/>
+				<input type="text" placeholder="i.e. Region Name" value={newRegion} onChange={(event) => setRegion(event.target.value)} class="ms-3 mb-3" /><br/>
 
 				
 				<input type="submit" value="Add Team" class="btn btn-primary ms-3 mt-3" />
@@ -46,4 +45,4 @@ const AddRegion = () => {
 	)
 }
 
-export default AddTeam;
+export default AddRegion;

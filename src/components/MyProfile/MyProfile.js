@@ -18,7 +18,7 @@ const MyProfile = (props) => {
             <div>
                 <h3>This is Scout myProfile</h3>
                 <p>Scout's {scout.username} and Organization</p>
-                <a href="/editmyprofile" class="btn mb-3" onClick={handleClick}>Edit myProfile</a>
+                <a href="/editmyprofile" class="btn btn-primary mb-3" onClick={handleClick}>Edit myProfile</a>
                 <dl>
                     <dt>List of Players and Scouting Reports</dt>
                     <dd>Name</dd>

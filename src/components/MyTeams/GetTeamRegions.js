@@ -1,9 +1,8 @@
 import React from "react";
 
 // component imports
-//import useGetTeamRegions from "../../hooks/useGetTeamRegions";
 
-// Scout account registration form
+// get regions for user selection
 const GetTeamRegions = (props) => {
 	const teamRegions = props.teamRegions;
 	console.log(teamRegions);
@@ -15,15 +14,15 @@ const GetTeamRegions = (props) => {
 		return (
 			<React.Fragment>
 
- 				<input type="radio" id={item.regionName} name="region" value={props.region} />
-				<label for={item.regionName}>{item.regionName}</label>
+ 				<input type="radio" id={item.regionId} name="region" value={props.region} />
+				<label for={item.regionId}>{item.regionName}</label>
 				<br/>
 				</React.Fragment>
 
 		)
 	})
 
-	
+	// return all radio buttons
 	return (
 		<React.Fragment>
 		<label>Select Team Region</label>
