@@ -1,32 +1,32 @@
-import React from "react";
+import React, { useState, useParams, useLocation } from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 // Component or hook imports
 import UseGetPlayers from "../../hooks/UseGetPlayers";
-//import EditTeam from './EditTeam';
 
-
-// this component gets teams and displays them
+// this component gets players and displays them
 const DisplayPlayers = (props) => {
-    // get all teams
+    // get all players
     const [{players}] = UseGetPlayers([{}]);
 
     async function deletePlayer(playerId) {
         try{
             let response = await axios.delete(`https://localhost:44394/api/playerprofile/delete/${playerId}`);
-            // if good api call ste the teamRegions
+
             console.log("player deleted");
-            //window.location = '/myplayers';
+            window.location = '/myplayers';
         }
         catch(ex) {
             console.log("bad api call");
         }
     }
 
-    
-
-    // display all teams and edit/delete buttons
+    // display all players and edit/delete buttons
     const showPLayers = players.map((item) => {
+        const playerProfileId = item.playerProfileId;
+        console.log(playerProfileId);
         const handleClick = (item) => {
             //<EditTeam players={item} />
         }
@@ -37,13 +37,18 @@ const DisplayPlayers = (props) => {
                     <dd>Batthing Hand: {item.playerBattingHandednessName}</dd>
                     <dd>Throwing Hand: {item.playerThrowingHandednessName}</dd>
 
-                    <a href="/myplayers/edit" class="btn btn-primary me-3" onClick={handleClick}>Edit (Not Complete)</a>
+                    <Link to={{
+                        pathname: `/myplayers/:${playerProfileId}`,
+                        state: {
+                            player: item
+                        }
+                    }}>View Profile</Link>
+
+                    <a href="/myplayers/editplayer" class="btn btn-primary me-3" onClick={handleClick}>Edit (Incomplete)</a>
                     
                     <input type="button" class="btn btn-primary" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
 
                     <br/><br/>
-
-
             </React.Fragment>
         );
     })

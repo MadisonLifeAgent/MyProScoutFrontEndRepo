@@ -6,6 +6,8 @@ import jwtDecode from "jwt-decode";
 // Component imports
 import NavBar from "./NavBar/NavBar";
 import MyPlayers from "./MyPlayers/MyPlayers";
+    import EditPlayer from "./MyPlayers/EditPlayers";
+    import ViewPlayerProfile from './MyPlayers/ViewPlayerProfile';
 import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
 import MyOrg from "./MyOrg/MyOrg";
@@ -59,6 +61,9 @@ class App extends Component {
                             <Route path="/myplayers" exact component={MyPlayers} />
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
                             <Route path="/addPlayer" exact component={AddPlayer} />
+                            <Route path="/myplayers/editplayer" exact component={EditPlayer} />
+                                <Route path="/myplayers/:playerProfileId" exact render={props => { return <ViewPlayerProfile {...props} />; }} />
+
                             <Route path="/myteams" exact component={MyTeams} />
                                 <Route path="/myteams/addteam" exact component={AddTeam} />
                                 <Route path="/myteams/editteam" exact render={props => { return <EditTeam {...props}  />; }} />
