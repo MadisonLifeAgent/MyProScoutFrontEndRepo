@@ -14,14 +14,14 @@ const Registration = () => {
 
 
 	// call the database and try to create account
-	async function createNewAccount(first, last, user, pass, useremail, phone) {
+	async function createNewAccount(first, last, user, pass, userEmail, phone) {
 
 		const registrationInfo = {
 			"FirstName": first,
 			"LastName": last,
 			"UserName": user,
 			"Password": pass,
-			"Email": useremail,
+			"Email": userEmail,
 			"PhoneNumber": phone
 		}
 		let response = await axios.post(`https://localhost:44394/api/authentication/myproscout`, registrationInfo);

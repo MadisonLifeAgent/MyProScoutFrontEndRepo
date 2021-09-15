@@ -6,12 +6,11 @@ import jwtDecode from "jwt-decode";
 // Component imports
 import NavBar from "./NavBar/NavBar";
 import MyPlayers from "./MyPlayers/MyPlayers";
+import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
 import MyOrg from "./MyOrg/MyOrg";
 import MyTeams from "./MyTeams/MyTeams";
-    import AddTeamPageOne from "./MyTeams/AddTeamPageOne";
-    import AddCompetitionLevel from "./MyTeams/AddCompetitionLevel";
-import AddPlayer from "./AddPlayer/AddPlayer";
+import AddTeam from "./MyTeams/AddTeam";
 import Search from "./Search/Search";
 import Login from "./Login/Login";
 import Register from './Register/Register';
@@ -60,14 +59,11 @@ class App extends Component {
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
                             <Route path="/addPlayer" exact component={AddPlayer} />
                             <Route path="/myteams" exact component={MyTeams} />
-                                <Route path="/myteams/addteam" exact component={AddTeamPageOne} />
-                                <Route path="/myteams/addteam/addcompetitionlevel" exact render={props => {
-                                    return <AddCompetitionLevel {...props} />;
-                                    }} />
+                                <Route path="/myteams/addteam" exact component={AddTeam} />
                             <Route path="/search" exact component={Search} />
 
+
                             <Route path="/myorg" exact component={MyOrg} />
-                            
                             <Route path="/myprofile" exact
                                     render={props => {
                                         if (!user){
