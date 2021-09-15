@@ -1,3 +1,4 @@
+
 import React from "react";
 import axios from 'axios';
 import jwtDecode from "jwt-decode";
@@ -14,7 +15,7 @@ const DisplayMyOrgMessages = (props) => {
     const organization = props.organization;
 
     // get all players
-    const [{orgMessages}] = useGetOrgMessages(organization.organizationId);
+    const [orgMessages] = useGetOrgMessages(organization.organizationId);
 
     // display all organization messages
     const showMessages = orgMessages.map((item) => {

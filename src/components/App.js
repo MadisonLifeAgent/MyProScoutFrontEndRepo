@@ -11,6 +11,7 @@ import MyPlayers from "./MyPlayers/MyPlayers";
 import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
 import MyOrg from "./MyOrg/MyOrg";
+    import AddOrgMessage from "./MyOrg/AddOrgMessage";
 import MyTeams from "./MyTeams/MyTeams";
     import EditTeam from "./MyTeams/EditTeam";
 import AddTeam from "./MyTeams/AddTeam";
@@ -76,6 +77,9 @@ class App extends Component {
                                     />;
                                 }
                             } />
+                            <Route path='/myorg/newmessage' exact component={AddOrgMessage} />
+
+
                             <Route path="/myprofile" exact
                                     render={props => {
                                         if (!user){
