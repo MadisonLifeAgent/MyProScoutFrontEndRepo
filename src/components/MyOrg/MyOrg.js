@@ -3,6 +3,7 @@ import jwtDecode from "jwt-decode";
 
 // Component or hook imports
 import useGetOrganization from "../../hooks/useGetOrganization";
+import DisplayMyOrgMessages from "./DisplayMyOrgMessages";
 
 // Scout profile page
 const MyOrg = () => {
@@ -15,22 +16,18 @@ const MyOrg = () => {
         } catch {
         }
     }
-
+    // get the scout's account info
     const scout = getUser();
-    console.log("scout");
-    console.log(scout);
     
-
+    // Get scout's oranization info
     const organization = useGetOrganization(scout.id);
 
     
-
-
 // this page needs the following
-    // name of organization at the top
+    // name of organization at the top COMPLETE
         // ability to add and join a new organization
     // scouting reports by organization
-    // organization messages
+    // organization messages (COMPLETE)
         // add new messages
 
 
@@ -39,8 +36,8 @@ const MyOrg = () => {
         return (
             <div>
 {/*                 <h3> myOrg Page</h3>
- */}                <h3>my{organization.organizationName} Scout Hub</h3>
-
+ */}                <h3>{organization.organizationName} Scout Hub</h3>
+                    <DisplayMyOrgMessages scout={scout} organization={organization} />
 
             </div>
         )

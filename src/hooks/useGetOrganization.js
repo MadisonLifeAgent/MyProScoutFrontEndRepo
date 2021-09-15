@@ -10,7 +10,7 @@ const useGetOrganization = (userId) => {
         try{
             let response = await axios.get(`https://localhost:44394/api/scoutorganizationjoin/${userId}`);
             // if good api call set scoutOrganization
-            console.log("scout org details");
+            //console.log("scout org details");
             console.log(response.data);
             setScoutOrganization(response.data);
         }
