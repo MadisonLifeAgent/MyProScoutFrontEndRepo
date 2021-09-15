@@ -3,15 +3,15 @@ import axios from 'axios';
 
 // this hook gets a scout's organization 
 const useGetOrganization = (userId) => {
-   const [scoutOrganization, setScoutOrganization] = useState([{}]);
+   const [scoutOrganization, setScoutOrganization] = useState({});
 
     // query database for organization
     async function getOrganization() {
         try{
             let response = await axios.get(`https://localhost:44394/api/scoutorganizationjoin/${userId}`);
-            // if good api call set scoutOrganizatin
-            console.log(response.data);
+            // if good api call set scoutOrganization
             console.log("scout org details");
+            console.log(response.data);
             setScoutOrganization(response.data);
         }
         catch(ex) {
@@ -21,9 +21,9 @@ const useGetOrganization = (userId) => {
        
    // get organization as soon as hook is requested
    useEffect(() => {
-    getOrganization();
+    getOrganization(userId);
    },[]);
-	return [{ scoutOrganization }];
+	return scoutOrganization;
 
 }
 
