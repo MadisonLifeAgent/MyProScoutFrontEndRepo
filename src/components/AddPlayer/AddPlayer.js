@@ -24,15 +24,20 @@ const AddPlayer = (props) => {
 
     // call the database and try to create account
     async function addNewPlayer(firstName, lastName, height, weight, age, yearTurnedPro, imageUrl, playerPositionPrimaryName, playerPositionSecondaryName, playerBattingHandednessName, playerThrowingHandednessName, playerTypeName, baseballTeamName) {
-        
+
+        const newHeight = parseInt(height);
+        const newWeight = parseInt(weight);
+        const newAge = parseInt(age);
+        const newYearTurnedPro = parseInt(yearTurnedPro);
+       
         // player info (click left to open)
         const newPlayerInfo = {
             "FirstName": firstName,
             "LastName": lastName,
-            "Height": height,
-            "Weight": weight,
-            "Age": age,
-            "YearTurnedPro": yearTurnedPro,
+            "Height": newHeight,
+            "Weight": newWeight,
+            "Age": newAge,
+            "YearTurnedPro": newYearTurnedPro,
             "PlayerImageUrl": imageUrl,
             "PlayerPositionPrimaryName": playerPositionPrimaryName,
             "PlayerPositionSecondaryName": playerPositionSecondaryName, 
@@ -106,9 +111,9 @@ const AddPlayer = (props) => {
             "CareerTaggedOut": 0
         }
         try{
-            const response = await axios.post('https://localhost:44394/api/playerprofile/add', newPlayerInfo);
+            await axios.post('https://localhost:44394/api/playerprofile/add', newPlayerInfo);
             console.log("good api call");
-
+            window.location = '/myplayers';
         }
         catch(ex){
             console.log("bad api call");
@@ -119,10 +124,10 @@ const AddPlayer = (props) => {
     // submits new player request
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(age);
         addNewPlayer(firstName, lastName, height, weight, age, yearTurnedPro, imageUrl, playerPositionPrimaryName, playerPositionSecondaryName, playerBattingHandednessName, playerThrowingHandednessName, playerTypeName, baseballTeamName);
     }
 
+    // add player form
     return (
         <div>
             <h3>Enter Player Details</h3>
@@ -135,19 +140,19 @@ const AddPlayer = (props) => {
                 <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
                 
                 <label>Height</label>
-                <input type="number" value={height} onChange={(event) => setHeight(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={height} onChange={(event) => setHeight(event.target.value)} class="ms-3 mb-3" /><br/>
                 
                 <label>Weight</label>
-                <input type="number" value={weight} onChange={(event) => setWeight(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={weight} onChange={(event) => setWeight(event.target.value)} class="ms-3 mb-3" /><br/>
                 
                 <label>Age</label>
-                <input type="number" value={age} onChange={(event) => setAge(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={age} onChange={(event) => setAge(event.target.value)} class="ms-3 mb-3" /><br/>
                 
                 <label>Image Url</label>
                 <input type="text" value={imageUrl} onChange={(event) => setImageUrl(event.target.value)} class="ms-3 mb-3"  /><br/>
 
                 <label>Year Turned Pro</label>
-                <input type="number" value={yearTurnedPro} onChange={(event) => setYearTurnedPro(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <input type="text" value={yearTurnedPro} onChange={(event) => setYearTurnedPro(event.target.value)} class="ms-3 mb-3"  /><br/>
 
                 <label>Primary Position</label>
                 <input type="text" value={playerPositionPrimaryName} onChange={(event) => setPlayerPositionPrimaryName(event.target.value)} class="ms-3 mb-3"  /><br/>
