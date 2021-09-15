@@ -70,7 +70,12 @@ class App extends Component {
                             <Route path="/search" exact component={Search} />
 
 
-                            <Route path="/myorg" exact component={MyOrg} />
+                            <Route path="/myorg" exact 
+                                render={props => {
+                                    return <MyOrg {...props} user={user}
+                                    />;
+                                }
+                            } />
                             <Route path="/myprofile" exact
                                     render={props => {
                                         if (!user){
