@@ -1,21 +1,20 @@
 import React from "react";
 
 // Component or hook imports
+import DisplayPlayers from "./DisplayPlayers";
 
-
-// Scout profile page
+// displays players belong to a scout
 const MyPlayers = (props) => {
-    //const scout = props.user;
-
-
-    // display scout's name, orgnaization, and list of players with recent scouting reports
-        return (
-            <div>
-                <h3>myPlayers Page</h3>
-            </div>
-        )
-    }
-    // return profile page is user logged in
+   
+// displays team, regions, competition levels and create or edit buttons
+    return (
+        <div>
+            <h3>myPlayers</h3>
+            <DisplayPlayers />
+        </div>
+    )
+}
+        // return profile page is user logged in
 
 
 
