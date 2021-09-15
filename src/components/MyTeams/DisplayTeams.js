@@ -6,7 +6,7 @@ import UseGetTeams from "../../hooks/UseGetTeams";
 import EditTeam from './EditTeam';
 
 
-// Scout profile page
+// this component gets teams and displays them
 const DisplayTeams = (props) => {
     // get all teams
     const [{teams}] = UseGetTeams([{}]);
@@ -29,7 +29,7 @@ const DisplayTeams = (props) => {
 
     // display all teams and edit/delete buttons
     const showTeams = teams.map((item) => {
-        const handleClick = () => {
+        const handleClick = (item) => {
             <EditTeam team={item} />
         }
         return (
