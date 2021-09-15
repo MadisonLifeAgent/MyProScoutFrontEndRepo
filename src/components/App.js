@@ -10,6 +10,7 @@ import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
 import MyOrg from "./MyOrg/MyOrg";
 import MyTeams from "./MyTeams/MyTeams";
+    import EditTeam from "./MyTeams/EditTeam";
 import AddTeam from "./MyTeams/AddTeam";
 import Search from "./Search/Search";
 import Login from "./Login/Login";
@@ -60,6 +61,7 @@ class App extends Component {
                             <Route path="/addPlayer" exact component={AddPlayer} />
                             <Route path="/myteams" exact component={MyTeams} />
                                 <Route path="/myteams/addteam" exact component={AddTeam} />
+                                <Route path="/myteams/editteam" exact render={props => { return <EditTeam {...props}  />; }} />
                             <Route path="/search" exact component={Search} />
 
 
