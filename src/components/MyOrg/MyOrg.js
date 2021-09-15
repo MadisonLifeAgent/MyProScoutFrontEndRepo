@@ -21,14 +21,14 @@ const MyOrg = (props) => {
     
     // Get scout's oranization info
     const organization = useGetOrganization(scout.id);
-    console.log(organization.organizationId);
 
     // display scout's name, orgnaization, and list of players with recent scouting reports
         return (
             <div>
                 <h3>{organization.organizationName} Scout Hub</h3>
-{/*                     <DisplayMyOrgMessages  organization={organization}/>
- */}            </div>
+
+                     <DisplayMyOrgMessages  organization={organization}/>
+             </div>
         )
     }
     // return profile page is user logged in
