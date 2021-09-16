@@ -16,67 +16,67 @@ const NewScoutingReport = (props) => {
 		myOrganization: '',
 		id: '', // this needs to be set user info
 		pitcherTotalPitches: 0,
-		pitcherWin: '',
-		pitcherLoss: '',
-		pitcherInningsPitched: '',
-		pitcherSave: '',
-		pitcherBlownSave: '',
-		careerPitchingCompleteGame: '',
+		pitcherWin: 0,
+		pitcherLoss: 0,
+		pitcherInningsPitched: 0,
+		pitcherSave: 0,
+		pitcherBlownSave: 0,
+		careerPitchingCompleteGame: 0,
 
-		pitcherTotalBalls: '',
-		pitcherWalksGiven: '',
-		pitcherTotalStrikes: '',
-		pitcherTotalStrikeouts: '',
-		pitcherFoulBallsHit: '',
-		pitcherHitBatter: '',
-		pitcherWildPitch: '',
-		pitcherPickOffAttempts: '',
-		pitcherPickOfSuccess: '',
-		pitcherNumberOfBattersFaced: '',
+		pitcherTotalBalls: 0,
+		pitcherWalksGiven: 0,
+		pitcherTotalStrikes: 0,
+		pitcherTotalStrikeouts: 0,
+		pitcherFoulBallsHit: 0,
+		pitcherHitBatter: 0,
+		pitcherWildPitch: 0,
+		pitcherPickOffAttempts: 0,
+		pitcherPickOfSuccess: 0,
+		pitcherNumberOfBattersFaced: 0,
 
-		pitcherHitsAllowed: '',
-		pitcherPitchingHitSingle: '',
-		pitcherHitDouble: '',
-		pitcherHitTriple: '',
-		pitcherHomerunsAllowed: '',
-		pitcherGroundOuts: '',
-		pitcherFlyouts: '',
-		pitcherRunsAllowed: '',
+		pitcherHitsAllowed: 0,
+		pitcherPitchingHitSingle: 0,
+		pitcherHitDouble: 0,
+		pitcherHitTriple: 0,
+		pitcherHomerunsAllowed: 0,
+		pitcherGroundOuts: 0,
+		pitcherFlyouts: 0,
+		pitcherRunsAllowed: 0,
 
-		batterPlateAppearances: '',
-		batterOnBaseCount: '',
-		batterHitByPitch: '',
-		batterBalls: '',
-		batterBaseOnBalls: '',
-		batterStrikes: '',
-		batterStrikeouts: '',
-		batterFoulBalls: '',
+		batterPlateAppearances: 0,
+		batterOnBaseCount: 0,
+		batterHitByPitch: 0,
+		batterBalls: 0,
+		batterBaseOnBalls: 0,
+		batterStrikes: 0,
+		batterStrikeouts: 0,
+		batterFoulBalls: 0,
 
-		batterHit: '',
-		batterSingle: '',
-		batterDouble: '',
-		batterTriple: '',
-		batterHomerun: '',
-		batterSacFly: '',
-		BattterRbi: '',
-		batterGroundOut: '',
-		batterOutByDoublePlay: '',
-		batterOutByTriplePlay: '',
-		batterFlyout: '',
-		batterRisp: '',
-		batterRispSuccess: '',
-		batterRispFail: '',
+		batterHit: 0,
+		batterSingle: 0,
+		batterDouble: 0,
+		batterTriple: 0,
+		batterHomerun: 0,
+		batterSacFly: 0,
+		BattterRbi: 0,
+		batterGroundOut: 0,
+		batterOutByDoublePlay: 0,
+		batterOutByTriplePlay: 0,
+		batterFlyout: 0,
+		batterRisp: 0,
+		batterRispSuccess: 0,
+		batterRispFail: 0,
 
-		runnerAdvancedToSecond: '',
-		RunnderAdvancedToThird: '',
-		runnerRisp: '',
-		runnerRunScored: '',
-		runnerStolenBases: '',
-		runnerCaughtStealing: '',
-		runnerPickedOff: '',
-		runnerTotalBases: '',
-		runnerForcedOut: '',
-		runnerTaggedOut: ''
+		runnerAdvancedToSecond: 0,
+		RunnderAdvancedToThird: 0,
+		runnerRisp: 0,
+		runnerRunScored: 0,
+		runnerStolenBases: 0,
+		runnerCaughtStealing: 0,
+		runnerPickedOff: 0,
+		runnerTotalBases: 0,
+		runnerForcedOut: 0,
+		runnerTaggedOut: 0
     });
 
     // call async function
@@ -101,23 +101,73 @@ const NewScoutingReport = (props) => {
         }
     } */
 
-    // increment and derement functions
-    const incrementTotalPitches = () => {
+    // increment and decrement total pitches
+    const incrementTotalPitches = (event) => {
+        event.preventDefault();
+
         setScoutingReport({pitcherTotalPitches: scoutingReport.pitcherTotalPitches += 1});
-
-        console.log(scoutingReport.pitcherTotalPitches);
     }
-
-    const decrementTotalPitches = () => {
+    const decrementTotalPitches = (event) => {
+        event.preventDefault();
         if (scoutingReport.pitcherTotalPitches <= 0) {
             scoutingReport.pitcherTotalPitches = 0;
         } else {
             setScoutingReport({pitcherTotalPitches: scoutingReport.pitcherTotalPitches -= 1});
         }
-
-
-        console.log(scoutingReport.pitcherTotalPitches);
     }
+
+    // increment and decrement win (only 0 or 1 per report)
+    const incrementWin = () => {
+        if (scoutingReport.pitcherWin >= 1) {
+            scoutingReport.pitcherWin = 1;
+        } else if (scoutingReport.pitcherWin <= 0) {              
+            setScoutingReport({pitcherWin: scoutingReport.pitcherWin += 1});
+        }
+    }
+    const decrementWin = () => {
+        if (scoutingReport.pitcherWin <= 0) {
+            setScoutingReport({pitcherWin: scoutingReport.pitcherWin = 0});
+        } else if (scoutingReport.pitcherWin > 1) {
+            setScoutingReport({pitcherWin: scoutingReport.pitcherWin = 1});
+        } else {
+            setScoutingReport({pitcherWin: scoutingReport.pitcherWin -= 1})
+        }
+    }
+
+    // increment and decrement loss (only 0 or 1 per report)
+    const incrementLoss = () => {
+        if (scoutingReport.pitcherLoss >= 1) {
+            scoutingReport.pitcherLoss = 1;
+        } else if (scoutingReport.pitcherLoss <= 0) {              
+            setScoutingReport({pitcherLoss: scoutingReport.pitcherLoss += 1});
+        }
+    }
+    const decrementLoss = () => {
+        if (scoutingReport.pitcherLoss <= 0) {
+            setScoutingReport({pitcherLoss: scoutingReport.pitcherLoss = 0});
+        } else if (scoutingReport.pitcherLoss > 1) {
+            setScoutingReport({pitcherLoss: scoutingReport.pitcherLoss = 1});
+        } else {
+            setScoutingReport({pitcherLoss: scoutingReport.pitcherLoss -= 1})
+        }
+    }
+
+    // increment and decrement total innings pitched
+    const incrementTotalInningsPitched = () => {
+        setScoutingReport({pitcherInningsPitched: scoutingReport.pitcherInningsPitched += 1});
+        console.log(scoutingReport.pitcherInningsPitched);
+    }
+    const decrementTotalInningsPitched = () => {
+        if (scoutingReport.pitcherInningsPitched <= 0) {
+            scoutingReport.pitcherInningsPitched = 0;
+        } else {
+            setScoutingReport({pitcherInningsPitched: scoutingReport.pitcherInningsPitched -= 1});
+        }
+        console.log(scoutingReport.pitcherInningsPitched);
+
+    }
+
+
 
     // submits new player request
     const handleSubmit = (event) => {
@@ -133,9 +183,9 @@ const NewScoutingReport = (props) => {
 
                 <h2>Report Info</h2>
                 <label>First Name</label>
-                <input type="text" value={scoutingReport.firstName} onChange={(event) => scoutingReport.firstname = event.target.value} class="ms-3 mb-3" /><br/>
+                <input type="text" value={scoutingReport.firstName} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
-                {/* <label>Last Name</label>
+                <label>Last Name</label>
                 <input type="text" value={scoutingReport.lastName} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Baseball Team</label>
@@ -145,7 +195,7 @@ const NewScoutingReport = (props) => {
                 <input type="text" value={scoutingReport.opponentTeam} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>myOrganization</label>
-                <input type="text" value={scoutingReport.myOrganization} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/> */}
+                <input type="text" value={scoutingReport.myOrganization} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <h2>Pitching</h2>
                 
@@ -153,25 +203,41 @@ const NewScoutingReport = (props) => {
 
                 <label>Total Pitches</label>
                 
-                <button id="down" class="btn btn-default ms-1 me-1 border border-dark" onClick={decrementTotalPitches}>-</button>
-                    <input type="number" value={scoutingReport.pitcherTotalPitches} onChange={(event) => scoutingReport.pitcherTotalPitches = event.target.value} class="ms-3 mb-3 input-number" />
-                <button id="up" class="btn btn-default ms-1 me-1 border border-dark" onClick={incrementTotalPitches}>+</button>
+                <button id="down" class="btn btn-default ms-3 me-1 border border-dark" onClick={decrementTotalPitches}>-</button>
+                    <input type="number" value={scoutingReport.pitcherTotalPitches} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" />
+                <button id="up" class="btn btn-default ms-3 me-1 border border-dark" onClick={incrementTotalPitches}>+</button>
                 <br/>
 
-                {/* <label>Win</label>
-                <input type="text" value={scoutingReport.pitcherWin} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
+                
+                <label>Win</label>
+
+                <button id="down" class="btn btn-default ms-3 me-1 border border-dark" onClick={decrementWin}>-</button>
+                    <input type="number" value={scoutingReport.pitcherWin} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" />
+                <button id="up" class="btn btn-default ms-3 me-1 border border-dark" onClick={incrementWin}>+</button>
+                <br/>
+
 
                 <label>Loss</label>
-                <input type="text" value={scoutingReport.pitcherLoss} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
+                <button id="down" class="btn btn-default ms-3 me-1 border border-dark" onClick={decrementLoss}>-</button>
+                    <input type="text" value={scoutingReport.pitcherLoss} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" />
+                <button id="up" class="btn btn-default ms-3 me-1 border border-dark" onClick={incrementLoss}>+</button>
+                <br/>
+                
+                <label>Innings Pitched</label>
+                <input type="text" value={scoutingReport.pitcherInningsPitched} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
+
+                
+                
+                <br/>
+
+
+{/* 
                 <label>Save</label>
                 <input type="text" value={scoutingReport.pitcherSave} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Blown Save</label>
                 <input type="text" value={scoutingReport.pitcherBlownSave} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Innings Pitched</label>
-                <input type="text" value={scoutingReport.pitcherInningsPitched} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Comlete Game</label>
                 <input type="text" value={scoutingReport.careerPitchingCompleteGame} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
