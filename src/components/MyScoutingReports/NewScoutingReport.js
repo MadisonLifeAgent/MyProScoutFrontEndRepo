@@ -8,14 +8,14 @@ import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 const NewScoutingReport = (props) => {
     // form field variables
     // scouting report is an object with multiple fields
-    const [scoutingReport, setScoutingReport] =useState({
+    const [scoutingReport, setScoutingReport] = useState({
 		firstName: '',
 		lastName: '',
 		playerBaseballTeamName: '',
 		opponentTeam: '',
 		myOrganization: '',
 		id: '', // this needs to be set user info
-		pitcherTotalPitches: '',
+		pitcherTotalPitches: 0,
 		pitcherWin: '',
 		pitcherLoss: '',
 		pitcherInningsPitched: '',
@@ -82,6 +82,43 @@ const NewScoutingReport = (props) => {
     // call async function
 
 
+    // deccrement function
+/*     function down(value) {
+        if (value <= 0) {
+            return 0;
+        } else {
+            value -= 1;
+            return value;
+        }
+    }
+
+    function up(value) {
+        if (value >= 150) {
+            return value;
+        } else {
+            value -= 1;
+            return value;
+        }
+    } */
+
+    // increment and derement functions
+    const incrementTotalPitches = () => {
+        setScoutingReport({pitcherTotalPitches: scoutingReport.pitcherTotalPitches += 1});
+
+        console.log(scoutingReport.pitcherTotalPitches);
+    }
+
+    const decrementTotalPitches = () => {
+        if (scoutingReport.pitcherTotalPitches <= 0) {
+            scoutingReport.pitcherTotalPitches = 0;
+        } else {
+            setScoutingReport({pitcherTotalPitches: scoutingReport.pitcherTotalPitches -= 1});
+        }
+
+
+        console.log(scoutingReport.pitcherTotalPitches);
+    }
+
     // submits new player request
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -96,9 +133,9 @@ const NewScoutingReport = (props) => {
 
                 <h2>Report Info</h2>
                 <label>First Name</label>
-                <input type="text" value={scoutingReport.firstName} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={scoutingReport.firstName} onChange={(event) => scoutingReport.firstname = event.target.value} class="ms-3 mb-3" /><br/>
 
-                <label>Last Name</label>
+                {/* <label>Last Name</label>
                 <input type="text" value={scoutingReport.lastName} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Baseball Team</label>
@@ -108,16 +145,20 @@ const NewScoutingReport = (props) => {
                 <input type="text" value={scoutingReport.opponentTeam} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>myOrganization</label>
-                <input type="text" value={scoutingReport.myOrganization} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={scoutingReport.myOrganization} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/> */}
 
                 <h2>Pitching</h2>
                 
                 <h4>Pitching Game Stats</h4>
 
                 <label>Total Pitches</label>
-                <input type="text" value={scoutingReport.pitcherTotalPitches} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
                 
-                <label>Win</label>
+                <button id="down" class="btn btn-default ms-1 me-1 border border-dark" onClick={decrementTotalPitches}>-</button>
+                    <input type="number" value={scoutingReport.pitcherTotalPitches} onChange={(event) => scoutingReport.pitcherTotalPitches = event.target.value} class="ms-3 mb-3 input-number" />
+                <button id="up" class="btn btn-default ms-1 me-1 border border-dark" onClick={incrementTotalPitches}>+</button>
+                <br/>
+
+                {/* <label>Win</label>
                 <input type="text" value={scoutingReport.pitcherWin} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Loss</label>
@@ -299,7 +340,7 @@ const NewScoutingReport = (props) => {
                 <input type="text" value={scoutingReport.runnerForcedOut} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Tagged Out</label>
-                <input type="text" value={scoutingReport.runnerTaggedOut} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={scoutingReport.runnerTaggedOut} onChange={(event) => setScoutingReport(event.target.value)} class="ms-3 mb-3" /><br/> */}
 
                 <input type="submit" value="Save Scouting Report" class="btn btn-primary ms-3 mb-3" />
             </form>
