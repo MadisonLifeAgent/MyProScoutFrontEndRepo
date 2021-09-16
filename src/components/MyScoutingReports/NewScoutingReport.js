@@ -27,6 +27,7 @@ const NewScoutingReport = (props) => {
     const [opponentTeam, setopponentTeam] = useState();
     const [myOrganization, setmyOrganization] = useState();
     const [scoutId, setScoutId] = useState();
+    const [scoutingReportNotesBody, setScoutingReportNotesBody] = useState();
 
     const [pitcherTotalPitches, setpitcherTotalPitches] = useState();
     const [pitcherWin, setpitcherWin] = useState();
@@ -99,7 +100,6 @@ const NewScoutingReport = (props) => {
         const scout = getUser(); 
         console.log(scout.id);
 
-        console.log(report[6]);
         // send the report in this format to backend
         const reportInfo = {
             "FirstName": report[0],
@@ -108,6 +108,7 @@ const NewScoutingReport = (props) => {
             "OpponentTeam": report[3],
             "MyOrganization": report[4],
             "Id": scout.id,
+            "ScoutingReportNotesBody": report[5],
             "PitcherTotalPitches": parseInt(report[6]),
             "PitcherWin": parseInt(report[7]),
             "PitcherLoss": parseInt(report[8]),
@@ -189,14 +190,8 @@ const NewScoutingReport = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setScoutId(scout.id);
-        console.log(scoutId);
-
-
-
         // push all the form values into newScoutingReport
-        newScoutingReport.push(firstName, lastName, playerBaseballTeamName, opponentTeam, myOrganization, pitcherTotalPitches, pitcherWin, pitcherLoss, pitcherInningsPitched, pitcherSave, pitcherBlownSave, careerPitchingCompleteGame, pitcherTotalBalls, pitcherWalksGiven, pitcherTotalStrikes, pitcherTotalStrikeouts, pitcherFoulBallsHit, pitcherHitBatter, pitcherWildPitch, pitcherPickOffAttempts, pitcherPickOfSuccess, pitcherNumberOfBattersFaced, pitcherHitsAllowed, pitcherPitchingHitSingle, pitcherHitDouble, pitcherHitTriple, pitcherHomerunsAllowed, pitcherGroundOuts, pitcherFlyouts, pitcherRunsAllowed, batterPlateAppearances, batterOnBaseCount, batterHitByPitch, batterBalls, batterBaseOnBalls, batterStrikes, batterStrikeouts, batterFoulBalls, batterHit, batterSingle, batterDouble, batterTriple, batterHomerun, batterSacFly, BattterRbi, batterGroundOut, batterOutByDoublePlay, batterOutByTriplePlay, batterFlyout, batterRisp, batterRispSuccess, batterRispFail, runnerAdvancedToSecond, RunnderAdvancedToThird, runnerRisp, runnerRunScored, runnerStolenBases, runnerCaughtStealing, runnerPickedOff, runnerTotalBases, runnerForcedOut, runnerTaggedOut);
-
+        newScoutingReport.push(firstName, lastName, playerBaseballTeamName, opponentTeam, myOrganization, scoutingReportNotesBody, pitcherTotalPitches, pitcherWin, pitcherLoss, pitcherInningsPitched, pitcherSave, pitcherBlownSave, careerPitchingCompleteGame, pitcherTotalBalls, pitcherWalksGiven, pitcherTotalStrikes, pitcherTotalStrikeouts, pitcherFoulBallsHit, pitcherHitBatter, pitcherWildPitch, pitcherPickOffAttempts, pitcherPickOfSuccess, pitcherNumberOfBattersFaced, pitcherHitsAllowed, pitcherPitchingHitSingle, pitcherHitDouble, pitcherHitTriple, pitcherHomerunsAllowed, pitcherGroundOuts, pitcherFlyouts, pitcherRunsAllowed, batterPlateAppearances, batterOnBaseCount, batterHitByPitch, batterBalls, batterBaseOnBalls, batterStrikes, batterStrikeouts, batterFoulBalls, batterHit, batterSingle, batterDouble, batterTriple, batterHomerun, batterSacFly, BattterRbi, batterGroundOut, batterOutByDoublePlay, batterOutByTriplePlay, batterFlyout, batterRisp, batterRispSuccess, batterRispFail, runnerAdvancedToSecond, RunnderAdvancedToThird, runnerRisp, runnerRunScored, runnerStolenBases, runnerCaughtStealing, runnerPickedOff, runnerTotalBases, runnerForcedOut, runnerTaggedOut);
 
         console.log(newScoutingReport);
         saveScoutingReport(newScoutingReport);
@@ -224,6 +219,9 @@ const NewScoutingReport = (props) => {
 
                 <label>myOrganization (Scout)</label>
                 <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+
+                <h3>Scouting Reports Notes</h3>
+                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="4" cols="50" />
 
                 <h2>Pitching</h2>
                 
