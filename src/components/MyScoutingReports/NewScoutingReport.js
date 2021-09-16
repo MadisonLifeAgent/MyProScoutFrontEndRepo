@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import jwtDecode from "jwt-decode";
 
 // Component or hook imports
 import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 
 // Scouting Report
 const NewScoutingReport = (props) => {
+    // get the scout info
+    const jwt = localStorage.getItem('token');
+    function getUser() {
+        try{
+            const user = jwtDecode(jwt);
+            return user;
+        } catch {
+        }
+    }
+
+
+
     // form field variables
     // scouting report is an object with multiple fields
     const [firstName, setFirstName] = useState();
@@ -13,7 +26,7 @@ const NewScoutingReport = (props) => {
     const [playerBaseballTeamName, setplayerBaseballTeamName] = useState();
     const [opponentTeam, setopponentTeam] = useState();
     const [myOrganization, setmyOrganization] = useState();
-    //const [id, setId] = useState();
+    const [scoutId, setScoutId] = useState();
 
     const [pitcherTotalPitches, setpitcherTotalPitches] = useState();
     const [pitcherWin, setpitcherWin] = useState();
@@ -78,84 +91,90 @@ const NewScoutingReport = (props) => {
     const [runnerForcedOut, setrunnerForcedOut] = useState();
     const [runnerTaggedOut, setrunnerTaggedOut] = useState();
 
+    const scout = getUser(); 
+
+
     // save the scouting report
-    async function saveScoutingReport(report, scout) {
-        console.log(report);
+    async function saveScoutingReport(report) {
+        const scout = getUser(); 
+        console.log(scout.id);
+
+        console.log(report[6]);
         // send the report in this format to backend
         const reportInfo = {
-            "FirstName": report.firstName,
-            "LastName": report.lastName,
-            "PlayerBaseballTeamName": report.playerBaseballTeamName,
-            "OpponentTeam": report.opponentTeam,
-            "MyOrganization": report.myOrganization,
-            "Id": report.id,
-            "PitcherTotalPitches": report.pitcherTotalPitches,
-            "PitcherWin": report.pitcherWin,
-            "PitcherLoss": report.pitcherLoss,
-            "PitcherInningsPitched": report.pitcherInningsPitched,
-            "PitcherSave": report.pitcherSave,
-            "PitcherBlownSave": report.pitcherBlownSave,
-            "CareerPitchingCompleteGame": report.careerPitchingCompleteGame,
+            "FirstName": report[0],
+            "LastName": report[1],
+            "PlayerBaseballTeamName": report[2],
+            "OpponentTeam": report[3],
+            "MyOrganization": report[4],
+            "Id": scout.id,
+            "PitcherTotalPitches": parseInt(report[6]),
+            "PitcherWin": parseInt(report[7]),
+            "PitcherLoss": parseInt(report[8]),
+            "PitcherInningsPitched": parseInt(report[9]),
+            "PitcherSave": parseInt(report[10]),
+            "PitcherBlownSave": parseInt(report[11]),
+            "CareerPitchingCompleteGame": parseInt(report[12]),
 
-            "PitcherTotalBalls": report.pitcherTotalBalls,
-            "PitcherWalksGiven": report.pitcherWalksGiven,
-            "PitcherTotalStrikes": report.pitcherTotalStrikes,
-            "PitcherTotalStrikeouts": report.pitcherTotalStrikeouts,
-            "PitcherFoulBallsHit": report.pitcherFoulBallsHit,
-            "PitcherHitBatter" : report.pitcherHitBatter,
-            "PitcherWildPitch": report.pitcherWildPitch,
-            "PitcherPickOffAttempts": report.pitcherPickOffAttempts,
-            "PitcherPickOfSuccess": report.pitcherPickOfSuccess,
-            "PitcherNumberOfBattersFaced": report.pitcherNumberOfBattersFaced,
+            "PitcherTotalBalls": parseInt(report[13]),
+            "PitcherWalksGiven": parseInt(report[14]),
+            "PitcherTotalStrikes": parseInt(report[15]),
+            "PitcherTotalStrikeouts": parseInt(report[16]),
+            "PitcherFoulBallsHit": parseInt(report[17]),
+            "PitcherHitBatter" : parseInt(report[18]),
+            "PitcherWildPitch": parseInt(report[19]),
+            "PitcherPickOffAttempts": parseInt(report[20]),
+            "PitcherPickOfSuccess": parseInt(report[21]),
+            "PitcherNumberOfBattersFaced": parseInt(report[22]),
 
-            "PitcherHitsAllowed": report.pitcherHitsAllowed,
-            "PitcherPitchingHitSingle": report.pitcherPitchingHitSingle,
-            "PitcherHitDouble": report.pitcherHitDouble,
-            "PitcherHitTriple": report.pitcherHitTriple,
-            "PitcherHomerunsAllowed": report.pitcherHomerunsAllowed,
-            "PitcherGroundOuts": report.pitcherGroundOuts,
-            "PitcherFlyouts": report.pitcherFlyouts,
-            "PitcherRunsAllowed": report.pitcherRunsAllowed,
+            "PitcherHitsAllowed": parseInt(report[23]),
+            "PitcherPitchingHitSingle": parseInt(report[24]),
+            "PitcherHitDouble": parseInt(report[25]),
+            "PitcherHitTriple": parseInt(report[26]),
+            "PitcherHomerunsAllowed": parseInt(report[27]),
+            "PitcherGroundOuts": parseInt(report[28]),
+            "PitcherFlyouts": parseInt(report[29]),
+            "PitcherRunsAllowed": parseInt(report[30]),
 
-            "BatterPlateAppearances": report.batterPlateAppearances,
-            "BatterOnBaseCount": report.batterOnBaseCount,
-            "BatterHitByPitch": report.batterHitByPitch,
-            "BatterBalls": report.batterBalls,
-            "BatterBaseOnBalls": report.batterBaseOnBalls,
-            "BatterStrikes": report.batterStrikes,
-            "BatterStrikeouts": report.batterStrikeouts,
-            "BatterFoulBalls": report.batterFoulBalls,
+            "BatterPlateAppearances": parseInt(report[31]),
+            "BatterOnBaseCount": parseInt(report[32]),
+            "BatterHitByPitch": parseInt(report[33]),
+            "BatterBalls": parseInt(report[34]),
+            "BatterBaseOnBalls": parseInt(report[35]),
+            "BatterStrikes": parseInt(report[36]),
+            "BatterStrikeouts": parseInt(report[37]),
+            "BatterFoulBalls": parseInt(report[38]),
 
-            "BatterHit": report.batterHit,
-            "BatterSingle": report.batterSingle,
-            "BatterDouble": report.batterDouble,
-            "BatterTriple": report.batterTriple,
-            "BatterHomerun": report.batterHomerun,
-            "BatterSacFly": report.batterSacFly,
-            "BattterRbi": report.BattterRbi,
-            "BatterGroundOut": report.batterGroundOut,
-            "BatterOutByDoublePlay": report.batterOutByDoublePlay,
-            "BatterOutByTriplePlay": report.batterOutByTriplePlay,
-            "BatterFlyout": report.batterFlyout,
-            "BatterRisp": report.batterRisp,
-            "BatterRispSuccess": report.batterRispSuccess,
-            "BatterRispFail": report.batterRispFail,
+            "BatterHit": parseInt(report[39]),
+            "BatterSingle": parseInt(report[40]),
+            "BatterDouble": parseInt(report[41]),
+            "BatterTriple": parseInt(report[42]),
+            "BatterHomerun": parseInt(report[43]),
+            "BatterSacFly": parseInt(report[44]),
+            "BattterRbi": parseInt(report[45]),
+            "BatterGroundOut": parseInt(report[46]),
+            "BatterOutByDoublePlay": parseInt(report[47]),
+            "BatterOutByTriplePlay": parseInt(report[48]),
+            "BatterFlyout": parseInt(report[49]),
+            "BatterRisp": parseInt(report[50]),
+            "BatterRispSuccess": parseInt(report[51]),
+            "BatterRispFail": parseInt(report[52]),
 
-            "RunnerAdvancedToSecond": report.runnerAdvancedToSecond,
-            "RunnderAdvancedToThird": report.RunnderAdvancedToThird,
-            "RunnerRisp": report.runnerRisp,
-            "RunnerRunScored": report.runnerRunScored,
-            "RunnerStolenBases": report.runnerStolenBases,
-            "RunnerCaughtStealing": report.runnerCaughtStealing,
-            "RunnerPickedOff": report.runnerPickedOff,
-            "RunnerTotalBases": report.runnerTotalBases,
-            "RunnerForcedOut": report.runnerForcedOut,
-            "RunnerTaggedOut": report.runnerTaggedOut,
+            "RunnerAdvancedToSecond": parseInt(report[53]),
+            "RunnderAdvancedToThird": parseInt(report[54]),
+            "RunnerRisp": parseInt(report[55]),
+            "RunnerRunScored": parseInt(report[56]),
+            "RunnerStolenBases": parseInt(report[57]),
+            "RunnerCaughtStealing": parseInt(report[58]),
+            "RunnerPickedOff": parseInt(report[59]),
+            "RunnerTotalBases": parseInt(report[60]),
+            "RunnerForcedOut": parseInt(report[61]),
+            "RunnerTaggedOut": parseInt(report[61])
         }
 
         // post the report
         try {
-            await axios.post('https://localhost:44394/api/playerscoutingreport/add', reportInfo);
+            const response = await axios.post('https://localhost:44394/api/playerscoutingreport/add', reportInfo);
             console.log("good api call");
         }
         catch(ex){
@@ -169,11 +188,18 @@ const NewScoutingReport = (props) => {
     // submits new player request
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        setScoutId(scout.id);
+        console.log(scoutId);
+
+
+
         // push all the form values into newScoutingReport
         newScoutingReport.push(firstName, lastName, playerBaseballTeamName, opponentTeam, myOrganization, pitcherTotalPitches, pitcherWin, pitcherLoss, pitcherInningsPitched, pitcherSave, pitcherBlownSave, careerPitchingCompleteGame, pitcherTotalBalls, pitcherWalksGiven, pitcherTotalStrikes, pitcherTotalStrikeouts, pitcherFoulBallsHit, pitcherHitBatter, pitcherWildPitch, pitcherPickOffAttempts, pitcherPickOfSuccess, pitcherNumberOfBattersFaced, pitcherHitsAllowed, pitcherPitchingHitSingle, pitcherHitDouble, pitcherHitTriple, pitcherHomerunsAllowed, pitcherGroundOuts, pitcherFlyouts, pitcherRunsAllowed, batterPlateAppearances, batterOnBaseCount, batterHitByPitch, batterBalls, batterBaseOnBalls, batterStrikes, batterStrikeouts, batterFoulBalls, batterHit, batterSingle, batterDouble, batterTriple, batterHomerun, batterSacFly, BattterRbi, batterGroundOut, batterOutByDoublePlay, batterOutByTriplePlay, batterFlyout, batterRisp, batterRispSuccess, batterRispFail, runnerAdvancedToSecond, RunnderAdvancedToThird, runnerRisp, runnerRunScored, runnerStolenBases, runnerCaughtStealing, runnerPickedOff, runnerTotalBases, runnerForcedOut, runnerTaggedOut);
 
+
         console.log(newScoutingReport);
-        //saveScoutingReport(newScoutingReport);
+        saveScoutingReport(newScoutingReport);
     }
 
     // add player form
