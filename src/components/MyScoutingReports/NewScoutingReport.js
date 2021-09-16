@@ -193,7 +193,6 @@ const NewScoutingReport = (props) => {
         // push all the form values into newScoutingReport
         newScoutingReport.push(firstName, lastName, playerBaseballTeamName, opponentTeam, myOrganization, scoutingReportNotesBody, pitcherTotalPitches, pitcherWin, pitcherLoss, pitcherInningsPitched, pitcherSave, pitcherBlownSave, careerPitchingCompleteGame, pitcherTotalBalls, pitcherWalksGiven, pitcherTotalStrikes, pitcherTotalStrikeouts, pitcherFoulBallsHit, pitcherHitBatter, pitcherWildPitch, pitcherPickOffAttempts, pitcherPickOfSuccess, pitcherNumberOfBattersFaced, pitcherHitsAllowed, pitcherPitchingHitSingle, pitcherHitDouble, pitcherHitTriple, pitcherHomerunsAllowed, pitcherGroundOuts, pitcherFlyouts, pitcherRunsAllowed, batterPlateAppearances, batterOnBaseCount, batterHitByPitch, batterBalls, batterBaseOnBalls, batterStrikes, batterStrikeouts, batterFoulBalls, batterHit, batterSingle, batterDouble, batterTriple, batterHomerun, batterSacFly, BattterRbi, batterGroundOut, batterOutByDoublePlay, batterOutByTriplePlay, batterFlyout, batterRisp, batterRispSuccess, batterRispFail, runnerAdvancedToSecond, RunnderAdvancedToThird, runnerRisp, runnerRunScored, runnerStolenBases, runnerCaughtStealing, runnerPickedOff, runnerTotalBases, runnerForcedOut, runnerTaggedOut);
 
-        console.log(newScoutingReport);
         saveScoutingReport(newScoutingReport);
     }
 
@@ -221,163 +220,163 @@ const NewScoutingReport = (props) => {
                 <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
                 <h3>Scouting Reports Notes</h3>
-                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="4" cols="50" />
+                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="10" cols="60" />
 
                 <h2>Pitching</h2>
                 
                 <h4>Pitching Game Stats</h4>
 
                 <label>Total Pitches</label>
-                <input type="number" value={pitcherTotalPitches} onChange={(event) => setpitcherTotalPitches(event.target.value)} required class="ms-3 mb-3" />
-                <br/>
+                <input type="number" value={pitcherTotalPitches} onChange={(event) => setpitcherTotalPitches(event.target.value)} required class="ms-3 me-3 mb-3" />
+
+                <label>Batters Faced</label>
+                <input type="number" value={pitcherNumberOfBattersFaced} onChange={(event) => setpitcherNumberOfBattersFaced(event.target.value)} required class="ms-3 mb-3" /><br/>
+                                
+                <label>Innings Pitched</label>
+                <input type="number" value={pitcherInningsPitched} onChange={(event) => setpitcherInningsPitched(event.target.value)} required class="ms-3 me-3 mb-3" />
+
+                <label>Comlete Game</label>
+                <input type="number" value={careerPitchingCompleteGame} onChange={(event) => setcareerPitchingCompleteGame(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Win</label>
-                <input type="number" value={pitcherWin} onChange={(event) => setpitcherWin(event.target.value)} required class="ms-3 mb-3" />
-                <br/>
+                <input type="number" value={pitcherWin} onChange={(event) => setpitcherWin(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Loss</label>
                 <input type="number" value={pitcherLoss} onChange={(event) => setpitcherLoss(event.target.value)} required class="ms-3 mb-3" />
                 <br/>
-                
-                <label>Innings Pitched</label>
-                <input type="number" value={pitcherInningsPitched} onChange={(event) => setpitcherInningsPitched(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Save</label>
-                <input type="number" value={pitcherSave} onChange={(event) => setpitcherSave(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherSave} onChange={(event) => setpitcherSave(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Blown Save</label>
                 <input type="number" value={pitcherBlownSave} onChange={(event) => setpitcherBlownSave(event.target.value)} required class="ms-3 mb-3" /><br/>
-
-                <label>Comlete Game</label>
-                <input type="number" value={careerPitchingCompleteGame} onChange={(event) => setcareerPitchingCompleteGame(event.target.value)} required class="ms-3 mb-3" /><br/>
 
 
                 <h4>Pitching Results</h4>
 
                 <label>Balls</label>
-                <input type="number" value={pitcherTotalBalls} onChange={(event) => setpitcherTotalBalls(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherTotalBalls} onChange={(event) => setpitcherTotalBalls(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Walks</label>
                 <input type="number" value={pitcherWalksGiven} onChange={(event) => setpitcherWalksGiven(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Strikes</label>
-                <input type="number" value={pitcherTotalStrikes} onChange={(event) => setpitcherTotalStrikes(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherTotalStrikes} onChange={(event) => setpitcherTotalStrikes(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Strikeouts</label>
                 <input type="number" value={pitcherTotalStrikeouts} onChange={(event) => setpitcherTotalStrikeouts(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Foul Balls</label>
-                <input type="number" value={pitcherFoulBallsHit} onChange={(event) => setpitcherFoulBallsHit(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherFoulBallsHit} onChange={(event) => setpitcherFoulBallsHit(event.target.value)} required class="ms-3 me-3 mb-3" /> <br/>
 
                 <label>Hit Batters</label>
-                <input type="number" value={pitcherHitBatter} onChange={(event) => setpitcherHitBatter(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherHitBatter} onChange={(event) => setpitcherHitBatter(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Wild Pitches</label>
                 <input type="number" value={pitcherWildPitch} onChange={(event) => setpitcherWildPitch(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Pickoff Attempts</label>
-                <input type="number" value={pitcherPickOffAttempts} onChange={(event) => setpitcherPickOffAttempts(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherPickOffAttempts} onChange={(event) => setpitcherPickOffAttempts(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Pickoff Success</label>
                 <input type="number" value={pitcherPickOfSuccess} onChange={(event) => setpitcherPickOfSuccess(event.target.value)} required class="ms-3 mb-3" /><br/>
 
-                <label>Batters Faced</label>
-                <input type="number" value={pitcherNumberOfBattersFaced} onChange={(event) => setpitcherNumberOfBattersFaced(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <h4>Pitcher Contact Results</h4>
 
                 <label>Hits Allowed</label>
-                <input type="number" value={pitcherHitsAllowed} onChange={(event) => setpitcherHitsAllowed(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherHitsAllowed} onChange={(event) => setpitcherHitsAllowed(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Singles</label>
                 <input type="number" value={pitcherPitchingHitSingle} onChange={(event) => setpitcherPitchingHitSingle(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Doubles</label>
-                <input type="number" value={pitcherHitDouble} onChange={(event) => setpitcherHitDouble(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherHitDouble} onChange={(event) => setpitcherHitDouble(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Triples</label>
                 <input type="number" value={pitcherHitTriple} onChange={(event) => setpitcherHitTriple(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Homeruns Allowed</label>
-                <input type="number" value={pitcherHomerunsAllowed} onChange={(event) => setpitcherHomerunsAllowed(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherHomerunsAllowed} onChange={(event) => setpitcherHomerunsAllowed(event.target.value)} required class="ms-3 me-3 mb-3" />
+
+                <label>Runs Allowed</label>
+                <input type="number" value={pitcherRunsAllowed} onChange={(event) => setpitcherRunsAllowed(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Groundouts</label>
-                <input type="number" value={pitcherGroundOuts} onChange={(event) => setpitcherGroundOuts(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherGroundOuts} onChange={(event) => setpitcherGroundOuts(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Flyouts</label>
                 <input type="number" value={pitcherFlyouts} onChange={(event) => setpitcherFlyouts(event.target.value)} required class="ms-3 mb-3" /><br/>
 
-                <label>Runs Allowed</label>
-                <input type="number" value={pitcherRunsAllowed} onChange={(event) => setpitcherRunsAllowed(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <h2>Batting Stats</h2>
 
                 <h4>At the Plate</h4>
 
                 <label>Plate Appearances</label>
-                <input type="number" value={batterPlateAppearances} onChange={(event) => setbatterPlateAppearances(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterPlateAppearances} onChange={(event) => setbatterPlateAppearances(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>On Base Count</label>
                 <input type="number" value={batterOnBaseCount} onChange={(event) => setbatterOnBaseCount(event.target.value)} required class="ms-3 mb-3" /><br/>
 
-                <label>Hit By Pitch</label>
-                <input type="number" value={batterHitByPitch} onChange={(event) => setbatterHitByPitch(event.target.value)} required class="ms-3 mb-3" /><br/>
-
                 <label>Balls Taken</label>
-                <input type="number" value={batterBalls} onChange={(event) => setbatterBalls(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterBalls} onChange={(event) => setbatterBalls(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Base on Balls</label>
                 <input type="number" value={batterBaseOnBalls} onChange={(event) => setbatterBaseOnBalls(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Strikes</label>
-                <input type="number" value={batterStrikes} onChange={(event) => setbatterStrikes(event.target.value)} required class="ms-3 mb-3" /><br/>
-
+                <input type="number" value={batterStrikes} onChange={(event) => setbatterStrikes(event.target.value)} required class="ms-3 me-3 mb-3" />
+                
                 <label>Strikeouts</label>
                 <input type="number" value={batterStrikeouts} onChange={(event) => setbatterStrikeouts(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Foul Balls</label>
-                <input type="number" value={batterFoulBalls} onChange={(event) => setbatterFoulBalls(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterFoulBalls} onChange={(event) => setbatterFoulBalls(event.target.value)} required class="ms-3 me-3 mb-3" />
+
+                <label>Hit By Pitch</label>
+                <input type="number" value={batterHitByPitch} onChange={(event) => setbatterHitByPitch(event.target.value)} required class="ms-3 me-3 mb-3" /><br/>
 
                 <h4>Ball Put in Play</h4>
 
                 <label>Hit</label>
-                <input type="number" value={batterHit} onChange={(event) => setbatterHit(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterHit} onChange={(event) => setbatterHit(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Single</label>
                 <input type="number" value={batterSingle} onChange={(event) => setbatterSingle(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Double</label>
-                <input type="number" value={batterDouble} onChange={(event) => setbatterDouble(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterDouble} onChange={(event) => setbatterDouble(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Triple</label>
                 <input type="number" value={batterTriple} onChange={(event) => setbatterTriple(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Homerun</label>
-                <input type="number" value={batterHomerun} onChange={(event) => setbatterHomerun(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterHomerun} onChange={(event) => setbatterHomerun(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>SacFly</label>
                 <input type="number" value={batterSacFly} onChange={(event) => setbatterSacFly(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>RBIs</label>
-                <input type="number" value={BattterRbi} onChange={(event) => setBattterRbi(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={BattterRbi} onChange={(event) => setBattterRbi(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Groundout</label>
                 <input type="number" value={batterGroundOut} onChange={(event) => setbatterGroundOut(event.target.value)} required class="ms-3 mb-3" /><br/>
 
-                <label>Flyout</label>
-                <input type="number" value={batterFlyout} onChange={(event) => setbatterFlyout(event.target.value)} required class="ms-3 mb-3" /><br/>
-
                 <label>Hit into Double Play</label>
-                <input type="number" value={batterOutByDoublePlay} onChange={(event) => setbatterOutByDoublePlay(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterOutByDoublePlay} onChange={(event) => setbatterOutByDoublePlay(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Hit into Triple Play</label>
                 <input type="number" value={batterOutByTriplePlay} onChange={(event) => setbatterOutByTriplePlay(event.target.value)} required class="ms-3 mb-3" /><br/>
+
+                <label>Flyout</label>
+                <input type="number" value={batterFlyout} onChange={(event) => setbatterFlyout(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>RISP</label>
                 <input type="number" value={batterRisp} onChange={(event) => setbatterRisp(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>RISP Success</label>
-                <input type="number" value={batterRispSuccess} onChange={(event) => setbatterRispSuccess(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterRispSuccess} onChange={(event) => setbatterRispSuccess(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>RISP Fail</label>
                 <input type="number" value={batterRispFail} onChange={(event) => setbatterRispFail(event.target.value)} required class="ms-3 mb-3" /><br/>
@@ -385,31 +384,31 @@ const NewScoutingReport = (props) => {
                 <h4>Baserunning Stats</h4>
 
                 <label>Advanced to 2nd</label>
-                <input type="number" value={runnerAdvancedToSecond} onChange={(event) => setrunnerAdvancedToSecond(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerAdvancedToSecond} onChange={(event) => setrunnerAdvancedToSecond(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Advanced to 3rd</label>
                 <input type="number" value={RunnderAdvancedToThird} onChange={(event) => setRunnderAdvancedToThird(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>ISP</label>
-                <input type="number" value={runnerRisp} onChange={(event) => setrunnerRisp(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerRisp} onChange={(event) => setrunnerRisp(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Run Scored</label>
                 <input type="number" value={runnerRunScored} onChange={(event) => setrunnerRunScored(event.target.value)} required class="ms-3 mb-3" /><br/>
 
                 <label>Stolen Bases</label>
-                <input type="number" value={runnerStolenBases} onChange={(event) => setrunnerStolenBases(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerStolenBases} onChange={(event) => setrunnerStolenBases(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Caught Stealing</label>
                 <input type="number" value={runnerCaughtStealing} onChange={(event) => setrunnerCaughtStealing(event.target.value)} required class="ms-3 mb-3" /><br/>
 
+                <label>Total Bases</label>
+                <input type="number" value={runnerTotalBases} onChange={(event) => setrunnerTotalBases(event.target.value)} required class="ms-3 me-3 mb-3" />
+
                 <label>Picked Off</label>
                 <input type="number" value={runnerPickedOff} onChange={(event) => setrunnerPickedOff(event.target.value)} required class="ms-3 mb-3" /><br/>
 
-                <label>Total Bases</label>
-                <input type="number" value={runnerTotalBases} onChange={(event) => setrunnerTotalBases(event.target.value)} required class="ms-3 mb-3" /><br/>
-
                 <label>Forced Out</label>
-                <input type="number" value={runnerForcedOut} onChange={(event) => setrunnerForcedOut(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerForcedOut} onChange={(event) => setrunnerForcedOut(event.target.value)} required class="ms-3 me-3 mb-3" />
 
                 <label>Tagged Out</label>
                 <input type="number" value={runnerTaggedOut} onChange={(event) => setrunnerTaggedOut(event.target.value)} required class="ms-3 mb-3" /><br/>

@@ -11,6 +11,7 @@ import MyPlayers from "./MyPlayers/MyPlayers";
 import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
     import NewScoutingReport from "./MyScoutingReports/NewScoutingReport";
+    import ReviewScoutingReport from "./MyScoutingReports/ReviewScoutingReport";
 import MyOrg from "./MyOrg/MyOrg";
     import AddOrgMessage from "./MyOrg/AddOrgMessage";
 import MyTeams from "./MyTeams/MyTeams";
@@ -62,6 +63,8 @@ class App extends Component {
                             <Route path="/myplayers" exact component={MyPlayers} />
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
                                 <Route path="/myscoutingreports/newscoutingreport" exact component={NewScoutingReport} />
+                                <Route path="/myscoutingreports/newscoutingreport/review" exact component={ReviewScoutingReport} />
+
                             <Route path="/addPlayer" exact component={AddPlayer} />
                             <Route path="/myplayers/editplayer" exact component={EditPlayer} />
                                 <Route path="/myplayers/:playerProfileId" exact render={props => { return <ViewPlayerProfile {...props} />; }} />
