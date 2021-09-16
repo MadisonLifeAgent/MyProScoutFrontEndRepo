@@ -7,14 +7,14 @@ const UseGetPlayers = () => {
 
     // get all players in database
     async function getPlayers() {
-        try{
+        //try{
             let response = await axios.get(`https://localhost:44394/api/playerprofile/all`);
             // if good api call ste the teamRegions
             setPlayers(response.data);
-        }
+/*         }
         catch(ex) {
             console.log("bad api call");
-        }
+        } */
     }
        
    // get payers as soon as hook is requested

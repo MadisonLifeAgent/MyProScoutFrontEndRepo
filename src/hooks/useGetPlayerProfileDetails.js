@@ -3,18 +3,19 @@ import axios from 'axios';
 
 // this hook gets all players
 const UseGetPlayerProfileDetails = (playerId) => {
-   const [player, setPlayer] = useState({});
+   const [player, setPlayer] = useState([]);
 
     // get all players in database
     async function getPlayerProfile(playerProfileId) {
-        try{
+        //try{
             let response = await axios.get(`https://localhost:44394/api/playerprofile/${playerProfileId}`);
-            // if good api call ste the teamRegions
+            // if good api call set player
             setPlayer(response.data);
-        }
-        catch(ex) {
+            
+        //}
+/*         catch(ex) {
             console.log("bad api call");
-        }
+        } */
     }
        
    // get payers as soon as hook is requested

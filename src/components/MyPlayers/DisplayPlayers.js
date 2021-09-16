@@ -12,21 +12,20 @@ const DisplayPlayers = (props) => {
     const [{players}] = UseGetPlayers([{}]);
 
     async function deletePlayer(playerId) {
-        try{
+        //try{
             let response = await axios.delete(`https://localhost:44394/api/playerprofile/delete/${playerId}`);
 
-            console.log("player deleted");
+            //console.log("player deleted");
             window.location = '/myplayers';
-        }
+        /* }
         catch(ex) {
             console.log("bad api call");
-        }
+        } */
     }
 
     // display all players and edit/delete buttons
     const showPLayers = players.map((item) => {
         const playerProfileId = item.playerProfileId;
-        console.log(playerProfileId);
         const handleClick = (item) => {
             //<EditTeam players={item} />
         }

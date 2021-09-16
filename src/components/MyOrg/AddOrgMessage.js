@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import axios from 'axios';
 import jwtDecode from "jwt-decode";
 
-
+import useGetOrganization from "../../hooks/useGetOrganization";
 
 // Scout Login Form
 const AddOrgMessage = (props) => {
-    const organizationId = props.orgId;
     //get user
     const jwt = localStorage.getItem('token');
     function getUser() {
@@ -17,40 +16,44 @@ const AddOrgMessage = (props) => {
         }
     }
 
+    // get the scout info
     const scout = getUser();
+
+    // get organization info
+    const organization = useGetOrganization(scout.id);
+
     // store user input
     const [organizationMessageTitle, setOrganizationMessageTitle] = useState('');
     const [organizationMessageBody, setOrganizationMessageBody] = useState('');
 
-
+    const messageInfo = {
+        "OrganizationMessageTitle": organizationMessageTitle,
+        "OrganizationMessageBody": organizationMessageBody,
+        "Id": scout.id,
+        //"Id": id,
+        "OrganizationId": organization.organizationId
+        //"OrganizationId": 3
+    }
 
     // call the database and try to post message
     //async function addNewOrgMessage(messageTitle, messageBody, id, orgId) {
-    async function addNewOrgMessage(messageTitle, messageBody) {
+    async function addNewOrgMessage(message) {
 
-        const messageInfo = {
-            "OrganizationMessageTitle": messageTitle,
-            "OrganizationMessageBody": messageBody,
-            "Id": "50dc0385-c59f-4ab4-8fcf-a95dc7c605c7",
-            //"Id": id,
-            "OrganizationId": 3
-            //"OrganizationId": 3
-            }
+        let response = await axios.post('https://localhost:44394/api/organizationmessages/add', message);
 
-        let response = await axios.post('https://localhost:44394/api/organizationmessages/add', messageInfo);
         
-        if (response) {
+/*         if (response) {
             console.log("good call");
             // refresh and send user to home page
-            window.location = "/myorg";
+            //window.location = "/myorg";
         } else {
             console.log("bad api call");
-        }
+        } */
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();     
-        addNewOrgMessage(organizationMessageTitle, organizationMessageBody);
+        addNewOrgMessage(messageInfo);
     }
 
     // login form

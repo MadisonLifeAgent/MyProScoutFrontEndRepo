@@ -15,14 +15,11 @@ const useLogin = (loginInfo) => {
         
         if (response.data.token) {
             localStorage.setItem('token', response.data.token);
-            console.log("good login");
-            console.log(response.data.token);
-
             // refresh and send user to home page
             window.location = "/";
-        } else {
+        }/*  else {
             console.log("bad api call");
-        }
+        } */
     }
 
     // start trying to login as soon as hook is called

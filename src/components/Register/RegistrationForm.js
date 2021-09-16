@@ -16,7 +16,6 @@ const RegistrationForm = ({ registerScout }) => {
 	
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(userName);
 		
 		// set registration information
 		registerScout.registerScout(firstName, lastName, userName, password, email, phoneNumber);

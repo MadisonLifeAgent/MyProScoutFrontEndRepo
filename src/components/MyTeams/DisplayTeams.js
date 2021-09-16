@@ -10,19 +10,17 @@ import EditTeam from './EditTeam';
 const DisplayTeams = (props) => {
     // get all teams
     const [{teams}] = UseGetTeams([{}]);
-    console.log("teams");
-    console.log(teams);
 
     async function deleteTeam(teamId) {
-        try{
+        //try{
             let response = await axios.delete(`https://localhost:44394/api/baseballteams/delete/${teamId}`);
             // if good api call ste the teamRegions
-            console.log("team deleted");
+            //console.log("team deleted");
             window.location = '/myteams';
-        }
+/*         }
         catch(ex) {
             console.log("bad api call");
-        }
+        } */
     }
 
     

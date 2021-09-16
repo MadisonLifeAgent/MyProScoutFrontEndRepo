@@ -7,15 +7,15 @@ const useGetOrganization = (id) => {
 
     // query database for organization
     async function getOrganization(userId) {
-        try{
+        //try{
             let response = await axios.get(`https://localhost:44394/api/scoutorganizationjoin/${userId}`);
             // if good api call set scoutOrganizatin
-            console.log(response.data);
+            //console.log(response.data);
             setScoutOrganization(response.data);
-        }
-        catch(ex) {
+        /*}
+         catch(ex) {
             console.log("bad api call");
-        }
+        } */
     }
        
    // get organization as soon as hook is requested

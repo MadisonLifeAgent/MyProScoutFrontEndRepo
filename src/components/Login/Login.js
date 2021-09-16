@@ -22,19 +22,17 @@ const Login = () => {
         if (response.data.token) {
             // store toke if login successful
             localStorage.setItem('token', response.data.token);
-            console.log("good login");
+            //console.log("good login");
 
             // refresh and send user to home page
             window.location = "/";
-        } else {
+        } /* else {
             console.log("bad api call");
-        }
+        } */
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(username);
-        
+        event.preventDefault();       
         loginRequest(username, password);
     }
 

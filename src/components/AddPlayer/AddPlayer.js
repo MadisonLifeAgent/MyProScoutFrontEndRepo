@@ -110,15 +110,15 @@ const AddPlayer = (props) => {
             "CareerForcedOut": 0,
             "CareerTaggedOut": 0
         }
-        try{
+        // try{
             await axios.post('https://localhost:44394/api/playerprofile/add', newPlayerInfo);
-            console.log("good api call");
+            //console.log("good api call");
             window.location = '/myplayers';
-        }
+        /* }
         catch(ex){
             console.log("bad api call");
 
-        }
+        } */
     }
 
     // submits new player request

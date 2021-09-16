@@ -26,12 +26,12 @@ const Registration = () => {
 		}
 		let response = await axios.post(`https://localhost:44394/api/authentication/myproscout`, registrationInfo);
 		
-		if (response) {
+/* 		if (response) {
 			console.log(response.data);
 			console.log("good api call");
 		} else {
 			console.log("bad api call");
-		}
+		} */
 	}
 	
 	// submits account registration request

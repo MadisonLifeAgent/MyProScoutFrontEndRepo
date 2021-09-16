@@ -13,7 +13,6 @@ const AddTeam = () => {
 
     // call the database and try to create team
 	async function createNewTeam(newTeamName, newTeamRegion, newTeamCompetitionLevelName) {
-        console.log(newTeamCompetitionLevelName);
 
 		const newTeamInfo = {
             "BaseballTeamName": newTeamName,
@@ -22,17 +21,14 @@ const AddTeam = () => {
 		}
 		let response = await axios.post(`https://localhost:44394/api/baseballteams/add`, newTeamInfo);
 		
-		if (response) {
+/* 		if (response) {
 			console.log("good api call");
 		} else {
 			console.log("bad api call");
-		}
+		} */
 	}
     const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(teamName);
-        console.log(region);
-		console.log(competitionLevel);
 		createNewTeam(teamName, region, competitionLevel);
 		window.location = '/myteams';
 	}

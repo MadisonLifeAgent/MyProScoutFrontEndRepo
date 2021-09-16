@@ -20,13 +20,13 @@ const EditMyProfile = (props) => {
     async function getScoutInformation(token) {
     	const response  = await axios.get(`https://localhost:44394/api/myproscout/user`, { headers: {Authorization: 'Bearer ' + token}});
 		
-		if (response.data) {
-			console.log("good api call");
+		/* if (response.data) {
+			console.log("good api call"); */
             setCurrentuser(response.data);
             setId(response.data.id);
-		} else {
+		/* } else {
 			console.log("bad api call");
-		}
+		} */
 	}
 
     // get scout information that is to be edited

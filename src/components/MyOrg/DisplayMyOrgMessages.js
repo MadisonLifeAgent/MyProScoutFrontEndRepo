@@ -1,12 +1,9 @@
 
 import React from "react";
-import axios from 'axios';
-import jwtDecode from "jwt-decode";
-
-
 
 // Component or hook imports
 import useGetOrgMessages from "../../hooks/useGetOrgMessages";
+
 
 // this component gets players and displays them
 const DisplayMyOrgMessages = (props) => {
@@ -14,14 +11,12 @@ const DisplayMyOrgMessages = (props) => {
     const organization = props.organization;
 
     // get all players
-    const {orgMessages} = useGetOrgMessages(organization.organizationId);
-    console.log(orgMessages);
+    const orgMessages = useGetOrgMessages(organization.organizationId);
 
     // display all organization messages
 
     const showMessages = () =>{
-        console.log(orgMessages.orgMessages)
-        return orgMessages.orgMessages.map((item) => {
+        return orgMessages.map((item) => {
 
             return (
                 <React.Fragment>
@@ -38,7 +33,7 @@ const DisplayMyOrgMessages = (props) => {
 
 
     // displays organization messages
-    if(orgMessages != undefined){
+    if(orgMessages !== undefined){
         return (
             <div>
                 <h3>Recent Messages</h3>
@@ -49,8 +44,10 @@ const DisplayMyOrgMessages = (props) => {
             </div>
         )
     }
-    else{
-        return null
+    else if (orgMessages === undefined) {
+        return (
+            <p>Messages Loading...</p>
+        )
     }
         
     }

@@ -10,6 +10,7 @@ import MyPlayers from "./MyPlayers/MyPlayers";
     import ViewPlayerProfile from './MyPlayers/ViewPlayerProfile';
 import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
+    import NewScoutingReport from "./MyScoutingReports/NewScoutingReport";
 import MyOrg from "./MyOrg/MyOrg";
     import AddOrgMessage from "./MyOrg/AddOrgMessage";
 import MyTeams from "./MyTeams/MyTeams";
@@ -36,7 +37,6 @@ class App extends Component {
             this.setState({
                 user
             })
-            console.log(user);
         } catch {
         }
     }
@@ -61,6 +61,7 @@ class App extends Component {
 
                             <Route path="/myplayers" exact component={MyPlayers} />
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
+                                <Route path="/myscoutingreports/newscoutingreport" exact component={NewScoutingReport} />
                             <Route path="/addPlayer" exact component={AddPlayer} />
                             <Route path="/myplayers/editplayer" exact component={EditPlayer} />
                                 <Route path="/myplayers/:playerProfileId" exact render={props => { return <ViewPlayerProfile {...props} />; }} />

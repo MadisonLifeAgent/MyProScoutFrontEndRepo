@@ -18,12 +18,11 @@ const ScoutLastName = (props) => {
 
 		let response = await axios.put(`https://localhost:44394/api/myproscout/edit/lastname`, updateInfo);
 		
-		if (response) {
-			console.log(response.data);
+/* 		if (response) {
 			console.log("firstnamegood api call");
 		} else {
 			console.log("bad api call");
-		}
+		} */
 	}
 	
     // submits account registration request

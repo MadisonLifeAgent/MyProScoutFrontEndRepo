@@ -8,15 +8,14 @@ const useGetTeamRegions = () => {
 
    // get all available regions
    async function getRegions() {
-       try{
+       //try{
            let response = await axios.get(`https://localhost:44394/api/regions/`);
            // if good api call ste the teamRegions
-           console.log(response.data);
            setTeamRegions([response.data]);
-       }
+/*        }
        catch(ex) {
            console.log("bad api call");
-       }
+       } */
    }
        
    // get regions as soon as Add Team componenet is requested
@@ -26,7 +25,6 @@ const useGetTeamRegions = () => {
 
    	// map out the team regions and display them
 	const showRegions = teamRegions.map((item) => {
-		console.log(item[0].regionName);
 		const region = {
 			id: item.regionId,
 			name: item.regionName
