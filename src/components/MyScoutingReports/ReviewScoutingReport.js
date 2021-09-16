@@ -1,7 +1,7 @@
 import React, { useState, useParams, useLocation } from "react";
 
 
-const ReviewScoutingReport = (props) => {
+export default function ReviewScoutingReport(props) {
     const newScoutingReport = props.newScoutingReport;
     console.log(newScoutingReport);
 
@@ -99,4 +99,4 @@ const ReviewScoutingReport = (props) => {
     )
 }
 
-export default ReviewScoutingReport;
+//export default ReviewScoutingReport;

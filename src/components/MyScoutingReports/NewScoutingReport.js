@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { Route, Switch } from 'react-router-dom';
+
 import jwtDecode from "jwt-decode";
 
 // Component or hook imports
 import usePostScoutingReport from "../../hooks/usePostScoutingReport";
+import ReviewScoutingReport from "./ReviewScoutingReport";
+
 
 // Scouting Report
 const NewScoutingReport = (props) => {
@@ -196,6 +200,8 @@ const NewScoutingReport = (props) => {
         saveScoutingReport(newScoutingReport);
     }
 
+    
+
     // add player form
     return (
         <div>
@@ -220,7 +226,7 @@ const NewScoutingReport = (props) => {
                 <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
                 <h3>Scouting Reports Notes</h3>
-                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="10" cols="60" />
+                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="6" cols="60" />
 
                 <h2>Pitching</h2>
                 
@@ -415,6 +421,16 @@ const NewScoutingReport = (props) => {
 
                 <input type="submit" value="Save Scouting Report" class="btn btn-primary ms-3 mb-3" />
             </form>
+
+
+            
+{/*             <ReviewScoutingReport newScoutingReport={newScoutingReport} />
+
+
+            <Switch>
+                <Route path="/myscoutingreports/newscoutingreport/review" exact component={ReviewScoutingReport} />
+            </Switch> */}
+        
         </div>
     );
 }

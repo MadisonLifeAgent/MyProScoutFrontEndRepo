@@ -15,207 +15,209 @@ const ViewPlayerProfile = (props) => {
 
     // console.log(player);
 
-    const player = useGetPlayerProfileDetails(2); // returns an array of objects
+    console.log(`myplayers/playerprofile}`, props.location.state.player);
+
+    const player = props.location.state.player; // returns an array of objects
 
     if (player !== undefined) {
         return (
             <div>
-                <p>{player[0].firstName} {player[0].lastName}
+                <p>{player.firstName} {player.lastName}
                     <br/>
-                    {player[0].playerPositionPrimaryName}
+                    {player.playerPositionPrimaryName}
             <br/>
-            Throws: {player[0].playerThrowingHandednessName}
+            Throws: {player.playerThrowingHandednessName}
             <br/>
-            Bats: {player[0].playerBattingHandednessName}
+            Bats: {player.playerBattingHandednessName}
             <br />
-            Player Type: {player[0].playerTypeName}
+            Player Type: {player.playerTypeName}
             <br/>
-            Height: {player[0].height}"
+            Height: {player.height}"
             <br/>
-            Weight: {player[0].weight} lbs.
+            Weight: {player.weight} lbs.
             <br />
-            Age: {player[0].age}
+            Age: {player.age}
             <br/>
-            Turned Pro: {player[0].yearTurnedPro}
+            Turned Pro: {player.yearTurnedPro}
             <br />
-            Current Team: {player[0].baseballTeamName}
+            Current Team: {player.baseballTeamName}
             <br/>
-            Secondary Position: {player[0].playerPositionSecondaryName}
+            Secondary Position: {player.playerPositionSecondaryName}
             <br/>
 
 
 
             A2nd
-            {player[0].careeradvancedToSecond}  <br/>
+            {player.careeradvancedToSecond}  <br/>
 
             A3rd
-            {player[0].careeradvancedToThird}  <br/>
+            {player.careeradvancedToThird}  <br/>
 
             BT
-            {player[0].careerballs}  <br/>
+            {player.careerballs}  <br/>
 
             BoB
-            {player[0].careerbaseOnBalls}  <br/>
+            {player.careerbaseOnBalls}  <br/>
 
             CS
-            {player[0].careercaughtStealing}  <br/>
+            {player.careercaughtStealing}  <br/>
 
             DD
-            {player[0].careerdoubles}  <br/>
+            {player.careerdoubles}  <br/>
 
             FlyO
-            {player[0].careerflyout}  <br/>
+            {player.careerflyout}  <br/>
 
             FO
-            {player[0].careerforcedOut}  <br/>
+            {player.careerforcedOut}  <br/>
 
             FB
-            {player[0].careerfoulBalls}  <br/>
+            {player.careerfoulBalls}  <br/>
 
             GIDP
-            {player[0].careergroundOutDoublePlay}  <br/>
+            {player.careergroundOutDoublePlay}  <br/>
 
             GOUT
-            {player[0].careergroundOuts}  <br/>
+            {player.careergroundOuts}  <br/>
 
             HBP
-            {player[0].careerhitByPitch}  <br/>
+            {player.careerhitByPitch}  <br/>
 
             Hits
-            {player[0].careerhits}  <br/>
+            {player.careerhits}  <br/>
 
             HRs
-            {player[0].careerhomeruns}  <br/>
+            {player.careerhomeruns}  <br/>
 
             ISP
-            {player[0].careerisp}  <br/>
+            {player.careerisp}  <br/>
 
             GOB
-            {player[0].careeronBaseCount}  <br/>
+            {player.careeronBaseCount}  <br/>
 
             OBTP
-            {player[0].careeroutByTriplePlay}  <br/>
+            {player.careeroutByTriplePlay}  <br/>
 
             PO
-            {player[0].careerpickedOff}  <br/>
+            {player.careerpickedOff}  <br/>
 
             BALLS
-            {player[0].careerpitchingBalls}  <br/>
+            {player.careerpitchingBalls}  <br/>
 
             BS
-            {player[0].careerpitchingBlownSaves}  <br/>
+            {player.careerpitchingBlownSaves}  <br/>
 
             CG
-            {player[0].careerpitchingCompleteGames}  <br/>
+            {player.careerpitchingCompleteGames}  <br/>
 
 
             PFLYOUT
-            {player[0].careerpitchingFlyout}  <br/>
+            {player.careerpitchingFlyout}  <br/>
 
             PFB
-            {player[0].careerpitchingFoulBalls}  <br/>
+            {player.careerpitchingFoulBalls}  <br/>
 
             PGOUT
-            {player[0].careerpitchingGroundOuts}  <br/>
+            {player.careerpitchingGroundOuts}  <br/>
 
             PHB
-            {player[0].careerpitchingHitBatter}  <br/>
+            {player.careerpitchingHitBatter}  <br/>
 
             PDOUB
-            {player[0].careerpitchingHitDoubles}  <br/>
+            {player.careerpitchingHitDoubles}  <br/>
 
             PSINGL
-            {player[0].careerpitchingHitSingle}  <br/>
+            {player.careerpitchingHitSingle}  <br/>
 
             PTRIP
-            {player[0].careerpitchingHitTriples}  <br/>
+            {player.careerpitchingHitTriples}  <br/>
 
             PHA
-            {player[0].careerpitchingHitsAllowed}  <br/>
+            {player.careerpitchingHitsAllowed}  <br/>
 
             PHRA
-            {player[0].careerpitchingHomeRunsAllowed}  <br/>
+            {player.careerpitchingHomeRunsAllowed}  <br/>
 
             PIP
-            {player[0].careerpitchingInningsPitched}  <br/>
+            {player.careerpitchingInningsPitched}  <br/>
 
             LOSS
-            {player[0].careerpitchingLosses}  <br/>
+            {player.careerpitchingLosses}  <br/>
 
             PBF
-            {player[0].careerpitchingNumberOfBattersFaced}  <br/>
+            {player.careerpitchingNumberOfBattersFaced}  <br/>
 
             POFA
-            {player[0].careerpitchingPickOffAttempt}  <br/>
+            {player.careerpitchingPickOffAttempt}  <br/>
 
             POFS
-            {player[0].careerpitchingPickOffSuccess}  <br/>
+            {player.careerpitchingPickOffSuccess}  <br/>
 
             PRA
-            {player[0].careerpitchingRunsAllowed}  <br/>
+            {player.careerpitchingRunsAllowed}  <br/>
 
             SAVES
-            {player[0].careerpitchingSaves}  <br/>
+            {player.careerpitchingSaves}  <br/>
 
             PKS
-            {player[0].careerpitchingStrikeouts}  <br/>
+            {player.careerpitchingStrikeouts}  <br/>
 
             PSTRIKES
-            {player[0].careerpitchingStrikes}  <br/>
+            {player.careerpitchingStrikes}  <br/>
 
             PWALKS
-            {player[0].careerpitchingWalks}  <br/>
+            {player.careerpitchingWalks}  <br/>
 
             PWILD
-            {player[0].careerpitchingWildPitch}  <br/>
+            {player.careerpitchingWildPitch}  <br/>
 
             WINS
-            {player[0].careerpitchingWins}  <br/>
+            {player.careerpitchingWins}  <br/>
 
             PA
-            {player[0].careerplateAppearances}  <br/>
+            {player.careerplateAppearances}  <br/>
 
             RBIS
-            {player[0].careerrbis}  <br/>
+            {player.careerrbis}  <br/>
 
             BRISP
-            {player[0].careerrisp}  <br/>
+            {player.careerrisp}  <br/>
 
             BRISPF
-            {player[0].careerrispFail}  <br/>
+            {player.careerrispFail}  <br/>
 
             BRISPS
-            {player[0].careerrispSuccess}  <br/>
+            {player.careerrispSuccess}  <br/>
 
             RS
-            {player[0].careerrunsScored}  <br/>
+            {player.careerrunsScored}  <br/>
 
             SAC
-            {player[0].careersacFly}  <br/>
+            {player.careersacFly}  <br/>
 
             S
-            {player[0].careersingles}  <br/>
+            {player.careersingles}  <br/>
 
             SB
-            {player[0].careerstolenBases}  <br/>
+            {player.careerstolenBases}  <br/>
 
             BKS
-            {player[0].careerstrikeOuts}  <br/>
+            {player.careerstrikeOuts}  <br/>
 
             BSTRIKES
-            {player[0].careerstrikes}  <br/>
+            {player.careerstrikes}  <br/>
 
             BTAG
-            {player[0].careertaggedOut}  <br/>
+            {player.careertaggedOut}  <br/>
 
             TB
-            {player[0].careertotalBases}  <br/>
+            {player.careertotalBases}  <br/>
 
             PTP
-            {player[0].careertotalPitches}  <br/>
+            {player.careertotalPitches}  <br/>
 
             TTT
-            {player[0].careertriples}  <br/>
+            {player.careertriples}  <br/>
 
 
 
@@ -240,198 +242,198 @@ const ViewPlayerProfile = (props) => {
         <div>
             <p>{player.firstName} {player.lastName} </p>
                 <br/>
-            {/* {player[0].playerPositionPrimaryName}
+            {/* {player.playerPositionPrimaryName}
             <br/>
-            Throws: {player[0].playerThrowingHandednessName}
+            Throws: {player.playerThrowingHandednessName}
             <br/>
-            Bats: {player[0].playerBattingHandednessName}
+            Bats: {player.playerBattingHandednessName}
             <br />
-            Player Type: {player[0].playerTypeName}
+            Player Type: {player.playerTypeName}
             <br/>
-            Height: {player[0].height}"
+            Height: {player.height}"
             <br/>
-            Weight: {player[0].weight} lbs.
+            Weight: {player.weight} lbs.
             <br />
-            Age: {player[0].age}
+            Age: {player.age}
             <br/>
-            Turned Pro: {player[0].yearTurnedPro}
+            Turned Pro: {player.yearTurnedPro}
             <br />
-            Current Team: {player[0].baseballTeamName}
+            Current Team: {player.baseballTeamName}
             <br/>
-            Secondary Position: {player[0].playerPositionSecondaryName}
+            Secondary Position: {player.playerPositionSecondaryName}
             </p>
 
             A2nd
-            {player[0].advancedToSecond}  <br/>
+            {player.advancedToSecond}  <br/>
 
             A3rd
-            {player[0].advancedToThird}  <br/>
+            {player.advancedToThird}  <br/>
 
             BT
-            {player[0].balls}  <br/>
+            {player.balls}  <br/>
 
             BoB
-            {player[0].baseOnBalls}  <br/>
+            {player.baseOnBalls}  <br/>
 
             CS
-            {player[0].caughtStealing}  <br/>
+            {player.caughtStealing}  <br/>
 
             DD
-            {player[0].doubles}  <br/>
+            {player.doubles}  <br/>
 
             FlyO
-            {player[0].flyout}  <br/>
+            {player.flyout}  <br/>
 
             FO
-            {player[0].forcedOut}  <br/>
+            {player.forcedOut}  <br/>
 
             FB
-            {player[0].foulBalls}  <br/>
+            {player.foulBalls}  <br/>
 
             GIDP
-            {player[0].groundOutDoublePlay}  <br/>
+            {player.groundOutDoublePlay}  <br/>
 
             GOUT
-            {player[0].groundOuts}  <br/>
+            {player.groundOuts}  <br/>
 
             HBP
-            {player[0].hitByPitch}  <br/>
+            {player.hitByPitch}  <br/>
 
             Hits
-            {player[0].hits}  <br/>
+            {player.hits}  <br/>
 
             HRs
-            {player[0].homeruns}  <br/>
+            {player.homeruns}  <br/>
 
             ISP
-            {player[0].isp}  <br/>
+            {player.isp}  <br/>
 
             GOB
-            {player[0].onBaseCount}  <br/>
+            {player.onBaseCount}  <br/>
 
             OBTP
-            {player[0].outByTriplePlay}  <br/>
+            {player.outByTriplePlay}  <br/>
 
             PO
-            {player[0].pickedOff}  <br/>
+            {player.pickedOff}  <br/>
 
             BALLS
-            {player[0].pitchingBalls}  <br/>
+            {player.pitchingBalls}  <br/>
 
             BS
-            {player[0].pitchingBlownSaves}  <br/>
+            {player.pitchingBlownSaves}  <br/>
 
             CG
-            {player[0].pitchingCompleteGames}  <br/>
+            {player.pitchingCompleteGames}  <br/>
 
 
             PFLYOUT
-            {player[0].pitchingFlyout}  <br/>
+            {player.pitchingFlyout}  <br/>
 
             PFB
-            {player[0].pitchingFoulBalls}  <br/>
+            {player.pitchingFoulBalls}  <br/>
 
             PGOUT
-            {player[0].pitchingGroundOuts}  <br/>
+            {player.pitchingGroundOuts}  <br/>
 
             PHB
-            {player[0].pitchingHitBatter}  <br/>
+            {player.pitchingHitBatter}  <br/>
 
             PDOUB
-            {player[0].pitchingHitDoubles}  <br/>
+            {player.pitchingHitDoubles}  <br/>
 
             PSINGL
-            {player[0].pitchingHitSingle}  <br/>
+            {player.pitchingHitSingle}  <br/>
 
             PTRIP
-            {player[0].pitchingHitTriples}  <br/>
+            {player.pitchingHitTriples}  <br/>
 
             PHA
-            {player[0].pitchingHitsAllowed}  <br/>
+            {player.pitchingHitsAllowed}  <br/>
 
             PHRA
-            {player[0].pitchingHomeRunsAllowed}  <br/>
+            {player.pitchingHomeRunsAllowed}  <br/>
 
             PIP
-            {player[0].pitchingInningsPitched}  <br/>
+            {player.pitchingInningsPitched}  <br/>
 
             LOSS
-            {player[0].pitchingLosses}  <br/>
+            {player.pitchingLosses}  <br/>
 
             PBF
-            {player[0].pitchingNumberOfBattersFaced}  <br/>
+            {player.pitchingNumberOfBattersFaced}  <br/>
 
             POFA
-            {player[0].pitchingPickOffAttempt}  <br/>
+            {player.pitchingPickOffAttempt}  <br/>
 
             POFS
-            {player[0].pitchingPickOffSuccess}  <br/>
+            {player.pitchingPickOffSuccess}  <br/>
 
             PRA
-            {player[0].pitchingRunsAllowed}  <br/>
+            {player.pitchingRunsAllowed}  <br/>
 
             SAVES
-            {player[0].pitchingSaves}  <br/>
+            {player.pitchingSaves}  <br/>
 
             PKS
-            {player[0].pitchingStrikeouts}  <br/>
+            {player.pitchingStrikeouts}  <br/>
 
             PSTRIKES
-            {player[0].pitchingStrikes}  <br/>
+            {player.pitchingStrikes}  <br/>
 
             PWALKS
-            {player[0].pitchingWalks}  <br/>
+            {player.pitchingWalks}  <br/>
 
             PWILD
-            {player[0].pitchingWildPitch}  <br/>
+            {player.pitchingWildPitch}  <br/>
 
             WINS
-            {player[0].pitchingWins}  <br/>
+            {player.pitchingWins}  <br/>
 
             PA
-            {player[0].plateAppearances}  <br/>
+            {player.plateAppearances}  <br/>
 
             RBIS
-            {player[0].rbis}  <br/>
+            {player.rbis}  <br/>
 
             BRISP
-            {player[0].risp}  <br/>
+            {player.risp}  <br/>
 
             BRISPF
-            {player[0].rispFail}  <br/>
+            {player.rispFail}  <br/>
 
             BRISPS
-            {player[0].rispSuccess}  <br/>
+            {player.rispSuccess}  <br/>
 
             RS
-            {player[0].runsScored}  <br/>
+            {player.runsScored}  <br/>
 
             SAC
-            {player[0].sacFly}  <br/>
+            {player.sacFly}  <br/>
 
             S
-            {player[0].singles}  <br/>
+            {player.singles}  <br/>
 
             SB
-            {player[0].stolenBases}  <br/>
+            {player.stolenBases}  <br/>
 
             BKS
-            {player[0].strikeOuts}  <br/>
+            {player.strikeOuts}  <br/>
 
             BSTRIKES
-            {player[0].strikes}  <br/>
+            {player.strikes}  <br/>
 
             BTAG
-            {player[0].taggedOut}  <br/>
+            {player.taggedOut}  <br/>
 
             TB
-            {player[0].totalBases}  <br/>
+            {player.totalBases}  <br/>
 
             PTP
-            {player[0].totalPitches}  <br/>
+            {player.totalPitches}  <br/>
 
             TTT
-            {player[0].triples}  <br/> */
+            {player.triples}  <br/> */
 
 
 

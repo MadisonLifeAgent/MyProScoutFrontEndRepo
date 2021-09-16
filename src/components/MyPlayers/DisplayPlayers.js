@@ -37,9 +37,9 @@ const DisplayPlayers = (props) => {
                     <dd>Throwing Hand: {item.playerThrowingHandednessName}</dd>
 
                     <Link to={{
-                        pathname: `/myplayers/:${playerProfileId}`,
+                        pathname: `/myplayers/playerprofile`,
                         state: {
-                            player: item
+                            player: item,
                         }
                     }}>View Profile</Link>
 
