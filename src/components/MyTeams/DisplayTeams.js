@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 // Component or hook imports
 import UseGetTeams from "../../hooks/UseGetTeams";
@@ -27,16 +28,18 @@ const DisplayTeams = (props) => {
 
     // display all teams and edit/delete buttons
     const showTeams = teams.map((item) => {
-        const handleClick = (item) => {
-            <EditTeam team={item} />
-        }
         return (
             <React.Fragment>
                 <dt>{item.baseballTeamName}</dt>
                     <dd>Level: {item.competitionLevelName}</dd>
                     <dd>Region: {item.regionName}</dd>
 
-                    <a href="/myteams/editteam" class="btn btn-primary me-3" onClick={handleClick}>Edit (Not Complete)</a>
+                    <Link class="btn btn-primary me-3" to={{
+                        pathname: `/myteams/editteam`,
+                        state: {
+                            team: item,
+                        }
+                    }}>Edit Team</Link>
                     
                     <input type="button" class="btn btn-primary" value="Delete Team" onClick={(event) => deleteTeam(item.baseballTeamId)} />
 
