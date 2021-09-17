@@ -2,6 +2,7 @@ import React, { useState, useParams, useLocation } from "react";
 import axios from 'axios';
 
 // Component or hook imports
+import PlayerProfileScoutingReports from "./PlayerProfileScoutingReports";
 
 // This component allows scouts to edit a player's details
 const ViewPlayerProfile = (props) => {
@@ -16,28 +17,30 @@ const ViewPlayerProfile = (props) => {
                 <p>{player.firstName} {player.lastName}
                     <br/>
                     {player.playerPositionPrimaryName}
-            <br/>
-            Throws: {player.playerThrowingHandednessName}
-            <br/>
-            Bats: {player.playerBattingHandednessName}
-            <br />
-            Player Type: {player.playerTypeName}
-            <br/>
-            Height: {player.height}"
-            <br/>
-            Weight: {player.weight} lbs.
-            <br />
-            Age: {player.age}
-            <br/>
-            Turned Pro: {player.yearTurnedPro}
-            <br />
-            Current Team: {player.baseballTeamName}
-            <br/>
-            Secondary Position: {player.playerPositionSecondaryName}
-            <br/>
+                    <br/>
+                    Throws: {player.playerThrowingHandednessName}
+                    <br/>
+                    Bats: {player.playerBattingHandednessName}
+                    <br />
+                    Player Type: {player.playerTypeName}
+                    <br/>
+                    Height: {player.height}"
+                    <br/>
+                    Weight: {player.weight} lbs.
+                    <br />
+                    Age: {player.age}
+                    <br/>
+                    Turned Pro: {player.yearTurnedPro}
+                    <br />
+                    Current Team: {player.baseballTeamName}
+                    <br/>
+                    Secondary Position: {player.playerPositionSecondaryName}
+                    <br/>
+                </p>
 
-
-
+                <PlayerProfileScoutingReports player={player}/>
+                
+            <p>    
             A2nd
             {player.careerAdvancedToSecond}  <br/>
 
@@ -210,12 +213,7 @@ const ViewPlayerProfile = (props) => {
             TTT
             {player.careerTriples}  <br/>
 
-
-
-
-
             </p>
-
 
             </div>
         )
@@ -227,212 +225,6 @@ const ViewPlayerProfile = (props) => {
         )
     }
 }
-
-   // Displayer Player Info
-    /* return (
-        <div>
-            <p>{player.firstName} {player.lastName} </p>
-                <br/>
-            {/* {player.playerPositionPrimaryName}
-            <br/>
-            Throws: {player.playerThrowingHandednessName}
-            <br/>
-            Bats: {player.playerBattingHandednessName}
-            <br />
-            Player Type: {player.playerTypeName}
-            <br/>
-            Height: {player.height}"
-            <br/>
-            Weight: {player.weight} lbs.
-            <br />
-            Age: {player.age}
-            <br/>
-            Turned Pro: {player.yearTurnedPro}
-            <br />
-            Current Team: {player.baseballTeamName}
-            <br/>
-            Secondary Position: {player.playerPositionSecondaryName}
-            </p>
-
-            A2nd
-            {player.advancedToSecond}  <br/>
-
-            A3rd
-            {player.advancedToThird}  <br/>
-
-            BT
-            {player.balls}  <br/>
-
-            BoB
-            {player.baseOnBalls}  <br/>
-
-            CS
-            {player.caughtStealing}  <br/>
-
-            DD
-            {player.doubles}  <br/>
-
-            FlyO
-            {player.flyout}  <br/>
-
-            FO
-            {player.forcedOut}  <br/>
-
-            FB
-            {player.foulBalls}  <br/>
-
-            GIDP
-            {player.groundOutDoublePlay}  <br/>
-
-            GOUT
-            {player.groundOuts}  <br/>
-
-            HBP
-            {player.hitByPitch}  <br/>
-
-            Hits
-            {player.hits}  <br/>
-
-            HRs
-            {player.homeruns}  <br/>
-
-            ISP
-            {player.isp}  <br/>
-
-            GOB
-            {player.onBaseCount}  <br/>
-
-            OBTP
-            {player.outByTriplePlay}  <br/>
-
-            PO
-            {player.pickedOff}  <br/>
-
-            BALLS
-            {player.pitchingBalls}  <br/>
-
-            BS
-            {player.pitchingBlownSaves}  <br/>
-
-            CG
-            {player.pitchingCompleteGames}  <br/>
-
-
-            PFLYOUT
-            {player.pitchingFlyout}  <br/>
-
-            PFB
-            {player.pitchingFoulBalls}  <br/>
-
-            PGOUT
-            {player.pitchingGroundOuts}  <br/>
-
-            PHB
-            {player.pitchingHitBatter}  <br/>
-
-            PDOUB
-            {player.pitchingHitDoubles}  <br/>
-
-            PSINGL
-            {player.pitchingHitSingle}  <br/>
-
-            PTRIP
-            {player.pitchingHitTriples}  <br/>
-
-            PHA
-            {player.pitchingHitsAllowed}  <br/>
-
-            PHRA
-            {player.pitchingHomeRunsAllowed}  <br/>
-
-            PIP
-            {player.pitchingInningsPitched}  <br/>
-
-            LOSS
-            {player.pitchingLosses}  <br/>
-
-            PBF
-            {player.pitchingNumberOfBattersFaced}  <br/>
-
-            POFA
-            {player.pitchingPickOffAttempt}  <br/>
-
-            POFS
-            {player.pitchingPickOffSuccess}  <br/>
-
-            PRA
-            {player.pitchingRunsAllowed}  <br/>
-
-            SAVES
-            {player.pitchingSaves}  <br/>
-
-            PKS
-            {player.pitchingStrikeouts}  <br/>
-
-            PSTRIKES
-            {player.pitchingStrikes}  <br/>
-
-            PWALKS
-            {player.pitchingWalks}  <br/>
-
-            PWILD
-            {player.pitchingWildPitch}  <br/>
-
-            WINS
-            {player.pitchingWins}  <br/>
-
-            PA
-            {player.plateAppearances}  <br/>
-
-            RBIS
-            {player.rbis}  <br/>
-
-            BRISP
-            {player.risp}  <br/>
-
-            BRISPF
-            {player.rispFail}  <br/>
-
-            BRISPS
-            {player.rispSuccess}  <br/>
-
-            RS
-            {player.runsScored}  <br/>
-
-            SAC
-            {player.sacFly}  <br/>
-
-            S
-            {player.singles}  <br/>
-
-            SB
-            {player.stolenBases}  <br/>
-
-            BKS
-            {player.strikeOuts}  <br/>
-
-            BSTRIKES
-            {player.strikes}  <br/>
-
-            BTAG
-            {player.taggedOut}  <br/>
-
-            TB
-            {player.totalBases}  <br/>
-
-            PTP
-            {player.totalPitches}  <br/>
-
-            TTT
-            {player.triples}  <br/> */
-
-
-
-            
-
-            
-     /*    </div>
-        );  */
 
 
 export default ViewPlayerProfile;
