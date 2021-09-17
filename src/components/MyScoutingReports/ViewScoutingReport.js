@@ -13,197 +13,73 @@ const ViewScoutingReport = (props) => {
     if (scoutingReport != null) {
         return (
             <div>
-            <h4>{scoutingReport.firstName} {scoutingReport.lastName} </h4>
-            {scoutingReport.playerBaseballTeamName} VS. {scoutingReport.opponentTeam}
-            <br />
-
-            A2nd
-            {scoutingReport.advancedToSecond}  <br/>
-
-            A3rd
-            {scoutingReport.advancedToThird}  <br/>
-
-            BT
-            {scoutingReport.balls}  <br/>
-
-            BoB
-            {scoutingReport.baseOnBalls}  <br/>
-
-            CS
-            {scoutingReport.caughtStealing}  <br/>
-
-            DD
-            {scoutingReport.doubles}  <br/>
-
-            FlyO
-            {scoutingReport.flyout}  <br/>
-
-            FO
-            {scoutingReport.forcedOut}  <br/>
-
-            FB
-            {scoutingReport.foulBalls}  <br/>
-
-            GIDP
-            {scoutingReport.groundOutDoublePlay}  <br/>
-
-            GOUT
-            {scoutingReport.groundOuts}  <br/>
-
-            HBP
-            {scoutingReport.hitByPitch}  <br/>
-
-            Hits
-            {scoutingReport.hits}  <br/>
-
-            HRs
-            {scoutingReport.homeruns}  <br/>
-
-            ISP
-            {scoutingReport.isp}  <br/>
-
-            GOB
-            {scoutingReport.onBaseCount}  <br/>
-
-            OBTP
-            {scoutingReport.outByTriplePlay}  <br/>
-
-            PO
-            {scoutingReport.pickedOff}  <br/>
-
-            BALLS
-            {scoutingReport.pitchingBalls}  <br/>
-
-            BS
-            {scoutingReport.pitchingBlownSaves}  <br/>
-
-            CG
-            {scoutingReport.pitchingCompleteGames}  <br/>
-
-
-            PFLYOUT
-            {scoutingReport.pitchingFlyout}  <br/>
-
-            PFB
-            {scoutingReport.pitchingFoulBalls}  <br/>
-
-            PGOUT
-            {scoutingReport.pitchingGroundOuts}  <br/>
-
-            PHB
-            {scoutingReport.pitchingHitBatter}  <br/>
-
-            PDOUB
-            {scoutingReport.pitchingHitDoubles}  <br/>
-
-            PSINGL
-            {scoutingReport.pitchingHitSingle}  <br/>
-
-            PTRIP
-            {scoutingReport.pitchingHitTriples}  <br/>
-
-            PHA
-            {scoutingReport.pitchingHitsAllowed}  <br/>
-
-            PHRA
-            {scoutingReport.pitchingHomeRunsAllowed}  <br/>
-
-            PIP
-            {scoutingReport.pitchingInningsPitched}  <br/>
-
-            LOSS
-            {scoutingReport.pitchingLosses}  <br/>
-
-            PBF
-            {scoutingReport.pitchingNumberOfBattersFaced}  <br/>
-
-            POFA
-            {scoutingReport.pitchingPickOffAttempt}  <br/>
-
-            POFS
-            {scoutingReport.pitchingPickOffSuccess}  <br/>
-
-            PRA
-            {scoutingReport.pitchingRunsAllowed}  <br/>
-
-            SAVES
-            {scoutingReport.pitchingSaves}  <br/>
-
-            PKS
-            {scoutingReport.pitchingStrikeouts}  <br/>
-
-            PSTRIKES
-            {scoutingReport.pitchingStrikes}  <br/>
-
-            PWALKS
-            {scoutingReport.pitchingWalks}  <br/>
-
-            PWILD
-            {scoutingReport.pitchingWildPitch}  <br/>
-
-            WINS
-            {scoutingReport.pitchingWins}  <br/>
-
-            PA
-            {scoutingReport.plateAppearances}  <br/>
-
-            RBIS
-            {scoutingReport.rbis}  <br/>
-
-            BRISP
-            {scoutingReport.risp}  <br/>
-
-            BRISPF
-            {scoutingReport.rispFail}  <br/>
-
-            BRISPS
-            {scoutingReport.rispSuccess}  <br/>
-
-            RS
-            {scoutingReport.runsScored}  <br/>
-
-            SAC
-            {scoutingReport.sacFly}  <br/>
-
-            S
-            {scoutingReport.singles}  <br/>
-
-            SB
-            {scoutingReport.stolenBases}  <br/>
-
-            BKS
-            {scoutingReport.strikeOuts}  <br/>
-
-            BSTRIKES
-            {scoutingReport.strikes}  <br/>
-
-            BTAG
-            {scoutingReport.taggedOut}  <br/>
-
-            TB
-            {scoutingReport.totalBases}  <br/>
-
-            PTP
-            {scoutingReport.totalPitches}  <br/>
-
-            TTT
-            {scoutingReport.triples}  <br/> 
-
-
-
-            
-
-            
-
-
-
-
-
-
-
- 
-
-
+                <h2>Scouted Player: {scoutingReport.firstName} {scoutingReport.lastName} </h2>
+                <h3>{scoutingReport.playerBaseballTeamName} VS. {scoutingReport.opponentTeam}</h3>
+                <p>Notes: {scoutingReport.scoutingReportNotesBody}</p>
+                
+                <h4>Stats</h4>
+                    {scoutingReport.pitcherTotalPitches}<br/>
+                    {scoutingReport.pitcherWin}<br/>
+                    {scoutingReport.pitcherLoss}<br/>
+                    {scoutingReport.pitcherInningsPitched}<br/>
+                    {scoutingReport.pitcherSave}<br/>
+                    {scoutingReport.pitcherBlownSave}<br/>
+                    {scoutingReport.careerPitchingCompleteGame}<br/>
+
+                    {scoutingReport.pitcherTotalBalls}<br/>
+                    {scoutingReport.pitcherWalksGiven}<br/>
+                    {scoutingReport.pitcherTotalStrikes}<br/>
+                    {scoutingReport.pitcherTotalStrikeouts}<br/>
+                    {scoutingReport.pitcherFoulBallsHit}<br/>
+                    {scoutingReport.pitcherHitBatter}<br/>
+                    {scoutingReport.pitcherWildPitch}<br/>
+                    {scoutingReport.pitcherPickOffAttempts}<br/>
+                    {scoutingReport.pitcherPickOfSuccess}<br/>
+                    {scoutingReport.pitcherNumberOfBattersFaced}<br/>
+
+                    {scoutingReport.pitcherHitsAllowed}<br/>
+                    {scoutingReport.pitcherPitchingHitSingle}<br/>
+                    {scoutingReport.pitcherHitDouble}<br/>
+                    {scoutingReport.pitcherHitTriple}<br/>
+                    {scoutingReport.pitcherHomerunsAllowed}<br/>
+                    {scoutingReport.pitcherGroundOuts}<br/>
+                    {scoutingReport.pitcherFlyouts}<br/>
+                    {scoutingReport.pitcherRunsAllowed}<br/>
+
+                    {scoutingReport.batterPlateAppearances}<br/>
+                    {scoutingReport.batterOnBaseCount}<br/>
+                    {scoutingReport.batterHitByPitch}<br/>
+                    {scoutingReport.batterBalls}<br/>
+                    {scoutingReport.batterBaseOnBalls}<br/>
+                    {scoutingReport.batterStrikes}<br/>
+                    {scoutingReport.batterStrikeouts}<br/>
+                    {scoutingReport.batterFoulBalls}<br/>
+
+                    {scoutingReport.batterHit}<br/>
+                    {scoutingReport.batterSingle}<br/>
+                    {scoutingReport.batterDouble}<br/>
+                    {scoutingReport.batterTriple}<br/>
+                    {scoutingReport.batterHomerun}<br/>
+                    {scoutingReport.batterSacFly}<br/>
+                    {scoutingReport.BattterRbi}<br/>
+                    {scoutingReport.batterGroundOut}<br/>
+                    {scoutingReport.batterOutByDoublePlay}<br/>
+                    {scoutingReport.batterOutByTriplePlay}<br/>
+                    {scoutingReport.batterFlyout}<br/>
+                    {scoutingReport.batterRisp}<br/>
+                    {scoutingReport.batterRispSuccess}<br/>
+                    {scoutingReport.batterRispFail}<br/>
+
+                    {scoutingReport.runnerAdvancedToSecond}<br/>
+                    {scoutingReport.RunnderAdvancedToThird}<br/>
+                    {scoutingReport.runnerRisp}<br/>
+                    {scoutingReport.runnerRunScored}<br/>
+                    {scoutingReport.runnerStolenBases}<br/>
+                    {scoutingReport.runnerCaughtStealing}<br/>
+                    {scoutingReport.runnerPickedOff}<br/>
+                    {scoutingReport.runnerTotalBases}<br/>
+                    {scoutingReport.runnerForcedOut}<br/>
+                    {scoutingReport.runnerTaggedOut}<br/>
             </div>
         )
     } else {
