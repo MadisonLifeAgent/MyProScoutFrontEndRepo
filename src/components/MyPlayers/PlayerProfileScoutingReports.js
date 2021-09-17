@@ -12,10 +12,9 @@ const PlayerProfileScoutingReports = (props) => {
 
     const myScoutingReports = useGetPlayerScoutingReports(player);
 
-    //console.log(myScoutingReports);
 
     // display links to all reports, but list one at a time
-    const showPLayerScoutingReports = myScoutingReports.map((item) => {
+    const showPlayerScoutingReports = myScoutingReports.map((item) => {
         return (
             <React.Fragment>
                 <dt>Player: {item.firstName} {item.lastName}</dt>
@@ -36,7 +35,7 @@ const PlayerProfileScoutingReports = (props) => {
 
 
     // displays reports or loading message if no reports
-    if (!myScoutingReports) {
+    if (myScoutingReports) {
         return (
             <p>Loading...</p>
         )
@@ -46,7 +45,7 @@ const PlayerProfileScoutingReports = (props) => {
             <div>
                 <h3>Scouting Reports</h3>
                 <dl>
-                    {showPLayerScoutingReports}
+                    {showPlayerScoutingReports}
                 </dl>
             </div>
         )

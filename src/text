@@ -67,3 +67,75 @@
 		runnerTotalBases: '',
 		runnerForcedOut: '',
 		runnerTaggedOut: ''
+
+
+
+	const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
+    const [playerBaseballTeamName, setplayerBaseballTeamName] = useState();
+    const [opponentTeam, setopponentTeam] = useState();
+    const [myOrganization, setmyOrganization] = useState();
+    //const [id, setId] = useState();
+
+    const [pitcherTotalPitches, setpitcherTotalPitches] = useState();
+    const [pitcherWin, setpitcherWin] = useState();
+    const [pitcherLoss, setpitcherLoss] = useState();
+    const [pitcherInningsPitched, setpitcherInningsPitched] = useState();
+    const [pitcherSave, setpitcherSave] = useState();
+    const [pitcherBlownSave, setpitcherBlownSave] = useState();
+    const [careerPitchingCompleteGame, setcareerPitchingCompleteGame] = useState();
+
+    const [pitcherTotalBalls, setpitcherTotalBalls] = useState();
+    const [pitcherWalksGiven, setpitcherWalksGiven] = useState();
+    const [pitcherTotalStrikes, setpitcherTotalStrikes] = useState();
+    const [pitcherTotalStrikeouts, setpitcherTotalStrikeouts] = useState();
+    const [pitcherFoulBallsHit, setpitcherFoulBallsHit] = useState();
+    const [pitcherHitBatter, setpitcherHitBatter] = useState();
+    const [pitcherWildPitch, setpitcherWildPitch] = useState();
+    const [pitcherPickOffAttempts, setpitcherPickOffAttempts] = useState();
+    const [pitcherPickOfSuccess, setpitcherPickOfSuccess] = useState();
+    const [pitcherNumberOfBattersFaced, setpitcherNumberOfBattersFaced] = useState();
+
+    const [pitcherHitsAllowed, setpitcherHitsAllowed] = useState();
+    const [pitcherPitchingHitSingle, setpitcherPitchingHitSingle] = useState();
+    const [pitcherHitDouble, setpitcherHitDouble] = useState();
+    const [pitcherHitTriple, setpitcherHitTriple] = useState();
+    const [pitcherHomerunsAllowed, setpitcherHomerunsAllowed] = useState();
+    const [pitcherGroundOuts, setpitcherGroundOuts] = useState();
+    const [pitcherFlyouts, setpitcherFlyouts] = useState();
+    const [pitcherRunsAllowed, setpitcherRunsAllowed] = useState();
+
+    const [batterPlateAppearances, setbatterPlateAppearances] = useState();
+    const [batterOnBaseCount, setbatterOnBaseCount] = useState();
+    const [batterHitByPitch, setbatterHitByPitch] = useState();
+    const [batterBalls, setbatterBalls] = useState();
+    const [batterBaseOnBalls, setbatterBaseOnBalls] = useState();
+    const [batterStrikes, setbatterStrikes] = useState();
+    const [batterStrikeouts, setbatterStrikeouts] = useState();
+    const [batterFoulBalls, setbatterFoulBalls] = useState();
+
+    const [batterHit, setbatterHit] = useState();
+    const [batterSingle, setbatterSingle] = useState();
+    const [batterDouble, setbatterDouble] = useState();
+    const [batterTriple, setbatterTriple] = useState();
+    const [batterHomerun, setbatterHomerun] = useState();
+    const [batterSacFly, setbatterSacFly] = useState();
+    const [BattterRbi, setBattterRbi] = useState();
+    const [batterGroundOut, setbatterGroundOut] = useState();
+    const [batterOutByDoublePlay, setbatterOutByDoublePlay] = useState();
+    const [batterOutByTriplePlay, setbatterOutByTriplePlay] = useState();
+    const [batterFlyout, setbatterFlyout] = useState();
+    const [batterRisp, setbatterRisp] = useState();
+    const [batterRispSuccess, setbatterRispSuccess] = useState();
+    const [batterRispFail, setbatterRispFail] = useState();
+
+    const [runnerAdvancedToSecond, setrunnerAdvancedToSecond] = useState();
+    const [RunnderAdvancedToThird, setRunnderAdvancedToThird] = useState();
+    const [runnerRisp, setrunnerRisp] = useState();
+    const [runnerRunScored, setrunnerRunScored] = useState();
+    const [runnerStolenBases, setrunnerStolenBases] = useState();
+    const [runnerCaughtStealing, setrunnerCaughtStealing] = useState();
+    const [runnerPickedOff, setrunnerPickedOff] = useState();
+    const [runnerTotalBases, setrunnerTotalBases] = useState();
+    const [runnerForcedOut, setrunnerForcedOut] = useState();
+    const [runnerTaggedOut, setrunnerTaggedOut] = useState();

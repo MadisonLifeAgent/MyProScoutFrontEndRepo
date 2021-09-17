@@ -15,6 +15,7 @@ import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
 import MyOrg from "./MyOrg/MyOrg";
     import AddOrgMessage from "./MyOrg/AddOrgMessage";
     import DisplayMyOrgMessages from "./MyOrg/DisplayMyOrgMessages";
+    import AddNewOrg from "./MyOrg/AddNewOrg";
 import MyTeams from "./MyTeams/MyTeams";
     import EditTeam from "./MyTeams/EditTeam";
 import AddTeam from "./MyTeams/AddTeam";
@@ -85,6 +86,8 @@ class App extends Component {
                             } />
                             <Route path='/myorg/newmessage' exact component={AddOrgMessage} />
                             <Route path="/myorg/messageboard" exact component={DisplayMyOrgMessages} />
+
+                            <Route path='/myorg/addneworg' exact component={AddNewOrg} />
 
 
                             <Route path="/myprofile" exact
