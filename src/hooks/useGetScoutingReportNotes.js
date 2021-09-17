@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // this hook gets all notes for report 
 const useGetScoutingReportNotes = (reportId) => {
-   const [reportNotes, setReportNotes] = useState();
+   const [reportNotes, setReportNotes] = useState([{}]);
 
     // query database for report notes
     async function getReportNotes(id) {

@@ -33,8 +33,7 @@ const DisplayMyOrgMessages = (props) => {
     const handleClick = () => {
         <AddOrgMessage />
     }
-
-
+    
     // displays organization messages
     if(orgMessages){
         return (

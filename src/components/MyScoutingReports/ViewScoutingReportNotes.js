@@ -13,40 +13,34 @@ const ViewScoutingReportNotes = (props) => {
     // get all players
     const reportNotes = useGetScoutingReportNotes(reportId);
 
-    console.log(reportNotes);
-
     // display all organization messages
-    const showReportNotes = () =>{
-        return reportNotes[0].map((item) => {
-    
+    const showReportNotes = reportNotes.map((item) => {
             return (
-                <React.Fragment>
-                    <li>{item.playerScoutingReportNoteBody}</li>
-                </React.Fragment>
-
-            );
-        })
-    }
+                <div>
+                    <dd>{item.playerScoutingReportNoteBody}</dd>
+                </div>
+            )
+        });
+    
    
-
-
-    // displays organization messages
-    if(showReportNotes){
+/*     // displays organization messages
+    if(reportNotes){ */
         return (
-            <div>   
+            <div>
                 <h4>Previous Notes</h4>
-                <ul>
+                <dl>
                    {showReportNotes}  
-                </ul>
+                </dl>
             </div>
+
         )
-    }
+    /* }
     else {
         return (
             <p>Messages Loading...</p>
         )
-    }
+    } */
         
-    }
+}
 
 export default ViewScoutingReportNotes;

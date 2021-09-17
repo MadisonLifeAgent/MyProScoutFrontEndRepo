@@ -9,21 +9,22 @@ const PlayerProfileScoutingReports = (props) => {
     // get the player from props
     const player = props.location.state.player;
 
-    const [playerScoutingReports, setPlayerScoutingReports] = useState();
+    const [playerScoutingReports, setPlayerScoutingReports] = useState([{}]);
 
     // query database for scouting reports
-    async function getPlayerScoutingReports(playerInfo) {
+    async function getPlayerScoutingReports(aPlayer) {
         const playerFirstLastName = {
-            "FirstName": playerInfo.firstName,
-            "LastName": playerInfo.lastName
+            "FirstName": aPlayer.firstName,
+            "LastName": aPlayer.lastName
         }
 
         try {
-            let response = await axios.get('https://localhost:44394/api/playerscoutingreport/myscoutingreports/player', playerFirstLastName);
+            let response = await axios.get(`https://localhost:44394/api/playerscoutingreport/myscoutingreports/${player.firstName}/${player.lastName}`);
 
             // if good api call set scouting reports
-            setPlayerScoutingReports(response.data[0])
+            setPlayerScoutingReports(response.data)
             console.log(response.data);
+            console.log("good api call")
         }
         catch(ex) {
             console.log("bad api call");
@@ -33,7 +34,7 @@ const PlayerProfileScoutingReports = (props) => {
    // get organization as soon as hook is requested
    useEffect(() => {
     getPlayerScoutingReports(player);
-   },[!playerScoutingReports]);
+   },[]);
 
 
     // display links to all reports, but list one at a time
@@ -54,8 +55,8 @@ const PlayerProfileScoutingReports = (props) => {
                     
                         <br/><br/>
                 </React.Fragment>
-            );
-        })
+            )
+        });
     }
     
     
@@ -68,7 +69,7 @@ const PlayerProfileScoutingReports = (props) => {
             <div>
                 <h3>Scouting Reports</h3>
                 <dl>
-                    {showPlayerScoutingReports}
+                    {showPlayerScoutingReports()}
                 </dl>
             </div>
         )

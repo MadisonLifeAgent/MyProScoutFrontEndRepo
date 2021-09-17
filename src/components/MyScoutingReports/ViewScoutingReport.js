@@ -22,7 +22,6 @@ const ViewScoutingReport = (props) => {
 
     const scout = getUser();
 
-
     // display if player details exists
     if (scoutingReport != null) {
         return (
