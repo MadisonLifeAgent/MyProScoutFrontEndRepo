@@ -3,6 +3,7 @@ import jwtDecode from "jwt-decode";
 
 // Component or hook imports
 import AddScoutingReportNote from "./AddScoutingReportNote";
+import ViewScoutingReportNotes from "./ViewScoutingReportNotes";
 
 // This component allows scouts to edit a player's details
 const ViewScoutingReport = (props) => {
@@ -103,7 +104,10 @@ const ViewScoutingReport = (props) => {
                     <br/>
                     <h2>Report Notes</h2>
                     <AddScoutingReportNote scout={scout} scoutingReport={scoutingReport} />
+
+
                 </div>
+                <ViewScoutingReportNotes reportId={scoutingReport.playerScoutingReportId} />
             </div>
         
         

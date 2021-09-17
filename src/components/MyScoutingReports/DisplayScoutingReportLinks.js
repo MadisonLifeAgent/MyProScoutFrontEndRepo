@@ -25,7 +25,7 @@ const DisplayScoutingReportLinks = (props) => {
     const showReportsLinks = myScoutingReports.map((item) => {
         return (
             <React.Fragment>
-                <dt>Player: {item.firstName} {item.lastName}</dt>
+                <dt>Player: {item.firstName} {item.lastName}  (Report ID#: {item.playerScoutingReportId})</dt>
                     <dd>Game: {item.playerBaseballTeamName} VS. {item.opponentTeam}</dd>
 
                     <Link class="btn btn-primary me-3" to={{

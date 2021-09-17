@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 
-// Scout Login Form
+// Add scouting report notes form for a specific report
 const AddScoutingReportNote = (props) => {
     // get passed in scout and report info
     const scout = props.scout;
@@ -14,26 +14,27 @@ const AddScoutingReportNote = (props) => {
     // store user input
     const [playerScoutingReportNoteBody, setplayerScoutingReportNoteBody] = useState('');
 
+    // FromBody sent with post request
     const messageInfo = {
         "PlayerScoutingReportNoteBody": playerScoutingReportNoteBody,
         "PlayerScoutingReportId": scoutingReport.playerScoutingReportId,
         "Id": scout.id,
     }
 
-    // call the database and try to post message
-    //async function addNewOrgMessage(messageTitle, messageBody, id, orgId) {
+    // call the database and try to post note
     async function addScoutngReportNote(messageInfo) {
 
         let response = await axios.post('https://localhost:44394/api/playerscoutingreportnote/add', messageInfo);
 
-        //window.location = "/myorg/messageboard";
+        // refresh the current page
+        window.location = "/myscoutingreports/viewreport";
         
-        if (response) {
+/*         if (response) {
             console.log("good call");
             // refresh and send user to home page
         } else {
             console.log("bad api call");
-        }
+        } */
     }
 
     const handleSubmit = (event) => {
@@ -41,7 +42,7 @@ const AddScoutingReportNote = (props) => {
         addScoutngReportNote(messageInfo);
     }
 
-    // login form
+    // add note form
     return (
         
         <div>
