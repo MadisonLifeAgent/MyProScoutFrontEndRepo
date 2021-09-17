@@ -7,6 +7,10 @@ import usePlayersNameSearch from "../../hooks/usePlayerNameSearch";
 const SearchResults = (props) => {
     // get the search term
     const searchTerm = props.location.state.searchTerm;
+    const category = props.location.state.category;
+
+    console.log(searchTerm);
+    console.log(category);
 
     // query the database right away and return the results
 
@@ -17,7 +21,7 @@ const SearchResults = (props) => {
 
     return (
         <div>
-            <h4>Search Results Page</h4>
+            <h4>Search Results for {searchTerm}</h4>
             <p>{playerNameSearchResults[0].firstName}</p>
         </div>
     )
