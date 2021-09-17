@@ -26,9 +26,6 @@ const DisplayPlayers = (props) => {
     // display all players and edit/delete buttons
     const showPLayers = players.map((item) => {
         const playerProfileId = item.playerProfileId;
-        const handleClick = (item) => {
-            //<EditTeam players={item} />
-        }
         return (
             <React.Fragment>
                 <dt>{item.firstName} {item.lastName}</dt>
@@ -36,14 +33,20 @@ const DisplayPlayers = (props) => {
                     <dd>Batthing Hand: {item.playerBattingHandednessName}</dd>
                     <dd>Throwing Hand: {item.playerThrowingHandednessName}</dd>
 
-                    <Link to={{
+                    <Link class="btn btn-primary me-3" to={{
                         pathname: `/myplayers/playerprofile`,
                         state: {
                             player: item,
                         }
                     }}>View Profile</Link>
 
-                    <a href="/myplayers/editplayer" class="btn btn-primary me-3" onClick={handleClick}>Edit (Incomplete)</a>
+                    <Link class="btn btn-primary me-3" to={{
+                        pathname: `/myplayers/editplayer`,
+                        state: {
+                            player: item,
+                        }
+                    }}>Edit Profile</Link>
+
                     
                     <input type="button" class="btn btn-primary" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
 
