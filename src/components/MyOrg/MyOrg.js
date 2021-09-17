@@ -1,10 +1,9 @@
 import React from "react";
 import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 // Component or hook imports
 import useGetOrganization from "../../hooks/useGetOrganization";
-import DisplayMyOrgMessages from './DisplayMyOrgMessages';
-import AddOrgMessage from "./AddOrgMessage";
 
 // Scout profile page
 const MyOrg = (props) => {
@@ -24,20 +23,20 @@ const MyOrg = (props) => {
     // Get scout's oranization info
     const organization = useGetOrganization(scout.id); // make this into it's own component??
 
-    // routes scout to add message form 
-    const handleClick = () => {
-        <AddOrgMessage />
-    }
 
     // display scout's orgnaizations' name, message, and players
         return (
             <div>
                 <h3>{organization.organizationName} Scout Hub</h3>
 
-                <a href="/myorg/newmessage" class="btn btn-primary ms-3 mb-3" onClick={handleClick}>Add New Message</a>
+                <br/>
 
-                     <DisplayMyOrgMessages  organization={organization}/>
-
+                <Link class="btn btn-primary me-3" to={{
+                        pathname: `/myorg/messageboard`,
+                        state: {
+                            myOrganization: organization,
+                        }
+                    }}>myOrg Message Board</Link>
              </div>
         )
     }

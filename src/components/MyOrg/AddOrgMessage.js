@@ -41,11 +41,11 @@ const AddOrgMessage = (props) => {
 
         let response = await axios.post('https://localhost:44394/api/organizationmessages/add', message);
 
+        window.location = "/myorg/messageboard";
         
 /*         if (response) {
             console.log("good call");
             // refresh and send user to home page
-            //window.location = "/myorg";
         } else {
             console.log("bad api call");
         } */

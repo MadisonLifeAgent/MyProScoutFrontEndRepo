@@ -21,8 +21,6 @@ const NewScoutingReport = (props) => {
         }
     }
 
-
-
     // form field variables
     // scouting report is an object with multiple fields
     const [firstName, setFirstName] = useState();

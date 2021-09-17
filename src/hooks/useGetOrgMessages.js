@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // this hook gets all messages for an organization 
 const useGetOrgMessages = (orgId) => {
-   const [orgMessages, setOrgMessages] = useState([]);
+   const [orgMessages, setOrgMessages] = useState();
 
     // query database for organization messages
     async function getMessages(orgId) {
@@ -11,7 +11,6 @@ const useGetOrgMessages = (orgId) => {
             const response = await axios.get(`https://localhost:44394/api/organizationmessages/myorg/${orgId}`);
 
             console.log("response data");
-            console.log(response.data);
             // if good api call set orgMessages
             setOrgMessages(response.data);
         }
