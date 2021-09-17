@@ -4,7 +4,6 @@ import React from "react";
 // Component or hook imports
 import useGetScoutingReportNotes from "../../hooks/useGetScoutingReportNotes";
 
-
 // this component gets players and displays them
 const ViewScoutingReportNotes = (props) => {
     // get scout details

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 // Component or hook imports
 import useGetPlayerScoutingReports from "../../hooks/useGetPlayerScoutingReports";
@@ -13,10 +14,7 @@ const PlayerProfileScoutingReports = (props) => {
 
     // query database for scouting reports
     async function getPlayerScoutingReports(aPlayer) {
-        const playerFirstLastName = {
-            "FirstName": aPlayer.firstName,
-            "LastName": aPlayer.lastName
-        }
+
 
         try {
             let response = await axios.get(`https://localhost:44394/api/playerscoutingreport/myscoutingreports/${player.firstName}/${player.lastName}`);
@@ -46,12 +44,12 @@ const PlayerProfileScoutingReports = (props) => {
                     <dt>Player: {item.firstName} {item.lastName}</dt>
                         <dd>Game: {item.playerBaseballTeamName} VS. {item.opponentTeam}</dd>
     
-{/*                         <Link class="btn btn-primary me-3" to={{
+                        <Link class="btn btn-primary me-3" to={{
                             pathname: `/myscoutingreports/viewreport`,
                             state: {
                                 scoutingReport: item,
                             }
-                        }}>View Report</Link> */}
+                        }}>View Report</Link>
                     
                         <br/><br/>
                 </React.Fragment>

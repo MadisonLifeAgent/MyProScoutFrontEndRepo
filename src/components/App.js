@@ -21,6 +21,7 @@ import MyTeams from "./MyTeams/MyTeams";
     import EditTeam from "./MyTeams/EditTeam";
 import AddTeam from "./MyTeams/AddTeam";
 import Search from "./Search/Search";
+    import SearchResults from "./Search/SearchResultsPage";
 import Login from "./Login/Login";
 import Register from './Register/Register';
 import MyProfile from "./MyProfile/MyProfile";
@@ -77,7 +78,9 @@ class App extends Component {
                             <Route path="/myteams" exact component={MyTeams} />
                                 <Route path="/myteams/addteam" exact component={AddTeam} />
                                 <Route path="/myteams/editteam" exact render={props => { return <EditTeam {...props}  />; }} />
+
                             <Route path="/search" exact component={Search} />
+                                <Route path="/search/results:searchTerm" exact component={SearchResults} />
 
 
                             <Route path="/myorg" exact 
