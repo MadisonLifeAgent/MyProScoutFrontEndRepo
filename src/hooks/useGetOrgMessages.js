@@ -10,8 +10,7 @@ const useGetOrgMessages = (orgId) => {
         try{
             const response = await axios.get(`https://localhost:44394/api/organizationmessages/myorg/${orgId}`);
 
-            console.log("response data");
-            // if good api call set orgMessages
+           // if good api call set orgMessages
             setOrgMessages(response.data);
         }
         catch(ex) {

@@ -1,4 +1,5 @@
 import React, { useState, useParams, useLocation } from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 // Component or hook imports
@@ -38,7 +39,12 @@ const ViewPlayerProfile = (props) => {
                     <br/>
                 </p>
 
-                <PlayerProfileScoutingReports player={player}/>
+                <Link class="btn btn-primary me-3" to={{
+                    pathname: "/myplayers/playerprofile/playerscoutingreport",
+                    state: {
+                        player: player,
+                    }
+                }}>Player Scouting Reports</Link>
                 
             <p>    
             A2nd

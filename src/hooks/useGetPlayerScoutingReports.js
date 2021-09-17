@@ -8,15 +8,15 @@ const useGetPlayerScoutingReports = (playerName) => {
     // query database for scouting reports
     async function getPlayerScoutingReports(player) {
         const playerFirstLastName = {
-            FirstName: player.firstName,
-            LastName: player.lastName
+            "FirstName": player.firstName,
+            "LastName": player.lastName
         }
 
         try{
-            const response = await axios.get('https://localhost:44394/api/playerscoutingreport/myscoutingreports/player', playerFirstLastName);
-            console.log(response.data)
+            let response = await axios.get('https://localhost:44394/api/playerscoutingreport/myscoutingreports/player', playerFirstLastName);
+
             // if good api call set scouting reports
-            setPlayerScoutingReports(response.data);
+            return response.data;
         }
         catch(ex) {
             console.log("bad api call");
@@ -27,7 +27,7 @@ const useGetPlayerScoutingReports = (playerName) => {
    useEffect(() => {
     getPlayerScoutingReports(playerName);
    },[]);
-	return playerScoutingReports;
+	//return playerScoutingReports;
 
 }
 

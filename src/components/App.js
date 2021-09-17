@@ -8,6 +8,7 @@ import NavBar from "./NavBar/NavBar";
 import MyPlayers from "./MyPlayers/MyPlayers";
     import EditPlayer from "./MyPlayers/EditPlayers";
     import ViewPlayerProfile from './MyPlayers/ViewPlayerProfile';
+    import PlayerProfileScoutingReports from "./MyPlayers/PlayerProfileScoutingReports";
 import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
     import NewScoutingReport from "./MyScoutingReports/NewScoutingReport";
@@ -71,6 +72,7 @@ class App extends Component {
                             <Route path="/addPlayer" exact component={AddPlayer} />
                             <Route path="/myplayers/editplayer" exact component={EditPlayer} />
                                 <Route path="/myplayers/playerprofile" exact render={props => { return <ViewPlayerProfile {...props} />; }} />
+                            <Route path="/myplayers/playerprofile/playerscoutingreport" exact component={PlayerProfileScoutingReports} />
 
                             <Route path="/myteams" exact component={MyTeams} />
                                 <Route path="/myteams/addteam" exact component={AddTeam} />
