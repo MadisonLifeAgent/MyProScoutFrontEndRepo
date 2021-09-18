@@ -15,7 +15,9 @@ const Search = (props) => {
     const team = "team";
     const empty = "";
     const battingHand = "battinghand";
+    const playerType = "playertype"
 
+    // set search term on submit
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
     }
@@ -25,7 +27,7 @@ const Search = (props) => {
             setCategory(event.target.value);
     }
     
-     // display search bar 
+     // display search bar and drop down option
         return (
             <div>
                 <h3>Player Search</h3>
@@ -33,8 +35,9 @@ const Search = (props) => {
                     <select class="form-select" name="category" aria-label="Default select example" onChange={onSelect}>
                         <option value={empty} selected >Select Category</option>
                         <option value={position} >Position Search</option>
-                        <option value={team} >Team Search</option>
+                        <option value={team} >Team</option>
                         <option value={battingHand} >Batting Handedness</option>
+                        <option value={playerType} >Player Type</option>
                     </select>
                     <input type="text" name="searchTerm"  onChange={handleChange}/>
 
