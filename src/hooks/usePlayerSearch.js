@@ -2,12 +2,12 @@ import React, { useState, useEffect }from "react";
 import axios from "axios";
 
 // this component searches for players using user entered search term
-const usePlayersNameSearch = (searchTerm) => {
+const usePlayerSearch = (searchTerm) => {
     const [searchResults, setSearchResults] = useState([{}])
 
     async function searchByPlayerName(searchWord) {
 
-        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/${searchWord}`);
+        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/name/${searchWord}`);
 
         // refresh the current page
         //window.location = "/myscoutingreports/viewreport";
@@ -31,4 +31,4 @@ const usePlayersNameSearch = (searchTerm) => {
     
 }
 
-export default usePlayersNameSearch;
+export default usePlayerSearch;
