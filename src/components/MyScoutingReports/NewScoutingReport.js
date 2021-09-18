@@ -9,7 +9,7 @@ import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 import ReviewScoutingReport from "./ReviewScoutingReport";
 
 
-// Scouting Report
+// component used to keep track of stats for a scouting event
 const NewScoutingReport = (props) => {
 
     const scoutingReport = props.location.state.scoutingReport;
@@ -32,7 +32,7 @@ const NewScoutingReport = (props) => {
     const [playerBaseballTeamName, setplayerBaseballTeamName] = useState();
     const [opponentTeam, setopponentTeam] = useState();
     const [myOrganization, setmyOrganization] = useState();
-    const [scoutId, setScoutId] = useState();
+//    const [scoutId, setScoutId] = useState();
     const [scoutingReportNotesBody, setScoutingReportNotesBody] = useState();
 
     const [pitcherTotalPitches, setpitcherTotalPitches] = useState();
@@ -102,12 +102,13 @@ const NewScoutingReport = (props) => {
 
 
     // save the scouting report
-    async function saveScoutingReport(report) {
+    async function saveScoutingReport(report, scoutingReportId) {
         const scout = getUser(); 
-        console.log(scout.id);
+        console.log(report[5]);
 
         // send the report in this format to backend
         const reportInfo = {
+            "PlayerScoutingReportId": scoutingReportId,
             "FirstName": report[0],
             "LastName": report[1],
             "PlayerBaseballTeamName": report[2],
@@ -181,7 +182,7 @@ const NewScoutingReport = (props) => {
 
         // post the report
         try {
-            const response = await axios.post('https://localhost:44394/api/playerscoutingreport/add', reportInfo);
+            let response = await axios.put(`https://localhost:44394/api/playerscoutingreport/edit/${scoutingReportId}`, reportInfo);
             console.log("good api call");
         }
         catch(ex){
@@ -195,126 +196,323 @@ const NewScoutingReport = (props) => {
     // submits new player request
     const handleSubmit = (event) => {
         event.preventDefault();
+        // if a field value is undefined (set it to its current value in state.scoutingReport)
+        if (firstName === undefined) {
+            setFirstName(scoutingReport.firstName);
+        }
+        if (lastName === undefined) {
+            setLastName(scoutingReport.lastName);
+        }
+        if (playerBaseballTeamName === undefined) {
+            setplayerBaseballTeamName(scoutingReport.playerBaseballTeamName); 
+        }
+        if (opponentTeam === undefined) {
+            setopponentTeam(scoutingReport.opponentTeam);
+        }
+        if (myOrganization === undefined) {
+            setmyOrganization(scoutingReport.myOrganization);
+        } 
+        if (scoutingReportNotesBody === undefined) { 
+            setScoutingReportNotesBody("");
+        } 
+        if (pitcherTotalPitches === undefined) {
+            setpitcherTotalPitches(0);
+        } 
+        if (pitcherWin === undefined) {
+            setpitcherWin(scoutingReport.pitcherWin);
+        } 
+        if (pitcherLoss === undefined) {
+            setpitcherLoss(scoutingReport.pitcherLoss);
+        } 
+        if (pitcherInningsPitched === undefined) {
+            setpitcherInningsPitched(scoutingReport.pitcherInningsPitched);
+        } 
+        if (pitcherSave === undefined) {
+            setpitcherSave(scoutingReport.pitcherSave);
+        } 
+        if (pitcherBlownSave === undefined) {
+            setpitcherBlownSave(scoutingReport.pitcherBlownSave);
+        } 
+        if (careerPitchingCompleteGame === undefined) {
+            setcareerPitchingCompleteGame(scoutingReport.careerPitchingCompleteGame);
+        } 
+
+        if (pitcherTotalBalls === undefined) {
+            setpitcherTotalBalls(scoutingReport.pitcherTotalBalls);
+        } 
+        if (pitcherWalksGiven === undefined) { 
+            setpitcherWalksGiven(scoutingReport.pitcherWalksGiven);
+        } 
+        if (pitcherTotalStrikes === undefined) {
+            setpitcherTotalStrikes(scoutingReport.pitcherTotalStrikes);
+        } 
+        if (pitcherTotalStrikeouts === undefined) {
+            setpitcherTotalStrikeouts(scoutingReport.pitcherTotalStrikeouts);
+        } 
+        if (pitcherFoulBallsHit === undefined) {
+            setpitcherFoulBallsHit(scoutingReport.pitcherFoulBallsHit);
+        } 
+        if (pitcherHitBatter === undefined) {
+            setpitcherHitBatter(scoutingReport.pitcherHitBatter);
+        } 
+        if (pitcherWildPitch === undefined) {
+            setpitcherWildPitch(scoutingReport.pitcherWildPitch);
+        } 
+        if (pitcherPickOffAttempts === undefined) {
+            setpitcherPickOffAttempts(scoutingReport.pitcherPickOffAttempts);
+        } 
+        if (pitcherPickOfSuccess === undefined) {
+            setpitcherPickOfSuccess(scoutingReport.pitcherPickOfSuccess);
+        } 
+        if (pitcherNumberOfBattersFaced === undefined) {
+            setpitcherNumberOfBattersFaced(scoutingReport.pitcherNumberOfBattersFaced);
+        } 
+
+        if (pitcherHitsAllowed === undefined) {
+            setpitcherHitsAllowed(scoutingReport.pitcherHitsAllowed);
+        } 
+        if (pitcherPitchingHitSingle === undefined) {
+            setpitcherPitchingHitSingle(scoutingReport.pitcherPitchingHitSingle);
+        } 
+        if (pitcherHitDouble === undefined) {
+            setpitcherHitDouble(scoutingReport.pitcherHitDouble);
+        } 
+        if (pitcherHitTriple === undefined) {
+            setpitcherHitTriple(scoutingReport.pitcherHitTriple);
+        } 
+        if (pitcherHomerunsAllowed === undefined) {
+            setpitcherHomerunsAllowed(scoutingReport.pitcherHomerunsAllowed);
+        } 
+        if (pitcherGroundOuts === undefined) {
+            setpitcherGroundOuts(scoutingReport.pitcherGroundOuts);
+        } 
+        if (pitcherFlyouts === undefined) {
+            setpitcherFlyouts(scoutingReport.pitcherFlyouts);
+        } 
+        if (pitcherRunsAllowed === undefined) {
+            setpitcherRunsAllowed(scoutingReport.pitcherRunsAllowed);
+        } 
+
+        if (batterPlateAppearances === undefined) {
+            setbatterPlateAppearances(scoutingReport.batterPlateAppearances);
+        } 
+        if (batterOnBaseCount === undefined) {
+            setbatterOnBaseCount(scoutingReport.batterOnBaseCount);
+        } 
+        if (batterHitByPitch === undefined) {
+            setbatterHitByPitch(scoutingReport.batterHitByPitch);
+        } 
+        if (batterBalls === undefined) {
+            setbatterBalls(scoutingReport.batterBalls);
+        } 
+        if (batterBaseOnBalls === undefined) {
+            setbatterBaseOnBalls(scoutingReport.batterBaseOnBalls);
+        } 
+        if (batterStrikes === undefined) {
+            setbatterStrikes(scoutingReport.batterStrikes);
+        } 
+        if (batterStrikeouts === undefined) {
+            setbatterStrikeouts(scoutingReport.batterStrikeouts);
+        } 
+        if (batterFoulBalls === undefined) {
+            setbatterFoulBalls(scoutingReport.batterFoulBalls);
+        } 
+
+        if (batterHit === undefined) {
+            setbatterHit(scoutingReport.batterHit);
+        } 
+        if (batterSingle === undefined) {
+            setbatterSingle(scoutingReport.batterSingle);
+        } 
+        if (batterDouble === undefined) {
+            setbatterDouble(scoutingReport.batterDouble);
+        } 
+        if (batterTriple === undefined) {
+            setbatterTriple(scoutingReport.batterTriple);
+        } 
+        if (batterHomerun === undefined) {
+            setbatterHomerun(scoutingReport.batterHomerun);
+        } 
+        if (batterSacFly === undefined) {
+            setbatterSacFly(scoutingReport.batterSacFly);
+        } 
+        if (BattterRbi === undefined) {
+            setBattterRbi(scoutingReport.battterRbi);
+        } 
+        if (batterGroundOut === undefined) {
+            setbatterGroundOut(scoutingReport.batterGroundOut); } 
+        if (batterOutByDoublePlay === undefined) {
+            setbatterOutByDoublePlay(scoutingReport.batterOutByDoublePlay);
+        } 
+        if (batterOutByTriplePlay === undefined) {
+            setbatterOutByTriplePlay(scoutingReport.batterOutByTriplePlay);
+        } 
+        if (batterFlyout === undefined) {
+            setbatterFlyout(scoutingReport.batterFlyout);
+        } 
+        if (batterRisp === undefined) {
+            setbatterRisp(scoutingReport.batterRisp);
+        } 
+        if (batterRispSuccess === undefined) {
+            setbatterRispSuccess(scoutingReport.batterRispSuccess);
+        } 
+        if (batterRispFail === undefined) {
+            setbatterRispFail(scoutingReport.batterRispFail);
+        } 
+
+        if (runnerAdvancedToSecond === undefined) {
+            setrunnerAdvancedToSecond(scoutingReport.runnerAdvancedToSecond);
+        } 
+        if (RunnderAdvancedToThird === undefined) {
+            setRunnderAdvancedToThird(scoutingReport.runnderAdvancedToThird);
+        } 
+        if (runnerRisp === undefined) {
+            setrunnerRisp(scoutingReport.runnerRisp);
+        } 
+        if (runnerRunScored === undefined) {
+            setrunnerRunScored(scoutingReport.runnerRunScored);
+        } 
+        if (runnerStolenBases === undefined) {
+            setrunnerStolenBases(scoutingReport.runnerStolenBases);
+        } 
+        if (runnerCaughtStealing === undefined) {
+            setrunnerCaughtStealing(scoutingReport.runnerCaughtStealing);
+        } 
+        if (runnerPickedOff === undefined) {
+            setrunnerPickedOff(scoutingReport.runnerPickedOff);
+        } 
+        if (runnerTotalBases === undefined) {
+            setrunnerTotalBases(scoutingReport.runnerTotalBases);
+        } 
+        if (runnerForcedOut === undefined) {
+            setrunnerForcedOut(scoutingReport.runnerForcedOut);
+        } 
+        if (runnerTaggedOut === undefined) {
+            setrunnerTaggedOut(scoutingReport.runnerTaggedOut);
+        } 
 
         // push all the form values into newScoutingReport
         newScoutingReport.push(firstName, lastName, playerBaseballTeamName, opponentTeam, myOrganization, scoutingReportNotesBody, pitcherTotalPitches, pitcherWin, pitcherLoss, pitcherInningsPitched, pitcherSave, pitcherBlownSave, careerPitchingCompleteGame, pitcherTotalBalls, pitcherWalksGiven, pitcherTotalStrikes, pitcherTotalStrikeouts, pitcherFoulBallsHit, pitcherHitBatter, pitcherWildPitch, pitcherPickOffAttempts, pitcherPickOfSuccess, pitcherNumberOfBattersFaced, pitcherHitsAllowed, pitcherPitchingHitSingle, pitcherHitDouble, pitcherHitTriple, pitcherHomerunsAllowed, pitcherGroundOuts, pitcherFlyouts, pitcherRunsAllowed, batterPlateAppearances, batterOnBaseCount, batterHitByPitch, batterBalls, batterBaseOnBalls, batterStrikes, batterStrikeouts, batterFoulBalls, batterHit, batterSingle, batterDouble, batterTriple, batterHomerun, batterSacFly, BattterRbi, batterGroundOut, batterOutByDoublePlay, batterOutByTriplePlay, batterFlyout, batterRisp, batterRispSuccess, batterRispFail, runnerAdvancedToSecond, RunnderAdvancedToThird, runnerRisp, runnerRunScored, runnerStolenBases, runnerCaughtStealing, runnerPickedOff, runnerTotalBases, runnerForcedOut, runnerTaggedOut);
 
-        saveScoutingReport(newScoutingReport);
-    }
+        console.log(newScoutingReport);
 
-    
+
+        saveScoutingReport(newScoutingReport, scoutingReport.playerScoutingReportId);
+    }
 
     // add player form
     return (
         <div>
             <h1>New Scouting Report</h1>
             <form onSubmit={handleSubmit}>
-                <input type="submit" value="Save Scouting Report" class="btn btn-primary ms-3 mb-3" />
+                <input type="submit" value="Pre-fill/Reset Report" class="btn btn-primary ms-3 mb-3" />
 
-                <h2>Report Info</h2>
-                <label>Player First Name</label>
-                <input type="text" name="firstName" value={scoutingReport.firstName} onSubmit={(event) => setFirstName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
+                <input type="submit" value="Save Report" class="btn btn-primary ms-3 mb-3" />
 
-                <label>Player Last Name</label>
-                <input type="text" name="lastName" value={lastName} onSubmit={(event) => setLastName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
+                <h2>Basic Info</h2>
+                <label>Player First Name: {scoutingReport.firstName} </label>
+                <input type="text" name="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" />
+
+                <label>Player Last Name: {scoutingReport.lastName}</label>
+                <input type="text" name="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
 
                 <label>Player's Baseball Team</label>
-                <input type="text" value={playerBaseballTeamName} onSubmit={(event) => setplayerBaseballTeamName(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <input type="text" value={playerBaseballTeamName} onChange={(event) => setplayerBaseballTeamName(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
                 <label>Player's Opponent Team</label>
-                <input type="text" value={opponentTeam} onSubmit={(event) => setopponentTeam(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <input type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
                 <label>myOrganization (Scout)</label>
-                <input type="text" value={myOrganization} onSubmit={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
                 <h3>Scouting Reports Notes</h3>
-                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onSubmit={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="6" cols="60" />
+                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="6" cols="60" />
 
                 <h2>Pitching</h2>
                 
                 <h4>Pitching Game Stats</h4>
 
                 <label>Total Pitches</label>
-                <input type="number" value={pitcherTotalPitches} onSubmit={(event) => setpitcherTotalPitches(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherTotalPitches} onChange={(event) => setpitcherTotalPitches(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Batters Faced</label>
-                <input type="number" value={pitcherNumberOfBattersFaced} onSubmit={(event) => setpitcherNumberOfBattersFaced(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherNumberOfBattersFaced} onChange={(event) => setpitcherNumberOfBattersFaced(event.target.value)} class="ms-3 mb-3" /><br/>
                                 
                 <label>Innings Pitched</label>
-                <input type="number" value={pitcherInningsPitched} onSubmit={(event) => setpitcherInningsPitched(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherInningsPitched} onChange={(event) => setpitcherInningsPitched(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Comlete Game</label>
-                <input type="number" value={careerPitchingCompleteGame} onSubmit={(event) => setcareerPitchingCompleteGame(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={careerPitchingCompleteGame} onChange={(event) => setcareerPitchingCompleteGame(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Win</label>
-                <input type="number" value={pitcherWin} onSubmit={(event) => setpitcherWin(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherWin} onChange={(event) => setpitcherWin(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Loss</label>
-                <input type="number" value={pitcherLoss} onSubmit={(event) => setpitcherLoss(event.target.value)} required class="ms-3 mb-3" />
+                <input type="number" value={pitcherLoss} onChange={(event) => setpitcherLoss(event.target.value)} class="ms-3 mb-3" />
                 <br/>
 
                 <label>Save</label>
-                <input type="number" value={pitcherSave} onSubmit={(event) => setpitcherSave(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherSave} onChange={(event) => setpitcherSave(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Blown Save</label>
-                <input type="number" value={pitcherBlownSave} onSubmit={(event) => setpitcherBlownSave(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherBlownSave} onChange={(event) => setpitcherBlownSave(event.target.value)} class="ms-3 mb-3" /><br/>
 
 
                 <h4>Pitching Results</h4>
 
                 <label>Balls</label>
-                <input type="number" value={pitcherTotalBalls} onSubmit={(event) => setpitcherTotalBalls(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherTotalBalls} onChange={(event) => setpitcherTotalBalls(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Walks</label>
-                <input type="number" value={pitcherWalksGiven} onSubmit={(event) => setpitcherWalksGiven(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherWalksGiven} onChange={(event) => setpitcherWalksGiven(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Strikes</label>
-                <input type="number" value={pitcherTotalStrikes} onSubmit={(event) => setpitcherTotalStrikes(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherTotalStrikes} onChange={(event) => setpitcherTotalStrikes(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Strikeouts</label>
-                <input type="number" value={pitcherTotalStrikeouts} onSubmit={(event) => setpitcherTotalStrikeouts(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherTotalStrikeouts} onChange={(event) => setpitcherTotalStrikeouts(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Foul Balls</label>
-                <input type="number" value={pitcherFoulBallsHit} onSubmit={(event) => setpitcherFoulBallsHit(event.target.value)} required class="ms-3 me-3 mb-3" /> <br/>
+                <input type="number" value={pitcherFoulBallsHit} onChange={(event) => setpitcherFoulBallsHit(event.target.value)} class="ms-3 me-3 mb-3" /> <br/>
 
                 <label>Hit Batters</label>
-                <input type="number" value={pitcherHitBatter} onSubmit={(event) => setpitcherHitBatter(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherHitBatter} onChange={(event) => setpitcherHitBatter(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Wild Pitches</label>
-                <input type="number" value={pitcherWildPitch} onSubmit={(event) => setpitcherWildPitch(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherWildPitch} onChange={(event) => setpitcherWildPitch(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Pickoff Attempts</label>
-                <input type="number" value={pitcherPickOffAttempts} onSubmit={(event) => setpitcherPickOffAttempts(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherPickOffAttempts} onChange={(event) => setpitcherPickOffAttempts(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Pickoff Success</label>
-                <input type="number" value={pitcherPickOfSuccess} onSubmit={(event) => setpitcherPickOfSuccess(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherPickOfSuccess} onChange={(event) => setpitcherPickOfSuccess(event.target.value)} class="ms-3 mb-3" /><br/>
 
 
                 <h4>Pitcher Contact Results</h4>
 
                 <label>Hits Allowed</label>
-                <input type="number" value={pitcherHitsAllowed} onSubmit={(event) => setpitcherHitsAllowed(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherHitsAllowed} onChange={(event) => setpitcherHitsAllowed(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Singles</label>
-                <input type="number" value={pitcherPitchingHitSingle} onSubmit={(event) => setpitcherPitchingHitSingle(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherPitchingHitSingle} onChange={(event) => setpitcherPitchingHitSingle(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Doubles</label>
-                <input type="number" value={pitcherHitDouble} onSubmit={(event) => setpitcherHitDouble(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherHitDouble} onChange={(event) => setpitcherHitDouble(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Triples</label>
-                <input type="number" value={pitcherHitTriple} onSubmit={(event) => setpitcherHitTriple(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherHitTriple} onChange={(event) => setpitcherHitTriple(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Homeruns Allowed</label>
-                <input type="number" value={pitcherHomerunsAllowed} onSubmit={(event) => setpitcherHomerunsAllowed(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherHomerunsAllowed} onChange={(event) => setpitcherHomerunsAllowed(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Runs Allowed</label>
-                <input type="number" value={pitcherRunsAllowed} onSubmit={(event) => setpitcherRunsAllowed(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherRunsAllowed} onChange={(event) => setpitcherRunsAllowed(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Groundouts</label>
-                <input type="number" value={pitcherGroundOuts} onSubmit={(event) => setpitcherGroundOuts(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={pitcherGroundOuts} onChange={(event) => setpitcherGroundOuts(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Flyouts</label>
-                <input type="number" value={pitcherFlyouts} onSubmit={(event) => setpitcherFlyouts(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={pitcherFlyouts} onChange={(event) => setpitcherFlyouts(event.target.value)} class="ms-3 mb-3" /><br/>
 
 
                 <h2>Batting Stats</h2>
@@ -322,104 +520,104 @@ const NewScoutingReport = (props) => {
                 <h4>At the Plate</h4>
 
                 <label>Plate Appearances</label>
-                <input type="number" value={batterPlateAppearances} onSubmit={(event) => setbatterPlateAppearances(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterPlateAppearances} onChange={(event) => setbatterPlateAppearances(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>On Base Count</label>
-                <input type="number" value={batterOnBaseCount} onSubmit={(event) => setbatterOnBaseCount(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterOnBaseCount} onChange={(event) => setbatterOnBaseCount(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Balls Taken</label>
-                <input type="number" value={batterBalls} onSubmit={(event) => setbatterBalls(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterBalls} onChange={(event) => setbatterBalls(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Base on Balls</label>
-                <input type="number" value={batterBaseOnBalls} onSubmit={(event) => setbatterBaseOnBalls(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterBaseOnBalls} onChange={(event) => setbatterBaseOnBalls(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Strikes</label>
-                <input type="number" value={batterStrikes} onSubmit={(event) => setbatterStrikes(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterStrikes} onChange={(event) => setbatterStrikes(event.target.value)} class="ms-3 me-3 mb-3" />
                 
                 <label>Strikeouts</label>
-                <input type="number" value={batterStrikeouts} onSubmit={(event) => setbatterStrikeouts(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterStrikeouts} onChange={(event) => setbatterStrikeouts(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Foul Balls</label>
-                <input type="number" value={batterFoulBalls} onSubmit={(event) => setbatterFoulBalls(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterFoulBalls} onChange={(event) => setbatterFoulBalls(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Hit By Pitch</label>
-                <input type="number" value={batterHitByPitch} onSubmit={(event) => setbatterHitByPitch(event.target.value)} required class="ms-3 me-3 mb-3" /><br/>
+                <input type="number" value={batterHitByPitch} onChange={(event) => setbatterHitByPitch(event.target.value)} class="ms-3 me-3 mb-3" /><br/>
 
                 <h4>Ball Put in Play</h4>
 
                 <label>Hit</label>
-                <input type="number" value={batterHit} onSubmit={(event) => setbatterHit(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterHit} onChange={(event) => setbatterHit(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Single</label>
-                <input type="number" value={batterSingle} onSubmit={(event) => setbatterSingle(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterSingle} onChange={(event) => setbatterSingle(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Double</label>
-                <input type="number" value={batterDouble} onSubmit={(event) => setbatterDouble(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterDouble} onChange={(event) => setbatterDouble(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Triple</label>
-                <input type="number" value={batterTriple} onSubmit={(event) => setbatterTriple(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterTriple} onChange={(event) => setbatterTriple(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Homerun</label>
-                <input type="number" value={batterHomerun} onSubmit={(event) => setbatterHomerun(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterHomerun} onChange={(event) => setbatterHomerun(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>SacFly</label>
-                <input type="number" value={batterSacFly} onSubmit={(event) => setbatterSacFly(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterSacFly} onChange={(event) => setbatterSacFly(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>RBIs</label>
-                <input type="number" value={BattterRbi} onSubmit={(event) => setBattterRbi(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={BattterRbi} onChange={(event) => setBattterRbi(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Groundout</label>
-                <input type="number" value={batterGroundOut} onSubmit={(event) => setbatterGroundOut(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterGroundOut} onChange={(event) => setbatterGroundOut(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Hit into Double Play</label>
-                <input type="number" value={batterOutByDoublePlay} onSubmit={(event) => setbatterOutByDoublePlay(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterOutByDoublePlay} onChange={(event) => setbatterOutByDoublePlay(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Hit into Triple Play</label>
-                <input type="number" value={batterOutByTriplePlay} onSubmit={(event) => setbatterOutByTriplePlay(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterOutByTriplePlay} onChange={(event) => setbatterOutByTriplePlay(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Flyout</label>
-                <input type="number" value={batterFlyout} onSubmit={(event) => setbatterFlyout(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterFlyout} onChange={(event) => setbatterFlyout(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>RISP</label>
-                <input type="number" value={batterRisp} onSubmit={(event) => setbatterRisp(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterRisp} onChange={(event) => setbatterRisp(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>RISP Success</label>
-                <input type="number" value={batterRispSuccess} onSubmit={(event) => setbatterRispSuccess(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={batterRispSuccess} onChange={(event) => setbatterRispSuccess(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>RISP Fail</label>
-                <input type="number" value={batterRispFail} onSubmit={(event) => setbatterRispFail(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={batterRispFail} onChange={(event) => setbatterRispFail(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <h4>Baserunning Stats</h4>
 
                 <label>Advanced to 2nd</label>
-                <input type="number" value={runnerAdvancedToSecond} onSubmit={(event) => setrunnerAdvancedToSecond(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={runnerAdvancedToSecond} onChange={(event) => setrunnerAdvancedToSecond(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Advanced to 3rd</label>
-                <input type="number" value={RunnderAdvancedToThird} onSubmit={(event) => setRunnderAdvancedToThird(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={RunnderAdvancedToThird} onChange={(event) => setRunnderAdvancedToThird(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>ISP</label>
-                <input type="number" value={runnerRisp} onSubmit={(event) => setrunnerRisp(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={runnerRisp} onChange={(event) => setrunnerRisp(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Run Scored</label>
-                <input type="number" value={runnerRunScored} onSubmit={(event) => setrunnerRunScored(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerRunScored} onChange={(event) => setrunnerRunScored(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Stolen Bases</label>
-                <input type="number" value={runnerStolenBases} onSubmit={(event) => setrunnerStolenBases(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={runnerStolenBases} onChange={(event) => setrunnerStolenBases(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Caught Stealing</label>
-                <input type="number" value={runnerCaughtStealing} onSubmit={(event) => setrunnerCaughtStealing(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerCaughtStealing} onChange={(event) => setrunnerCaughtStealing(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Total Bases</label>
-                <input type="number" value={runnerTotalBases} onSubmit={(event) => setrunnerTotalBases(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={runnerTotalBases} onChange={(event) => setrunnerTotalBases(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Picked Off</label>
-                <input type="number" value={runnerPickedOff} onSubmit={(event) => setrunnerPickedOff(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerPickedOff} onChange={(event) => setrunnerPickedOff(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Forced Out</label>
-                <input type="number" value={runnerForcedOut} onSubmit={(event) => setrunnerForcedOut(event.target.value)} required class="ms-3 me-3 mb-3" />
+                <input type="number" value={runnerForcedOut} onChange={(event) => setrunnerForcedOut(event.target.value)} class="ms-3 me-3 mb-3" />
 
                 <label>Tagged Out</label>
-                <input type="number" value={runnerTaggedOut} onSubmit={(event) => setrunnerTaggedOut(event.target.value)} required class="ms-3 mb-3" /><br/>
+                <input type="number" value={runnerTaggedOut} onChange={(event) => setrunnerTaggedOut(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <input type="submit" value="Save Scouting Report" class="btn btn-primary ms-3 mb-3" />
             </form>

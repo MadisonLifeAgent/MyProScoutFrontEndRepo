@@ -140,9 +140,9 @@ const InitiateScoutingReport = (props) => {
     // scouting report start form
     return (
         <div>
-            <h1>New Scouting Report</h1>
+            <h1>Start New Scouting Report</h1>
             <form onSubmit={handleSubmit}>
-                <h2>Report Info</h2>
+                <h2>Basic Info</h2>
                 <label>Player First Name</label>
                 <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
 
@@ -159,15 +159,14 @@ const InitiateScoutingReport = (props) => {
                 <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
                 <input type="submit" value="Initiate Scouting Report" class="btn btn-primary ms-3 mb-3" />
-
-                <Link class="btn btn-primary ms-3 mb-3" to={{
+                
+            </form>
+            <Link class="btn btn-primary ms-3 mb-3" to={{
                         pathname: `/myscoutingreports/newscoutingreport`,
                         state: {
                             scoutingReport: scoutingReport,
                         }
                     }}>Go to Report</Link>
-
-            </form>
         
         </div>
     );
