@@ -17,6 +17,7 @@ const Search = (props) => {
     const battingHand = "battinghand";
     const throwingHand = "throwinghand";
     const playerType = "playertype";
+    const region = "region";
 
     // set search term on submit
     const handleChange = (event) => {
@@ -37,6 +38,7 @@ const Search = (props) => {
                         <option value={empty} selected >Select Category</option>
                         <option value={position} >Position Search</option>
                         <option value={team} >Team</option>
+                        <option value={region} >Region</option>
                         <option value={battingHand} >Batting Handedness</option>
                         <option value={throwingHand} >Throwing Handedness</option>
                         <option value={playerType} >Player Type</option>

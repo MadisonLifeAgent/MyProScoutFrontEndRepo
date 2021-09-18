@@ -88,6 +88,18 @@ const SearchResults = (props) => {
             console.log("bad api call");
         }
     }
+
+    // search for players based their teams reiong
+    async function searchByRegion(searchWord) {
+        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/region/${searchWord}`);
+        
+        if (response) {
+            console.log("good call");
+            setPlayerSearchResults(response.data);
+        } else {
+            console.log("bad api call");
+        }
+    }
     
     // determine which query to used based on user input from search bar
     useEffect(() => {
@@ -101,8 +113,10 @@ const SearchResults = (props) => {
             searchByBattingHandedness(searchTerm);
         } else if (category === "throwinghand") {
             searchByThrowingHandedness(searchTerm);
-        }else if (category === "playertype") {
+        } else if (category === "playertype") {
             searchByPlayerType(searchTerm);
+        } else if (category === "region") {
+            searchByRegion(searchTerm);
         }
     },[!playerSearchResults]);
 
@@ -122,7 +136,7 @@ const SearchResults = (props) => {
     if (playerSearchResults.length > 0) {
         return (
             <div>
-                <h4>Search Results for "{searchTerm}"</h4>
+                <h4>{category} search results for "{searchTerm}"</h4>
                 <Link to="/search" class="btn btn-primary">Go Back</Link>
                 <dl>{showSearchResults}</dl>
             </div>
