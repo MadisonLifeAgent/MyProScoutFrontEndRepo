@@ -16,6 +16,7 @@ const ViewScoutingReportNotes = (props) => {
     const showReportNotes = reportNotes.map((item) => {
             return (
                 <div>
+                    <dt>By: {item.user.firstName} {item.user.lastName}</dt>
                     <dd>{item.playerScoutingReportNoteBody}</dd>
                 </div>
             )
