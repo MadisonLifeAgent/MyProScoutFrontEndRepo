@@ -1,7 +1,7 @@
 import React from "react";
 
 // Component or hook imports
-import NewScoutingReport from "./NewScoutingReport";
+import InitiateScoutingReport from "./InitiateScoutingReport";
 import DisplayScoutingReportLinks from "./DisplayScoutingReportLinks";
 
 // Scout profile page
@@ -10,7 +10,7 @@ const MyScoutingReports = (props) => {
 
         // routes scout to add message form 
         const handleClick = () => {
-            <NewScoutingReport />
+            <InitiateScoutingReport />
         }
 
 
@@ -18,7 +18,7 @@ const MyScoutingReports = (props) => {
         return (
             <div>
                 <h3>myScouting Reports Page</h3>
-                <a href="/myscoutingreports/newscoutingreport" class="btn btn-primary ms-3 mb-3" onClick={handleClick}>Start New Scouting Report</a>
+                <a href="/myscoutingreports/initiatereport" class="btn btn-primary ms-3 mb-3" onClick={handleClick}>Start New Scouting Report</a>
 
                 <DisplayScoutingReportLinks />
             </div>

@@ -89,9 +89,21 @@ const SearchResults = (props) => {
         }
     }
 
-    // search for players based their teams reiong
+    // search for players based their teams region
     async function searchByRegion(searchWord) {
         let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/region/${searchWord}`);
+        
+        if (response) {
+            console.log("good call");
+            setPlayerSearchResults(response.data);
+        } else {
+            console.log("bad api call");
+        }
+    }
+
+    // search for players based their teams competition level
+    async function searchByCompetitionLevel(searchWord) {
+        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/competitionlevel/${searchWord}`);
         
         if (response) {
             console.log("good call");
@@ -117,6 +129,8 @@ const SearchResults = (props) => {
             searchByPlayerType(searchTerm);
         } else if (category === "region") {
             searchByRegion(searchTerm);
+        } else if (category === "competitionLevel") {
+            searchByCompetitionLevel(searchTerm);
         }
     },[!playerSearchResults]);
 

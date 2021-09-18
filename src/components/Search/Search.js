@@ -13,11 +13,12 @@ const Search = (props) => {
     // set category values
     const position = "position";
     const team = "team";
-    const empty = "";
+    const player = "player";
     const battingHand = "battinghand";
     const throwingHand = "throwinghand";
     const playerType = "playertype";
     const region = "region";
+    const competitionLevel = "competitionlevel"
 
     // set search term on submit
     const handleChange = (event) => {
@@ -35,10 +36,11 @@ const Search = (props) => {
                 <h3>Player Search</h3>
                 <form >
                     <select class="form-select" name="category" aria-label="Default select example" onChange={onSelect}>
-                        <option value={empty} selected >Select Category</option>
+                        <option value={player} selected >Player</option>
                         <option value={position} >Position Search</option>
                         <option value={team} >Team</option>
                         <option value={region} >Region</option>
+                        <option value={competitionLevel} >Competition Level</option>
                         <option value={battingHand} >Batting Handedness</option>
                         <option value={throwingHand} >Throwing Handedness</option>
                         <option value={playerType} >Player Type</option>

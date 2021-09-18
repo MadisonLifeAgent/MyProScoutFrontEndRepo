@@ -13,6 +13,7 @@ import AddPlayer from './AddPlayer/AddPlayer';
 import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
     import NewScoutingReport from "./MyScoutingReports/NewScoutingReport";
     import ViewScoutingReport from "./MyScoutingReports/ViewScoutingReport";
+    import InitiateScoutingReport from "./MyScoutingReports/InitiateScoutingReport";
 import MyOrg from "./MyOrg/MyOrg";
     import AddOrgMessage from "./MyOrg/AddOrgMessage";
     import DisplayMyOrgMessages from "./MyOrg/DisplayMyOrgMessages";
@@ -68,6 +69,7 @@ class App extends Component {
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />
                                 <Route path="/myscoutingreports/newscoutingreport" exact component={NewScoutingReport} />
                                 <Route path="/myscoutingreports/viewreport" exact component={ViewScoutingReport} />
+                                <Route path="/myscoutingreports/initiatereport" exact component={InitiateScoutingReport} />
                                 
 
                             <Route path="/addPlayer" exact component={AddPlayer} />
