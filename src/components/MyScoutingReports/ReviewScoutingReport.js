@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 
 // component imports
 import useGetPlayerScoutingReportById from "../../hooks/useGetScoutingReportById";
@@ -17,7 +19,23 @@ const ReviewScoutingReport = (props) => {
 
     // rendery the preview here
     return (
-        <React.Fragment>
+        <div>           
+            <div>
+            <Link class="btn btn-primary ms-3 mb-3" to={{
+                    pathname: '/myscoutingreports/newreportsaved',
+                    state: {
+                        scoutingReport: newScoutingReport,
+                    }
+                }}>Save Report</Link>
+
+            <Link class="btn btn-primary ms-3 mb-3" to={{
+                    pathname: '/myscoutingreports/reviewreport',
+                    state: {
+                        scoutingReport: newScoutingReport,
+                    }
+                }}>Review Report</Link>
+            </div>
+
             <h4>Player: {newScoutingReport[0].firstName} {newScoutingReport[0].lastName}</h4>
             <p>Player Team: {newScoutingReport[0].playerBaseballTeamName} VS. {newScoutingReport[0].opponentTeam}<br/>
             myOrg: {newScoutingReport[0].myOrganization}
@@ -99,9 +117,7 @@ const ReviewScoutingReport = (props) => {
                     <dd>RunnerForcedOut {newScoutingReport[0].runnerForcedOut}</dd>
                     <dd>RunnerTaggedOut {newScoutingReport[0].runnerTaggedOut}</dd>
             </dl>
-
-        </React.Fragment>
-
+        </div>
     )
 }
 
