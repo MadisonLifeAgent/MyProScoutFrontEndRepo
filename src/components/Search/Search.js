@@ -15,7 +15,8 @@ const Search = (props) => {
     const team = "team";
     const empty = "";
     const battingHand = "battinghand";
-    const playerType = "playertype"
+    const throwingHand = "throwinghand";
+    const playerType = "playertype";
 
     // set search term on submit
     const handleChange = (event) => {
@@ -37,6 +38,7 @@ const Search = (props) => {
                         <option value={position} >Position Search</option>
                         <option value={team} >Team</option>
                         <option value={battingHand} >Batting Handedness</option>
+                        <option value={throwingHand} >Throwing Handedness</option>
                         <option value={playerType} >Player Type</option>
                     </select>
                     <input type="text" name="searchTerm"  onChange={handleChange}/>

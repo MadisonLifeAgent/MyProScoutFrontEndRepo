@@ -65,7 +65,19 @@ const SearchResults = (props) => {
         }
     }
 
-    // search for players based on batting handedness
+    // search for players based on throwing handedness
+    async function searchByThrowingHandedness(searchWord) {
+        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/throwinghandedness/${searchWord}`);
+        
+        if (response) {
+            console.log("good call");
+            setPlayerSearchResults(response.data);
+        } else {
+            console.log("bad api call");
+        }
+    }
+
+    // search for players based player type
     async function searchByPlayerType(searchWord) {
         let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/playertype/${searchWord}`);
         
@@ -87,7 +99,9 @@ const SearchResults = (props) => {
             searchByPosition(searchTerm);
         } else if (category === "battinghand") {
             searchByBattingHandedness(searchTerm);
-        } else if (category === "playertype") {
+        } else if (category === "throwinghand") {
+            searchByThrowingHandedness(searchTerm);
+        }else if (category === "playertype") {
             searchByPlayerType(searchTerm);
         }
     },[!playerSearchResults]);
