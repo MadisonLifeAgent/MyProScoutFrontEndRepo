@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import jwtDecode from "jwt-decode";
 
@@ -404,10 +404,18 @@ const NewScoutingReport = (props) => {
     return (
         <div>
             <h1>New Scouting Report</h1>
+
             <form onSubmit={handleSubmit}>
                 <input type="submit" value="Pre-fill/Reset Report" class="btn btn-primary ms-3 mb-3" />
 
                 <input type="submit" value="Save Report" class="btn btn-primary ms-3 mb-3" />
+
+                <Link class="btn btn-primary ms-3 mb-3" to={{
+                        pathname: '/myscoutingreports/reviewreport',
+                        state: {
+                            scoutingReportId: scoutingReport.playerScoutingReportId,
+                        }
+                    }}>Review Report</Link>
 
                 <h2>Basic Info</h2>
                 <label>Player First Name: {scoutingReport.firstName} </label>
@@ -619,8 +627,19 @@ const NewScoutingReport = (props) => {
                 <label>Tagged Out</label>
                 <input type="number" value={runnerTaggedOut} onChange={(event) => setrunnerTaggedOut(event.target.value)} class="ms-3 mb-3" /><br/>
 
-                <input type="submit" value="Save Scouting Report" class="btn btn-primary ms-3 mb-3" />
+                <input type="submit" value="Pre-fill/Reset Report" class="btn btn-primary ms-3 mb-3" />
+
+                <input type="submit" value="Save Report" class="btn btn-primary ms-3 mb-3" />
+                <Link class="btn btn-primary ms-3 mb-3" to={{
+                        pathname: `/myscoutingreports/reviewreport`,
+                        state: {
+                            scoutingReportId: scoutingReport.playerScoutingReportId,
+                        }
+                    }}>Review Report</Link>
+
             </form>
+
+
 
 
             

@@ -1,8 +1,14 @@
-import React, { useState, useParams, useLocation } from "react";
+import React from "react";
 
+// component imports
+import useGetPlayerScoutingReportById from "../../hooks/useGetScoutingReportById";
 
-export default function ReviewScoutingReport(props) {
-    const newScoutingReport = props.newScoutingReport;
+const ReviewScoutingReport = (props) => {
+    // get the scouting reportId
+    const scoutingReportId = props.location.state.scoutingReportId;
+
+    // query the data base again for the report since it was saved    
+    const newScoutingReport = useGetPlayerScoutingReportById(scoutingReportId);
     console.log(newScoutingReport);
 
     // insert get scoutId from local storage here
@@ -12,86 +18,86 @@ export default function ReviewScoutingReport(props) {
     // rendery the preview here
     return (
         <React.Fragment>
-            <h4>Player: {newScoutingReport[0]} {newScoutingReport[1]}</h4>
-            <p>Player Team: {newScoutingReport[2]} VS. {newScoutingReport[3]}<br/>
-            myOrg: {newScoutingReport[4]}
+            <h4>Player: {newScoutingReport[0].firstName} {newScoutingReport[0].lastName}</h4>
+            <p>Player Team: {newScoutingReport[0].playerBaseballTeamName} VS. {newScoutingReport[0].opponentTeam}<br/>
+            myOrg: {newScoutingReport[0].myOrganization}
             </p>
 
             <br/><br/>
 
             <h4>Scouting Reports Notes</h4>
-            <p>{newScoutingReport[5]}</p>
+            <p>{newScoutingReport[0].scoutingReportNotesBody}</p>
 
             
             <dl>
                 <dt>Pitching Summary</dt>
-                    <dd>TotalPitches: {newScoutingReport[6]}</dd>
-                    <dd>PitcherWin {newScoutingReport[7]}</dd>
-                    <dd>PitcherLoss {newScoutingReport[8]}</dd>
-                    <dd>PitcherInningsPitched {newScoutingReport[9]}</dd>
-                    <dd>PitcherSave {newScoutingReport[10]}</dd>
-                    <dd>PitcherBlownSave {newScoutingReport[11]}</dd>
-                    <dd>CareerPitchingCompleteGame {newScoutingReport[12]}</dd>
+                    <dd>TotalPitches: {newScoutingReport[0].pitcherTotalPitches}</dd>
+                    <dd>PitcherWin {newScoutingReport[0].pitcherWin}</dd>
+                    <dd>PitcherLoss {newScoutingReport[0].pitcherLoss}</dd>
+                    <dd>PitcherInningsPitched {newScoutingReport[0].pitcherInningsPitched}</dd>
+                    <dd>PitcherSave {newScoutingReport[0].pitcherSave}</dd>
+                    <dd>PitcherBlownSave {newScoutingReport[0].pitcherBlownSave}</dd>
+                    <dd>CareerPitchingCompleteGame {newScoutingReport[0].careerPitchingCompleteGame}</dd>
 
                 <dt>Pitching Versus Batters Summary</dt>
-                    <dd>PitcherTotalBalls {newScoutingReport[13]}</dd>
-                    <dd>PitcherWalksGiven {newScoutingReport[14]}</dd>
-                    <dd>PitcherTotalStrikes {newScoutingReport[15]}</dd>
-                    <dd>PitcherTotalStrikeouts {newScoutingReport[16]}</dd>
-                    <dd>PitcherFoulBallsHit {newScoutingReport[17]}</dd>
-                    <dd>PitcherHitBatter" : {newScoutingReport[18]}</dd>
-                    <dd>PitcherWildPitch {newScoutingReport[19]}</dd>
-                    <dd>PitcherPickOffAttempts {newScoutingReport[20]}</dd>
-                    <dd>PitcherPickOfSuccess {newScoutingReport[21]}</dd>
-                    <dd>PitcherNumberOfBattersFaced {newScoutingReport[22]}</dd>
+                    <dd>PitcherTotalBalls {newScoutingReport[0].pitcherTotalBalls}</dd>
+                    <dd>PitcherWalksGiven {newScoutingReport[0].pitcherWalksGiven}</dd>
+                    <dd>PitcherTotalStrikes {newScoutingReport[0].pitcherTotalStrikes}</dd>
+                    <dd>PitcherTotalStrikeouts {newScoutingReport[0].pitcherTotalStrikeouts}</dd>
+                    <dd>PitcherFoulBallsHit {newScoutingReport[0].pitcherFoulBallsHit}</dd>
+                    <dd>PitcherHitBatter" : {newScoutingReport[0].pitcherHitBatter}</dd>
+                    <dd>PitcherWildPitch {newScoutingReport[0].pitcherWildPitch}</dd>
+                    <dd>PitcherPickOffAttempts {newScoutingReport[0].pitcherPickOffAttempts}</dd>
+                    <dd>PitcherPickOfSuccess {newScoutingReport[0].pitcherPickOfSuccess}</dd>
+                    <dd>PitcherNumberOfBattersFaced {newScoutingReport[0].pitcherNumberOfBattersFaced}</dd>
                     
                 <dt>Pitching Ball in Play Summary</dt>
-                    <dd>PitcherHitsAllowed {newScoutingReport[23]}</dd>
-                    <dd>PitcherPitchingHitSingle {newScoutingReport[24]}</dd>
-                    <dd>PitcherHitDouble {newScoutingReport[25]}</dd>
-                    <dd>PitcherHitTriple {newScoutingReport[26]}</dd>
-                    <dd>PitcherHomerunsAllowed {newScoutingReport[27]}</dd>
-                    <dd>PitcherGroundOuts {newScoutingReport[28]}</dd>
-                    <dd>PitcherFlyouts {newScoutingReport[29]}</dd>
-                    <dd>PitcherRunsAllowed {newScoutingReport[30]}</dd>
+                    <dd>PitcherHitsAllowed {newScoutingReport[0].pitcherHitsAllowed}</dd>
+                    <dd>PitcherPitchingHitSingle {newScoutingReport[0].pitcherPitchingHitSingle}</dd>
+                    <dd>PitcherHitDouble {newScoutingReport[0].pitcherHitDouble}</dd>
+                    <dd>PitcherHitTriple {newScoutingReport[0].pitcherHitTriple}</dd>
+                    <dd>PitcherHomerunsAllowed {newScoutingReport[0].pitcherHomerunsAllowed}</dd>
+                    <dd>PitcherGroundOuts {newScoutingReport[0].pitcherGroundOuts}</dd>
+                    <dd>PitcherFlyouts {newScoutingReport[0].pitcherFlyouts}</dd>
+                    <dd>PitcherRunsAllowed {newScoutingReport[0].pitcherRunsAllowed}</dd>
 
                 <dt>Batter At the Plate Summary</dt>
-                    <dd>BatterPlateAppearances {newScoutingReport[31]}</dd>
-                    <dd>BatterOnBaseCount {newScoutingReport[32]}</dd>
-                    <dd>BatterHitByPitch {newScoutingReport[33]}</dd>
-                    <dd>BatterBalls {newScoutingReport[34]}</dd>
-                    <dd>BatterBaseOnBalls {newScoutingReport[35]}</dd>
-                    <dd>BatterStrikes {newScoutingReport[36]}</dd>
-                    <dd>BatterStrikeouts {newScoutingReport[37]}</dd>
-                    <dd>BatterFoulBalls {newScoutingReport[38]}</dd>
+                    <dd>BatterPlateAppearances {newScoutingReport[0].batterPlateAppearances}</dd>
+                    <dd>BatterOnBaseCount {newScoutingReport[0].batterOnBaseCount}</dd>
+                    <dd>BatterHitByPitch {newScoutingReport[0].batterHitByPitch}</dd>
+                    <dd>BatterBalls {newScoutingReport[0].batterBalls}</dd>
+                    <dd>BatterBaseOnBalls {newScoutingReport[0].batterBaseOnBalls}</dd>
+                    <dd>BatterStrikes {newScoutingReport[0].batterStrikes}</dd>
+                    <dd>BatterStrikeouts {newScoutingReport[0].batterStrikeouts}</dd>
+                    <dd>BatterFoulBalls {newScoutingReport[0].batterFoulBalls}</dd>
 
                 <dt>Batter Ball in Play Summary</dt>
-                    <dd>BatterHit {newScoutingReport[39]}</dd>
-                    <dd>BatterSingle {newScoutingReport[40]}</dd>
-                    <dd>BatterDouble {newScoutingReport[41]}</dd>
-                    <dd>BatterTriple {newScoutingReport[42]}</dd>
-                    <dd>BatterHomerun {newScoutingReport[43]}</dd>
-                    <dd>BatterSacFly {newScoutingReport[44]}</dd>
-                    <dd>BattterRbi {newScoutingReport[45]}</dd>
-                    <dd>BatterGroundOut {newScoutingReport[46]}</dd>
-                    <dd>BatterOutByDoublePlay {newScoutingReport[47]}</dd>
-                    <dd>BatterOutByTriplePlay {newScoutingReport[48]}</dd>
-                    <dd>BatterFlyout {newScoutingReport[49]}</dd>
-                    <dd>BatterRisp {newScoutingReport[50]}</dd>
-                    <dd>BatterRispSuccess {newScoutingReport[51]}</dd>
-                    <dd>BatterRispFail {newScoutingReport[52]}</dd>
+                    <dd>BatterHit {newScoutingReport[0].batterHit}</dd>
+                    <dd>BatterSingle {newScoutingReport[0].batterSingle}</dd>
+                    <dd>BatterDouble {newScoutingReport[0].batterDouble}</dd>
+                    <dd>BatterTriple {newScoutingReport[0].batterTriple}</dd>
+                    <dd>BatterHomerun {newScoutingReport[0].batterHomerun}</dd>
+                    <dd>BatterSacFly {newScoutingReport[0].batterSacFly}</dd>
+                    <dd>BattterRbi {newScoutingReport[0].battterRbi}</dd>
+                    <dd>BatterGroundOut {newScoutingReport[0].batterGroundOut}</dd>
+                    <dd>BatterOutByDoublePlay {newScoutingReport[0].batterOutByDoublePlay}</dd>
+                    <dd>BatterOutByTriplePlay {newScoutingReport[0].batterOutByTriplePlay}</dd>
+                    <dd>BatterFlyout {newScoutingReport[0].batterFlyout}</dd>
+                    <dd>BatterRisp {newScoutingReport[0].batterRisp}</dd>
+                    <dd>BatterRispSuccess {newScoutingReport[0].batterRispSuccess}</dd>
+                    <dd>BatterRispFail {newScoutingReport[0].batterRispFail}</dd>
 
                 <dt>Baserunner Summary</dt>
-                    <dd>RunnerAdvancedToSecond {newScoutingReport[53]}</dd>
-                    <dd>RunnderAdvancedToThird {newScoutingReport[54]}</dd>
-                    <dd>RunnerRisp {newScoutingReport[55]}</dd>
-                    <dd>RunnerRunScored {newScoutingReport[56]}</dd>
-                    <dd>RunnerStolenBases {newScoutingReport[57]}</dd>
-                    <dd>RunnerCaughtStealing {newScoutingReport[58]}</dd>
-                    <dd>RunnerPickedOff {newScoutingReport[59]}</dd>
-                    <dd>RunnerTotalBases {newScoutingReport[60]}</dd>
-                    <dd>RunnerForcedOut {newScoutingReport[61]}</dd>
-                    <dd>RunnerTaggedOut {newScoutingReport[62]}</dd>
+                    <dd>RunnerAdvancedToSecond {newScoutingReport[0].runnerAdvancedToSecond}</dd>
+                    <dd>RunnerAdvancedToThird {newScoutingReport[0].runnderAdvancedToThird}</dd>
+                    <dd>RunnerRisp {newScoutingReport[0].runnerRisp}</dd>
+                    <dd>RunnerRunScored {newScoutingReport[0].runnerRunScored}</dd>
+                    <dd>RunnerStolenBases {newScoutingReport[0].runnerStolenBases}</dd>
+                    <dd>RunnerCaughtStealing {newScoutingReport[0].runnerCaughtStealing}</dd>
+                    <dd>RunnerPickedOff {newScoutingReport[0].runnerPickedOff}</dd>
+                    <dd>RunnerTotalBases {newScoutingReport[0].runnerTotalBases}</dd>
+                    <dd>RunnerForcedOut {newScoutingReport[0].runnerForcedOut}</dd>
+                    <dd>RunnerTaggedOut {newScoutingReport[0].runnerTaggedOut}</dd>
             </dl>
 
         </React.Fragment>
@@ -99,4 +105,4 @@ export default function ReviewScoutingReport(props) {
     )
 }
 
-//export default ReviewScoutingReport;
+export default ReviewScoutingReport;
