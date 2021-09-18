@@ -29,6 +29,7 @@ const SearchResults = (props) => {
         }
     }
 
+    // search for players base on their teams
     async function searchByPlayerTeam(searchWord) {
         let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/teamsearch/${searchWord}`);
        
@@ -39,20 +40,46 @@ const SearchResults = (props) => {
             console.log("bad api call");
         }
     }
+
+    // search for players based on positions
+    async function searchByPosition(searchWord) {
+        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/positionsearch/${searchWord}`);
+        
+        if (response) {
+            console.log("good call");
+            setPlayerSearchResults(response.data);
+        } else {
+            console.log("bad api call");
+        }
+    }
+
+    // search for players based on batting handedness
+    async function searchByBattingHandedness(searchWord) {
+        let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/battinghandedness/${searchWord}`);
+        
+        if (response) {
+            console.log("good call");
+            setPlayerSearchResults(response.data);
+        } else {
+            console.log("bad api call");
+        }
+    }
     
+    // determine which query to used based on user input from search bar
     useEffect(() => {
         if(category === "player") {
             searchByPlayerName(searchTerm);
         } else if (category === "team") {
             searchByPlayerTeam(searchTerm);
         } else if (category === "position") {
-
+            searchByPosition(searchTerm);
+        } else if (category === "battinghand") {
+            searchByBattingHandedness(searchTerm);
         }
     },[!playerSearchResults]);
 
     // display the results to the page
 
-    console.log(playerSearchResults);
     const showSearchResults = playerSearchResults.map((item) => {
         return (
             <div>
@@ -63,13 +90,29 @@ const SearchResults = (props) => {
         )
     })
 
-    return (
-        <div>
-            <h4>Search Results for "{searchTerm}"</h4>
-            <Link to="/search" class="btn btn-primary">Go Back</Link>
-            <dl>{showSearchResults}</dl>
-        </div>
-    )
+    // display results if available
+    if (playerSearchResults.length > 0) {
+        return (
+            <div>
+                <h4>Search Results for "{searchTerm}"</h4>
+                <Link to="/search" class="btn btn-primary">Go Back</Link>
+                <dl>{showSearchResults}</dl>
+            </div>
+        )
+    }
+
+    // display message if no results
+    else {
+        return (
+            <div>
+                <h4>No results for "{searchTerm}"</h4>
+                <Link to="/search" class="btn btn-primary">Go Back</Link>
+
+            </div>
+        )
+
+    }
+
 }
 
 

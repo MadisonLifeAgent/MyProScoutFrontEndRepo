@@ -14,14 +14,13 @@ const Search = (props) => {
     const position = "position";
     const team = "team";
     const empty = "";
-    //const player = "player";
-
-
+    const battingHand = "battinghand";
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
     }
 
+    // set category filter once selected
     const onSelect = (event) => {
             setCategory(event.target.value);
     }
@@ -35,6 +34,7 @@ const Search = (props) => {
                         <option value={empty} selected >Select Category</option>
                         <option value={position} >Position Search</option>
                         <option value={team} >Team Search</option>
+                        <option value={battingHand} >Batting Handedness</option>
                     </select>
                     <input type="text" name="searchTerm"  onChange={handleChange}/>
 
