@@ -16,10 +16,12 @@ import MyScoutingReports from "./MyScoutingReports/MyScoutingReports";
     import InitiateScoutingReport from "./MyScoutingReports/InitiateScoutingReport";
     import ReviewScoutingReport from "./MyScoutingReports/ReviewScoutingReport";
     import NewReportSaved from "./MyScoutingReports/NewReportSaved";
+    import MyOrgPlayers from "./MyOrg/MyOrgPlayers";
 import MyOrg from "./MyOrg/MyOrg";
     import AddOrgMessage from "./MyOrg/AddOrgMessage";
     import DisplayMyOrgMessages from "./MyOrg/DisplayMyOrgMessages";
     import AddNewOrg from "./MyOrg/AddNewOrg";
+    import ChangeMyOrg from "./MyOrg/ChangeMyOrg";
 import MyTeams from "./MyTeams/MyTeams";
     import EditTeam from "./MyTeams/EditTeam";
 import AddTeam from "./MyTeams/AddTeam";
@@ -95,10 +97,13 @@ class App extends Component {
                                     />;
                                 }
                             } />
+
+                            <Route path='/myorg/myorgplayers' exact component={MyOrgPlayers} />
                             <Route path='/myorg/newmessage' exact component={AddOrgMessage} />
                             <Route path="/myorg/messageboard" exact component={DisplayMyOrgMessages} />
 
                             <Route path='/myorg/addneworg' exact component={AddNewOrg} />
+                            <Route path='/myorg/changemyorg' exact component={ChangeMyOrg} />
 
 
                             <Route path="/myprofile" exact

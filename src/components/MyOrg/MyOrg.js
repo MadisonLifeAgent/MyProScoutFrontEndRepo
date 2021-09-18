@@ -44,6 +44,23 @@ const MyOrg = (props) => {
                             myOrganization: organization,
                         }
                     }}>Add New Organization</Link>
+
+                <Link class="btn btn-primary me-3 mb-3" to={{
+                        pathname: `/myorg/myorgplayers`,
+                        state: {
+                            myOrganization: organization,
+                            scout: scout,
+                        }
+                    }}>myOrg's Players</Link>
+                <Link class="btn btn-primary me-3" to={{
+                        pathname: `/myorg/changemyorg`,
+                        state: {
+                            myOrganization: organization,
+                            scout: scout,
+                        }
+                    }}>Change myOrg</Link>
+
+
              </div>
         )
     }
