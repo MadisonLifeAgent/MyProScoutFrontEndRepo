@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 //import './App.css';
 
 // Component imports
+import Home from "./Home";
 import NavBar from "./NavBar/NavBar";
 import MyPlayers from "./MyPlayers/MyPlayers";
     import EditPlayer from "./MyPlayers/EditPlayers";
@@ -60,14 +61,13 @@ class App extends Component {
         return (
             <main>
                 <div>
-                    <a href="/">myProScout.com</a>
-
                     <NavBar user={user} />
+
                     <div>
                         <Switch>
                             
                             {/* Routes for myProScout.com */}
-                            <Route path="/" exact />
+                            <Route path="/" exact component={Home} />
                             <Route path='/login' exact component={Login} />
                             <Route path="/register" exact component={Register} />
 

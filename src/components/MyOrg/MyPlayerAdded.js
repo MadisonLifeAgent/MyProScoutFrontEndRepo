@@ -11,7 +11,7 @@ const MyPlayerAdded = (props) => {
             <h4>{player.firstName} {player.lastName} has been added to your myPlayers.</h4>
 
             <Link class="btn btn-primary me-3" to={{
-                        pathname: `/myorg/myplayers`,
+                        pathname: `/myplayers`,
                         state: {
                             scout: scout,
                         }

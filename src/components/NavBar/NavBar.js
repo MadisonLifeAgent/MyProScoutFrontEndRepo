@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 // component imports
 import Logout from '../Logout/Logout';
+import '../NavBar/NavBar.css';
 
 
 // myPlayers
@@ -16,51 +17,53 @@ import Logout from '../Logout/Logout';
 
 
 // site navigation bar
-function NavBar( {user}) {
+function NavBar({user}) {
     return (
-        <div>
+        <div id="navbardiv">
+            <a href="/" id="homelink"> myProScout.com</a>
+
             <nav>
-             <ul>
+            
                 {!user &&
                         <React.Fragment>
-                            <li>
-                                <Link to="/register">Register</Link>
-                            </li>
-                            <li>
-                                <Link to="/login">Login</Link>
-                            </li>
+                            
+                                <Link id="button" to="/register" >Register</Link>
+                            
+                            
+                                <Link id="button" to="/login">Login</Link>
+                            
                         </React.Fragment>
                 }
 
 
                 {user &&
                     <React.Fragment>
-                    <li>
-                        <Link to="/myplayers">myPlayers</Link>
-                    </li>
-                    <li>
-                        <Link to="/myscoutingreports">myScouting Reports</Link>
-                    </li>
-                    <li>
-                        <Link to="/addplayer">addPlayer</Link>
-                    </li>
-                    <li>
-                        <Link to="/myteams">myTeams</Link>
-                    </li>
-                    <li>
-                        <Link to="/search">searchPlayers</Link>
-                    </li>
+                    
+                        <Link id="link" to="/myplayers">myPlayers</Link>
+                    
+                    
+                        <Link id="link" to="/myscoutingreports">myScouting Reports</Link>
+                    
+                    
+                        <Link id="link" to="/addplayer">addPlayer</Link>
+                    
+                    
+                        <Link id="link" to="/myteams">myTeams</Link>
+                    
+                    
+                        <Link id="link" to="/search">searchPlayers</Link>
+                    
                                     
-                    <li>
-                        <Link to="/myorg">myOrg</Link>
-                    </li>
-                    <li>
-                        <Link to="/myprofile">myProfile</Link>
-                    </li>
+                    
+                        <Link id="link" to="/myorg">myOrg</Link>
+                    
+                    
+                        <Link id="link" to="/myprofile">myProfile</Link>
+                    
                             <Logout />
                     </React.Fragment>
                 }
-            </ul>
+            
             </nav>
 {/*             {user != null && <h3>Welcome {user.username}</h3>}
  */}        </div>

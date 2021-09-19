@@ -12,18 +12,20 @@ const useGetScoutingReportNotes = (reportId) => {
 
            // if good api call set orgMessages
            setReportNotes(response.data);
+           
         }
         catch(ex) {
             console.log("bad api call");
         }
+
     }
        
    // use as soon as hook is requested
    useEffect(() => {
     getReportNotes(reportId);
    },[]);
-	return reportNotes;
 
+   return reportNotes;
 }
 
 export default useGetScoutingReportNotes;
