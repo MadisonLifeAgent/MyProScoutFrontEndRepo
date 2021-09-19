@@ -40,9 +40,9 @@ const Login = () => {
     return (
         
         <div id="forms">
-            <h3>Please login to get started.</h3>
+            <h3 id="pagetitle">Please login to get started.</h3>
             <form onSubmit={handleSubmit}>
-                <label class="form-label">Username</label>
+                <label class="form-label input-group">Username</label>
                 <input type="text" name="username" value={username} onChange={ (event) => setUsername(event.target.value)}  class="input-group-text" id="inputfields"/>
 
                 <label class="form-label input-group">Password</label>

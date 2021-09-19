@@ -32,6 +32,7 @@ import Search from "./Search/Search";
     import SearchResults from "./Search/SearchResultsPage";
 import Login from "./Login/Login";
 import Register from './Register/Register';
+    import AccountCreatedLandingPage from "./Register/AccountCreatedLandingPage";
 import MyProfile from "./MyProfile/MyProfile";
 import EditMyProfile from "./MyProfile/EditMyProfile";
 
@@ -70,6 +71,7 @@ class App extends Component {
                             <Route path="/" exact component={Home} />
                             <Route path='/login' exact component={Login} />
                             <Route path="/register" exact component={Register} />
+                                <Route path="/register/accountcreated" exact component={AccountCreatedLandingPage} />
 
                             <Route path="/myplayers" exact component={MyPlayers} />
                             <Route path="/myscoutingreports" exact component={MyScoutingReports} />

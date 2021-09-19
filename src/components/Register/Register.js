@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import AccountCreatedLandingPage from "./AccountCreatedLandingPage";
 
 
 // Scout account registration form
@@ -38,12 +40,12 @@ const Registration = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		createNewAccount(firstName, lastName, userName, password, email, phoneNumber);
-		window.location = "/login";
+		window.location = "/register/accountcreated";
 	}
 	
 	return (
 		<div id="forms">
-			<h3>Scout Account Registration</h3>
+			<h3 id="pagetitle">Scout Account Registration</h3>
 			<form onSubmit={handleSubmit}>
 				<label class="form-label input-group">First Name</label>
 				<input type="text" name="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="input-group-text" id="inputfields" required />

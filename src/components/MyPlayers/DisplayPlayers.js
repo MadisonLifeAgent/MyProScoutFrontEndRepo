@@ -77,8 +77,6 @@ const DisplayPlayers = (props) => {
                     
                     <input type="button" class="btn btn-primary" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
 
-                    
-
                     <br/><br/>
             </React.Fragment>
         );
