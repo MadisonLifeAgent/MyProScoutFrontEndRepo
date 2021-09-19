@@ -42,13 +42,13 @@ const Login = () => {
         <div id="forms">
             <h3>Please login to get started.</h3>
             <form onSubmit={handleSubmit}>
-                <label class="form-label input-group">Username</label>
+                <label class="form-label">Username</label>
                 <input type="text" name="username" value={username} onChange={ (event) => setUsername(event.target.value)}  class="input-group-text" id="inputfields"/>
 
                 <label class="form-label input-group">Password</label>
                 <input type="password" name="password" class="input-group-text" id="inputfields" value={password} onChange={ (event) => setPassword(event.target.value)} />
 
-                <input id="pagebutton" type="submit" value="Login" class="btn btn-primary input-group mt-1" />
+                <input id="pagebutton" type="submit" value="Login"  />
             </form>
         </div>
     )

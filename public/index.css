@@ -46,6 +46,7 @@ nav {
 
 #pagebutton {
     text-decoration: none;
+    margin-top: 10px;
     border-radius: 3px;
     border-style: solid;
     border-color: #FFC52F;
@@ -108,8 +109,9 @@ nav {
 #forms {
     padding-left: 5%;
     padding-top: 30px;
+    margin-bottom: 5%;
 }
 
 #inputfields {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
