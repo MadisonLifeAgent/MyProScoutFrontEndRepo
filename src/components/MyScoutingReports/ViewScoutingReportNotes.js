@@ -14,7 +14,7 @@ const ViewScoutingReportNotes = (props) => {
 
     // display all organization messages
     const showReportNotes = reportNotes.map((item) => {
-        console.log(reportNotes);
+            console.log(reportNotes)
             return (
                 <div>
                     <dt>By: {item.user.firstName} {item.user.lastName}</dt>
@@ -24,15 +24,8 @@ const ViewScoutingReportNotes = (props) => {
         });
     
    
-     // displays organization messages
-    if (reportNotes[0] != null){
-        return (
-            <p>No Notes.</p>
-        )
-    
-        }
-    
-    else {
+/*     // displays organization messages
+    if(reportNotes){ */
         return (
             <div>
                 <h4>Previous Notes</h4>
@@ -42,7 +35,12 @@ const ViewScoutingReportNotes = (props) => {
             </div>
 
         )
-    } 
+    /* }
+    else {
+        return (
+            <p>Messages Loading...</p>
+        )
+    } */
         
 }
 

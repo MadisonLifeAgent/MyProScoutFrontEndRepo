@@ -1,7 +1,6 @@
 import React from "react";
 
 // Component or hook imports
-import DisplayPlayers from "./DisplayPlayers";
 
 // displays players belong to a scout
 const MyPlayers = (props) => {
@@ -10,7 +9,6 @@ const MyPlayers = (props) => {
     return (
         <div>
             <h3>myPlayers</h3>
-            <DisplayPlayers />
         </div>
     )
 }

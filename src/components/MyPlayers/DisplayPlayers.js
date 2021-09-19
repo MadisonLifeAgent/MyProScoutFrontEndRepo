@@ -8,8 +8,12 @@ import UseGetPlayers from "../../hooks/UseGetPlayers";
 
 // this component gets players and displays them
 const DisplayPlayers = (props) => {
+    const scout = props.scout;
+
     // get all players
     const [{players}] = UseGetPlayers([{}]);
+
+
 
     async function deletePlayer(playerId) {
         //try{
@@ -21,6 +25,22 @@ const DisplayPlayers = (props) => {
         catch(ex) {
             console.log("bad api call");
         } */
+    }
+
+    async function joinPlayerScout(playerId, scoutId) {
+        const joinInfo = {
+            "PlayerProfileId": playerId,
+            "Id": scoutId
+        }
+
+        try{
+            let response = await axios.post(`https://localhost:44394/api/playerscoutjoin/add`, joinInfo);
+
+            console.log("player added");
+         }
+        catch(ex) {
+            console.log("bad api call");
+        }
     }
 
     // display all players and edit/delete buttons
@@ -47,8 +67,17 @@ const DisplayPlayers = (props) => {
                         }
                     }}>Edit Profile</Link>
 
+                    <Link class="btn btn-primary me-3" to={{
+                        pathname: `/myorg/addtomyplayers`,
+                        state: {
+                            player: item,
+                            scout: scout,
+                        }
+                    }} onClick={(event) => joinPlayerScout(playerProfileId, scout.id)}>Add to myPlayers</Link>
                     
                     <input type="button" class="btn btn-primary" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
+
+                    
 
                     <br/><br/>
             </React.Fragment>

@@ -1,11 +1,11 @@
 import React from "react";
 
 // Component or hook imports
-import DisplayMyOrgPlayers from "./DisplayMyOrgPlayers";
+import DisplayPlayers from '../MyPlayers/DisplayPlayers';
 
 // displays players belong to a scout
 const MyOrgPlayers = (props) => {
-    const scout = props.location.state.player;
+    const scout = props.location.state.scout;
     const myOrg = props.location.state.myOrganization
 
    
@@ -13,7 +13,7 @@ const MyOrgPlayers = (props) => {
     return (
         <div>
             <h3>myPlayers</h3>
-            <DisplayMyOrgPlayers />
+            <DisplayPlayers  scout={scout} />
         </div>
     )
 }
