@@ -3,8 +3,9 @@ import App from '../images/homebackgroundimage.jpg'
 
 const Home = () => {
     return (
-        <div id="homeimage">
+        <div>
             <p id="slogan">Tomorrow's stars in the palm of your hands.</p>
+            
         </div>
     )
 

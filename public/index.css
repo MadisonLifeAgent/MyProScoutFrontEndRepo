@@ -1,6 +1,7 @@
 /* default font for entire site */
 #root {
     font-family: 'Archivo Black', sans-serif;
+    color:#12284B;
 /*     font-family: 'Inconsolata', monospace;
     font-family: 'Prompt', sans-serif; */
 }
@@ -21,6 +22,7 @@ nav {
     padding-top: 30px;
 }
 
+/* buttons styling */
 #button {
     text-decoration: none;
     border-radius: 3px;
@@ -42,6 +44,29 @@ nav {
     box-shadow: 0 0 3px 3px white;
 }
 
+#pagebutton {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #FFC52F;
+    padding: 5px;
+    width: 200px;
+    font-size: 14px;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 8px;
+}
+
+#pagebutton:hover {
+    background-color: #FFC52F;
+    border-color: #12284B;
+    box-shadow: 0 0 3px 3px #12284B;
+}
+
+
+/* styling for home link */
 #homelink {
     text-decoration: none;
     color: white;
@@ -49,13 +74,16 @@ nav {
     font-size: 28px;
 }
 
+/*nav bar background  */
 #navbardiv {
     background-color: #12284B;
     margin-bottom: 2%;
 }
 
+/*slogan on home page*/
 #slogan {
     padding-left: 5%;
+    padding-right: 5%;
     padding-top: 2%;
     margin-top: 3%;
     font-size: 35px;
@@ -76,6 +104,12 @@ nav {
     6px 6px 6px #12284B;
 }
 
-#homeimage {
-    background-image: url("https://images.unsplash.com/photo-1470083748587-df49227c0505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80");
+/* default styling for forms pages*/
+#forms {
+    padding-left: 5%;
+    padding-top: 30px;
+}
+
+#inputfields {
+    margin-bottom: 10px;
 }
