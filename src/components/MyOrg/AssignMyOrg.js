@@ -1,38 +1,33 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import jwtDecode from "jwt-decode";
 
 import useGetAllOrganizations from "../../hooks/useGetAllOrganizations";
 
-// Add new organization for scouts
-const ChangeMyOrg = (props) => {
-    // get scout details
-    // set the scout
-    const scout = props.location.state.user;
-    console.log(scout);
 
+// Add new organization for scouts
+const AssignMyOrg = (props) => {
+    // set the scout/user
+    const scout = props.location.state.user;
 
     // get all Organizations
     const allOrganizations = useGetAllOrganizations();
 
- 
-    // store user selection
-    const [updatedOrganizationId, setupdatedOrganizationId] = useState('');
+    // store user selection here
+    const [organizationId, setOrganizationId] = useState('');
 
-    // update being sent to server // the join id can be retrieved at the server
-
-
-    // post update
-    async function updateOrganization(updateInfo, id) {
+    // add the join
+    async function assignMyOrganization(updateInfo, id) {
         console.log(updateInfo);
 
-        const updatedOrganization = {
+        const joinInfo = {
             "Id": id,
             "OrganizationId": parseInt(updateInfo),
         }
 
-        let response = await axios.put(`https://localhost:44394/api/scoutorganizationjoin/edit/${id}`, updatedOrganization);
+        let response = await axios.post(`https://localhost:44394/api/scoutorganizationjoin/add`, joinInfo);
 
-        //window.location = "/myorg";
+        window.location = "/myorg";
         
         if (response) {
             console.log("good call");
@@ -47,19 +42,19 @@ const ChangeMyOrg = (props) => {
 
     // set category filter once selected
     const onChange = (event) => {
-        setupdatedOrganizationId(event.target.value);
+        setOrganizationId(event.target.value);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        setupdatedOrganizationId(event.target.value);   
-        updateOrganization(updatedOrganizationId, scout.id);
-        console.log(updatedOrganizationId);
+        setOrganizationId(event.target.value);   
+        assignMyOrganization(organizationId, scout.id);
+        console.log(organizationId);
     }
 
     const showAllOrganizationOptions = allOrganizations.map((item) => {
         return (
-                <option name="updatedOrganizationId" value={item.organizationId} selected >{item.organizationName}</option>
+                <option name="organizationId" value={item.organizationId} selected >{item.organizationName}</option>
 
         )
     });
@@ -69,7 +64,7 @@ const ChangeMyOrg = (props) => {
     return (
         
         <div>
-            <h3>Change My Organization</h3>
+            <h3>Assign My Organization</h3>
             <form onSubmit={handleSubmit}>
 
                 <select class="form-select" name="category" aria-label="Default select example" onChange={onChange}>
@@ -84,4 +79,4 @@ const ChangeMyOrg = (props) => {
 
 }
 
-export default ChangeMyOrg;
+export default AssignMyOrg;

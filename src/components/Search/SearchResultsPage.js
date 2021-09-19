@@ -129,7 +129,7 @@ const SearchResults = (props) => {
             searchByPlayerType(searchTerm);
         } else if (category === "region") {
             searchByRegion(searchTerm);
-        } else if (category === "competitionLevel") {
+        } else if (category === "competitionlevel") {
             searchByCompetitionLevel(searchTerm);
         }
     },[!playerSearchResults]);

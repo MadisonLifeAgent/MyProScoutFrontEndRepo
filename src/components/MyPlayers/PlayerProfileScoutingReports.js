@@ -62,7 +62,7 @@ const PlayerProfileScoutingReports = (props) => {
 
 
     // displays reports or loading message if no reports
-    if (playerScoutingReports) {
+    if (playerScoutingReports.length !== 0) {
         return (
             <div>
                 <h3>Scouting Reports</h3>
@@ -74,7 +74,11 @@ const PlayerProfileScoutingReports = (props) => {
     }
     else {
         return (
-            <p>Loading...</p>
+            <div>
+                <p>No Reports</p>
+                <a href="/myplayers" class="btn btn-primary" >myPlayers</a>
+            </div>
+
         )
     }
 

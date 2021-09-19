@@ -430,8 +430,8 @@ const NewScoutingReport = (props) => {
                 <label>Player's Opponent Team</label>
                 <input type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
 
-                <label>myOrganization (Scout)</label>
-                <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+{/*                 <label>myOrganization (Scout)</label>
+                <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/> */}
 
                 <h3>Scouting Reports Notes</h3>
                 <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="6" cols="60" />

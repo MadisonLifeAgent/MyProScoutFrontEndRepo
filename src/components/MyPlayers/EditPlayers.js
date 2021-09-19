@@ -170,6 +170,8 @@ const EditPlayer = (props) => {
 
                 <input type="submit" value="Save Changes" class="btn btn-primary ms-3 mb-3" />
 
+                <a href="/myplayers" class="btn btn-primary ms-3 mb-3">Go Back</a>
+
             </form>
         </div>
     );

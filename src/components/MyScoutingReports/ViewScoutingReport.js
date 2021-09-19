@@ -114,7 +114,7 @@ const ViewScoutingReport = (props) => {
     } else {
         return (
             <div>
-                <p>No Player Details</p>
+                <p>No Report</p>
             </div>
         )
     }

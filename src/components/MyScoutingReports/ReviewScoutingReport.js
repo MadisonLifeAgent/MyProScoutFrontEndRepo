@@ -13,9 +13,7 @@ const ReviewScoutingReport = (props) => {
     const newScoutingReport = useGetPlayerScoutingReportById(scoutingReportId);
     console.log(newScoutingReport);
 
-    // insert get scoutId from local storage here
 
-    // insert axios call here
 
     // rendery the preview here
     return (
@@ -46,7 +44,7 @@ const ReviewScoutingReport = (props) => {
             <h4>Scouting Reports Notes</h4>
             <p>{newScoutingReport[0].scoutingReportNotesBody}</p>
 
-            
+            {/* player stats */}
             <dl>
                 <dt>Pitching Summary</dt>
                     <dd>TotalPitches: {newScoutingReport[0].pitcherTotalPitches}</dd>

@@ -110,15 +110,15 @@ const AddPlayer = (props) => {
             "CareerForcedOut": 0,
             "CareerTaggedOut": 0
         }
-        // try{
+        try{
             await axios.post('https://localhost:44394/api/playerprofile/add', newPlayerInfo);
             //console.log("good api call");
             window.location = '/myplayers';
-        /* }
+        }
         catch(ex){
             console.log("bad api call");
 
-        } */
+        } 
     }
 
     // submits new player request
@@ -134,43 +134,43 @@ const AddPlayer = (props) => {
             <form onSubmit={handleSubmit}>
 
                 <label>First Name</label>
-                <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 mb-3" required /><br/>
                 
                 <label>Last Name</label>
-                <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" required /><br/>
                 
                 <label>Height</label>
-                <input type="text" value={height} onChange={(event) => setHeight(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={height} onChange={(event) => setHeight(event.target.value)} class="ms-3 mb-3" required /><br/>
                 
                 <label>Weight</label>
-                <input type="text" value={weight} onChange={(event) => setWeight(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={weight} onChange={(event) => setWeight(event.target.value)} class="ms-3 mb-3" required /><br/>
                 
                 <label>Age</label>
-                <input type="text" value={age} onChange={(event) => setAge(event.target.value)} class="ms-3 mb-3" /><br/>
+                <input type="text" value={age} onChange={(event) => setAge(event.target.value)} class="ms-3 mb-3" required /><br/>
                 
                 <label>Image Url</label>
-                <input type="text" value={imageUrl} onChange={(event) => setImageUrl(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <input type="text" value={imageUrl} onChange={(event) => setImageUrl(event.target.value)} class="ms-3 mb-3" /><br/>
 
                 <label>Year Turned Pro</label>
-                <input type="text" value={yearTurnedPro} onChange={(event) => setYearTurnedPro(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <input type="text" value={yearTurnedPro} onChange={(event) => setYearTurnedPro(event.target.value)} class="ms-3 mb-3" required /><br/>
 
                 <label>Primary Position</label>
-                <input type="text" value={playerPositionPrimaryName} onChange={(event) => setPlayerPositionPrimaryName(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <input type="text" value={playerPositionPrimaryName} onChange={(event) => setPlayerPositionPrimaryName(event.target.value)} class="ms-3 mb-3" required /><br/>
 
-                <label>Secondary Positin</label>
-                <input type="text" value={playerPositionSecondaryName} onChange={(event) => setPlayerPositionSecondaryName(event.target.value)} class="ms-3 mb-3"  /><br/>                
+                <label>Secondary Position</label>
+                <input type="text" value={playerPositionSecondaryName} onChange={(event) => setPlayerPositionSecondaryName(event.target.value)} class="ms-3 mb-3" /><br/>                
 
                 <label>Batthing Handedness</label>
-                <input type="text" value={playerBattingHandednessName} onChange={(event) => setPlayerBattingHandednessName(event.target.value)} class="ms-3 mb-3"  /><br/>                
+                <input type="text" value={playerBattingHandednessName} onChange={(event) => setPlayerBattingHandednessName(event.target.value)} class="ms-3 mb-3" required /><br/>                
                 
                 <label>Throwing Handedness</label>
-                <input type="text" value={playerThrowingHandednessName} onChange={(event) => setPlayerThrowingHandednessName(event.target.value)} class="ms-3 mb-3"  /><br/>                
+                <input type="text" value={playerThrowingHandednessName} onChange={(event) => setPlayerThrowingHandednessName(event.target.value)} class="ms-3 mb-3" required /><br/>                
                                
                 <label>Player Type</label>
-                <input type="text" value={playerTypeName} onChange={(event) => setPlayerTypeName(event.target.value)} class="ms-3 mb-3"  /><br/>                
+                <input type="text" value={playerTypeName} onChange={(event) => setPlayerTypeName(event.target.value)} class="ms-3 mb-3" required /><br/>                
                 
-                <label>Current Team</label>
-                <input type="text" value={baseballTeamName} onChange={(event) => setBaseballTeamName(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <label>Current Team (If no team, type Free Agent)</label>
+                <input type="text" value={baseballTeamName} onChange={(event) => setBaseballTeamName(event.target.value)} class="ms-3 mb-3" required /><br/>
 
                 <input type="submit" value="Add Player" class="btn btn-primary ms-3 mb-3" />
 

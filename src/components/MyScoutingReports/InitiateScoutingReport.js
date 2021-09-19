@@ -154,9 +154,9 @@ const InitiateScoutingReport = (props) => {
 
                 <label>Player's Opponent Team</label>
                 <input type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
-
+{/* 
                 <label>myOrganization (Scout)</label>
-                <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/> */}
 
                 <input type="submit" value="Initiate Scouting Report" class="btn btn-primary ms-3 mb-3" />
                 

@@ -26,12 +26,12 @@ const Registration = () => {
 		}
 		let response = await axios.post(`https://localhost:44394/api/authentication/myproscout`, registrationInfo);
 		
-/* 		if (response) {
+		if (response) {
 			console.log(response.data);
 			console.log("good api call");
 		} else {
 			console.log("bad api call");
-		} */
+		}
 	}
 	
 	// submits account registration request
@@ -45,20 +45,19 @@ const Registration = () => {
 		<div>
 			<h3>Scout Account Registration</h3>
 			<form onSubmit={handleSubmit}>
-				<input type="text" placeholder="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 mb-3" /><br/>
+				<input type="text" name="firstName" placeholder="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 mb-3" required /><br/>
 				
-				<input type="text" placeholder="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
+				<input type="text" name="lastName" placeholder="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" required /><br/>
 				
-				<input type="text" placeholder="email" value={email} onChange={(event) => setEmail(event.target.value)} class="ms-3 mb-3" /><br/>
+				<input type="text" name="email" placeholder="email" value={email} onChange={(event) => setEmail(event.target.value)} class="ms-3 mb-3" required /><br/>
 				
-				<input type="text" placeholder="phoneNumber" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} class="ms-3 mb-3" /><br/>
+				<input type="text" name="phoneNumber" placeholder="phoneNumber" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} class="ms-3 mb-3" required /><br/>
 				
-				<input type="text" placeholder="userName" value={userName} onChange={(event) => setUserName(event.target.value)} class="ms-3 mb-3" /><br/>
+				<input type="text" name="userName" placeholder="userName" value={userName} onChange={(event) => setUserName(event.target.value)} class="ms-3 mb-3" required /><br/>
 				
-				<input type="password" placeholder="password" value={password} onChange={(event) => setPassword(event.target.value)} class="ms-3 mb-3"  /><br/>
+				<input type="password" name="password" placeholder="password" value={password} onChange={(event) => setPassword(event.target.value)} class="ms-3 mb-3" required/><br/>
 
-				<input type="submit" value="Login" class="btn btn-primary ms-3" />
-
+				<input type="submit" value="Create Account" class="btn btn-primary ms-3" />
             </form>
 		</div>
 	);
