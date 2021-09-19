@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 
 // Component or hook imports
 import useGetScoutingReports from "../../hooks/useGetScoutingReports";
+import './DisplayScoutingReportLinks.css';
 
 // this component a scout's scouting reports and lists them with a clickable link to view each report
 const DisplayScoutingReportLinks = (props) => {
@@ -24,18 +25,17 @@ const DisplayScoutingReportLinks = (props) => {
     // display links to all reports, but list one at a time
     const showReportsLinks = myScoutingReports.map((item) => {
         return (
-            <React.Fragment>
-                <dt>Player: {item.firstName} {item.lastName}  (Report ID#: {item.playerScoutingReportId})</dt>
+            <React.Fragment >
+                <dt id="itemtitle">Player: {item.firstName} {item.lastName}  (Report ID#: {item.playerScoutingReportId})</dt>
                     <dd>Game: {item.playerBaseballTeamName} VS. {item.opponentTeam}</dd>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="reportlink" to={{
                         pathname: `/myscoutingreports/viewreport`,
                         state: {
                             scoutingReport: item,
                         }
                     }}>View Report</Link>
                 
-                    <br/><br/>
             </React.Fragment>
         );
     })
@@ -51,8 +51,8 @@ const DisplayScoutingReportLinks = (props) => {
     else {
         return (
             <div>
-                <h3>myScouting Reports</h3>
-                <dl>
+                <p id="mapped">Available Reports</p>
+                <dl id="items">
                     {showReportsLinks}
                 </dl>
             </div>

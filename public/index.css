@@ -15,11 +15,26 @@
 
 
 /* nav bar styling */
-
-nav {
-    margin-top: -20px;
+/* nav {
+    margin-top: 20px;
     padding-left: 5%;
     padding-top: 30px;
+    width: 100%;
+} */
+
+/*nav bar background  */
+#navbardiv {
+    background-color: #12284B;
+    width: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* styling for home link */
+#homelink {
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
 }
 
 /* buttons styling */
@@ -29,19 +44,19 @@ nav {
     border-style: solid;
     border-color: white;
     padding: 5px;
-    width: 200px;
-    font-size: 14px;
+    width: auto;
     color: #12284B;
     background-color: white;
     box-shadow: 0 0 3px 3px #FFC52F,
                 0 0 4px 4px #FFC52F;
-    margin-right: 8px;
+    margin: 2px;
+    text-align: left;
 }
 
 #button:hover {
     background-color: #FFC52F;
     border-color: #FFC52F;
-    box-shadow: 0 0 3px 3px white;
+    box-shadow: 0 0 5px 5px #FFC52F;
 }
 
 #pagebutton {
@@ -52,34 +67,20 @@ nav {
     border-style: solid;
     border-color: #FFC52F;
     padding: 5px;
-    width: 200px;
+    width: auto;
     font-size: 14px;
     color: #12284B;
     background-color: white;
-    box-shadow: 0 0 3px 3px #FFC52F,
-                0 0 4px 4px #FFC52F;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
 }
 
 #pagebutton:hover {
     background-color: #FFC52F;
     border-color: #12284B;
-    box-shadow: 0 0 3px 3px #12284B;
+    box-shadow: 0 0 5px 5px #12284B;
 }
 
-
-/* styling for home link */
-#homelink {
-    text-decoration: none;
-    color: white;
-    padding-left: 5%;
-    font-size: 28px;
-}
-
-/*nav bar background  */
-#navbardiv {
-    background-color: #12284B;
-    margin-bottom: 2%;
-}
 
 /*slogan on home page*/
 #slogan {
@@ -121,4 +122,183 @@ nav {
 /*styling for page titles at top of page */
 #pagetitle {
     margin-bottom: 3%;
+    font-size: 35px;
+    border-bottom: 8px;
+    border-bottom-style: solid;    
+}
+
+/*default margins for pages */
+#pages {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    margin-bottom: 5%;
+    color:#12284B;
+}
+
+#logout {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#logout:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#myPlayers {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#myPlayers:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#reports {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#reports:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#addplayer {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#addplayer:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#teams {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#teams:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#search {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#search:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#myorg {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#myorg:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+#myprofile {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#myprofile:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
 }

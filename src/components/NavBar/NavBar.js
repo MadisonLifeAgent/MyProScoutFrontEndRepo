@@ -2,35 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // component imports
-import Logout from '../Logout/Logout';
-import '../NavBar/NavBar.css';
-
-
-// myPlayers
-// myScoutingReports
-// myOrg
-// myTeams
-// addPlayer
-// myProfile
-// Search Players
-// Logout
+//import Logout from '../Logout/Logout';
+import './NavBar.css';
 
 
 // site navigation bar
 function NavBar({user}) {
+    const handleClick = () => {
+        localStorage.clear();
+        window.location = '/';
+    }
     return (
         <div id="navbardiv">
-            <a href="/" id="homelink"> myProScout.com</a>
+            <a href="/" id="homelink" class="nav-link"> myProScout.com</a>
+            <nav class="nav">
 
-            <nav>
-            
                 {!user &&
                         <React.Fragment>
+                                <Link id="button" class="nav-link" to="/register" >Register</Link>
                             
-                                <Link id="button" to="/register" >Register</Link>
-                            
-                            
-                                <Link id="button" to="/login">Login</Link>
+                                <Link id="button" class="nav-link" to="/login">Login</Link>
                             
                         </React.Fragment>
                 }
@@ -38,29 +29,32 @@ function NavBar({user}) {
 
                 {user &&
                     <React.Fragment>
+                        <Link id="myPlayers" class="nav-link" to="/myplayers">myPlayers</Link>
                     
-                        <Link id="link" to="/myplayers">myPlayers</Link>
-                    
-                    
-                        <Link id="link" to="/myscoutingreports">myScouting Reports</Link>
+                        <Link id="reports" class="nav-link" to="/myscoutingreports">myReports</Link>
                     
                     
-                        <Link id="link" to="/addplayer">addPlayer</Link>
+                        <Link id="addplayer" class="nav-link" to="/addplayer">addPlayer</Link>
                     
                     
-                        <Link id="link" to="/myteams">myTeams</Link>
+                        <Link id="teams" class="nav-link" to="/myteams">myTeams</Link>
                     
                     
-                        <Link id="link" to="/search">searchPlayers</Link>
+                        <Link id="search" class="nav-link" to="/search">mySearch</Link>
                     
                                     
                     
-                        <Link id="link" to="/myorg">myOrg</Link>
+                        <Link id="myorg" class="nav-link" to="/myorg">myOrg</Link>
                     
                     
-                        <Link id="link" to="/myprofile">myProfile</Link>
+                        <Link id="myprofile" class="nav-link" to="/myprofile">myProfile</Link>
+
+                        <Link id="logout" class="nav-link" onClick={handleClick} to={{
+                        pathname: '/', }}>Logout</Link>
+
+{/*                         <Link id="button" class="nav-link" onClick={handleClick} to={{
+                        pathname: '/', }}>Logout</Link> */}
                     
-                            <Logout />
                     </React.Fragment>
                 }
             

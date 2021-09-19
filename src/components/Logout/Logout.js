@@ -1,3 +1,5 @@
+import React from "react";
+
 // logs out the user
 const Logout = () => {
     const handleClick = () => {
@@ -5,7 +7,10 @@ const Logout = () => {
         window.location = '/';
     }
     return (
-        <button id="button" class="nav-link" onClick={handleClick}>logOut</button>
+        <nav>
+            <button id="button" class="nav-link align-right" onClick={handleClick}>LogOut</button>
+        </nav>
+
     )
 }
 
