@@ -48,11 +48,12 @@ const DisplayPlayers = (props) => {
         const playerProfileId = item.playerProfileId;
         return (
             <React.Fragment>
-                <div id="mapped" class="mb-4 p-3">
+                <div id="mapped" class="mb-4 p-2">
                 <dt>{item.firstName} {item.lastName}</dt>
                     <dd>Position: {item.playerPositionPrimaryName}</dd>
                     <dd>Batthing Hand: {item.playerBattingHandednessName}</dd>
                     <dd>Throwing Hand: {item.playerThrowingHandednessName}</dd>
+                </div>
 
                     <Link id="newreportbutton" class="me-4" to={{
                         pathname: `/myplayers/playerprofile`,
@@ -78,7 +79,6 @@ const DisplayPlayers = (props) => {
                     
                     <input type="button" id="newreportbutton" class="me-4" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
 
-                    </div>
 
 
             </React.Fragment>

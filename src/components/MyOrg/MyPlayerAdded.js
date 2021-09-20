@@ -7,10 +7,10 @@ const MyPlayerAdded = (props) => {
     const player = props.location.state.player;
 
     return (
-        <div>
-            <h4>{player.firstName} {player.lastName} has been added to your myPlayers.</h4>
+        <div id="pages">
+            <h4 id="pagetitle">{player.firstName} {player.lastName} has been added to your myPlayers.</h4>
 
-            <Link class="btn btn-primary me-3" to={{
+            <Link id="newnotebutton" to={{
                         pathname: `/myplayers`,
                         state: {
                             scout: scout,
