@@ -54,7 +54,7 @@ const DisplayMyOrgMessages = (props) => {
     }
     else {
         return (
-            <p>Messages Loading...</p>
+            <p id="info">Messages Loading...</p>
         )
     }
         

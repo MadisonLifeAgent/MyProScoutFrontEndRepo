@@ -69,8 +69,7 @@ const AssignMyOrg = (props) => {
                 <div class="input-group mb-3 col-auto">
                     <div class="col-sm-auto col-lg-auto">
                     <select class="form-select" id="selectbutton" name="category" aria-label="Default select example" onChange={onChange}>
-                    {showAllOrganizationOptions}
-
+                        {showAllOrganizationOptions}
                     </select>
                 </div>
                 <div class="col-sm-auto col-lg-auto ms-2">

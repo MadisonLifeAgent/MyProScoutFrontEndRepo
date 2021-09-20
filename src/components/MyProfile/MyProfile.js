@@ -29,18 +29,16 @@ const MyProfile = (props) => {
 
     // display scout's name, orgnaization, and list of players with recent scouting reports
         return (
-            <div>
-                <h3>{user.username}'s myProfile</h3>
+            <div id="pages">
+                <h3 id="pagetitle">{user.username}'s myProfile</h3>
 
-                <Link class="btn btn-primary mb-3"  to={{
+                <Link id="newnotebutton" to={{
                         pathname: `/editmyprofile`,
                         state: {
                             user: user,
                         }
                     }}>Edit myProfile</Link>
-
-{/*                 <a href="/editmyprofile" class="btn btn-primary mb-3" onClick={handleClick}>Edit myProfile</a>
- */}                <dl>
+             <dl id="mapped">
                     <dt>List of Players and Scouting Reports</dt>
                     <dd>Name</dd>
                     <dd>Scouting Report Link</dd>

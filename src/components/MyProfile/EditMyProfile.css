@@ -1,0 +1,23 @@
+#newreportbutton {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #12284B;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+    font-size: 14px;
+    color: white;
+    background-color: #12284B;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+}
+
+#newreportbutton:hover {
+    color: #12284B;
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F,
+}

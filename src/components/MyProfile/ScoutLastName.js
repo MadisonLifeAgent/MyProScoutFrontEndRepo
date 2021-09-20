@@ -36,10 +36,10 @@ const ScoutLastName = (props) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-                <label>Last Name</label>
-				<input type="text" placeholder={currentUser.lastName} value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
+			<label class="form-label input-group">Last Name</label>
+				<input id="inputfields" type="text" placeholder={currentUser.lastName} value={lastName} onChange={(event) => setLastName(event.target.value)} class="input-group-text mb-1" /><br/>
 				
-				<input type="submit" value="Save Change" class="btn btn-primary ms-3 mb-3 " />
+				<input type="submit" value="Save Change" id="newreportbutton" class="mb-4" />
 
             </form>
 		</div>

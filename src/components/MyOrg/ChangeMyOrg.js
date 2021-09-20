@@ -68,17 +68,21 @@ const ChangeMyOrg = (props) => {
     // login form
     return (
         
-        <div>
-            <h3>Change My Organization</h3>
+        <div id="pages">
+            <h3 id="pagetitle">Change My Organization</h3>
+
             <form onSubmit={handleSubmit}>
-
-                <select class="form-select" name="category" aria-label="Default select example" onChange={onChange}>
-                    {showAllOrganizationOptions}
-
-                </select>
-
-                <input type="submit" value="Save Change" class="btn btn-primary ms-3" />
-                </form>
+                <div class="input-group mb-3 col-auto">
+                    <div class="col-sm-auto col-lg-auto">
+                        <select class="form-select" id="select-button" name="category" aria-label="Default select example" onChange={onChange}>
+                            {showAllOrganizationOptions}
+                        </select>
+                    </div>
+                    <div class="col-sm-auto col-lg-auto ms-2">
+                        <input id="newnotebutton" type="submit" value="Save Change" class="form-control" />
+                    </div>
+                </div>
+            </form>
         </div>
     )
 

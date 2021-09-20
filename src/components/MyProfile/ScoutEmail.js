@@ -12,8 +12,8 @@ const ScoutEmail = (props) => {
 	// call the database and try to post edited scout info
 	async function editScoutEmail(email, id) {
 		const updateInfo = {
-			"email": email,
-            "id": id,
+			"Email": email,
+            "Id": id,
 		}
 
 		let response = await axios.put(`https://localhost:44394/api/myproscout/edit/email`, updateInfo);
@@ -36,10 +36,10 @@ const ScoutEmail = (props) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-                <label>Email</label>
-				<input type="text" placeholder={currentUser.email} value={email} onChange={(event) => setEmail(event.target.value)} class="ms-3 mb-3" /><br/>
+			<label class="form-label input-group">Email</label>
+				<input id="inputfields" type="text" placeholder={currentUser.email} value={email} onChange={(event) => setEmail(event.target.value)} class="input-group-text mb-1" /><br/>
 				
-				<input type="submit" value="Save Change" class="btn btn-primary ms-3 mb-3 " />
+				<input type="submit" value="Save Change" id="newreportbutton" class="mb-4" />
 
             </form>
 		</div>

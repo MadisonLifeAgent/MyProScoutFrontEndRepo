@@ -8,6 +8,7 @@ import ScoutLastName from "./ScoutLastName";
 import ScoutEmail from "./ScoutEmail";
 import ScoutPhoneNumber from "./ScoutPhoneNumber";
 import ScoutUserName from "./ScoutUsername";
+import "./EditMyProfile.css";
 
 // Scout account registration form
 const EditMyProfile = (props) => {
@@ -40,8 +41,15 @@ const EditMyProfile = (props) => {
 
 	// edit profile input fields
 	return (
-		<div>
-			<h3>Edit myProfile</h3>
+		<div id="forms">
+			<h3 id="pagetitle">Edit myProfile</h3>
+            <Link id="newnotebutton" to={{
+                        pathname: `/myprofile`,
+                        state: {
+                            user: user,
+                        }
+                    }}>Go Back</Link>
+                    
                 <ScoutFirstName currentUser={currentUser} id={id} />
 				
                 <ScoutLastName currentUser={currentUser} id={id} />
@@ -52,7 +60,7 @@ const EditMyProfile = (props) => {
                 <ScoutUserName currentUser={currentUser} id={id} />
 
 
-                <Link class="btn btn-primary me-3" to={{
+                <Link id="newnotebutton" to={{
                         pathname: `/myprofile`,
                         state: {
                             user: user,

@@ -34,14 +34,14 @@ const AddNewOrg = (props) => {
     // login form
     return (
         
-        <div>
-            <h3>New Organization Name</h3>
+        <div id="forms">
+            <h3 id="pagetitle">Add New Organization</h3>
             <form onSubmit={handleSubmit}>
-                <label>Enter Organization Name</label>
-                <input type="text" name="newOrganizationName" placeholder="Enter a title" value={newOrganizationName} onChange={ (event) => setNewOrganizationName(event.target.value)}  class="ms-3 mb-3"/>
+                <label class="form-label input-group" >Enter Organization Name</label>
+                <input id="inputfields" type="text" name="newOrganizationName" placeholder="Enter a title" value={newOrganizationName} onChange={ (event) => setNewOrganizationName(event.target.value)}  class="input-group-text"/>
                 <br />
 
-                <input type="submit" value="Add New Organization" class="btn btn-primary ms-3" />
+                <input id="newnotebutton" type="submit" value="Add New Organization" />
             </form>
         </div>
     )
