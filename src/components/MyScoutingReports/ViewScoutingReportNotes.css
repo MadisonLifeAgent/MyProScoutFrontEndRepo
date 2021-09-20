@@ -1,0 +1,13 @@
+#notes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border-color: #12284B;
+    border-style: solid;
+    background-color: #12284B;
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+    color: white;
+}

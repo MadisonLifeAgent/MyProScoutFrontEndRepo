@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
+import './AddScoutingReportNote.css';
+
 
 // Add scouting report notes form for a specific report
 const AddScoutingReportNote = (props) => {
@@ -46,12 +48,12 @@ const AddScoutingReportNote = (props) => {
     return (
         
         <div>
-            <h4>Add Report Note</h4>
+            <h4 id="notes">New Note Form</h4>
             <form onSubmit={handleSubmit}>
-                <textarea name="playerScoutingReportNoteBody" placeholder="Enter Note Here..." value={playerScoutingReportNoteBody} onChange={ (event) => setplayerScoutingReportNoteBody(event.target.value)} class="ms-3 mb-3" rows="2" cols="50"/>
+                <textarea id="formbox" name="playerScoutingReportNoteBody" placeholder="Enter Note Here..." value={playerScoutingReportNoteBody} onChange={ (event) => setplayerScoutingReportNoteBody(event.target.value)} class="ms-3 mb-3" rows="2" cols="25"/>
                 <br />
 
-                <input type="submit" value="Post Note" class="btn btn-primary ms-3" />
+                <input id="newnotebutton" type="submit" value="Add Note" class="btn btn-primary ms-3" />
             </form>
         </div>
     )

@@ -264,7 +264,7 @@ const ViewScoutingReport = (props) => {
 
                 <div>
                     <br/>
-                    <h2>Report Notes</h2>
+                    <h4 id="game">Report Notes</h4>
                     <AddScoutingReportNote scout={scout} scoutingReport={scoutingReport} />
 
 

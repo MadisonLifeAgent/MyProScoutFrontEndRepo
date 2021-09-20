@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
 import jwtDecode from "jwt-decode";
 
+
 // Component or hook imports
+import './InitiateScoutingReport.css';
 import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 import ReviewScoutingReport from "./ReviewScoutingReport";
 
@@ -139,34 +140,34 @@ const InitiateScoutingReport = (props) => {
 
     // scouting report start form
     return (
-        <div>
-            <h1>Start New Scouting Report</h1>
+        <div id="forms">
+            <p id="pagetitle">Start New Scouting Report</p>
             <form onSubmit={handleSubmit}>
-                <h2>Basic Info</h2>
-                <label>Player First Name</label>
-                <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
+                <h2 id="info">Basic Info</h2>
+                <label class="form-label input-group">Player First Name</label>
+                <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="input-group-text" id="inputfields"/><br/>
 
-                <label>Player Last Name</label>
-                <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Player Last Name</label>
+                <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} required pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="input-group-text" id="inputfields" /><br/>
 
-                <label>Player's Baseball Team</label>
-                <input type="text" value={playerBaseballTeamName} onChange={(event) => setplayerBaseballTeamName(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Player's Baseball Team</label>
+                <input type="text" value={playerBaseballTeamName} onChange={(event) => setplayerBaseballTeamName(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="input-group-text" id="inputfields" /><br/>
 
-                <label>Player's Opponent Team</label>
-                <input type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Player's Opponent Team</label>
+                <input type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="input-group-text" id="inputfields" /><br/>
 {/* 
                 <label>myOrganization (Scout)</label>
                 <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} required pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/> */}
 
-                <input type="submit" value="Initiate Scouting Report" class="btn btn-primary ms-3 mb-3" />
+                <input id="newnotebutton" type="submit" value="Create Scouting Report" />
                 
             </form>
-            <Link class="btn btn-primary ms-3 mb-3" to={{
+            <Link id="newnotebutton" to={{
                         pathname: `/myscoutingreports/newscoutingreport`,
                         state: {
                             scoutingReport: scoutingReport,
                         }
-                    }}>Go to Report</Link>
+                    }}>Start Scouting</Link>
         
         </div>
     );

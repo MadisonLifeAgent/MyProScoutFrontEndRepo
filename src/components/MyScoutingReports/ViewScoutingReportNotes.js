@@ -40,7 +40,7 @@ const ViewScoutingReportNotes = (props) => {
     const showReportNotes = reportNotes.map((item) => {
             console.log(reportNotes)
             return (
-                <div>
+                <div id="notes">
                     <dt>By: {item.user.firstName} {item.user.lastName}</dt>
                     <dd>{item.playerScoutingReportNoteBody}</dd>
                 </div>
@@ -52,7 +52,6 @@ const ViewScoutingReportNotes = (props) => {
     if(reportNotes){ */
         return (
             <div>
-                <h4>Previous Notes</h4>
                 <dl>
                    {showReportNotes}  
                 </dl>

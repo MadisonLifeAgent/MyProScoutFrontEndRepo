@@ -1,0 +1,136 @@
+#game {
+    margin-top: 30px;
+    border-radius: 3px;
+    border-color: #FFC52F;
+    border-style: solid;
+    background-color: #FFC52F;
+    padding: 5px;
+    font-size: 20px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+}
+
+#notes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border-color: #12284B;
+    border-style: solid;
+    background-color: #12284B;
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+    color: white;
+}
+
+
+#formbox {
+    border-color: #12284B;
+    border-style: solid;
+    border-radius: 3px;
+    font-size: 14px;
+ /*    background-color: #12284B;
+    color: white; */
+    text-align: left;
+}
+
+#itemtitle {
+    margin-top: 20px;
+    border-top-color: #12284B;
+    border-top-style: solid;
+    border-width: 4px;
+    padding-top: 10px;
+}
+
+/* default font for entire site */
+#root {
+    font-family: 'Archivo Black', sans-serif;
+    color:#12284B;
+/*     font-family: 'Inconsolata', monospace;
+    font-family: 'Prompt', sans-serif; */
+}
+
+
+/* buttons styling */
+#button {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    padding: 5px;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin: 2px;
+    text-align: left;
+}
+
+#button:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+
+#newnotebutton {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #FFC52F;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: auto;
+    font-size: 14px;
+    color: #12284B;
+    background-color: #FFC52F;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+}
+
+#newnotebutton:hover {
+    color: white;
+    background-color: #12284B;
+    border-color: #12284B;
+    box-shadow: 0 0 5px 5px #12284B,
+                0 0 6px 6px #12284B;
+}
+
+
+
+/* default styling for forms pages*/
+#forms {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    margin-bottom: 5%;
+}
+
+#inputfields {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+/*styling for page titles at top of page */
+#pagetitle {
+    margin-bottom: 3%;
+    font-size: 35px;
+    border-bottom: 8px;
+    border-bottom-style: solid;    
+}
+
+/*default margins for pages */
+#pages {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    margin-bottom: 5%;
+    color:#12284B;
+}
+
