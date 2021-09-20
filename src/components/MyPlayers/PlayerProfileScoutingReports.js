@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 // Component or hook imports
+import "./PlayerProfileScoutingReports.css";
 import useGetPlayerScoutingReports from "../../hooks/useGetPlayerScoutingReports";
 
 // this component a scout's scouting reports and lists them with a clickable link to view each report
@@ -41,10 +42,10 @@ const PlayerProfileScoutingReports = (props) => {
 
             return (
                 <React.Fragment>
-                    <dt>Player: {item.firstName} {item.lastName}</dt>
+                    <dt id="itemtitle">Player: {item.firstName} {item.lastName}</dt>
                         <dd>Game: {item.playerBaseballTeamName} VS. {item.opponentTeam}</dd>
     
-                        <Link class="btn btn-primary me-3" to={{
+                        <Link id="reportlink" to={{
                             pathname: `/myscoutingreports/viewreport`,
                             state: {
                                 scoutingReport: item,
@@ -64,8 +65,8 @@ const PlayerProfileScoutingReports = (props) => {
     // displays reports or loading message if no reports
     if (playerScoutingReports.length !== 0) {
         return (
-            <div>
-                <h3>Scouting Reports</h3>
+            <div id="pages">
+                <h3 id="pagetitle">Scouting Reports</h3>
                 <dl>
                     {showPlayerScoutingReports()}
                 </dl>

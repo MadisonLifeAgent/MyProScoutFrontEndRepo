@@ -1,0 +1,86 @@
+#playerprofileimage {
+    width: 175px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B,
+                0 0 5px 5px #12284B;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#name {
+    border-radius: 3px;
+    border-color: #FFC52F;
+    border-style: solid;
+    background-color: #FFC52F;
+    padding: 5px;
+    font-size: 20px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+    width: auto;
+}
+
+#notes {
+    margin-top: 30px;
+    border-radius: 3px;
+    border-color: #12284B;
+    border-style: solid;
+    background-color: #12284B;
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+    color: white;
+    width: auto;
+}
+
+#profilelabel {
+    margin-bottom: 5px;
+}
+
+#newreportbutton {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #12284B;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+    font-size: 14px;
+    color: white;
+    background-color: #12284B;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+}
+
+#newreportbutton:hover {
+    color: #12284B;
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F,
+                0 0 6px 6px #FFC52F;
+}
+
+
+#statsheader {
+    border-radius: 3px;
+    border-color: #12284B;
+    border-style: solid;
+    background-color: #FFC52F;
+    font-size: 16px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+    color:#12284B;
+}
+
+
+#itemtitle {
+    margin-top: 20px;
+    border-top-color: #12284B;
+    border-top-style: solid;
+    border-width: 4px;
+    padding-top: 10px;
+}

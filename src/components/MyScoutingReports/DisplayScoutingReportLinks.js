@@ -45,7 +45,7 @@ const DisplayScoutingReportLinks = (props) => {
     // displays reports or loading message if no reports
     if (!myScoutingReports) {
         return (
-            <p>Loading...</p>
+            <p id="pagetitle">Loading...</p>
         )
     }
     else {

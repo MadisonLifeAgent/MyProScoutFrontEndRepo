@@ -38,19 +38,19 @@ const DisplayMyPlayers = (props) => {
         const playerProfileId = item.playerProfile.playerProfileId;
         return (
             <React.Fragment>
-                <dt>{item.playerProfile.firstName} {item.playerProfile.lastName}</dt>
+                <dt id="itemtitle">{item.playerProfile.firstName} {item.playerProfile.lastName}</dt>
                     <dd>Position: {item.playerProfile.playerPositionPrimaryName}</dd>
                     <dd>Batthing Hand: {item.playerProfile.playerBattingHandednessName}</dd>
                     <dd>Throwing Hand: {item.playerProfile.playerThrowingHandednessName}</dd>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="reportlink" class="btn btn-primary me-3" to={{
                         pathname: `/myplayers/playerprofile`,
                         state: {
                             player: item.playerProfile,
                         }
                     }}>View Profile</Link>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="reportlink" class="btn btn-primary me-3" to={{
                         pathname: `/myplayers/editplayer`,
                         state: {
                             player: item.playerProfile,

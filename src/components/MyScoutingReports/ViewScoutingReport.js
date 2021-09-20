@@ -44,7 +44,7 @@ const ViewScoutingReport = (props) => {
                                 Pitching Stats
                             </button>
                         </h4>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <table>
                                     <tr>
@@ -143,7 +143,7 @@ const ViewScoutingReport = (props) => {
                                 Batting Stats
                             </button>
                         </h4>
-                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                             <table>
                                     <tr>
@@ -221,7 +221,7 @@ const ViewScoutingReport = (props) => {
                                 Baserunning Stats
                             </button>
                         </h4>
-                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <table>
                                     <tr>

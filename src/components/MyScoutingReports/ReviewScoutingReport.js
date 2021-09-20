@@ -218,7 +218,7 @@ const ReviewScoutingReport = (props) => {
                     </div>
                 </div>
 
-                {/* Pitching Contact Results Accordion */}
+                {/* Baserunning stats Accordion */}
                 <div class="accordion" id="oneaccordion">
                     <div class="accordion-item">
                         <h4 id="statsheader">

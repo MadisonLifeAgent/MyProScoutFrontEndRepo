@@ -1,0 +1,46 @@
+#mapped {
+    margin-top: 30px;
+    border-radius: 3px;
+    border-color: #FFC52F;
+    border-style: solid;
+    background-color: #FFC52F;
+    padding: 5px;
+    font-size: 20px;
+    box-shadow: 0 0 3px 3px #12284B,
+                0 0 4px 4px #12284B;
+}
+
+#reportlink {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #FFC52F;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 20px;
+    width: auto;
+    font-size: 14px;
+    color: #12284B;
+    background-color: #FFC52F;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+}
+
+#reportlink:hover {
+    color: white;
+    background-color: #12284B;
+    border-color: #12284B;
+    box-shadow: 0 0 5px 5px #12284B,
+                0 0 6px 6px #12284B;
+}
+
+#itemtitle {
+    margin-top: 20px;
+    border-top-color: #12284B;
+    border-top-style: solid;
+    border-width: 4px;
+    padding-top: 10px;
+}
+
