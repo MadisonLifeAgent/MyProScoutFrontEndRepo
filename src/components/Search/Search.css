@@ -307,3 +307,43 @@
 #searchbar {
     width: 50%;
 }
+
+#newnotebutton {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #FFC52F;
+    padding-top: auto;
+    padding-bottom: auto;
+    margin-bottom: 20px;
+    width: auto;
+    font-size: 14px;
+    color: #12284B;
+    background-color: #FFC52F;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+}
+
+#newnotebutton:hover {
+    color: white;
+    background-color: #12284B;
+    border-color: #12284B;
+    box-shadow: 0 0 5px 5px #12284B,
+                0 0 6px 6px #12284B;
+}
+
+#selectbutton {
+    text-decoration: none;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #12284B;
+    border-width: 4px;
+    padding-top: auto;
+    padding-bottom: auto;
+    margin-bottom: 20px;
+    width: auto;
+    font-size: 14px;
+    color: #12284B;
+    background-color: white;
+}
+
