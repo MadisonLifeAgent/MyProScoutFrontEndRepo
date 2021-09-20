@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 // Component or hook imports
-import EditMyProfile from "./EditMyProfile";
+//import EditMyProfile from "./EditMyProfile";
 
 
 // Scout profile page
@@ -55,6 +55,7 @@ const MyProfile = (props) => {
                     pathname: `/editmyprofile`,
                     state: {
                         user: user,
+                        userDetails: userDetails,
                     }
                 }}>Edit myProfile</Link>
             <dl id="mapped">

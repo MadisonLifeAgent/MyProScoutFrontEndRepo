@@ -56,7 +56,18 @@ class App extends Component {
     }
 
     render() { 
-        const user = this.state.user;
+
+        const jwt = localStorage.getItem('token');
+        function getUser() {
+            try{
+                const user = jwtDecode(jwt);
+                return user;
+            } catch {
+            }
+        }
+
+        const user = getUser();
+
     
         // Display different nav bars based on user status
         return (

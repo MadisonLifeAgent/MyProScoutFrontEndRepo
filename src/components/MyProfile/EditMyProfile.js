@@ -13,6 +13,7 @@ import "./EditMyProfile.css";
 // Scout account registration form
 const EditMyProfile = (props) => {
     const user = props.location.state.user;
+    const userDetails = props.location.state.userDetails;
 
     const jwt = localStorage.getItem('token');
 
@@ -50,20 +51,22 @@ const EditMyProfile = (props) => {
                         }
                     }}>Go Back</Link>
                     
-                <ScoutFirstName currentUser={currentUser} id={id} />
+                <ScoutFirstName currentUser={currentUser} user={user} userDetails={userDetails} />
 				
-                <ScoutLastName currentUser={currentUser} id={id} />
+                <ScoutLastName currentUser={currentUser} user={user} userDetails={userDetails} />
 
-                <ScoutEmail currentUser={currentUser} id={id} />
+                <ScoutEmail currentUser={currentUser} user={user} userDetails={userDetails} />
 
-                <ScoutPhoneNumber currentUser={currentUser} id={id} />
-                <ScoutUserName currentUser={currentUser} id={id} />
+                <ScoutPhoneNumber currentUser={currentUser}user={user} userDetails={userDetails} />
+
+                <ScoutUserName currentUser={currentUser} user={user} userDetails={userDetails} />
 
 
                 <Link id="newnotebutton" to={{
                         pathname: `/myprofile`,
                         state: {
                             user: user,
+                            userDetails: userDetails,
                         }
                     }}>Go Back</Link>
 
