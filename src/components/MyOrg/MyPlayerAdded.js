@@ -16,8 +16,6 @@ const MyPlayerAdded = (props) => {
                             scout: scout,
                         }
                     }}>Go to myPlayers</Link>
-
-
         </div>
     )
 

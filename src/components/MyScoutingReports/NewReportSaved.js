@@ -7,7 +7,7 @@ const NewReportSaved = (props) => {
         <div id="pages">
             <p id="pagetitle">Report for {scoutingReport[0].firstName} {scoutingReport[0].lastName} saved!</p>
 
-            <a id="newnotebutton" href="/">Go Home</a>
+            <a id="newnotebutton" href="/myscoutingreports">Go to myReports</a>
         </div>
 
     )

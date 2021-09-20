@@ -13,15 +13,15 @@ const DisplayTeams = (props) => {
     const [{teams}] = UseGetTeams([{}]);
 
     async function deleteTeam(teamId) {
-        //try{
+        try {
             let response = await axios.delete(`https://localhost:44394/api/baseballteams/delete/${teamId}`);
             // if good api call ste the teamRegions
             //console.log("team deleted");
-            window.location = '/myteams';
-/*         }
+            window.location = '/myteams/deletedteam';
+         }
         catch(ex) {
             console.log("bad api call");
-        } */
+        }
     }
 
     

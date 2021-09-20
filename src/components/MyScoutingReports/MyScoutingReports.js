@@ -25,9 +25,6 @@ const MyScoutingReports = (props) => {
             </div>
         )
     }
-    // return profile page is user logged in
-
-
 
 
 export default MyScoutingReports;

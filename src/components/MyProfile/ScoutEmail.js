@@ -21,6 +21,7 @@ const ScoutEmail = (props) => {
 		if (response) {
 			console.log(response.data);
 			console.log("good");
+			window.location = "/editmyprofile/updatesaved";
 		} else {
 			console.log("bad api call");
 		}
@@ -30,7 +31,6 @@ const ScoutEmail = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		editScoutEmail(email, user.id);
-		//window.location = "/myprofile";
 	}
 
 	

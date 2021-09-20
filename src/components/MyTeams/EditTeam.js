@@ -30,6 +30,7 @@ const EditTeam = (props) => {
 		
 		if (response) {
 			console.log("good api call");
+			window.location = "/myteams/teamupdated"
 		} else {
 			console.log("bad api call");
 		}

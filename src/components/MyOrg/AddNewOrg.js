@@ -16,13 +16,14 @@ const AddNewOrg = (props) => {
 
         let response = await axios.post('https://localhost:44394/api/organizations/add', newOrganization);
 
-        window.location = "/myorg";
+        window.location = "/myorg/neworgaddedlandingpage";
         
         if (response) {
             console.log("good call");
-            // refresh and send user to home page
+            window.location = "/myorg/neworgaddedlandingpage";
         } else {
             console.log("bad api call");
+            window.location = "/myorg";
         }
     }
 

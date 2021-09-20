@@ -27,16 +27,13 @@ const AddScoutingReportNote = (props) => {
     async function addScoutngReportNote(messageInfo) {
 
         let response = await axios.post('https://localhost:44394/api/playerscoutingreportnote/add', messageInfo);
-
-        // refresh the current page
-        window.location = "/myscoutingreports/viewreport";
         
-/*         if (response) {
+        if (response) {
             console.log("good call");
-            // refresh and send user to home page
+            window.location = "/myscoutingreports/viewreport";
         } else {
             console.log("bad api call");
-        } */
+        }
     }
 
     const handleSubmit = (event) => {

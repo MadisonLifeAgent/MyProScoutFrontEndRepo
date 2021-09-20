@@ -21,6 +21,7 @@ const ScoutFirstName = (props) => {
 		
 		if (response) {
 			console.log("firstnamegood api call");
+			window.location = "/editmyprofile/updatesaved";
 		} else {
 			console.log("bad api call");
 		}
@@ -30,7 +31,6 @@ const ScoutFirstName = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		editScoutFirstName(firstName, user.id);
-		window.location = "/myprofile";
 	}
 
 	

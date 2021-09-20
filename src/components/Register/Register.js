@@ -28,8 +28,10 @@ const Registration = () => {
 		if (response) {
 			console.log(response.data);
 			console.log("good api call");
+			window.location = "/register/accountcreated";
 		} else {
 			console.log("bad api call");
+			window.location = "/";
 		}
 	}
 	
@@ -37,7 +39,6 @@ const Registration = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		createNewAccount(firstName, lastName, userName, password, email, phoneNumber);
-		window.location = "/register/accountcreated";
 	}
 	
 	return (

@@ -27,7 +27,6 @@ const AssignMyOrg = (props) => {
 
         let response = await axios.post(`https://localhost:44394/api/scoutorganizationjoin/add`, joinInfo);
 
-        window.location = "/myorg";
         
         if (response) {
             console.log("good call");
@@ -50,6 +49,8 @@ const AssignMyOrg = (props) => {
         setOrganizationId(event.target.value);   
         assignMyOrganization(organizationId, scout.id);
         console.log(organizationId);
+        window.location = "/myorg/orgassignedlandingpage";
+
     }
 
     const showAllOrganizationOptions = allOrganizations.map((item) => {

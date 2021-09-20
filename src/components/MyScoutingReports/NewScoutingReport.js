@@ -33,7 +33,7 @@ const NewScoutingReport = (props) => {
     const [playerBaseballTeamName, setplayerBaseballTeamName] = useState();
     const [opponentTeam, setopponentTeam] = useState();
     const [myOrganization, setmyOrganization] = useState();
-//    const [scoutId, setScoutId] = useState();
+    const [scoutId, setScoutId] = useState();
     const [scoutingReportNotesBody, setScoutingReportNotesBody] = useState();
 
     const [pitcherTotalPitches, setpitcherTotalPitches] = useState();
@@ -435,7 +435,7 @@ const NewScoutingReport = (props) => {
                 <input id="inputfields" type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="input-group-text" /> */}
 
                 <p id="info">Scouting Reports Notes</p>
-                <textarea id="inputfields" name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="input-group-text" rows="6" cols="60" />
+                <textarea id="inputfields" type="text" name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="input-group-text" rows="6" cols="60" />
 
                 {/* Total Pitching Stats Accordion */}
                 <div class="accordion" id="oneaccordion">
@@ -445,7 +445,7 @@ const NewScoutingReport = (props) => {
                                 Total Pitching Stats
                             </button>
                         </h4>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <label class="form-label input-group">Total Pitches</label>
                                 <input type="number" value={pitcherTotalPitches} onChange={(event) => setpitcherTotalPitches(event.target.value)} class="input-group-text" />
@@ -484,7 +484,7 @@ const NewScoutingReport = (props) => {
                             Pitcher Versus Batters Stats
                             </button>
                         </h4>
-                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <label class="form-label input-group">Balls</label>
                                 <input type="number" value={pitcherTotalBalls} onChange={(event) => setpitcherTotalBalls(event.target.value)} class="input-group-text" />
@@ -525,7 +525,7 @@ const NewScoutingReport = (props) => {
                                 Pitcher Contact Results
                             </button>
                         </h4>
-                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <label class="form-label input-group">Hits Allowed</label>
                                 <input type="number" value={pitcherHitsAllowed} onChange={(event) => setpitcherHitsAllowed(event.target.value)} class="input-group-text" />
@@ -564,7 +564,7 @@ const NewScoutingReport = (props) => {
                                 Batter at the Plate Stats
                             </button>
                         </h4>
-                        <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <label class="form-label input-group">Plate Appearances</label>
                                 <input type="number" value={batterPlateAppearances} onChange={(event) => setbatterPlateAppearances(event.target.value)} class="input-group-text" />
@@ -602,7 +602,7 @@ const NewScoutingReport = (props) => {
                                 Batter Ball in Play Stats
                             </button>
                         </h4>
-                        <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                                 <label class="form-label input-group">Hit</label>
                                 <input type="number" value={batterHit} onChange={(event) => setbatterHit(event.target.value)} class="input-group-text" />
@@ -660,7 +660,7 @@ const NewScoutingReport = (props) => {
                                 Baserunning Stats
                             </button>
                         </h4>
-                        <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="box">
                             <label class="form-label input-group">Advanced to 2nd</label>
                                 <input type="number" value={runnerAdvancedToSecond} onChange={(event) => setrunnerAdvancedToSecond(event.target.value)} class="input-group-text" />

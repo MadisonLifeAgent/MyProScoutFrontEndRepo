@@ -113,11 +113,10 @@ const AddPlayer = (props) => {
         try{
             await axios.post('https://localhost:44394/api/playerprofile/add', newPlayerInfo);
             //console.log("good api call");
-            window.location = '/myplayers';
+            window.location = '/myplayers/newplayeradded';
         }
         catch(ex){
             console.log("bad api call");
-
         } 
     }
 

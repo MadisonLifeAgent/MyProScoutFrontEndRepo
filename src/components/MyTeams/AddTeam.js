@@ -21,16 +21,16 @@ const AddTeam = () => {
 		}
 		let response = await axios.post(`https://localhost:44394/api/baseballteams/add`, newTeamInfo);
 		
-/* 		if (response) {
+		if (response) {
 			console.log("good api call");
+			window.location = '/myteams/teamadded';
 		} else {
 			console.log("bad api call");
-		} */
+		}
 	}
     const handleSubmit = (event) => {
 		event.preventDefault();
 		createNewTeam(teamName, region, competitionLevel);
-		window.location = '/myteams';
 	}
 
  

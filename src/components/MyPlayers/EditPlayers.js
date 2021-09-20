@@ -11,8 +11,6 @@ const EditPlayer = (props) => {
 
     const playerId = player.playerProfileId;
 
-    //console.log(player);
-
     // form field variables
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
@@ -32,7 +30,6 @@ const EditPlayer = (props) => {
     // call the database and try to create account
     async function editPlayer(playerId, firstName, lastName, height, weight, age, yearTurnedPro, imageUrl, playerPositionPrimaryName, playerPositionSecondaryName, playerBattingHandednessName, playerThrowingHandednessName, playerTypeName, baseballTeamName) {
 
-
         const newId = parseInt(playerId)
         const newHeight = parseInt(height);
         const newWeight = parseInt(weight);
@@ -41,7 +38,6 @@ const EditPlayer = (props) => {
 
         console.log(lastName);
 
-       
         // player info (click left to open)
         const updatedPlayerInfo = {
             "PlayerProfileId": newId,
@@ -60,12 +56,12 @@ const EditPlayer = (props) => {
             "BaseballTeamName": baseballTeamName
         }
         try{
-            await axios.put(`https://localhost:44394/api/playerprofile/edit/${newId}`, updatedPlayerInfo);
-            window.location = '/myplayers';
-        
+            let response = await axios.put(`https://localhost:44394/api/playerprofile/edit/${newId}`, updatedPlayerInfo);
+            if(response) {
+                window.location = '/myplayers/updatedplayer';
+            }        
         }catch(ex){
             console.log("bad api call");
-
         }
     }
 

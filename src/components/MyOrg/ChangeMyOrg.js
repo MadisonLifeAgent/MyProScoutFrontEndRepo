@@ -31,14 +31,14 @@ const ChangeMyOrg = (props) => {
         }
 
         let response = await axios.put(`https://localhost:44394/api/scoutorganizationjoin/edit/${id}`, updatedOrganization);
-
-        //window.location = "/myorg";
-        
+     
         if (response) {
             console.log("good call");
-            // refresh and send user to home page
+            window.location = "/myorg/orgassignedlandingpage";
         } else {
             console.log("bad api call");
+            window.location = "/myorg";
+
         }
     }
 

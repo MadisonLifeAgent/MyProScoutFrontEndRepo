@@ -20,6 +20,7 @@ const ScoutLastName = (props) => {
 		
 		if (response) {
 			console.log("firstnamegood api call");
+			window.location = "/editmyprofile/updatesaved";
 		} else {
 			console.log("bad api call");
 		}
@@ -29,7 +30,6 @@ const ScoutLastName = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		editScoutLastName(lastName, user.id);
-		window.location = "/myprofile";
 	}
 
 	
