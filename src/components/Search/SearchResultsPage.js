@@ -139,7 +139,7 @@ const SearchResults = (props) => {
     const showSearchResults = playerSearchResults.map((item) => {
         return (
             <div>
-                <dt>{item.firstName} {item.lastName}</dt>
+                <dt id="itemtitle">{item.firstName} {item.lastName}</dt>
                     <dd>Position: {item.playerPositionPrimaryName}</dd>
                     <dd>Team: {item.baseballTeamName}</dd>
             </div>
@@ -149,9 +149,9 @@ const SearchResults = (props) => {
     // display results if available
     if (playerSearchResults.length > 0) {
         return (
-            <div>
-                <h4>{category} search results for "{searchTerm}"</h4>
-                <Link to="/search" class="btn btn-primary">Go Back</Link>
+            <div id="pages">
+                <h4 id="pagetitle">{category} search results for "{searchTerm}"</h4>
+                <Link to="/search" id="newnotebutton">Go Back</Link>
                 <dl>{showSearchResults}</dl>
             </div>
         )
