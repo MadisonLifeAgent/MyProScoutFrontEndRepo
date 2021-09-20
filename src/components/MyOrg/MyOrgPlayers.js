@@ -11,8 +11,8 @@ const MyOrgPlayers = (props) => {
    
 // displays team, regions, competition levels and create or edit buttons
     return (
-        <div>
-            <h3>myPlayers</h3>
+        <div id="pages">
+            <h3 id="pagetitle">myOrg's Players</h3>
             <DisplayPlayers  scout={scout} />
         </div>
     )

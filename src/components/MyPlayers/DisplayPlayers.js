@@ -48,26 +48,27 @@ const DisplayPlayers = (props) => {
         const playerProfileId = item.playerProfileId;
         return (
             <React.Fragment>
+                <div id="mapped" class="mb-4 p-3">
                 <dt>{item.firstName} {item.lastName}</dt>
                     <dd>Position: {item.playerPositionPrimaryName}</dd>
                     <dd>Batthing Hand: {item.playerBattingHandednessName}</dd>
                     <dd>Throwing Hand: {item.playerThrowingHandednessName}</dd>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="newreportbutton" class="me-4" to={{
                         pathname: `/myplayers/playerprofile`,
                         state: {
                             player: item,
                         }
                     }}>View Profile</Link>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="newreportbutton" class="me-4" to={{
                         pathname: `/myplayers/editplayer`,
                         state: {
                             player: item,
                         }
                     }}>Edit Profile</Link>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="newreportbutton" class="me-4" to={{
                         pathname: `/myorg/addtomyplayers`,
                         state: {
                             player: item,
@@ -75,9 +76,11 @@ const DisplayPlayers = (props) => {
                         }
                     }} onClick={(event) => joinPlayerScout(playerProfileId, scout.id)}>Add to myPlayers</Link>
                     
-                    <input type="button" class="btn btn-primary" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
+                    <input type="button" id="newreportbutton" class="me-4" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
 
-                    <br/><br/>
+                    </div>
+
+
             </React.Fragment>
         );
     })

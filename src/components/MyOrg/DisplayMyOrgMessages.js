@@ -20,10 +20,12 @@ const DisplayMyOrgMessages = (props) => {
 
             return (
                 <React.Fragment>
-                    <dt>{item.user.firstName} {item.user.lastName} (Message #{item.organizationMessageId})</dt>
-                        <dd>Subject: {item.organizationMessageTitle}</dd>
-                        <dd>{item.organizationMessageBody}</dd>
-                        <br/><br/>
+                    <div>
+                    <dt id="mapped" class="">{item.user.firstName} {item.user.lastName} (Message #{item.organizationMessageId})
+                    <br/>
+                    Subject: {item.organizationMessageTitle}</dt>
+                        <dd id="notes" class="ms-5">{item.organizationMessageBody}</dd>
+                    </div>
                 </React.Fragment>
             );
         })
@@ -37,13 +39,16 @@ const DisplayMyOrgMessages = (props) => {
     // displays organization messages
     if(orgMessages){
         return (
-            <div>
-                <a href="/myorg/newmessage" class="btn btn-primary ms-3 mb-3" onClick={handleClick}>Add New Message</a>
-                <h3>Recent Messages</h3>
-                <dl>
+            <div id="pages">
+                <h3 id="pagetitle">Recent Messages</h3>
+                <a id="newreportbutton" href="/myorg/newmessage" onClick={handleClick}>Add New Message</a>
+
+                <dl class="mb-5">
                    {showMessages()} 
                     
                 </dl>
+
+
             </div>
         )
     }

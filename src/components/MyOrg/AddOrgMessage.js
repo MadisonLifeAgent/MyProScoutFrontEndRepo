@@ -59,16 +59,16 @@ const AddOrgMessage = (props) => {
     // login form
     return (
         
-        <div>
-            <h3>Type your message here.</h3>
+        <div id="forms">
+            <h3 id="pagetitle">Type your message here.</h3>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="organizationMessageTitle" placeholder="Enter a title" value={organizationMessageTitle} onChange={ (event) => setOrganizationMessageTitle(event.target.value)}  class="ms-3 mb-3"/>
-                <br />
+                <label class="form-label input-group">Message Title</label>
+                <input id="inputfields" type="text" name="organizationMessageTitle" placeholder="Enter a title" value={organizationMessageTitle} onChange={ (event) => setOrganizationMessageTitle(event.target.value)}  class="input-group-text"/>
 
-                <textarea name="organizationMessageBody" placeholder="message body" value={organizationMessageBody} onChange={ (event) => setOrganizationMessageBody(event.target.value)} class="ms-3 mb-3" rows="4" cols="50"/>
-                <br />
+                <label class="form-label input-group">Message Body</label>
+                <textarea id="inputfields" name="organizationMessageBody" placeholder="message body" value={organizationMessageBody} onChange={ (event) => setOrganizationMessageBody(event.target.value)} class="input-group-text mb-4" rows="4" cols="50"/>
 
-                <input type="submit" value="Post Message" class="btn btn-primary ms-3" />
+                <input type="submit" value="Post Message" id="newnotebutton" />
             </form>
         </div>
     )
