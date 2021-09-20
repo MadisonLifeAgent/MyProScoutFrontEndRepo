@@ -26,19 +26,19 @@ const MyOrg = (props) => {
 
     // display scout's orgnaizations' name, message, and players
         return (
-            <div>
-                <h3>{organization.organizationName} Scout Hub</h3>
+            <div id="pages">
+                <h3 id="pagetitle">{organization.organizationName} Scout Hub</h3>
 
                 <br/>
 
-                <Link class="btn btn-primary me-3 mb-3" to={{
+                <Link id="reportlink" to={{
                         pathname: `/myorg/messageboard`,
                         state: {
                             myOrganization: organization,
                         }
                     }}>myOrg Message Board</Link>
 
-                <Link class="btn btn-primary me-3 mb-3" to={{
+                <Link id="reportlink" to={{
                         pathname: `/myorg/myorgplayers`,
                         state: {
                             myOrganization: organization,
@@ -46,14 +46,14 @@ const MyOrg = (props) => {
                         }
                     }}>myOrg's Players</Link>
 
-                <Link class="btn btn-primary me-3 mb-3" to={{
+                <Link id="reportlink" to={{
                         pathname: `/myorg/assignmyorg`,
                         state: {
                             user: scout,
                         }
                     }}>Assign myOrg</Link>
 
-                <Link class="btn btn-primary me-3 mb-3" to={{
+                <Link id="reportlink" to={{
                         pathname: `/myorg/changemyorg`,
                         state: {
                             myOrganization: organization,
@@ -61,7 +61,7 @@ const MyOrg = (props) => {
                         }
                     }}>Change myOrg</Link>
 
-                <Link class="btn btn-primary me-3 mb-3" to={{
+                <Link id="reportlink" to={{
                         pathname: `/myorg/AddNewOrg`,
                         state: {
                             myOrganization: organization,
