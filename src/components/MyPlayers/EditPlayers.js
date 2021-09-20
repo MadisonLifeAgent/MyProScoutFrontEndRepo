@@ -123,54 +123,59 @@ const EditPlayer = (props) => {
 
     // add player form
     return (
-        <div>
-            <h3>Enter Player Details</h3>
+        <div id="forms">
+            <h3 id="pagetitle">Edit Player Details</h3>
             <form onSubmit={handleSubmit}>
+                <input type="submit" value="Auto-fill Form" id="newnotebutton" />
 
-                <label>First Name: {player.firstName}</label>
-                <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="ms-3 me-3 mb-3" />
-                
-                <label>Last Name: {player.lastName}</label>
-                <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} class="ms-3 mb-3" /><br/>
-                
-                <label>Height: {player.height}</label>
-                <input type="text" value={height} onChange={(event) => setHeight(event.target.value)} class="ms-3 me-3 mb-3" />
-                
-                <label>Weight: {player.weight}</label>
-                <input type="text" value={weight} onChange={(event) => setWeight(event.target.value)} class="ms-3 mb-3" /><br/>
-                
-                <label>Age: {player.age}</label>
-                <input type="text" value={age} onChange={(event) => setAge(event.target.value)} class="ms-3 me-3 mb-3" />
-                
-                <label>Image Url: {player.PlayerImageUrl}</label>
-                <input type="text" value={imageUrl} onChange={(event) => setImageUrl(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <input type="submit" value="Save Changes" id="newnotebutton" />
 
-                <label>Year Turned Pro: {player.yearTurnedPro}</label>
-                <input type="text" value={yearTurnedPro} onChange={(event) => setYearTurnedPro(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <a href="/myplayers" id="newnotebutton">Go Back</a>
 
-                <label>Primary Position: {player.playerPositionPrimaryName}</label>
-                <input type="text" value={playerPositionPrimaryName} onChange={(event) => setPlayerPositionPrimaryName(event.target.value)} class="ms-3 me-3 mb-3"  />
-
-                <label>Secondary Positin: {player.playerPositionSecondaryName}</label>
-                <input type="text" value={playerPositionSecondaryName} onChange={(event) => setPlayerPositionSecondaryName(event.target.value)} class="ms-3 mb-3"  /><br/>                
-
-                <label>Batthing Handedness: {player.playerBattingHandednessName}</label>
-                <input type="text" value={playerBattingHandednessName} onChange={(event) => setPlayerBattingHandednessName(event.target.value)} class="ms-3 me-3 mb-3"  />
+                <label class="form-label input-group">First Name: {player.firstName}</label>
+                <input id="inputfields" type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} class="input-group-text" />
                 
-                <label>Throwing Handedness: {player.playerThrowingHandednessName}</label>
-                <input type="text" value={playerThrowingHandednessName} onChange={(event) => setPlayerThrowingHandednessName(event.target.value)} class="ms-3 mb-3"  /><br/>                
+                <label class="form-label input-group">Last Name: {player.lastName}</label>
+                <input id="inputfields" type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} class="input-group-text" />
+                
+                <label class="form-label input-group">Height: {player.height}</label>
+                <input id="inputfields" type="text" value={height} onChange={(event) => setHeight(event.target.value)} class="input-group-text" />
+                
+                <label class="form-label input-group">Weight: {player.weight}</label>
+                <input id="inputfields" type="text" value={weight} onChange={(event) => setWeight(event.target.value)} class="input-group-text" />
+                
+                <label class="form-label input-group">Age: {player.age}</label>
+                <input id="inputfields" type="text" value={age} onChange={(event) => setAge(event.target.value)} class="input-group-text" />
+                
+                <label class="form-label input-group">Image Url: {player.PlayerImageUrl}</label>
+                <input id="inputfields" type="text" value={imageUrl} onChange={(event) => setImageUrl(event.target.value)} class="input-group-text" />
+
+                <label class="form-label input-group">Year Turned Pro: {player.yearTurnedPro}</label>
+                <input id="inputfields" type="text" value={yearTurnedPro} onChange={(event) => setYearTurnedPro(event.target.value)} class="input-group-text" />
+
+                <label class="form-label input-group">Primary Position: {player.playerPositionPrimaryName}</label>
+                <input id="inputfields" type="text" value={playerPositionPrimaryName} onChange={(event) => setPlayerPositionPrimaryName(event.target.value)} class="input-group-text" />
+
+                <label class="form-label input-group">Secondary Positin: {player.playerPositionSecondaryName}</label>
+                <input id="inputfields" type="text" value={playerPositionSecondaryName} onChange={(event) => setPlayerPositionSecondaryName(event.target.value)} class="input-group-text" />
+
+                <label class="form-label input-group">Batthing Handedness: {player.playerBattingHandednessName}</label>
+                <input id="inputfields" type="text" value={playerBattingHandednessName} onChange={(event) => setPlayerBattingHandednessName(event.target.value)} class="input-group-text" />
+                
+                <label class="form-label input-group">Throwing Handedness: {player.playerThrowingHandednessName}</label>
+                <input id="inputfields" type="text" value={playerThrowingHandednessName} onChange={(event) => setPlayerThrowingHandednessName(event.target.value)} class="input-group-text" />
                                
-                <label>Player Type: {player.playerTypeName}</label>
-                <input type="text" value={playerTypeName} onChange={(event) => setPlayerTypeName(event.target.value)} class="ms-3 me-3 mb-3"  />                
+                <label class="form-label input-group">Player Type: {player.playerTypeName}</label>
+                <input id="inputfields" type="text" value={playerTypeName} onChange={(event) => setPlayerTypeName(event.target.value)} class="input-group-text" />                
                 
-                <label>Current Team: {player.baseballTeamName}</label>
-                <input type="text" value={baseballTeamName} onChange={(event) => setBaseballTeamName(event.target.value)} class="ms-3 mb-3"  /><br/>
+                <label class="form-label input-group">Current Team: {player.baseballTeamName}</label>
+                <input id="inputfields" type="text" value={baseballTeamName} onChange={(event) => setBaseballTeamName(event.target.value)} class="input-group-text"/>
 
-                <input type="submit" value="Auto-fill Form" class="btn btn-primary ms-3 mb-3" />
+                <input type="submit" value="Auto-fill Form" id="newnotebutton" class="mt-3"/>
 
-                <input type="submit" value="Save Changes" class="btn btn-primary ms-3 mb-3" />
+                <input type="submit" value="Save Changes" id="newnotebutton" />
 
-                <a href="/myplayers" class="btn btn-primary ms-3 mb-3">Go Back</a>
+                <a href="/myplayers" id="newnotebutton">Go Back</a>
 
             </form>
         </div>

@@ -17,8 +17,8 @@ const MyTeams = (props) => {
 
     // displays team, regions, competition levels and create or edit buttons
         return (
-            <div>
-                <h3>myTeams Page</h3>
+            <div id="forms">
+                <h3 id="pagetitle">myTeams Page</h3>
                 <a href="/myteams/addteam">Add New Team</a>
                 <DisplayTeams />
             </div>
