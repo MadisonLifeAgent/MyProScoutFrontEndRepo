@@ -36,19 +36,19 @@ const AddTeam = () => {
  
 	// registration form
 	return (
-		<div>
-            <p>Enter a Team Name to Get Started</p>
+		<div id="forms">
+            <p id="pagetitle">Enter a New Team Details</p>
 			<form onSubmit={handleSubmit}>
-                <label>Team Name</label>
-				<input type="text" placeholder="i.e. Milwaukee Brewers" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Team Name</label>
+				<input id="inputfields" type="text" placeholder="i.e. Milwaukee Brewers" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="input-group-text" /><br/>
 
-                <label>Team Region</label>
-				<input type="text" placeholder="i.e. Midwest" value={region} onChange={(event) => setRegion(event.target.value)} class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Team Region</label>
+				<input id="inputfields" type="text" placeholder="i.e. Midwest" value={region} onChange={(event) => setRegion(event.target.value)} class="input-group-text" /><br/>
 
-                <label>Team Competition Level</label>
-				<input type="text" placeholder="i.e. Triple A" value={competitionLevel} onChange={(event) => setCompetitionLevel(event.target.value)} class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Team Competition Level</label>
+				<input id="inputfields" type="text" placeholder="i.e. Triple A" value={competitionLevel} onChange={(event) => setCompetitionLevel(event.target.value)} class="input-group-text" /><br/>
 
-				<input type="submit" value="Save" class="btn btn-primary ms-3 mt-3" />
+				<input type="submit" value="Save" id="newnotebutton" />
             </form>
 		</div>
 	)

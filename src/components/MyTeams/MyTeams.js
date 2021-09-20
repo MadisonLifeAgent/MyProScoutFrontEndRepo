@@ -19,7 +19,7 @@ const MyTeams = (props) => {
         return (
             <div id="forms">
                 <h3 id="pagetitle">myTeams Page</h3>
-                <a href="/myteams/addteam">Add New Team</a>
+                <a id="newnotebutton" href="/myteams/addteam">Add New Team</a>
                 <DisplayTeams />
             </div>
         )

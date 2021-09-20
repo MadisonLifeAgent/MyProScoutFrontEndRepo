@@ -54,21 +54,21 @@ const EditTeam = (props) => {
  
 	// registration form
 	return (
-		<div>
-            <p>Edit Team</p>
+		<div id="forms">
+            <p id="pagetitle">Edit Team</p>
 			<form onSubmit={handleSubmit}>
-                <label>Team Name: {team.baseballTeamName}</label>
-				<input type="text" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Team Name: {team.baseballTeamName}</label>
+				<input id="inputfields" type="text" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="input-group-text" /><br/>
 
-                <label>Team Region: {team.regionName}</label>
-				<input type="text" value={region} onChange={(event) => setRegion(event.target.value)} class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Team Region: {team.regionName}</label>
+				<input id="inputfields" type="text" value={region} onChange={(event) => setRegion(event.target.value)} class="input-group-text" /><br/>
 
-                <label>Team Competition Level: {team.competitionLevelName}</label>
-				<input type="text" value={competitionLevel} onChange={(event) => setCompetitionLevel(event.target.value)} class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Team Competition Level: {team.competitionLevelName}</label>
+				<input id="inputfields" type="text" value={competitionLevel} onChange={(event) => setCompetitionLevel(event.target.value)} class="input-group-text" /><br/>
 
-				<input type="submit" value="Complete Form" class="btn btn-primary ms-3 mt-3" />
+				<input type="submit" value="Complete Form" id="newnotebutton" />
 
-				<input type="submit" value="Save Changes" class="btn btn-primary ms-3 mt-3" />
+				<input type="submit" value="Save Changes" id="newnotebutton" />
 
             </form>
 		</div>

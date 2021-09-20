@@ -30,21 +30,18 @@ const DisplayTeams = (props) => {
     const showTeams = teams.map((item) => {
         return (
             <React.Fragment>
-                <dt>{item.baseballTeamName}</dt>
+                <dt id="itemtitle">{item.baseballTeamName}</dt>
                     <dd>Level: {item.competitionLevelName}</dd>
                     <dd>Region: {item.regionName}</dd>
 
-                    <Link class="btn btn-primary me-3" to={{
+                    <Link id="reportlink" to={{
                         pathname: `/myteams/editteam`,
                         state: {
                             team: item,
                         }
                     }}>Edit Team</Link>
                     
-                    <input type="button" class="btn btn-primary" value="Delete Team" onClick={(event) => deleteTeam(item.baseballTeamId)} />
-
-                    <br/><br/>
-
+                    <input type="button" id="reportlink" value="Delete Team" onClick={(event) => deleteTeam(item.baseballTeamId)} />
 
             </React.Fragment>
         );
@@ -55,8 +52,8 @@ const DisplayTeams = (props) => {
     // displays team, regions, competition levels and create or edit buttons
         return (
             <div>
-                <h3>myTeams List</h3>
-                <dl>
+                <h3 id="game">myTeams List</h3>
+                <dl >
                     {showTeams}
                 </dl>
             </div>
