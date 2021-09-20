@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 
 // Component or hook imports
+import './NewScoutingReport.css';
 import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 import ReviewScoutingReport from "./ReviewScoutingReport";
 
@@ -402,235 +403,304 @@ const NewScoutingReport = (props) => {
 
     // add player form
     return (
-        <div>
-            <h1>New Scouting Report</h1>
+        <div id="forms">
+            <p id="pagetitle">New Scouting Report</p>
 
             <form onSubmit={handleSubmit}>
-                <input type="submit" value="Pre-fill/Reset Report" class="btn btn-primary ms-3 mb-3" />
+                <input id="newnotebutton" type="submit" value="Pre-fill/Reset Report"  />
 
-                <input type="submit" value="Save Report" class="btn btn-primary ms-3 mb-3" />
+                <input id="newnotebutton" type="submit" value="Save Report" />
 
-                <Link class="btn btn-primary ms-3 mb-3" to={{
+                <Link id="newnotebutton" to={{
                         pathname: '/myscoutingreports/reviewreport',
                         state: {
                             scoutingReportId: scoutingReport.playerScoutingReportId,
                         }
                     }}>Review Report</Link>
 
-                <h2>Basic Info</h2>
-                <label>Player First Name: {scoutingReport.firstName} </label>
-                <input type="text" name="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" />
+                <p id="info">Player Info</p>
+                <label class="form-label input-group">Player First Name: {scoutingReport.firstName} </label>
+                <input id="inputfields" type="text" name="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="input-group-text" />
 
-                <label>Player Last Name: {scoutingReport.lastName}</label>
-                <input type="text" name="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Player Last Name: {scoutingReport.lastName}</label>
+                <input id="inputfields" type="text" name="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)} pattern="[A-Za-z]{1,}" title="Alpha characters only, please." class="input-group-text" />
 
-                <label>Player's Baseball Team</label>
-                <input type="text" value={playerBaseballTeamName} onChange={(event) => setplayerBaseballTeamName(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Player's Baseball Team</label>
+                <input id="inputfields" type="text" value={playerBaseballTeamName} onChange={(event) => setplayerBaseballTeamName(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="input-group-text" />
 
-                <label>Player's Opponent Team</label>
-                <input type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/>
+                <label class="form-label input-group">Player's Opponent Team</label>
+                <input id="inputfields" type="text" value={opponentTeam} onChange={(event) => setopponentTeam(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="input-group-text" />
 
-{/*                 <label>myOrganization (Scout)</label>
-                <input type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="ms-3 mb-3" /><br/> */}
+{/*                 <label class="form-label input-group">myOrganization (Scout)</label>
+                <input id="inputfields" type="text" value={myOrganization} onChange={(event) => setmyOrganization(event.target.value)} pattern="[A-Za-z0-9\s]{1,}" title="Alpha characters and numbers only, please." class="input-group-text" /> */}
 
-                <h3>Scouting Reports Notes</h3>
-                <textarea name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="mb-3" rows="6" cols="60" />
+                <p id="info">Scouting Reports Notes</p>
+                <textarea id="inputfields" name="scoutingReportNotesBody" placeholder="Enter notes here" value={scoutingReportNotesBody} onChange={(event) => setScoutingReportNotesBody(event.target.value)} class="input-group-text" rows="6" cols="60" />
 
-                <h2>Pitching</h2>
-                
-                <h4>Pitching Game Stats</h4>
+                {/* Total Pitching Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Total Pitching Stats
+                            </button>
+                        </h4>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                                <label class="form-label input-group">Total Pitches</label>
+                                <input type="number" value={pitcherTotalPitches} onChange={(event) => setpitcherTotalPitches(event.target.value)} class="input-group-text" />
 
-                <label>Total Pitches</label>
-                <input type="number" value={pitcherTotalPitches} onChange={(event) => setpitcherTotalPitches(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Batters Faced</label>
+                                <input type="number" value={pitcherNumberOfBattersFaced} onChange={(event) => setpitcherNumberOfBattersFaced(event.target.value)} class="input-group-text" />
+                                                
+                                <label class="form-label input-group">Innings Pitched</label>
+                                <input type="number" value={pitcherInningsPitched} onChange={(event) => setpitcherInningsPitched(event.target.value)} class="input-group-text" />
 
-                <label>Batters Faced</label>
-                <input type="number" value={pitcherNumberOfBattersFaced} onChange={(event) => setpitcherNumberOfBattersFaced(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Comlete Game</label>
+                                <input type="number" value={careerPitchingCompleteGame} onChange={(event) => setcareerPitchingCompleteGame(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Win</label>
+                                <input type="number" value={pitcherWin} onChange={(event) => setpitcherWin(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Loss</label>
+                                <input type="number" value={pitcherLoss} onChange={(event) => setpitcherLoss(event.target.value)} class="input-group-text" />
                                 
-                <label>Innings Pitched</label>
-                <input type="number" value={pitcherInningsPitched} onChange={(event) => setpitcherInningsPitched(event.target.value)} class="ms-3 me-3 mb-3" />
 
-                <label>Comlete Game</label>
-                <input type="number" value={careerPitchingCompleteGame} onChange={(event) => setcareerPitchingCompleteGame(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Save</label>
+                                <input type="number" value={pitcherSave} onChange={(event) => setpitcherSave(event.target.value)} class="input-group-text" />
 
-                <label>Win</label>
-                <input type="number" value={pitcherWin} onChange={(event) => setpitcherWin(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Blown Save</label>
+                                <input type="number" value={pitcherBlownSave} onChange={(event) => setpitcherBlownSave(event.target.value)} class="input-group-text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <label>Loss</label>
-                <input type="number" value={pitcherLoss} onChange={(event) => setpitcherLoss(event.target.value)} class="ms-3 mb-3" />
-                <br/>
+                {/* Pitching Versus Batter Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Pitcher Versus Batters Stats
+                            </button>
+                        </h4>
+                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                                <label class="form-label input-group">Balls</label>
+                                <input type="number" value={pitcherTotalBalls} onChange={(event) => setpitcherTotalBalls(event.target.value)} class="input-group-text" />
 
-                <label>Save</label>
-                <input type="number" value={pitcherSave} onChange={(event) => setpitcherSave(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Walks</label>
+                                <input type="number" value={pitcherWalksGiven} onChange={(event) => setpitcherWalksGiven(event.target.value)} class="input-group-text" />
 
-                <label>Blown Save</label>
-                <input type="number" value={pitcherBlownSave} onChange={(event) => setpitcherBlownSave(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Strikes</label>
+                                <input type="number" value={pitcherTotalStrikes} onChange={(event) => setpitcherTotalStrikes(event.target.value)} class="input-group-text" />
 
+                                <label class="form-label input-group">Strikeouts</label>
+                                <input type="number" value={pitcherTotalStrikeouts} onChange={(event) => setpitcherTotalStrikeouts(event.target.value)} class="input-group-text" />
 
-                <h4>Pitching Results</h4>
+                                <label class="form-label input-group">Foul Balls</label>
+                                <input type="number" value={pitcherFoulBallsHit} onChange={(event) => setpitcherFoulBallsHit(event.target.value)} class="input-group-text" />
 
-                <label>Balls</label>
-                <input type="number" value={pitcherTotalBalls} onChange={(event) => setpitcherTotalBalls(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Hit Batters</label>
+                                <input type="number" value={pitcherHitBatter} onChange={(event) => setpitcherHitBatter(event.target.value)} class="input-group-text" />
 
-                <label>Walks</label>
-                <input type="number" value={pitcherWalksGiven} onChange={(event) => setpitcherWalksGiven(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Wild Pitches</label>
+                                <input type="number" value={pitcherWildPitch} onChange={(event) => setpitcherWildPitch(event.target.value)} class="input-group-text" />
 
-                <label>Strikes</label>
-                <input type="number" value={pitcherTotalStrikes} onChange={(event) => setpitcherTotalStrikes(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Pickoff Attempts</label>
+                                <input type="number" value={pitcherPickOffAttempts} onChange={(event) => setpitcherPickOffAttempts(event.target.value)} class="input-group-text" />
 
-                <label>Strikeouts</label>
-                <input type="number" value={pitcherTotalStrikeouts} onChange={(event) => setpitcherTotalStrikeouts(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Pickoff Success</label>
+                                <input type="number" value={pitcherPickOfSuccess} onChange={(event) => setpitcherPickOfSuccess(event.target.value)} class="input-group-text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <label>Foul Balls</label>
-                <input type="number" value={pitcherFoulBallsHit} onChange={(event) => setpitcherFoulBallsHit(event.target.value)} class="ms-3 me-3 mb-3" /> <br/>
+                {/* Pitching Contact Results Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                Pitcher Contact Results
+                            </button>
+                        </h4>
+                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                                <label class="form-label input-group">Hits Allowed</label>
+                                <input type="number" value={pitcherHitsAllowed} onChange={(event) => setpitcherHitsAllowed(event.target.value)} class="input-group-text" />
 
-                <label>Hit Batters</label>
-                <input type="number" value={pitcherHitBatter} onChange={(event) => setpitcherHitBatter(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Singles</label>
+                                <input type="number" value={pitcherPitchingHitSingle} onChange={(event) => setpitcherPitchingHitSingle(event.target.value)} class="input-group-text" />
 
-                <label>Wild Pitches</label>
-                <input type="number" value={pitcherWildPitch} onChange={(event) => setpitcherWildPitch(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Doubles</label>
+                                <input type="number" value={pitcherHitDouble} onChange={(event) => setpitcherHitDouble(event.target.value)} class="input-group-text" />
 
-                <label>Pickoff Attempts</label>
-                <input type="number" value={pitcherPickOffAttempts} onChange={(event) => setpitcherPickOffAttempts(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Triples</label>
+                                <input type="number" value={pitcherHitTriple} onChange={(event) => setpitcherHitTriple(event.target.value)} class="input-group-text" />
 
-                <label>Pickoff Success</label>
-                <input type="number" value={pitcherPickOfSuccess} onChange={(event) => setpitcherPickOfSuccess(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Homeruns Allowed</label>
+                                <input type="number" value={pitcherHomerunsAllowed} onChange={(event) => setpitcherHomerunsAllowed(event.target.value)} class="input-group-text" />
 
+                                <label class="form-label input-group">Runs Allowed</label>
+                                <input type="number" value={pitcherRunsAllowed} onChange={(event) => setpitcherRunsAllowed(event.target.value)} class="input-group-text" />
 
-                <h4>Pitcher Contact Results</h4>
+                                <label class="form-label input-group">Groundouts</label>
+                                <input type="number" value={pitcherGroundOuts} onChange={(event) => setpitcherGroundOuts(event.target.value)} class="input-group-text" />
 
-                <label>Hits Allowed</label>
-                <input type="number" value={pitcherHitsAllowed} onChange={(event) => setpitcherHitsAllowed(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Flyouts</label>
+                                <input type="number" value={pitcherFlyouts} onChange={(event) => setpitcherFlyouts(event.target.value)} class="input-group-text" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <label>Singles</label>
-                <input type="number" value={pitcherPitchingHitSingle} onChange={(event) => setpitcherPitchingHitSingle(event.target.value)} class="ms-3 mb-3" /><br/>
+                {/* Batter at the Plate Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                Batter at the Plate Stats
+                            </button>
+                        </h4>
+                        <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                                <label class="form-label input-group">Plate Appearances</label>
+                                <input type="number" value={batterPlateAppearances} onChange={(event) => setbatterPlateAppearances(event.target.value)} class="input-group-text" />
 
-                <label>Doubles</label>
-                <input type="number" value={pitcherHitDouble} onChange={(event) => setpitcherHitDouble(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">On Base Count</label>
+                                <input type="number" value={batterOnBaseCount} onChange={(event) => setbatterOnBaseCount(event.target.value)} class="input-group-text" />
 
-                <label>Triples</label>
-                <input type="number" value={pitcherHitTriple} onChange={(event) => setpitcherHitTriple(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Balls Taken</label>
+                                <input type="number" value={batterBalls} onChange={(event) => setbatterBalls(event.target.value)} class="input-group-text" />
 
-                <label>Homeruns Allowed</label>
-                <input type="number" value={pitcherHomerunsAllowed} onChange={(event) => setpitcherHomerunsAllowed(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Base on Balls</label>
+                                <input type="number" value={batterBaseOnBalls} onChange={(event) => setbatterBaseOnBalls(event.target.value)} class="input-group-text" />
 
-                <label>Runs Allowed</label>
-                <input type="number" value={pitcherRunsAllowed} onChange={(event) => setpitcherRunsAllowed(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Strikes</label>
+                                <input type="number" value={batterStrikes} onChange={(event) => setbatterStrikes(event.target.value)} class="input-group-text" />
+                                
+                                <label class="form-label input-group">Strikeouts</label>
+                                <input type="number" value={batterStrikeouts} onChange={(event) => setbatterStrikeouts(event.target.value)} class="input-group-text" />
 
-                <label>Groundouts</label>
-                <input type="number" value={pitcherGroundOuts} onChange={(event) => setpitcherGroundOuts(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Foul Balls</label>
+                                <input type="number" value={batterFoulBalls} onChange={(event) => setbatterFoulBalls(event.target.value)} class="input-group-text" />
 
-                <label>Flyouts</label>
-                <input type="number" value={pitcherFlyouts} onChange={(event) => setpitcherFlyouts(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Hit By Pitch</label>
+                                <input type="number" value={batterHitByPitch} onChange={(event) => setbatterHitByPitch(event.target.value)} class="input-group-text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                {/* Batter Ball in Play Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                Batter Ball in Play Stats
+                            </button>
+                        </h4>
+                        <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                                <label class="form-label input-group">Hit</label>
+                                <input type="number" value={batterHit} onChange={(event) => setbatterHit(event.target.value)} class="input-group-text" />
 
-                <h2>Batting Stats</h2>
+                                <label class="form-label input-group">Single</label>
+                                <input type="number" value={batterSingle} onChange={(event) => setbatterSingle(event.target.value)} class="input-group-text" />
 
-                <h4>At the Plate</h4>
+                                <label class="form-label input-group">Double</label>
+                                <input type="number" value={batterDouble} onChange={(event) => setbatterDouble(event.target.value)} class="input-group-text" />
 
-                <label>Plate Appearances</label>
-                <input type="number" value={batterPlateAppearances} onChange={(event) => setbatterPlateAppearances(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Triple</label>
+                                <input type="number" value={batterTriple} onChange={(event) => setbatterTriple(event.target.value)} class="input-group-text" />
 
-                <label>On Base Count</label>
-                <input type="number" value={batterOnBaseCount} onChange={(event) => setbatterOnBaseCount(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">Homerun</label>
+                                <input type="number" value={batterHomerun} onChange={(event) => setbatterHomerun(event.target.value)} class="input-group-text" />
 
-                <label>Balls Taken</label>
-                <input type="number" value={batterBalls} onChange={(event) => setbatterBalls(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">SacFly</label>
+                                <input type="number" value={batterSacFly} onChange={(event) => setbatterSacFly(event.target.value)} class="input-group-text" />
 
-                <label>Base on Balls</label>
-                <input type="number" value={batterBaseOnBalls} onChange={(event) => setbatterBaseOnBalls(event.target.value)} class="ms-3 mb-3" /><br/>
+                                <label class="form-label input-group">RBIs</label>
+                                <input type="number" value={BattterRbi} onChange={(event) => setBattterRbi(event.target.value)} class="input-group-text" />
 
-                <label>Strikes</label>
-                <input type="number" value={batterStrikes} onChange={(event) => setbatterStrikes(event.target.value)} class="ms-3 me-3 mb-3" />
+                                <label class="form-label input-group">Groundout</label>
+                                <input type="number" value={batterGroundOut} onChange={(event) => setbatterGroundOut(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Hit into Double Play</label>
+                                <input type="number" value={batterOutByDoublePlay} onChange={(event) => setbatterOutByDoublePlay(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Hit into Triple Play</label>
+                                <input type="number" value={batterOutByTriplePlay} onChange={(event) => setbatterOutByTriplePlay(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Flyout</label>
+                                <input type="number" value={batterFlyout} onChange={(event) => setbatterFlyout(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">RISP</label>
+                                <input type="number" value={batterRisp} onChange={(event) => setbatterRisp(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">RISP Success</label>
+                                <input type="number" value={batterRispSuccess} onChange={(event) => setbatterRispSuccess(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">RISP Fail</label>
+                                <input type="number" value={batterRispFail} onChange={(event) => setbatterRispFail(event.target.value)} class="input-group-text" />
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Baserunner Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                Baserunning Stats
+                            </button>
+                        </h4>
+                        <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                            <label class="form-label input-group">Advanced to 2nd</label>
+                                <input type="number" value={runnerAdvancedToSecond} onChange={(event) => setrunnerAdvancedToSecond(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Advanced to 3rd</label>
+                                <input type="number" value={RunnderAdvancedToThird} onChange={(event) => setRunnderAdvancedToThird(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">ISP</label>
+                                <input type="number" value={runnerRisp} onChange={(event) => setrunnerRisp(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Run Scored</label>
+                                <input type="number" value={runnerRunScored} onChange={(event) => setrunnerRunScored(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Stolen Bases</label>
+                                <input type="number" value={runnerStolenBases} onChange={(event) => setrunnerStolenBases(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Caught Stealing</label>
+                                <input type="number" value={runnerCaughtStealing} onChange={(event) => setrunnerCaughtStealing(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Total Bases</label>
+                                <input type="number" value={runnerTotalBases} onChange={(event) => setrunnerTotalBases(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Picked Off</label>
+                                <input type="number" value={runnerPickedOff} onChange={(event) => setrunnerPickedOff(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Forced Out</label>
+                                <input type="number" value={runnerForcedOut} onChange={(event) => setrunnerForcedOut(event.target.value)} class="input-group-text" />
+
+                                <label class="form-label input-group">Tagged Out</label>
+                                <input type="number" value={runnerTaggedOut} onChange={(event) => setrunnerTaggedOut(event.target.value)} class="input-group-text" />                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input id="newnotebutton" type="submit" value="Pre-fill/Reset Report"  />
+
+                <input id="newnotebutton" type="submit" value="Save Report"  />
                 
-                <label>Strikeouts</label>
-                <input type="number" value={batterStrikeouts} onChange={(event) => setbatterStrikeouts(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Foul Balls</label>
-                <input type="number" value={batterFoulBalls} onChange={(event) => setbatterFoulBalls(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Hit By Pitch</label>
-                <input type="number" value={batterHitByPitch} onChange={(event) => setbatterHitByPitch(event.target.value)} class="ms-3 me-3 mb-3" /><br/>
-
-                <h4>Ball Put in Play</h4>
-
-                <label>Hit</label>
-                <input type="number" value={batterHit} onChange={(event) => setbatterHit(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Single</label>
-                <input type="number" value={batterSingle} onChange={(event) => setbatterSingle(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Double</label>
-                <input type="number" value={batterDouble} onChange={(event) => setbatterDouble(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Triple</label>
-                <input type="number" value={batterTriple} onChange={(event) => setbatterTriple(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Homerun</label>
-                <input type="number" value={batterHomerun} onChange={(event) => setbatterHomerun(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>SacFly</label>
-                <input type="number" value={batterSacFly} onChange={(event) => setbatterSacFly(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>RBIs</label>
-                <input type="number" value={BattterRbi} onChange={(event) => setBattterRbi(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Groundout</label>
-                <input type="number" value={batterGroundOut} onChange={(event) => setbatterGroundOut(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Hit into Double Play</label>
-                <input type="number" value={batterOutByDoublePlay} onChange={(event) => setbatterOutByDoublePlay(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Hit into Triple Play</label>
-                <input type="number" value={batterOutByTriplePlay} onChange={(event) => setbatterOutByTriplePlay(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Flyout</label>
-                <input type="number" value={batterFlyout} onChange={(event) => setbatterFlyout(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>RISP</label>
-                <input type="number" value={batterRisp} onChange={(event) => setbatterRisp(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>RISP Success</label>
-                <input type="number" value={batterRispSuccess} onChange={(event) => setbatterRispSuccess(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>RISP Fail</label>
-                <input type="number" value={batterRispFail} onChange={(event) => setbatterRispFail(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <h4>Baserunning Stats</h4>
-
-                <label>Advanced to 2nd</label>
-                <input type="number" value={runnerAdvancedToSecond} onChange={(event) => setrunnerAdvancedToSecond(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Advanced to 3rd</label>
-                <input type="number" value={RunnderAdvancedToThird} onChange={(event) => setRunnderAdvancedToThird(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>ISP</label>
-                <input type="number" value={runnerRisp} onChange={(event) => setrunnerRisp(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Run Scored</label>
-                <input type="number" value={runnerRunScored} onChange={(event) => setrunnerRunScored(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Stolen Bases</label>
-                <input type="number" value={runnerStolenBases} onChange={(event) => setrunnerStolenBases(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Caught Stealing</label>
-                <input type="number" value={runnerCaughtStealing} onChange={(event) => setrunnerCaughtStealing(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Total Bases</label>
-                <input type="number" value={runnerTotalBases} onChange={(event) => setrunnerTotalBases(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Picked Off</label>
-                <input type="number" value={runnerPickedOff} onChange={(event) => setrunnerPickedOff(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <label>Forced Out</label>
-                <input type="number" value={runnerForcedOut} onChange={(event) => setrunnerForcedOut(event.target.value)} class="ms-3 me-3 mb-3" />
-
-                <label>Tagged Out</label>
-                <input type="number" value={runnerTaggedOut} onChange={(event) => setrunnerTaggedOut(event.target.value)} class="ms-3 mb-3" /><br/>
-
-                <input type="submit" value="Pre-fill/Reset Report" class="btn btn-primary ms-3 mb-3" />
-
-                <input type="submit" value="Save Report" class="btn btn-primary ms-3 mb-3" />
-                <Link class="btn btn-primary ms-3 mb-3" to={{
+                <Link id="newnotebutton" to={{
                         pathname: `/myscoutingreports/reviewreport`,
                         state: {
                             scoutingReportId: scoutingReport.playerScoutingReportId,
