@@ -4,10 +4,10 @@ const NewReportSaved = (props) => {
     const scoutingReport = props.location.state.scoutingReport;
 
     return (
-        <div>
-            <p>Report for {scoutingReport[0].firstName} {scoutingReport[0].lastName} saved!</p>
+        <div id="pages">
+            <p id="pagetitle">Report for {scoutingReport[0].firstName} {scoutingReport[0].lastName} saved!</p>
 
-            <a href="/" class="btn btn-primary">Go Home</a>
+            <a id="newnotebutton" href="/">Go Home</a>
         </div>
 
     )

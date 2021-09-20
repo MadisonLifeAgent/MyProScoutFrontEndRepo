@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 // component imports
+import './ReviewScoutingReport.css';
 import useGetPlayerScoutingReportById from "../../hooks/useGetScoutingReportById";
 
 const ReviewScoutingReport = (props) => {
@@ -13,108 +14,256 @@ const ReviewScoutingReport = (props) => {
     const newScoutingReport = useGetPlayerScoutingReportById(scoutingReportId);
     console.log(newScoutingReport);
 
-
-
     // rendery the preview here
     return (
-        <div>           
+        <div id="pages">           
             <div>
-            <Link class="btn btn-primary ms-3 mb-3" to={{
+                <p id="pagetitle">Report Summary</p>
+            <Link id="newnotebutton" to={{
                     pathname: '/myscoutingreports/newreportsaved',
                     state: {
                         scoutingReport: newScoutingReport,
                     }
                 }}>Save Report</Link>
 
-            <Link class="btn btn-primary ms-3 mb-3" to={{
+  {/*           <Link id="newnotebutton" to={{
                     pathname: '/myscoutingreports/reviewreport',
                     state: {
                         scoutingReport: newScoutingReport,
                     }
-                }}>Review Report</Link>
+                }}>Review Report</Link> */}
             </div>
 
-            <h4>Player: {newScoutingReport[0].firstName} {newScoutingReport[0].lastName}</h4>
-            <p>Player Team: {newScoutingReport[0].playerBaseballTeamName} VS. {newScoutingReport[0].opponentTeam}<br/>
-            myOrg: {newScoutingReport[0].myOrganization}
+            <p id="info">Player: {newScoutingReport[0].firstName} {newScoutingReport[0].lastName}</p>
+            <p id="notes">{newScoutingReport[0].playerBaseballTeamName} VS. {newScoutingReport[0].opponentTeam}
             </p>
 
-            <br/><br/>
-
-            <h4>Scouting Reports Notes</h4>
-            <p>{newScoutingReport[0].scoutingReportNotesBody}</p>
+            <p id="notes">Scouting Reports Notes<br/>{newScoutingReport[0].scoutingReportNotesBody}</p>
 
             {/* player stats */}
-            <dl>
-                <dt>Pitching Summary</dt>
-                    <dd>TotalPitches: {newScoutingReport[0].pitcherTotalPitches}</dd>
-                    <dd>PitcherWin {newScoutingReport[0].pitcherWin}</dd>
-                    <dd>PitcherLoss {newScoutingReport[0].pitcherLoss}</dd>
-                    <dd>PitcherInningsPitched {newScoutingReport[0].pitcherInningsPitched}</dd>
-                    <dd>PitcherSave {newScoutingReport[0].pitcherSave}</dd>
-                    <dd>PitcherBlownSave {newScoutingReport[0].pitcherBlownSave}</dd>
-                    <dd>CareerPitchingCompleteGame {newScoutingReport[0].careerPitchingCompleteGame}</dd>
 
-                <dt>Pitching Versus Batters Summary</dt>
-                    <dd>PitcherTotalBalls {newScoutingReport[0].pitcherTotalBalls}</dd>
-                    <dd>PitcherWalksGiven {newScoutingReport[0].pitcherWalksGiven}</dd>
-                    <dd>PitcherTotalStrikes {newScoutingReport[0].pitcherTotalStrikes}</dd>
-                    <dd>PitcherTotalStrikeouts {newScoutingReport[0].pitcherTotalStrikeouts}</dd>
-                    <dd>PitcherFoulBallsHit {newScoutingReport[0].pitcherFoulBallsHit}</dd>
-                    <dd>PitcherHitBatter" : {newScoutingReport[0].pitcherHitBatter}</dd>
-                    <dd>PitcherWildPitch {newScoutingReport[0].pitcherWildPitch}</dd>
-                    <dd>PitcherPickOffAttempts {newScoutingReport[0].pitcherPickOffAttempts}</dd>
-                    <dd>PitcherPickOfSuccess {newScoutingReport[0].pitcherPickOfSuccess}</dd>
-                    <dd>PitcherNumberOfBattersFaced {newScoutingReport[0].pitcherNumberOfBattersFaced}</dd>
-                    
-                <dt>Pitching Ball in Play Summary</dt>
-                    <dd>PitcherHitsAllowed {newScoutingReport[0].pitcherHitsAllowed}</dd>
-                    <dd>PitcherPitchingHitSingle {newScoutingReport[0].pitcherPitchingHitSingle}</dd>
-                    <dd>PitcherHitDouble {newScoutingReport[0].pitcherHitDouble}</dd>
-                    <dd>PitcherHitTriple {newScoutingReport[0].pitcherHitTriple}</dd>
-                    <dd>PitcherHomerunsAllowed {newScoutingReport[0].pitcherHomerunsAllowed}</dd>
-                    <dd>PitcherGroundOuts {newScoutingReport[0].pitcherGroundOuts}</dd>
-                    <dd>PitcherFlyouts {newScoutingReport[0].pitcherFlyouts}</dd>
-                    <dd>PitcherRunsAllowed {newScoutingReport[0].pitcherRunsAllowed}</dd>
+                {/* Total Pitching Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Total Pitching Stats
+                            </button>
+                        </h4>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                            <table>
+                                    <tr>
+                                        <th>TP</th>
+                                        <th>Innings</th>
+                                        <th>W</th>
+                                        <th>L</th>
+                                        <th>S</th>
+                                        <th>BS</th>
+                                        <th>CG</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].pitcherTotalPitches}</td>
+                                        <td>{newScoutingReport[0].pitcherInningsPitched}</td>
+                                        <td>{newScoutingReport[0].pitcherWin}</td>
+                                        <td>{newScoutingReport[0].pitcherLoss}</td>
+                                        <td>{newScoutingReport[0].pitcherSave}</td>
+                                        <td>{newScoutingReport[0].pitcherBlownSave}</td>
+                                        <td>{newScoutingReport[0].careerPitchingCompleteGame}</td>
+                                    </tr>
+                                </table>
 
-                <dt>Batter At the Plate Summary</dt>
-                    <dd>BatterPlateAppearances {newScoutingReport[0].batterPlateAppearances}</dd>
-                    <dd>BatterOnBaseCount {newScoutingReport[0].batterOnBaseCount}</dd>
-                    <dd>BatterHitByPitch {newScoutingReport[0].batterHitByPitch}</dd>
-                    <dd>BatterBalls {newScoutingReport[0].batterBalls}</dd>
-                    <dd>BatterBaseOnBalls {newScoutingReport[0].batterBaseOnBalls}</dd>
-                    <dd>BatterStrikes {newScoutingReport[0].batterStrikes}</dd>
-                    <dd>BatterStrikeouts {newScoutingReport[0].batterStrikeouts}</dd>
-                    <dd>BatterFoulBalls {newScoutingReport[0].batterFoulBalls}</dd>
+                                <table>
+                                    <tr>
+                                        <th>Ba</th>
+                                        <th>Wa</th>
+                                        <th>Str</th>
+                                        <th>K</th>
+                                        <th>FB</th>
+                                        <th>HitB</th>
+                                        <th>WP</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].pitcherTotalBalls}</td>
+                                        <td>{newScoutingReport[0].pitcherWalksGiven}</td>
+                                        <td>{newScoutingReport[0].pitcherTotalStrikes}</td>
+                                        <td>{newScoutingReport[0].pitcherTotalStrikeouts}</td>
+                                        <td>{newScoutingReport[0].pitcherFoulBallsHit}</td>
+                                        <td>{newScoutingReport[0].pitcherHitBatter}</td>
+                                        <td>{newScoutingReport[0].pitcherWildPitch}</td>
+                                    </tr>
+                                </table>
 
-                <dt>Batter Ball in Play Summary</dt>
-                    <dd>BatterHit {newScoutingReport[0].batterHit}</dd>
-                    <dd>BatterSingle {newScoutingReport[0].batterSingle}</dd>
-                    <dd>BatterDouble {newScoutingReport[0].batterDouble}</dd>
-                    <dd>BatterTriple {newScoutingReport[0].batterTriple}</dd>
-                    <dd>BatterHomerun {newScoutingReport[0].batterHomerun}</dd>
-                    <dd>BatterSacFly {newScoutingReport[0].batterSacFly}</dd>
-                    <dd>BattterRbi {newScoutingReport[0].battterRbi}</dd>
-                    <dd>BatterGroundOut {newScoutingReport[0].batterGroundOut}</dd>
-                    <dd>BatterOutByDoublePlay {newScoutingReport[0].batterOutByDoublePlay}</dd>
-                    <dd>BatterOutByTriplePlay {newScoutingReport[0].batterOutByTriplePlay}</dd>
-                    <dd>BatterFlyout {newScoutingReport[0].batterFlyout}</dd>
-                    <dd>BatterRisp {newScoutingReport[0].batterRisp}</dd>
-                    <dd>BatterRispSuccess {newScoutingReport[0].batterRispSuccess}</dd>
-                    <dd>BatterRispFail {newScoutingReport[0].batterRispFail}</dd>
+                                <table>
+                                    <tr>
+                                        <th>POA</th>
+                                        <th>POS</th>
+                                        <th>BF</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].pitcherPickOffAttempts}</td>
+                                        <td>{newScoutingReport[0].pitcherPickOfSuccess}</td>
+                                        <td>{newScoutingReport[0].pitcherNumberOfBattersFaced}</td>
+                                    </tr>
+                                </table>
 
-                <dt>Baserunner Summary</dt>
-                    <dd>RunnerAdvancedToSecond {newScoutingReport[0].runnerAdvancedToSecond}</dd>
-                    <dd>RunnerAdvancedToThird {newScoutingReport[0].runnderAdvancedToThird}</dd>
-                    <dd>RunnerRisp {newScoutingReport[0].runnerRisp}</dd>
-                    <dd>RunnerRunScored {newScoutingReport[0].runnerRunScored}</dd>
-                    <dd>RunnerStolenBases {newScoutingReport[0].runnerStolenBases}</dd>
-                    <dd>RunnerCaughtStealing {newScoutingReport[0].runnerCaughtStealing}</dd>
-                    <dd>RunnerPickedOff {newScoutingReport[0].runnerPickedOff}</dd>
-                    <dd>RunnerTotalBases {newScoutingReport[0].runnerTotalBases}</dd>
-                    <dd>RunnerForcedOut {newScoutingReport[0].runnerForcedOut}</dd>
-                    <dd>RunnerTaggedOut {newScoutingReport[0].runnerTaggedOut}</dd>
-            </dl>
+                                <table>
+                                    <tr>
+                                        <th>HA</th>
+                                        <th>Sing</th>
+                                        <th>DB</th>
+                                        <th>TR</th>
+                                        <th>HRA</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].pitcherHitsAllowed}</td>
+                                        <td>{newScoutingReport[0].pitcherPitchingHitSingle}</td>
+                                        <td>{newScoutingReport[0].pitcherHitDouble}</td>
+                                        <td>{newScoutingReport[0].pitcherHitTriple}</td>
+                                        <td>{newScoutingReport[0].pitcherHomerunsAllowed}</td>
+                                    </tr>
+                                </table>
+
+                                <table>
+                                    <tr>
+                                        <th>GO</th>
+                                        <th>FO</th>
+                                        <th>RA</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].pitcherGroundOuts}</td>
+                                        <td>{newScoutingReport[0].pitcherFlyouts}</td>
+                                        <td>{newScoutingReport[0].pitcherRunsAllowed}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Batting Stats Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Batting Stats
+                            </button>
+                        </h4>
+                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                            <table>
+                                    <tr>
+                                        <th>PA</th>
+                                        <th>GOB</th>
+                                        <th>HBP</th>
+                                        <th>BT</th>
+                                        <th>BOB</th>
+                                        <th>S</th>
+                                        <th>K</th>
+                                        <th>FB</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].batterPlateAppearances}</td>
+                                        <td>{newScoutingReport[0].batterOnBaseCount}</td>
+                                        <td>{newScoutingReport[0].batterHitByPitch}</td>
+                                        <td>{newScoutingReport[0].batterBalls}</td>
+                                        <td>{newScoutingReport[0].batterBaseOnBalls}</td>
+                                        <td>{newScoutingReport[0].batterStrikes}</td>
+                                        <td>{newScoutingReport[0].batterStrikeouts}</td>
+                                        <td>{newScoutingReport[0].batterFoulBalls}</td>
+                                    </tr>
+                                </table>
+
+                                <table>
+                                    <tr>
+                                        <th>HIT</th>
+                                        <th>SING</th>
+                                        <th>DB</th>
+                                        <th>TR</th>
+                                        <th>HR</th>
+                                        <th>SF</th>
+                                        <th>RBI</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].batterHit}</td>
+                                        <td>{newScoutingReport[0].batterSingle}</td>
+                                        <td>{newScoutingReport[0].batterDouble}</td>
+                                        <td>{newScoutingReport[0].batterTriple}</td>
+                                        <td>{newScoutingReport[0].batterHomerun}</td>
+                                        <td>{newScoutingReport[0].batterSacFly}</td>
+                                        <td>{newScoutingReport[0].battterRbi}</td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <th>GO</th>
+                                        <th>DP</th>
+                                        <th>TP</th>
+                                        <th>FLO</th>
+                                        <th>RISP</th>
+                                        <th>RISPS</th>
+                                        <th>RISPF</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].batterGroundOut}</td>
+                                        <td>{newScoutingReport[0].batterOutByDoublePlay}</td>
+                                        <td>{newScoutingReport[0].batterOutByTriplePlay}</td>
+                                        <td>{newScoutingReport[0].batterFlyout}</td>
+                                        <td>{newScoutingReport[0].batterRisp}</td>
+                                        <td>{newScoutingReport[0].batterRispSuccess}</td>
+                                        <td>{newScoutingReport[0].batterRispFail}</td>
+                                    </tr>
+                                </table>                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Pitching Contact Results Accordion */}
+                <div class="accordion" id="oneaccordion">
+                    <div class="accordion-item">
+                        <h4 id="statsheader">
+                            <button id="statsheader" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                Baserunning Stats
+                            </button>
+                        </h4>
+                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="box">
+                            <table>
+                                    <tr>
+                                        <th>A2</th>
+                                        <th>A3</th>
+                                        <th>ISP</th>
+                                        <th>RS</th>
+                                        <th>TB</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].runnerAdvancedToSecond}</td>
+                                        <td>{newScoutingReport[0].runnderAdvancedToThird}</td>
+                                        <td>{newScoutingReport[0].runnerRisp}</td>
+                                        <td>{newScoutingReport[0].runnerRunScored}</td>
+                                        <td>{newScoutingReport[0].runnerTotalBases}</td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <th>SB</th>
+                                        <th>CS</th>
+                                        <th>PO</th>
+                                        <th>FRO</th>
+                                        <th>TAO</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{newScoutingReport[0].runnerStolenBases}</td>
+                                        <td>{newScoutingReport[0].runnerCaughtStealing}</td>
+                                        <td>{newScoutingReport[0].runnerPickedOff}</td>
+                                        <td>{newScoutingReport[0].runnerForcedOut}</td>
+                                        <td>{newScoutingReport[0].runnerTaggedOut}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>           
         </div>
     )
 }
