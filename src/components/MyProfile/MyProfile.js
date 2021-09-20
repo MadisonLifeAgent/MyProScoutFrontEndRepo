@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 // Component or hook imports
@@ -13,7 +14,6 @@ const MyProfile = (props) => {
     function getUser() {
         try{
             const user = jwtDecode(jwt);
-            console.log(user);
             return user;
         } catch {
         }
@@ -21,35 +21,50 @@ const MyProfile = (props) => {
     // get the scout's account info
     const user = getUser();
 
+    const [userDetails, setUserDetails] = useState([]);
+    const [userOrg, setUserOrg] = useState({});
 
-/*     const handleClick = () => {
-        <EditMyProfile user={props.user} />
-    } */
-
-
-    // display scout's name, orgnaization, and list of players with recent scouting reports
-        return (
-            <div id="pages">
-                <h3 id="pagetitle">{user.username}'s myProfile</h3>
-
-                <Link id="newnotebutton" to={{
-                        pathname: `/editmyprofile`,
-                        state: {
-                            user: user,
-                        }
-                    }}>Edit myProfile</Link>
-             <dl id="mapped">
-                    <dt>List of Players and Scouting Reports</dt>
-                    <dd>Name</dd>
-                    <dd>Scouting Report Link</dd>
-                </dl>
-
-            </div>
-        )
+    // get the user's details
+    async function getUserDetails(token) {
+        const response = await axios.get(`https://localhost:44394/api/myproscout/user`, { headers: {Authorization: 'Bearer ' + token}});
+        setUserDetails(response.data);
     }
-    // return profile page is user logged in
+
+    async function getOrganization(userId) {
+        const response = await axios.get(`https://localhost:44394/api/scoutorganizationjoin/${userId}`);
+        // if good api call set scoutOrganizatin
+        setUserOrg(response.data);
+        console.log(response.data);
+
+    }
+       
+    // get user details and org
+    useEffect(() => {
+        getUserDetails(jwt);
+        getOrganization(user.id);
+    },[]);
 
 
 
+   // display scout's name, orgnaization
+    return (
+        <div id="pages">
+            <h3 id="pagetitle">{user.username}'s myProfile</h3>
 
+            <Link id="newnotebutton" to={{
+                    pathname: `/editmyprofile`,
+                    state: {
+                        user: user,
+                    }
+                }}>Edit myProfile</Link>
+            <dl id="mapped">
+                <dt>Name: {userDetails.firstName} {userDetails.lastName}</dt>
+                <dd>Email: {userDetails.email}</dd>
+                <dd>Phone: {userDetails.phoneNumber}</dd>
+                <dd>myOrg: {userOrg.organizationName}</dd>
+            </dl>
+
+        </div>
+    )
+}
 export default MyProfile;

@@ -48,7 +48,7 @@ const Login = () => {
                 <label class="form-label input-group">Password</label>
                 <input type="password" name="password" class="input-group-text" id="inputfields" value={password} onChange={ (event) => setPassword(event.target.value)} />
 
-                <input id="pagebutton" type="submit" value="Login"  />
+                <input id="newnotebutton" class="mt-3" type="submit" value="Login"  />
             </form>
         </div>
     )

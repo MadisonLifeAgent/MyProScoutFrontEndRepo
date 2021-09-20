@@ -19,9 +19,9 @@ function NavBar({user}) {
 
                 {!user &&
                         <React.Fragment>
-                                <Link id="button" class="nav-link" to="/register" >Register</Link>
+                                <Link id="register" class="nav-link" to="/register" >Register</Link>
                             
-                                <Link id="button" class="nav-link" to="/login">Login</Link>
+                                <Link id="login" class="nav-link" to="/login">Login</Link>
                             
                         </React.Fragment>
                 }

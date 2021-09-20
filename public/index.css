@@ -308,3 +308,47 @@
 #searchbar {
     width: 50%;
 }
+
+#login {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#login:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}
+
+
+
+#register {
+    text-decoration: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: white;
+    width: auto;
+    color: #12284B;
+    background-color: white;
+    box-shadow: 0 0 3px 3px #FFC52F,
+                0 0 4px 4px #FFC52F;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-align: left;
+}
+
+#register:hover {
+    background-color: #FFC52F;
+    border-color: #FFC52F;
+    box-shadow: 0 0 5px 5px #FFC52F;
+}

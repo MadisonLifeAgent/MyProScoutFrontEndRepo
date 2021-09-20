@@ -63,7 +63,7 @@ const Registration = () => {
 				<label class="form-label input-group">Password</label>
 				<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} class="input-group-text" id="inputfields" required/>
 
-				<input id="pagebutton" type="submit" value="Create Account"  />
+				<input id="newnotebutton" class="mt-3" type="submit" value="Create Account"  />
             </form>
 		</div>
 	);
