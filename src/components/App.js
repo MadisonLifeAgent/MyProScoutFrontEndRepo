@@ -25,6 +25,7 @@ import MyOrg from "./MyOrg/MyOrg";
     import AddNewOrg from "./MyOrg/AddNewOrg";
     import ChangeMyOrg from "./MyOrg/ChangeMyOrg";
     import MyPlayerAdded from "./MyOrg/MyPlayerAdded";
+    import NewOrgMessageAddedLandingPage from "./MyOrg/NewOrgMessageAddedLandingPage";
 import MyTeams from "./MyTeams/MyTeams";
     import EditTeam from "./MyTeams/EditTeam";
 import AddTeam from "./MyTeams/AddTeam";
@@ -115,6 +116,7 @@ class App extends Component {
                             <Route path='/myorg/myorgplayers' exact component={MyOrgPlayers} />
                             <Route path='/myorg/newmessage' exact component={AddOrgMessage} />
                             <Route path="/myorg/messageboard" exact component={DisplayMyOrgMessages} />
+                                <Route path="/myorg/neworgmessageadded" exact component={NewOrgMessageAddedLandingPage} />
 
                                 <Route path='/myorg/assignmyorg' exact component={AssignMyOrg} />
                                 <Route path='/myorg/addneworg' exact component={AddNewOrg} />

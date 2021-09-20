@@ -30,9 +30,7 @@ const AddOrgMessage = (props) => {
         "OrganizationMessageTitle": organizationMessageTitle,
         "OrganizationMessageBody": organizationMessageBody,
         "Id": scout.id,
-        //"Id": id,
         "OrganizationId": organization.organizationId
-        //"OrganizationId": 3
     }
 
     // call the database and try to post message
@@ -41,14 +39,14 @@ const AddOrgMessage = (props) => {
 
         let response = await axios.post('https://localhost:44394/api/organizationmessages/add', message);
 
-        window.location = "/myorg/messageboard";
+        window.location = "/myorg/neworgmessageadded";
         
-/*         if (response) {
+        if (response) {
             console.log("good call");
             // refresh and send user to home page
         } else {
             console.log("bad api call");
-        } */
+        }
     }
 
     const handleSubmit = (event) => {
