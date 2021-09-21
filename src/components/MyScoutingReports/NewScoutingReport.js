@@ -401,9 +401,6 @@ const NewScoutingReport = (props) => {
         saveScoutingReport(newScoutingReport, scoutingReport.playerScoutingReportId);
     }
 
-    function alertmesage() {
-        alert("Your report has been saved.");
-    }
 
     // add player form
     return (
@@ -702,7 +699,7 @@ const NewScoutingReport = (props) => {
 
                 <input id="newnotebutton" type="submit" value="Pre-fill/Reset Report"  />
 
-                <input id="newnotebutton" type="submit" value="Save Report" onClick={alertmesage()} />
+                <input id="newnotebutton" type="submit" value="Save Report" />
                 
                 <Link id="newnotebutton" to={{
                         pathname: `/myscoutingreports/reviewreport`,
