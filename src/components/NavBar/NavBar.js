@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// component imports
-//import Logout from '../Logout/Logout';
+// component/styling imports
 import './NavBar.css';
-
 
 // site navigation bar
 function NavBar({user}) {
@@ -26,41 +24,30 @@ function NavBar({user}) {
                         </React.Fragment>
                 }
 
-
                 {user &&
                     <React.Fragment>
                         <Link id="myPlayers" class="nav-link" to="/myplayers">myPlayers</Link>
                     
                         <Link id="reports" class="nav-link" to="/myscoutingreports">myReports</Link>
                     
-                    
                         <Link id="addplayer" class="nav-link" to="/addplayer">addPlayer</Link>
-                    
                     
                         <Link id="teams" class="nav-link" to="/myteams">myTeams</Link>
                     
-                    
                         <Link id="search" class="nav-link" to="/search">mySearch</Link>
                     
-                                    
-                    
                         <Link id="myorg" class="nav-link" to="/myorg">myOrg</Link>
-                    
                     
                         <Link id="myprofile" class="nav-link" to="/myprofile">myProfile</Link>
 
                         <Link id="logout" class="nav-link" onClick={handleClick} to={{
                         pathname: '/', }}>Logout</Link>
 
-{/*                         <Link id="button" class="nav-link" onClick={handleClick} to={{
-                        pathname: '/', }}>Logout</Link> */}
-                    
                     </React.Fragment>
                 }
             
             </nav>
-{/*             {user != null && <h3>Welcome {user.username}</h3>}
- */}        </div>
+       </div>
 
     );
 }

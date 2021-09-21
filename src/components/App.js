@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 //import './App.css';
 
+// #region component imports
 // Component imports
 import Home from "./Home";
 import NavBar from "./NavBar/NavBar";
@@ -44,7 +45,7 @@ import Register from './Register/Register';
 import MyProfile from "./MyProfile/MyProfile";
     import EditMyProfile from "./MyProfile/EditMyProfile";
     import EditProfileLandingPage from "./MyProfile/EditProfileLandingPage";
-
+//#endregion
 
 
 // Main component
@@ -52,7 +53,6 @@ class App extends Component {
     state = { }
 
     // gets token from local storatge
-
     componentDidMount() {
         const jwt = localStorage.getItem('token');
         try{
@@ -85,6 +85,8 @@ class App extends Component {
                     <NavBar user={user} />
 
                     <div>
+                        
+                        {/* routes for all pages */}
                         <Switch>
                             
                             {/* Routes for myProScout.com */}
@@ -162,11 +164,3 @@ class App extends Component {
 }
 
 export default App;
-
-/* const Login = () => {
-    <Fragment>
-        <div>
-            <Login />
-        </div>
-    </Fragment>
-} */
