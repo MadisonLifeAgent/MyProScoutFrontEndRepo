@@ -12,9 +12,9 @@ const ReviewScoutingReport = (props) => {
 
     // query the data base again for the report since it was saved    
     const newScoutingReport = useGetPlayerScoutingReportById(scoutingReportId);
-    console.log(newScoutingReport);
 
-    // rendery the preview here
+  
+    // render the review here
     return (
         <div id="pages">           
             <div>
@@ -26,12 +26,9 @@ const ReviewScoutingReport = (props) => {
                     }
                 }}>Save Report</Link>
 
-  {/*           <Link id="newnotebutton" to={{
-                    pathname: '/myscoutingreports/reviewreport',
-                    state: {
-                        scoutingReport: newScoutingReport,
-                    }
-                }}>Review Report</Link> */}
+
+
+
             </div>
 
             <p id="info">Player: {newScoutingReport[0].firstName} {newScoutingReport[0].lastName}</p>

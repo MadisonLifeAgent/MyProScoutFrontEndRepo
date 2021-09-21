@@ -32,7 +32,7 @@ const ViewScoutingReport = (props) => {
                 <div>
                     <h3 id="pagetitle">Scouted Player: {scoutingReport.firstName} {scoutingReport.lastName} </h3>
 
-                    <Link id="reportlink" to={{
+                    <Link id="reportlink" class="ms-0" to={{
                     pathname: "/myplayers/playerprofile/playerscoutingreport",
                     state: {
                         player: player,
@@ -281,7 +281,7 @@ const ViewScoutingReport = (props) => {
                 </div>
                 <ViewScoutingReportNotes reportId={scoutingReport.playerScoutingReportId} />
                 <br/>
-                <Link id="reportlink" to={{
+                <Link id="reportlink" class='ms-0' to={{
                     pathname: "/myplayers/playerprofile/playerscoutingreport",
                     state: {
                         player: player,

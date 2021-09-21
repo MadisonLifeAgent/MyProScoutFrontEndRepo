@@ -159,7 +159,7 @@ const AddPlayer = (props) => {
                 <label class="form-label input-group">Secondary Position</label>
                 <input id="inputfields" type="text" value={playerPositionSecondaryName} onChange={(event) => setPlayerPositionSecondaryName(event.target.value)} class="input-group-text" />                
 
-                <label class="form-label input-group">Batthing Handedness</label>
+                <label class="form-label input-group">Batting Handedness</label>
                 <input id="inputfields" type="text" value={playerBattingHandednessName} onChange={(event) => setPlayerBattingHandednessName(event.target.value)} class="input-group-text" required />                
                 
                 <label class="form-label input-group">Throwing Handedness</label>

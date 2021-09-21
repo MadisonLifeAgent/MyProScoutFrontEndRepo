@@ -20,7 +20,7 @@ const DisplayPlayers = (props) => {
             let response = await axios.delete(`https://localhost:44394/api/playerprofile/delete/${playerId}`);
 
             //console.log("player deleted");
-            window.location = '/myplayers';
+            window.location = '/myorg/myorgplayers';
         /* }
         catch(ex) {
             console.log("bad api call");

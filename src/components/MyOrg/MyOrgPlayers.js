@@ -13,7 +13,13 @@ const MyOrgPlayers = (props) => {
     return (
         <div id="pages">
             <h3 id="pagetitle">myOrg's Players</h3>
+
+            <a id="newnotebutton" class="m-0" href="/myorg">Go Back</a>
+
             <DisplayPlayers  scout={scout} />
+
+            <a id="newnotebutton" class="m-0" href="/myorg">Go Back</a>
+
         </div>
     )
 }

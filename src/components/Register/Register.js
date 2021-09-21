@@ -61,7 +61,7 @@ const Registration = () => {
 				<label class="form-label input-group">Username</label>
 				<input type="text" name="userName" value={userName} onChange={(event) => setUserName(event.target.value)} class="input-group-text" id="inputfields" required />
 				
-				<label class="form-label input-group">Password</label>
+				<label class="form-label input-group">Password (must contain at least 8 characters and 1 number)</label>
 				<input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} class="input-group-text" id="inputfields" required/>
 
 				<input id="newnotebutton" class="mt-3" type="submit" value="Create Account"  />

@@ -41,6 +41,8 @@ const DisplayMyOrgMessages = (props) => {
         return (
             <div id="pages">
                 <h3 id="pagetitle">Recent Messages</h3>
+                <a id="newnotebutton" class="ms-0 me-4" href="/myorg">Go Back</a>
+
                 <a id="newreportbutton" href="/myorg/newmessage" onClick={handleClick}>Add New Message</a>
 
                 <dl class="mb-5">

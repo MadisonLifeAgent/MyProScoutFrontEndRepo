@@ -66,7 +66,10 @@ const AssignMyOrg = (props) => {
         
         <div id="pages">
             <h3 id="pagetitle">Assign My Organization</h3>
-            <form class="row" onSubmit={handleSubmit}>
+
+            <a id="newnotebutton" class="m-0" href="/myorg">Go Back</a>
+
+            <form class="row mt-4" onSubmit={handleSubmit}>
                 <div class="input-group mb-3 col-auto">
                     <div class="col-sm-auto col-lg-auto">
                     <select class="form-select" id="selectbutton" name="category" aria-label="Default select example" onChange={onChange}>
