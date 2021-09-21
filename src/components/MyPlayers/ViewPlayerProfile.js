@@ -15,8 +15,8 @@ const ViewPlayerProfile = (props) => {
     if (player.firstName) {
         return (
             <div id="pages">
-                <p id="name">{player.firstName} {player.lastName} - {player.playerPositionPrimaryName}
-</p>
+                <a id="newnotebutton" class="m-0" href="/myplayers">Go Back to myPlayers</a>
+                <p id="name" class="mt-4">{player.firstName} {player.lastName} - {player.playerPositionPrimaryName}</p>
                 <img id="playerprofileimage" src={player.playerImageUrl} alt={'no pic of ' + player.firstName + ' ' + player.lastName} />
                 <p id="notes">
                     <label id="profilelabel">Throws: {player.playerThrowingHandednessName} / Bats: {player.playerBattingHandednessName}</label><br />

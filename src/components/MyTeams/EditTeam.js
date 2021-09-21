@@ -57,7 +57,10 @@ const EditTeam = (props) => {
 	return (
 		<div id="forms">
             <p id="pagetitle">Edit Team</p>
-			<form onSubmit={handleSubmit}>
+
+			<a id="newnotebutton" href="/myteams">Go Back</a>
+
+			<form class="mt-4" onSubmit={handleSubmit}>
                 <label class="form-label input-group">Team Name: {team.baseballTeamName}</label>
 				<input id="inputfields" type="text" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="input-group-text" /><br/>
 
@@ -67,8 +70,8 @@ const EditTeam = (props) => {
                 <label class="form-label input-group">Team Competition Level: {team.competitionLevelName}</label>
 				<input id="inputfields" type="text" value={competitionLevel} onChange={(event) => setCompetitionLevel(event.target.value)} class="input-group-text" /><br/>
 
-				<input type="submit" value="Complete Form" id="newnotebutton" />
-
+{/* 				<input type="submit" value="Complete Form" id="newnotebutton" />
+ */}
 				<input type="submit" value="Save Changes" id="newnotebutton" />
 
             </form>

@@ -38,7 +38,10 @@ const AddTeam = () => {
 	return (
 		<div id="forms">
             <p id="pagetitle">Enter a New Team Details</p>
-			<form onSubmit={handleSubmit}>
+
+			<a id="newnotebutton" class="ms-0" href="/myteams">Go Back</a>
+
+			<form class="mt-4" onSubmit={handleSubmit}>
                 <label class="form-label input-group">Team Name</label>
 				<input id="inputfields" type="text" placeholder="i.e. Milwaukee Brewers" value={teamName} onChange={(event) => setTeamName(event.target.value)} class="input-group-text" /><br/>
 

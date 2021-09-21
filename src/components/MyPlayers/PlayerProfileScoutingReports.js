@@ -49,8 +49,16 @@ const PlayerProfileScoutingReports = (props) => {
                             pathname: `/myscoutingreports/viewreport`,
                             state: {
                                 scoutingReport: item,
+                                player: player,
                             }
                         }}>View Report</Link>
+
+                        <Link id="reportlink" to={{
+                            pathname: `/myplayers/playerprofile`,
+                            state: {
+                                player: player,
+                            }
+                        }}>Go Back</Link>
                     
                         <br/><br/>
                 </React.Fragment>
@@ -75,10 +83,14 @@ const PlayerProfileScoutingReports = (props) => {
     }
     else {
         return (
-            <div>
-                <p>No Reports</p>
-                <a href="/myplayers" class="btn btn-primary" >myPlayers</a>
-            </div>
+            <div id="pages">
+                <p id="pagetitle">No Reports</p>
+                <Link id="reportlink" to={{
+                            pathname: `/myplayers/playerprofile`,
+                            state: {
+                                player: player,
+                            }
+                        }}>Go Back</Link>            </div>
 
         )
     }

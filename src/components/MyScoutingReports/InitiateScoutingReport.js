@@ -142,6 +142,8 @@ const InitiateScoutingReport = (props) => {
     return (
         <div id="forms">
             <p id="pagetitle">Start New Scouting Report</p>
+            <a id="newnotebutton" class="m-0" href="/myscoutingreports">Go Back</a>
+
             <form onSubmit={handleSubmit}>
                 <h2 id="info">Basic Info</h2>
                 <label class="form-label input-group">Player First Name</label>

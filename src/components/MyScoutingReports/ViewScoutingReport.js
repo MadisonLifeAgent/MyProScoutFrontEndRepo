@@ -1,5 +1,6 @@
 import React from "react";
 import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 // Component or hook imports
 import AddScoutingReportNote from "./AddScoutingReportNote";
@@ -10,6 +11,7 @@ import './ViewScoutingReport.css';
 const ViewScoutingReport = (props) => {
     // get player details
     const scoutingReport = props.location.state.scoutingReport;
+    const player = props.location.state.player;
 
     //get user
     const jwt = localStorage.getItem('token');
@@ -29,6 +31,14 @@ const ViewScoutingReport = (props) => {
             <div id="pages">
                 <div>
                     <h3 id="pagetitle">Scouted Player: {scoutingReport.firstName} {scoutingReport.lastName} </h3>
+
+                    <Link id="reportlink" to={{
+                    pathname: "/myplayers/playerprofile/playerscoutingreport",
+                    state: {
+                        player: player,
+                    }
+                    }}>Go Back</Link>
+
                     <p id="game">{scoutingReport.playerBaseballTeamName} VS. {scoutingReport.opponentTeam}</p>
 
                     <p id="notes">Notes:
@@ -270,6 +280,13 @@ const ViewScoutingReport = (props) => {
 
                 </div>
                 <ViewScoutingReportNotes reportId={scoutingReport.playerScoutingReportId} />
+                <br/>
+                <Link id="reportlink" to={{
+                    pathname: "/myplayers/playerprofile/playerscoutingreport",
+                    state: {
+                        player: player,
+                    }
+                    }}>Go Back</Link>
             </div>
         
         

@@ -47,7 +47,7 @@ const AddScoutingReportNote = (props) => {
         <div>
             <h4 id="notes">New Note Form</h4>
             <form onSubmit={handleSubmit}>
-                <textarea id="formbox" name="playerScoutingReportNoteBody" placeholder="Enter Note Here..." value={playerScoutingReportNoteBody} onChange={ (event) => setplayerScoutingReportNoteBody(event.target.value)} class="ms-3 mb-3" rows="2" cols="25"/>
+                <textarea id="formbox" name="playerScoutingReportNoteBody" placeholder="Enter Note Here..." value={playerScoutingReportNoteBody} onChange={ (event) => setplayerScoutingReportNoteBody(event.target.value)} class="ms-3 mb-3" rows="2" cols="35"/>
                 <br />
 
                 <input id="newnotebutton" type="submit" value="Add Note" class="btn btn-primary ms-3" />

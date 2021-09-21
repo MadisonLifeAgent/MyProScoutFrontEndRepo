@@ -8,7 +8,7 @@ import usePlayerSearch from "../../hooks/usePlayerSearch";
 import Search from "./Search";
 
 const SearchResults = (props) => {
-    // get the search term
+    // get the search term and category
     const searchTerm = props.location.state.searchTerm;
     const category = props.location.state.category;
 
@@ -16,7 +16,7 @@ const SearchResults = (props) => {
 
     const [playerSearchResults, setPlayerSearchResults] = useState([{}]);
 
-    // query the database right away and return the results
+    // search by name
     async function searchByPlayerName(searchWord) {
 
         let response = await axios.get(`https://localhost:44394/api/playerprofile/playersearch/name/${searchWord}`);
@@ -142,6 +142,12 @@ const SearchResults = (props) => {
                 <dt id="itemtitle">{item.firstName} {item.lastName}</dt>
                     <dd>Position: {item.playerPositionPrimaryName}</dd>
                     <dd>Team: {item.baseballTeamName}</dd>
+                    <Link id="newreportbutton" class="me-4" to={{
+                        pathname: `/myplayers/playerprofile`,
+                        state: {
+                            player: item,
+                        }
+                    }}>View Profile</Link>
             </div>
         )
     })
@@ -151,8 +157,10 @@ const SearchResults = (props) => {
         return (
             <div id="pages">
                 <h4 id="pagetitle">{category} search results for "{searchTerm}"</h4>
-                <Link to="/search" id="newnotebutton">Go Back</Link>
-                <dl>{showSearchResults}</dl>
+                    <Link to="/search" id="newnotebutton" class="ms-0">Go Back</Link>
+                <dl class="mb-5">{showSearchResults}</dl>
+                    <Link to="/search" id="newnotebutton" class="ms-0">Go Back</Link>
+
             </div>
         )
     }
@@ -160,9 +168,9 @@ const SearchResults = (props) => {
     // display message if no results
     else {
         return (
-            <div>
-                <h4>No results for "{searchTerm}"</h4>
-                <Link to="/search" class="btn btn-primary">Go Back</Link>
+            <div id="pages">
+                <h4 id="pagetitle">No results for "{searchTerm}"</h4>
+                <Link to="/search" id="newnotebutton">Go Back</Link>
 
             </div>
         )
