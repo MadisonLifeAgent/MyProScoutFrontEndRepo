@@ -32,7 +32,7 @@ const AddNewOrg = (props) => {
         addNewOrganization(newOrganizationName);
     }
 
-    // login form
+    // add new org form
     return (
         
         <div id="forms">

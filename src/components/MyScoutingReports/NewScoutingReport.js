@@ -9,7 +9,6 @@ import './NewScoutingReport.css';
 import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 import ReviewScoutingReport from "./ReviewScoutingReport";
 
-
 // component used to keep track of stats for a scouting event
 const NewScoutingReport = (props) => {
 
@@ -100,7 +99,6 @@ const NewScoutingReport = (props) => {
     const [runnerTaggedOut, setrunnerTaggedOut] = useState();
 
     const scout = getUser(); 
-
 
     // save the scouting report
     async function saveScoutingReport(report, scoutingReportId) {
@@ -194,7 +192,7 @@ const NewScoutingReport = (props) => {
     // store all scouting report values in this object and pass it into the axios call
     const newScoutingReport = [];
 
-    // submits new player request
+    // submits scouting report
     const handleSubmit = (event) => {
         event.preventDefault();
         // if a field value is undefined (set it to its current value in state.scoutingReport)
@@ -402,7 +400,7 @@ const NewScoutingReport = (props) => {
     }
 
 
-    // add player form
+    // scouting report form
     return (
         <div id="forms">
             <p id="pagetitle">New Scouting Report</p>
@@ -709,11 +707,7 @@ const NewScoutingReport = (props) => {
                     }}>Review Report</Link>
 
             </form>
-
-
-
-
-            
+        
 {/*             <ReviewScoutingReport newScoutingReport={newScoutingReport} />
 
 

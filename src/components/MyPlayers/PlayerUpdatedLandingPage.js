@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after updating player info
 const PlayerUpdatedLandingPage = (props) => {
     return (
         <div id="pages">

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./PlayerProfileScoutingReports.css";
 import useGetPlayerScoutingReports from "../../hooks/useGetPlayerScoutingReports";
 
-// this component a scout's scouting reports and lists them with a clickable link to view each report
+// this component gets a scout's scouting reports and lists them with a clickable link to view each report
 const PlayerProfileScoutingReports = (props) => {
     // get the player from props
     const player = props.location.state.player;
@@ -15,8 +15,6 @@ const PlayerProfileScoutingReports = (props) => {
 
     // query database for scouting reports
     async function getPlayerScoutingReports(aPlayer) {
-
-
         try {
             let response = await axios.get(`https://localhost:44394/api/playerscoutingreport/myscoutingreports/${player.firstName}/${player.lastName}`);
 
@@ -30,7 +28,7 @@ const PlayerProfileScoutingReports = (props) => {
         }
     }
        
-   // get organization as soon as hook is requested
+   // get scouting reports as soon as hook is requested
    useEffect(() => {
     getPlayerScoutingReports(player);
    },[]);
@@ -65,10 +63,6 @@ const PlayerProfileScoutingReports = (props) => {
             )
         });
     }
-    
-    
-
-
 
     // displays reports or loading message if no reports
     if (playerScoutingReports.length !== 0) {
@@ -90,15 +84,10 @@ const PlayerProfileScoutingReports = (props) => {
                             state: {
                                 player: player,
                             }
-                        }}>Go Back</Link>            </div>
-
+                        }}>Go Back</Link>
+            </div>
         )
     }
-
 }
-    // return profile page is user logged in
-
-
-
 
 export default PlayerProfileScoutingReports;

@@ -24,8 +24,6 @@ const DisplayTeams = (props) => {
         }
     }
 
-    
-
     // display all teams and edit/delete buttons
     const showTeams = teams.map((item) => {
         return (
@@ -47,8 +45,6 @@ const DisplayTeams = (props) => {
         );
     })
 
-
-
     // displays team, regions, competition levels and create or edit buttons
         return (
             <div>
@@ -59,9 +55,5 @@ const DisplayTeams = (props) => {
             </div>
         )
     }
-    // return profile page is user logged in
-
-
-
 
 export default DisplayTeams;

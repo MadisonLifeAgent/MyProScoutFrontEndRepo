@@ -6,11 +6,10 @@ import axios from 'axios';
 // Component or hook imports
 import useGetScoutingReportNotes from "../../hooks/useGetScoutingReportNotes";
 
-// this component gets players and displays them
+// display scouting report notes
 const ViewScoutingReportNotes = (props) => {
     // get scout details
     const reportId = props.reportId;
-
 
     const [reportNotes, setReportNotes] = useState([]);
 
@@ -28,7 +27,7 @@ const ViewScoutingReportNotes = (props) => {
 
     }
 
-        // use as soon as hook is requested
+    // use as soon as hook is requested
     useEffect(() => {
         getReportNotes(reportId);
     },[]);
@@ -47,7 +46,6 @@ const ViewScoutingReportNotes = (props) => {
             )
         });
     
-   
 /*     // displays organization messages
     if(reportNotes){ */
         return (

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-// Component or hook imports
-
-
 // Scout profile page
 const AddPlayer = (props) => {
     // form field variables
@@ -20,7 +17,6 @@ const AddPlayer = (props) => {
     const [playerThrowingHandednessName, setPlayerThrowingHandednessName] = useState();
     const [playerTypeName, setPlayerTypeName] = useState();
     const [baseballTeamName, setBaseballTeamName] = useState();
-
 
     // call the database and try to create account
     async function addNewPlayer(firstName, lastName, height, weight, age, yearTurnedPro, imageUrl, playerPositionPrimaryName, playerPositionSecondaryName, playerBattingHandednessName, playerThrowingHandednessName, playerTypeName, baseballTeamName) {

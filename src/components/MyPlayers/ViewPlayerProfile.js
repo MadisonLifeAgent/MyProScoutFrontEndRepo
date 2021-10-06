@@ -6,7 +6,7 @@ import axios from 'axios';
 import './ViewPlayerProfile.css';
 import PlayerProfileScoutingReports from "./PlayerProfileScoutingReports";
 
-// This component allows scouts to edit a player's details
+// displays player profiles
 const ViewPlayerProfile = (props) => {
     // get player details
     const player = props.location.state.player;
@@ -285,6 +285,5 @@ const ViewPlayerProfile = (props) => {
         )
     }
 }
-
 
 export default ViewPlayerProfile;

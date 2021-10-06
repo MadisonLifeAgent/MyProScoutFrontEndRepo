@@ -36,7 +36,7 @@ const EditTeam = (props) => {
 		}
 	}
 
-	// check and send the form
+	// check and send changes
     const handleSubmit = (event) => {
 		event.preventDefault();
 
@@ -52,7 +52,6 @@ const EditTeam = (props) => {
 		updateTeam(teamName, region, competitionLevel);
 	}
 
- 
 	// registration form
 	return (
 		<div id="forms">

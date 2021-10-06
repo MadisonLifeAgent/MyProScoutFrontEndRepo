@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 
 import useGetOrganization from "../../hooks/useGetOrganization";
 
-// Scout Login Form
+// adds new org message 
 const AddOrgMessage = (props) => {
     //get user
     const jwt = localStorage.getItem('token');
@@ -16,7 +16,7 @@ const AddOrgMessage = (props) => {
         }
     }
 
-    // get the scout info
+    // get the user info
     const scout = getUser();
 
     // get organization info
@@ -26,6 +26,7 @@ const AddOrgMessage = (props) => {
     const [organizationMessageTitle, setOrganizationMessageTitle] = useState('');
     const [organizationMessageBody, setOrganizationMessageBody] = useState('');
 
+    // body sent to database
     const messageInfo = {
         "OrganizationMessageTitle": organizationMessageTitle,
         "OrganizationMessageBody": organizationMessageBody,
@@ -34,16 +35,13 @@ const AddOrgMessage = (props) => {
     }
 
     // call the database and try to post message
-    //async function addNewOrgMessage(messageTitle, messageBody, id, orgId) {
     async function addNewOrgMessage(message) {
 
         let response = await axios.post('https://localhost:44394/api/organizationmessages/add', message);
-
-        window.location = "/myorg/neworgmessageadded";
         
         if (response) {
             console.log("good call");
-            // refresh and send user to home page
+            window.location = "/myorg/neworgmessageadded";
         } else {
             console.log("bad api call");
         }
@@ -54,7 +52,7 @@ const AddOrgMessage = (props) => {
         addNewOrgMessage(messageInfo);
     }
 
-    // login form
+    // new message form
     return (
         
         <div id="forms">

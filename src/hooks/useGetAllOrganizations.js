@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-// this hook gets a scout's organization 
+// this hook gets a all organizations
 const useGetAllOrganizations = () => {
    const [organizations, setOrganizations] = useState([{}]);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-
+// this page displays after adding a player
 const MyPlayerAdded = (props) => {
     const scout = props.location.state.scout;
     const player = props.location.state.player;
@@ -18,7 +18,6 @@ const MyPlayerAdded = (props) => {
                     }}>Go to myPlayers</Link>
         </div>
     )
-
 }
 
 export default MyPlayerAdded;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-// Scout account registration form
+// Scout username change form
 const ScoutUserName = (props) => {
     // get passed in props
     const user = props.user;
@@ -9,7 +9,7 @@ const ScoutUserName = (props) => {
 
     const [username, setUsername] = useState();
 
-	// call the database and try to post edited scout info
+	// call the database and try to post edited scout username
 	async function editScoutUsername(username, id) {
 		const updateInfo = {
 			"Username": username,
@@ -27,13 +27,12 @@ const ScoutUserName = (props) => {
 		}
 	}
 	
-    // submits account registration request
+    // submits username change request
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		editScoutUsername(username, user.id);
 	}
 
-	
 	return (
 		<div class="p-3 mb-3">
 			<form onSubmit={handleSubmit}>

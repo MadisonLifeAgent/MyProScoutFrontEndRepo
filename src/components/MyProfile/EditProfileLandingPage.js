@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after editing myProfile
 const EditProfileLandingPage = (props) => {
     return (
         <div id="pages">

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 
-// component imports
-
-// Scout account registration form
+// add baseball team
 const AddTeam = () => {
 	// form field variables
 	const [teamName, setTeamName] = useState();
@@ -33,8 +30,7 @@ const AddTeam = () => {
 		createNewTeam(teamName, region, competitionLevel);
 	}
 
- 
-	// registration form
+	// add team form
 	return (
 		<div id="forms">
             <p id="pagetitle">Enter a New Team Details</p>

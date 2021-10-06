@@ -2,7 +2,6 @@ import React, { useState, useParams, useLocation } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 // Component or hook imports
 import UseGetPlayers from "../../hooks/UseGetPlayers";
 
@@ -12,8 +11,6 @@ const DisplayPlayers = (props) => {
 
     // get all players
     const [{players}] = UseGetPlayers([{}]);
-
-
 
     async function deletePlayer(playerId) {
         //try{
@@ -27,6 +24,7 @@ const DisplayPlayers = (props) => {
         } */
     }
 
+    // join a player to a scout
     async function joinPlayerScout(playerId, scoutId) {
         const joinInfo = {
             "PlayerProfileId": playerId,
@@ -79,15 +77,11 @@ const DisplayPlayers = (props) => {
                     
                     <input type="button" id="newreportbutton" class="me-4" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
 
-
-
             </React.Fragment>
         );
     })
 
-
-
-    // displays team, regions, competition levels and create or edit buttons
+    // displays players
         return (
             <div>
                 <dl>
@@ -96,9 +90,5 @@ const DisplayPlayers = (props) => {
             </div>
         )
     }
-    // return profile page is user logged in
-
-
-
 
 export default DisplayPlayers;

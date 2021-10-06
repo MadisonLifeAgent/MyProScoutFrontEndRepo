@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import './ReviewScoutingReport.css';
 import useGetPlayerScoutingReportById from "../../hooks/useGetScoutingReportById";
 
+// review scouting report page
 const ReviewScoutingReport = (props) => {
     // get the scouting reportId
     const scoutingReportId = props.location.state.scoutingReportId;
@@ -13,7 +14,6 @@ const ReviewScoutingReport = (props) => {
     // query the data base again for the report since it was saved    
     const newScoutingReport = useGetPlayerScoutingReportById(scoutingReportId);
 
-  
     // render the review here
     return (
         <div id="pages">           
@@ -25,9 +25,6 @@ const ReviewScoutingReport = (props) => {
                         scoutingReport: newScoutingReport,
                     }
                 }}>Save Report</Link>
-
-
-
 
             </div>
 

@@ -1,7 +1,7 @@
 import React from "react";
-
 import './AccountCreatedLandingPage.css';
 
+// landing page after creating account
 const AccountCreatedLandingPage = () => {
 
     return (

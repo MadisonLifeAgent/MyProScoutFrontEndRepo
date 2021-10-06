@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after updated a team
 const TeamUpdateddLandingPage = (props) => {
     return (
         <div id="pages">

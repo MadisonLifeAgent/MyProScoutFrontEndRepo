@@ -23,9 +23,5 @@ const MyOrgPlayers = (props) => {
         </div>
     )
 }
-        // return profile page is user logged in
-
-
-
 
 export default MyOrgPlayers;

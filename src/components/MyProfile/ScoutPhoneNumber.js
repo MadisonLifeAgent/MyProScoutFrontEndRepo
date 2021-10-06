@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-// Scout account registration form
+// Scout phone number change form
 const ScoutPhoneNumber = (props) => {
     // get passed in props
     const user = props.user;
@@ -9,7 +9,7 @@ const ScoutPhoneNumber = (props) => {
 
     const [phoneNumber, setPhoneNumber] = useState();
 
-	// call the database and try to post edited scout info
+	// call the database and try to post edited scout phone number
 	async function editScoutPhoneNumber(phoneNumber, id) {
 		const updateInfo = {
 			"PhoneNumber": phoneNumber,
@@ -27,13 +27,12 @@ const ScoutPhoneNumber = (props) => {
 		}
 	}
 	
-    // submits account registration request
+    // submits phone number change
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		editScoutPhoneNumber(phoneNumber, user.id);
 	}
 
-	
 	return (
 		<div class="p-3">
 			<form onSubmit={handleSubmit}>

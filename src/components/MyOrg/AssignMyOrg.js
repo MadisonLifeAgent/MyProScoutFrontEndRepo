@@ -5,7 +5,7 @@ import jwtDecode from "jwt-decode";
 import useGetAllOrganizations from "../../hooks/useGetAllOrganizations";
 
 
-// Add new organization for scouts
+// assign new organization for scout
 const AssignMyOrg = (props) => {
     // set the scout/user
     const scout = props.location.state.user;
@@ -16,7 +16,7 @@ const AssignMyOrg = (props) => {
     // store user selection here
     const [organizationId, setOrganizationId] = useState('');
 
-    // add the join
+    // join user/scout and organization in database
     async function assignMyOrganization(updateInfo, id) {
         console.log(updateInfo);
 
@@ -26,7 +26,6 @@ const AssignMyOrg = (props) => {
         }
 
         let response = await axios.post(`https://localhost:44394/api/scoutorganizationjoin/add`, joinInfo);
-
         
         if (response) {
             console.log("good call");
@@ -35,9 +34,6 @@ const AssignMyOrg = (props) => {
             console.log("bad api call");
         }
     }
-
-    console.log(allOrganizations);
-
 
     // set category filter once selected
     const onChange = (event) => {
@@ -61,7 +57,7 @@ const AssignMyOrg = (props) => {
     });
 
 
-    // login form
+    // assign organization selection menu and form
     return (
         
         <div id="pages">

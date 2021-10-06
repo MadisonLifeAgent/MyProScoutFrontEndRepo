@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after adding team
 const TeamAddedLandingPage = (props) => {
     return (
         <div id="pages">

@@ -10,7 +10,6 @@ const Logout = () => {
         <nav>
             <button id="button" class="nav-link align-right" onClick={handleClick}>LogOut</button>
         </nav>
-
     )
 }
 

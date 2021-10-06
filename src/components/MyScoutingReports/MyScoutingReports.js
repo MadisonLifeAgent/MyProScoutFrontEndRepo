@@ -5,7 +5,7 @@ import './MyScoutingReports.css';
 import InitiateScoutingReport from "./InitiateScoutingReport";
 import DisplayScoutingReportLinks from "./DisplayScoutingReportLinks";
 
-// Scout profile page
+// scout's scouting reports page
 const MyScoutingReports = (props) => {
     //const scout = props.user;
 
@@ -13,7 +13,6 @@ const MyScoutingReports = (props) => {
         const handleClick = () => {
             <InitiateScoutingReport />
         }
-
 
     // display scouting reports
         return (
@@ -25,6 +24,5 @@ const MyScoutingReports = (props) => {
             </div>
         )
     }
-
 
 export default MyScoutingReports;

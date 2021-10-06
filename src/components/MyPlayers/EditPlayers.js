@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-// Component or hook imports
-
-
 // This component allows scouts to edit a player's details
 const EditPlayer = (props) => {
     // get player details
@@ -26,8 +23,7 @@ const EditPlayer = (props) => {
     const [playerTypeName, setPlayerTypeName] = useState();
     const [baseballTeamName, setBaseballTeamName] = useState();
 
-
-    // call the database and try to create account
+    // save player changes
     async function editPlayer(playerId, firstName, lastName, height, weight, age, yearTurnedPro, imageUrl, playerPositionPrimaryName, playerPositionSecondaryName, playerBattingHandednessName, playerThrowingHandednessName, playerTypeName, baseballTeamName) {
 
         const newId = parseInt(playerId)
@@ -65,9 +61,7 @@ const EditPlayer = (props) => {
         }
     }
 
-
-
-    // submits new player request
+    // submits changes
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -117,7 +111,7 @@ const EditPlayer = (props) => {
 
     }
 
-    // add player form
+    // edit player form
     return (
         <div id="forms">
             <h3 id="pagetitle">Edit Player Details</h3>

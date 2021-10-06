@@ -6,12 +6,12 @@ import useGetOrgMessages from "../../hooks/useGetOrgMessages";
 import AddOrgMessage from "./AddOrgMessage";
 
 
-// this component gets players and displays them
+// this component gets messages and displays them
 const DisplayMyOrgMessages = (props) => {
-    // get scout details
+    // get org details
     const myOrg = props.location.state.myOrganization;
 
-    // get all players
+    // get all org messages
     const orgMessages = useGetOrgMessages(myOrg.organizationId);
 
     // display all organization messages
@@ -36,7 +36,7 @@ const DisplayMyOrgMessages = (props) => {
         <AddOrgMessage />
     }
     
-    // displays organization messages
+    // displays organization messages and add new message button
     if(orgMessages){
         return (
             <div id="pages">
@@ -54,6 +54,8 @@ const DisplayMyOrgMessages = (props) => {
             </div>
         )
     }
+
+    // displays if no messages or loading
     else {
         return (
             <p id="info">Messages Loading...</p>

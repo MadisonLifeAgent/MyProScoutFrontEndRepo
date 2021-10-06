@@ -7,6 +7,7 @@ import axios from "axios";
 import usePlayerSearch from "../../hooks/usePlayerSearch"; 
 import Search from "./Search";
 
+// display search results
 const SearchResults = (props) => {
     // get the search term and category
     const searchTerm = props.location.state.searchTerm;
@@ -178,6 +179,5 @@ const SearchResults = (props) => {
     }
 
 }
-
 
 export default SearchResults;

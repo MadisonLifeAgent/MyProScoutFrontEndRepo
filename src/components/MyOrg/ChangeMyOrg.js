@@ -3,23 +3,18 @@ import axios from 'axios';
 
 import useGetAllOrganizations from "../../hooks/useGetAllOrganizations";
 
-// Add new organization for scouts
+// change organization for scout
 const ChangeMyOrg = (props) => {
     // get scout details
     // set the scout
     const scout = props.location.state.user;
     console.log(scout);
 
-
     // get all Organizations
     const allOrganizations = useGetAllOrganizations();
 
- 
     // store user selection
     const [updatedOrganizationId, setupdatedOrganizationId] = useState('');
-
-    // update being sent to server // the join id can be retrieved at the server
-
 
     // post update
     async function updateOrganization(updateInfo, id) {
@@ -38,14 +33,10 @@ const ChangeMyOrg = (props) => {
         } else {
             console.log("bad api call");
             window.location = "/myorg";
-
         }
     }
 
-    console.log(allOrganizations);
-
-
-    // set category filter once selected
+    // set selection
     const onChange = (event) => {
         setupdatedOrganizationId(event.target.value);
     }
@@ -65,7 +56,7 @@ const ChangeMyOrg = (props) => {
     });
 
 
-    // login form
+    // change organization selection menu and form
     return (
         
         <div id="pages">

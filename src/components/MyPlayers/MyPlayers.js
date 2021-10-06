@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 // Component or hook imports
 import DisplayMyPlayers from "./DisplayMyPlayers";
 
-// displays players belong to a scout
+// displays players that belong to a scout
 const MyPlayers = (props) => {
     const jwt = localStorage.getItem('token');
     function getUser() {
@@ -18,7 +18,7 @@ const MyPlayers = (props) => {
 
     const scout = getUser();
    
-// displays team, regions, competition levels and create or edit buttons
+// displays a scouts players
     return (
         <div id="pages">
             <h3 id="pagetitle">myPlayers</h3>
@@ -27,9 +27,5 @@ const MyPlayers = (props) => {
         </div>
     )
 }
-        // return profile page is user logged in
-
-
-
 
 export default MyPlayers;

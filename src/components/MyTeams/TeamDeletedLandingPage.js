@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after deleting a team
 const TeamDeletedLandingPage = (props) => {
     return (
         <div id="pages">

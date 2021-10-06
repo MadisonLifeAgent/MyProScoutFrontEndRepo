@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-
-
 // Scout Login Form
 const Login = () => {
     // store user input
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
 
     // call the database and try to login
     async function loginRequest(username, password) {
@@ -22,13 +19,12 @@ const Login = () => {
         if (response.data.token) {
             // store toke if login successful
             localStorage.setItem('token', response.data.token);
-            //console.log("good login");
 
             // refresh and send user to home page
             window.location = "/";
-        } /* else {
+        } else {
             console.log("bad api call");
-        } */
+        }
     }
 
     const handleSubmit = (event) => {
@@ -38,7 +34,6 @@ const Login = () => {
 
     // login form
     return (
-        
         <div id="forms">
             <h3 id="pagetitle">Please login to get started.</h3>
             <form onSubmit={handleSubmit}>

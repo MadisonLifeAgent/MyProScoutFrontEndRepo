@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import './AddScoutingReportNote.css';
 
-
 // Add scouting report notes form for a specific report
 const AddScoutingReportNote = (props) => {
     // get passed in scout and report info
@@ -41,7 +40,7 @@ const AddScoutingReportNote = (props) => {
         addScoutngReportNote(messageInfo);
     }
 
-    // add note form
+    // add scouting report note form
     return (
         
         <div>
@@ -54,7 +53,6 @@ const AddScoutingReportNote = (props) => {
             </form>
         </div>
     )
-
 }
 
 export default AddScoutingReportNote;

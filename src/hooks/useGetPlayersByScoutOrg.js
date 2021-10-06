@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-// this hook gets all players
+// this hook gets all players by scout org
 const UseGetPlayersByScoutOrg = () => {
    const [players, setPlayers] = useState([{}]);
 

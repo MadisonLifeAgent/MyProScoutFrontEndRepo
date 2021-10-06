@@ -7,7 +7,7 @@ import AddScoutingReportNote from "./AddScoutingReportNote";
 import ViewScoutingReportNotes from "./ViewScoutingReportNotes";
 import './ViewScoutingReport.css';
 
-// This component allows scouts to edit a player's details
+// displays a scouting report
 const ViewScoutingReport = (props) => {
     // get player details
     const scoutingReport = props.location.state.scoutingReport;
@@ -25,7 +25,7 @@ const ViewScoutingReport = (props) => {
 
     const scout = getUser();
 
-    // display if player details exists
+    // display report if player details exists
     if (scoutingReport != null) {
         return (
             <div id="pages">
@@ -289,7 +289,6 @@ const ViewScoutingReport = (props) => {
                     }}>Go Back</Link>
             </div>
         
-        
         )
     } else {
         return (
@@ -299,6 +298,5 @@ const ViewScoutingReport = (props) => {
         )
     }
 }
-
 
 export default ViewScoutingReport;

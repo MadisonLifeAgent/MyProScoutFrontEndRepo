@@ -40,9 +40,7 @@ const DisplayScoutingReportLinks = (props) => {
         );
     })
 
-
-
-    // displays reports or loading message if no reports
+    // displays reports links or loading message if no reports
     if (!myScoutingReports) {
         return (
             <p id="pagetitle">Loading...</p>
@@ -60,9 +58,5 @@ const DisplayScoutingReportLinks = (props) => {
     }
 
 }
-    // return profile page is user logged in
-
-
-
 
 export default DisplayScoutingReportLinks;

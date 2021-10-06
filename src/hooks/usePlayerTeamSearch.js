@@ -1,7 +1,7 @@
 import React, { useState, useEffect }from "react";
 import axios from "axios";
 
-// this component searches for players using user entered search term
+// this component searches for players based on a team search term
 const usePlayerTeamSearch = (searchTerm, category) => {
     const [searchResults, setSearchResults] = useState([{}])
 

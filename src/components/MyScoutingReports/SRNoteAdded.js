@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after adding scouting report note
 const SRNoteAdded = (props) => {
     return (
         <div id="pages">

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import useGetOrganization from "../../hooks/useGetOrganization";
 
-
+// landing page after adding a message
 const NewOrgMessageAddedLandingPage = () => {
     const jwt = localStorage.getItem('token');
     function getUser() {
@@ -17,7 +17,6 @@ const NewOrgMessageAddedLandingPage = () => {
     }
     // get the scout's account info
     const scout = getUser();
-
     
     // Get scout's oranization info
     const organization = useGetOrganization(scout.id); // make this into it's own 
@@ -33,10 +32,7 @@ const NewOrgMessageAddedLandingPage = () => {
                             scout: scout
                         }
                     }}>View Message Board</Link>
-                    
-
         </div>
-
     )
 }
 

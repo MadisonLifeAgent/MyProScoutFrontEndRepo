@@ -3,12 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 
-
 // Component or hook imports
 import './InitiateScoutingReport.css';
 import usePostScoutingReport from "../../hooks/usePostScoutingReport";
 import ReviewScoutingReport from "./ReviewScoutingReport";
-
 
 // creates a scouting report then passes it to "new scouting report" for stat tracking at scouting event
 const InitiateScoutingReport = (props) => {
@@ -33,7 +31,6 @@ const InitiateScoutingReport = (props) => {
     const scout = getUser(); 
 
     const [scoutingReport, setScoutingReport] = useState({});
-
 
     // save the scouting report
     async function createScoutingReport(report) {
@@ -136,7 +133,6 @@ const InitiateScoutingReport = (props) => {
 
         createScoutingReport(newScoutingReport);
     }
-
 
     // scouting report start form
     return (

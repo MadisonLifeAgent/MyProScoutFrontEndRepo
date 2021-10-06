@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 // Component or hook imports
 //import UseGetPlayers from "../../hooks/UseGetPlayers";
 
@@ -31,8 +30,6 @@ const DisplayMyPlayers = (props) => {
 
     console.log(players);
 
-
-
     // display all players and edit/delete buttons
     const showPLayers = players.map((item) => {
         const playerProfileId = item.playerProfile.playerProfileId;
@@ -57,17 +54,13 @@ const DisplayMyPlayers = (props) => {
                         }
                     }}>Edit Profile</Link>
 
-                    
 {/*                     <input type="button" class="btn btn-primary" value="Delete Player" onClick={(event) => deletePlayer(item.playerProfileId)} />
  */}
                     <br/><br/>
             </React.Fragment>
         );
     })
-
-
-
-    // displays team, regions, competition levels and create or edit buttons
+    // display players
         return (
             <div>
                 <dl>
@@ -76,9 +69,5 @@ const DisplayMyPlayers = (props) => {
             </div>
         )
     }
-    // return profile page is user logged in
-
-
-
 
 export default DisplayMyPlayers;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-// this hook gets all scouting reports for a scout
+// this hook gets all scouting reports for a player
 const useGetPlayerScoutingReports = (playerName) => {
     const [playerScoutingReports, setPlayerScoutingReports] = useState();
 

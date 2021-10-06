@@ -3,11 +3,6 @@ import jwtDecode from "jwt-decode";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-
-// Component or hook imports
-//import EditMyProfile from "./EditMyProfile";
-
-
 // Scout profile page
 const MyProfile = (props) => {
     const jwt = localStorage.getItem('token');
@@ -35,7 +30,6 @@ const MyProfile = (props) => {
         // if good api call set scoutOrganizatin
         setUserOrg(response.data);
         console.log(response.data);
-
     }
        
     // get user details and org
@@ -44,9 +38,7 @@ const MyProfile = (props) => {
         getOrganization(user.id);
     },[]);
 
-
-
-   // display scout's name, orgnaization
+   // display scout profile details
     return (
         <div id="pages">
             <h3 id="pagetitle">{user.username}'s myProfile</h3>
@@ -64,7 +56,6 @@ const MyProfile = (props) => {
                 <dd>Phone: {userDetails.phoneNumber}</dd>
                 <dd>myOrg: {userOrg.organizationName}</dd>
             </dl>
-
         </div>
     )
 }

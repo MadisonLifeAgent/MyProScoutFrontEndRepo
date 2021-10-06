@@ -5,7 +5,7 @@ import React from "react";
 import DisplayTeams from "./DisplayTeams";
 //import useGetTeams from "../../hooks/useGetTeams";
 
-// Scout profile page
+// myTeams page
 const MyTeams = (props) => {
     //const scout = props.user;
 
@@ -15,7 +15,7 @@ const MyTeams = (props) => {
 
 
 
-    // displays team, regions, competition levels and create or edit buttons
+    // displays teams, regions, competition levels and create or edit buttons
         return (
             <div id="forms">
                 <h3 id="pagetitle">myTeams Page</h3>
@@ -24,9 +24,5 @@ const MyTeams = (props) => {
             </div>
         )
     }
-    // return profile page is user logged in
-
-
-
 
 export default MyTeams;

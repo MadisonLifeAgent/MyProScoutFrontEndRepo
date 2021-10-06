@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after report saved
 const NewReportSaved = (props) => {
     const scoutingReport = props.location.state.scoutingReport;
 

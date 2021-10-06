@@ -10,7 +10,7 @@ import ScoutPhoneNumber from "./ScoutPhoneNumber";
 import ScoutUserName from "./ScoutUsername";
 import "./EditMyProfile.css";
 
-// Scout account registration form
+// edit scout profile page
 const EditMyProfile = (props) => {
     const user = props.location.state.user;
     const userDetails = props.location.state.userDetails;
@@ -61,7 +61,6 @@ const EditMyProfile = (props) => {
 
                 <ScoutUserName currentUser={currentUser} user={user} userDetails={userDetails} />
 
-
                 <Link id="newnotebutton" to={{
                         pathname: `/myprofile`,
                         state: {
@@ -69,7 +68,6 @@ const EditMyProfile = (props) => {
                             userDetails: userDetails,
                         }
                     }}>Go Back</Link>
-
 		</div>
 	);
 }

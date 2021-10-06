@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after adding a new player
 const NewPlayerAdded = (props) => {
     return (
         <div id="pages">

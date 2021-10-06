@@ -1,5 +1,6 @@
 import React from "react";
 
+// landing page after adding a new organization
 const NewOrgAddedLandingPage = (props) => {
     return (
         <div id="pages">
